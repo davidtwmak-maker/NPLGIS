@@ -2,7 +2,9 @@
 
 Hong Kong geospatial projects — maps, 3D scenes, and the open data behind them.
 
-**Live site:** <https://smonss1.github.io/nplgis/>
+**Live site:** <https://davidtwmak-maker.github.io/NPLGIS/>
+
+**Repository:** <https://github.com/davidtwmak-maker/NPLGIS>
 
 ---
 
