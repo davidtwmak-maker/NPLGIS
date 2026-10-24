@@ -52,6 +52,70 @@ centre in `index.html`.
 
 ---
 
+## Uploading to GitHub (team member)
+
+The repository is already published at <https://github.com/davidtwmak-maker/NPLGIS> and
+the site is live. To push an update you need a **clone with its Git history**, not just
+the files — the `nplgis/` folder in the shared iCloud drive contains the working tree
+only (no `.git`), so `git push` from it will not work.
+
+**Option A — clone the published repo (simplest).**
+
+```bash
+git clone https://github.com/davidtwmak-maker/NPLGIS.git
+cd NPLGIS
+# make your changes, then:
+git add -A
+git commit -m "Describe your change"
+git push origin main
+```
+
+You will be prompted for a GitHub username and a **personal access token** (not your
+account password). The token needs the `repo` scope; tick the **`workflow` box** as well,
+otherwise GitHub refuses any commit that touches `.github/workflows/deploy.yml` with:
+
+> refusing to allow an OAuth App to create or update workflow `.github/workflows/deploy.yml`
+> without `workflow` scope
+
+If you use the GitHub CLI instead:
+
+```bash
+gh auth login          # browser sign-in
+gh auth setup-git      # route git through the CLI credential helper
+gh auth refresh -h github.com -s workflow   # only if you will edit the deploy workflow
+```
+
+**Option B — work from the shared drive copy.**
+
+Copy the `nplgis/` folder out of the iCloud drive to your own machine, then turn it into
+a working clone:
+
+```bash
+cd nplgis
+git init
+git remote add origin https://github.com/davidtwmak-maker/NPLGIS.git
+git fetch --depth=1 origin main
+git reset --hard origin/main     # matches the folder to the published commit
+git branch --set-upstream-to=origin/main main
+git status                      # should be clean
+```
+
+`git reset --hard` is the important line: it lines the folder up with the published
+commit instead of treating every file as new. Do this **before** editing, otherwise your
+first commit will re-add all 128 files as new rather than as a change on top of what is
+already published.
+
+**After every push**, GitHub Actions rebuilds and redeploys the site automatically
+(`.github/workflows/deploy.yml`). The live URL does not change; the run shows up under
+the repository's **Actions** tab, and the run must be green before the change appears
+on the site.
+
+**What not to commit:** `raw/`, `lidar_dtm/` and `tiles_ib20000/` are deliberately
+excluded by `.gitignore` — they are large source downloads, not deliverables. If a
+script needs them, run the matching `scripts/fetch_*.sh` first.
+
+---
+
 ## What's in the repository
 
 ```
