@@ -208,6 +208,53 @@ def main():
             "count": len(routes),
         })
 
+    # ---- the podium ------------------------------------------------------
+    #
+    # The site slopes steeply (Esri Terrain3D under the mall's own footprints
+    # runs 18.9 m to 35.2 m). A stack of floor plates pinned to a single
+    # elevation therefore floats over the downhill end. The podium is the mass
+    # the building stands on: the UNION of every floor's footprint, so it
+    # reaches every wing of the mall, and the app extrudes it from below the
+    # terrain up to the G floor. The coloured floors then read as floors
+    # inside a building founded on the hillside.
+    plate_shapes = []
+    for f in features:
+        geom = shape(f["geometry"])
+        polys = [geom] if geom.geom_type == "Polygon" else list(geom.geoms)
+        plate_shapes.extend(p for p in polys if p.geom_type == "Polygon" and not p.is_empty)
+    if plate_shapes:
+        podium = unary_union(plate_shapes).simplify(0.0000125, preserve_topology=True)
+        podium_polys = ([podium] if podium.geom_type == "Polygon"
+                        else [g for g in podium.geoms if g.geom_type == "Polygon"])
+        for poly in podium_polys:
+            ring = list(poly.exterior.coords)
+            if len(ring) < 4:
+                continue
+            if ring[0] != ring[-1]:
+                ring.append(ring[0])
+            features.insert(0, {
+                "type": "Feature",
+                "properties": {
+                    "name": "又一城",
+                    "zh": "商場基座",
+                    "en": "Podium",
+                    "role": "podium",
+                    "floor_id": "festival_walk_podium",
+                    "height_m": 16.5,
+                    "plate_thickness_m": 16.5,
+                    "colour": "#5c6b86",
+                    "alpha": 0.30,
+                    "schematic": True,
+                    "area_m2": round(poly.area * 111320 * math.cos(math.radians(poly.centroid.y))
+                                     * 110574.0, 1),
+                    "source": ("Foundation mass for the floor stack: the union of "
+                               "every floor's footprint, extruded in the app from "
+                               "below the terrain up to the G floor so the building "
+                               "is founded on the hillside instead of floating."),
+                },
+                "geometry": {"type": "Polygon", "coordinates": [[list(c) for c in ring]]},
+            })
+
     out = {
         "type": "FeatureCollection",
         "features": features,

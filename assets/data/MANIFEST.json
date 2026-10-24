@@ -1,7 +1,7 @@
 {
- "generated": "2026-10-24T18:10:22Z",
+ "generated": "2026-10-24T19:04:11Z",
  "repository": "davidtwmak-maker/NPLGIS",
- "note": "Every layer shipped in assets/data plus the Festival Walk 3D app data. Features counted from the file itself. Floor plate heights are schematic (5.5 m storey, 4x vertical exaggeration) - not measured architectural heights.",
+ "note": "Every layer shipped in assets/data plus the Festival Walk 3D app data. Features counted from the file itself. Floor plate heights are schematic (5.5 m storey, 2x vertical exaggeration) and the podium is a schematic foundation mass - not measured architectural heights.",
  "sources": [
   {
    "name": "3D Pedestrian Network",
@@ -46,15 +46,15 @@
  "files": [
   {
    "file": "apps/festival-walk-3d/data/buildings_3d.geojson",
-   "bytes": 18964,
-   "mb": 0.018,
+   "bytes": 22420,
+   "mb": 0.02,
    "gzipped": false,
-   "features": 7,
+   "features": 8,
    "title": "Festival Walk mall floor plates (3D)",
    "dataset_id": "landsd_rcd_1637222018065_52265",
    "records": "",
-   "notes": "One horizontal sheet per mall floor. Each sheet's outline is derived from that floor's own CSDI pedestrian routes buffered 14 m; 1/F and 2/F use the G-floor retail envelope inset, since CSDI publishes no routes for them. Heights are schematic (5.5 m storey).",
-   "sha256": "a3132705d9d20366"
+   "notes": "7 translucent floor plates (MTR..2/F) plus a translucent podium. Each floor has its own footprint derived from that floor's route network buffered 14 m; the podium is the union of all floor footprints, extruded from below the terrain up to the G floor so the building is founded on the hillside (terrain under the footprint runs 18.9-35.2 m). Storey height 5.5 m is schematic; display heights are stretched 2x.",
+   "sha256": "fc2c2a2d600f318d"
   },
   {
    "file": "apps/festival-walk-3d/data/floor_labels.json",

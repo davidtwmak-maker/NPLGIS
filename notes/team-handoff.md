@@ -68,8 +68,11 @@ them back.
 
 ## Things to know before you quote the 3D model
 
-- **The storey height (5.5 m) is schematic**, drawn at 1× vertical scale. It is not a
+- **The storey height (5.5 m) is schematic**, drawn at 2× vertical scale. It is not a
   measured building.
+- **The podium is a schematic foundation mass**, not the real building envelope. The
+  site slopes 18.9–35.2 m under the footprint, so the building is founded on the
+  hillside and the ground is translucent (0.5) to reveal the underground floors.
 - **The height datum is the ground floor G** (0 m): MTR −16.5 m, LG2 −11.0, LG1 −5.5,
   G 0, UG +5.5, 1/F +11.0, 2/F +16.5.
 - **1/F and 2/F are massing only** — CSDI publishes route data for five floors, so the two

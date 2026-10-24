@@ -28,10 +28,17 @@ Hong Kong geospatial projects — maps, 3D scenes, and the open data behind them
   about 58 m, with Lion Rock at 495 m directly behind it.
 - Click any line to see the official attributes from the source dataset.
 
+**The building is founded on the hillside.** The site slopes: Esri Terrain3D under
+Festival Walk's own footprints runs **18.9 m to 35.2 m**. A stack of plates pinned to
+one elevation therefore floated over the downhill end. The stack is now based on the
+**lowest terrain under the footprint**, and a translucent **podium** — the union of
+every floor's footprint, extruded from below the terrain up to the G floor — carries the
+building into the hill. The underground floors (MTR, LG2, LG1) sit inside that mass, so
+`map.ground.opacity` is reduced to 0.5 to let them show through the surface.
+
 **Heights are schematic.** Each storey is drawn at 5.5 m (the CSDI published floor
-levels), at **1× vertical scale** — the model is drawn at its real (still schematic)
-storey height, and the camera simply moves in closer. **The height datum is the
-ground floor G**, so each floor reads:
+levels), at **2× vertical scale** so the levels separate on screen. **The height datum is
+the ground floor G**, so each floor reads:
 
 | Floor | Height rel. G | | Floor | Height rel. G |
 |---|---|---|---|---|
@@ -42,7 +49,7 @@ ground floor G**, so each floor reads:
 
 Plan positions and the underlying data are unchanged. Festival Walk's official
 architectural heights were not published, so the model must not be read as a measured
-building.
+building. The podium is a schematic foundation mass, not the real building envelope.
 
 **Every polygon and polyline carries an explicit z.** GeoJSON rings are 2D, and in
 `absolute-height` mode SceneView does not fall back to the layer's elevation for
@@ -151,7 +158,8 @@ assets/
     mtr/                        Fare savers, MTR lines and stations
     walk/                       Restaurant catchments
 apps/
-  festival-walk-3d/             The 3D scene (index.html + per-floor GeoJSON + floor plates)
+  festival-walk-3d/             The 3D scene (index.html + per-floor GeoJSON + floor plates
+                                + the podium that grounds the stack on the hillside)
 scripts/                        Every build and render script, made portable
   build_festival_walk_3d.py     Per-floor route GeoJSON from the CSDI FeatureServer
   build_buildings_3d.py         Mall 3D floor plates + label anchors from those routes

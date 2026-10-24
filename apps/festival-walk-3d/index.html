@@ -54,7 +54,7 @@
   </label>
   <div class="foot">
     樓層高度以地下 G 樓為 0 m 基準，每層 5.5 m 層高（示意，非官方高度）。<br>
-    垂直高度不放大（1 倍），各層按實際示意樓層高度繪製。<br>
+    垂直高度放大 2 倍，方便分辨各層；平面位置與數據不變。<br>
     一樓、二樓只有體量，並無官方行人路網資料。<br>
     樓層體量：各層行人路網範圍（緩衝 14 米）推算，非官方建築圖。<br>
     資料：3D 行人路網 landsd_rcd_1637222018065_52265 · 建築 BuildingID 1108222840（又一城）<br>
@@ -96,7 +96,17 @@ const TILES = "https://server.arcgisonline.com/ArcGIS/rest/services";
 const TERRAIN = "https://elevation3d.arcgis.com/arcgis/rest/services/WorldElevation3D/Terrain3D/ImageServer";
 const CENTRE = [114.174679, 22.337468];
 const LABEL_ANCHORS = {"festival_walk_MTR_Level": [114.175381, 22.336754], "festival_walk_LG2": [114.17496, 22.337052], "festival_walk_LG1": [114.1749, 22.337023], "festival_walk_G": [114.174523, 22.337422], "festival_walk_UG": [114.174517, 22.337216], "festival_walk_1F": [114.174495, 22.337495], "festival_walk_2F": [114.174495, 22.337496]};
-const GROUND_M = 58.0;   // ground elevation at Festival Walk (Esri WorldElevation3D)
+// Terrain height under the mall footprint, measured from Esri WorldElevation3D
+// (Terrain3D) with ElevationLayer.queryElevation:
+//     min 19.0 m, max 35.2 m under the plate footprints -- a 16.2 m spread.
+// GROUND_MIN_M is the lowest terrain under any floor: the stack is based on
+// it so the plates sit ON the hillside instead of floating over it.
+const GROUND_MIN_M = 18.9;   // lowest terrain under any floor (Esri Terrain3D)
+const GROUND_MAX_M = 35.2;   // highest terrain under any floor
+// The building is founded on the LOWEST terrain under its footprint, so the
+// stack sits on the hillside instead of hovering above it. Underground floors
+// then dip below the uphill terrain, which is why the ground is translucent.
+const GROUND_M = GROUND_MIN_M;
 // The height datum quoted in the panel is the ground floor G. CSDI publishes
 // the floors relative to the MTR level, so G sits at 16.5 m on that scale
 // and every floor is re-based on it for display: MTR -16.5, LG2 -11.0,
@@ -106,11 +116,10 @@ const G_DATUM_M = 16.5;
 // Vertical exaggeration.
 //
 // The mall's floors are 5.5 m apart. V_SCALE exaggerates that vertical spacing so
-// the levels separate on screen; at V_SCALE = 1 the model is drawn at its real
-// (still schematic) storey height and the camera simply moves closer.
-// The footprints, the network geometry and the data are never altered -- only
-// the display height is scaled, and the factor is stated in the panel.
-const V_SCALE = 1.0;
+// the levels separate on screen. The footprints, the network geometry and the
+// data are never altered -- only the display height is scaled, and the factor
+// is stated in the panel.
+const V_SCALE = 2.0;
 
 window.__errors = [];
 window.addEventListener("error", (e) => window.__errors.push(String(e.message) + " @" + e.lineno));
@@ -119,11 +128,15 @@ window.addEventListener("unhandledrejection", (e) => window.__errors.push("rejec
 const map = new Map({ basemap: null });
 map.add(new TileLayer({ url: TILES + "/World_Street_Map/MapServer" }));
 map.ground = { layers: [new ElevationLayer({ url: TERRAIN })] };
+// The mall's underground floors (MTR, LG2, LG1) sit below the terrain on the
+// uphill side of the site. Reduce the ground opacity so they can be seen
+// through the surface; the basemap underneath stays for context.
+map.ground.opacity = 0.5;
 
 const view = new SceneView({
   container: "view", map,
-  camera: { position: { x: CENTRE[0], y: CENTRE[1], z: 200, spatialReference: { wkid: 4326 } },
-             tilt: 42, heading: 30 }
+  camera: { position: { x: CENTRE[0], y: CENTRE[1], z: 300, spatialReference: { wkid: 4326 } },
+             tilt: 41, heading: 30 }
 });
 window.__view = view;
 
@@ -162,7 +175,48 @@ bldLayer.when().then(() => {
 
     const plates = fs.filter(f => f.attributes && f.attributes.role === "floor_plate");
     const context = fs.filter(f => f.attributes && f.attributes.role === "context");
+    const podium = fs.filter(f => f.attributes && f.attributes.role === "podium");
     window.__plateCount = plates.length;
+
+    // --- podium: the mass the building stands on ---
+    //
+    // The site slopes, so a stack of plates pinned to a single elevation
+    // floats over the downhill end. This translucent mass runs from below the
+    // lowest terrain up to the MTR floor level, so the building is founded on
+    // the hillside and the coloured floor plates read as floors inside it.
+    podium.forEach((f) => {
+      const p = f.attributes || {};
+      // The podium runs from below the lowest terrain up to the G floor, so
+      // the building is founded on the hillside and the stack of coloured
+      // floors reads as floors INSIDE a building rather than a shape hovering
+      // above the ground. The underground floors (MTR, LG2, LG1) sit inside
+      // this mass; the ground is translucent so they can still be seen.
+      const topZ = GROUND_M + 16.5 * V_SCALE;          // G floor level
+      const botZ = GROUND_MIN_M - 15;                  // 15 m below the low ground
+      const height = Math.max(topZ - botZ, 5);
+      const col = new Color(p.colour || "#5c6b86");
+      col.alpha = Number(p.alpha) || 0.30;
+      const mat = new Symbol3DFillMaterial({ color: col });
+      const sym = new PolygonSymbol3D({
+        symbolLayers: [
+          new FillSymbol3DLayer({ material: mat }),
+          new ExtrudeSymbol3DLayer({
+            size: height,
+            material: mat,
+            edges: new SolidEdges3D({ color: new Color(p.colour || "#5c6b86"), size: 1.5 })
+          })
+        ]
+      });
+      const ring = f.geometry.rings ? f.geometry.rings[0] : f.geometry.coordinates[0];
+      const ringZ = ring.map((pt) => [pt[0], pt[1], botZ]);
+      const gl = new GraphicsLayer({
+        title: "基座 Podium",
+        elevationInfo: { mode: "absolute-height", elevation: botZ, zOffset: 0 }
+      });
+      gl.add(new Graphic({ geometry: new Polygon({ rings: [ringZ] }), attributes: p, symbol: sym }));
+      map.add(gl);
+      window.__podiumLayer = gl;
+    });
 
     // --- mall floor plates: one layer per floor ---
     plates.forEach((f) => {
@@ -238,7 +292,7 @@ bldLayer.when().then(() => {
       window.__ctxLayer = gl;
     }
 
-    window.__bldGfx = plates.length + context.length;
+    window.__bldGfx = plates.length + context.length + podium.length;
     bldLayer.visible = false;   // hide the flat renderer; the 3D ones are on top
     const cb = document.getElementById("bldToggle");
     if (cb) cb.checked = true;
@@ -375,16 +429,17 @@ LAYERS.forEach((L) => {
 // resolves), so the order has to be fixed once everything is in place.
 function reorderLayers() {
   const items = map.layers.items;
+  const podium = items.filter(l => l.title === "基座 Podium");
   const plates = items.filter(l => (l.title || "").startsWith("體量 "));
   const ctx    = items.filter(l => l.title === "鄰近建築物");
   const nets   = items.filter(l => l.type === "graphics" &&
                         !((l.title || "").startsWith("體量 ")) && l.title !== "鄰近建築物");
   const labels = items.filter(l => (l.title || "").endsWith(" 標籤"));
   const rest   = items.filter(l => !plates.includes(l) && !ctx.includes(l) &&
-                        !nets.includes(l) && !labels.includes(l));
-  // bottom -> top : basemap, buildings, plates, networks, labels
-  map.layers.removeMany([...plates, ...ctx, ...nets, ...labels]);
-  map.layers.addMany([...rest, ...ctx, ...plates, ...nets, ...labels]);
+                        !nets.includes(l) && !labels.includes(l) && !podium.includes(l));
+  // bottom -> top : basemap, podium, buildings, plates, networks, labels
+  map.layers.removeMany([...podium, ...plates, ...ctx, ...nets, ...labels]);
+  map.layers.addMany([...rest, ...podium, ...ctx, ...plates, ...nets, ...labels]);
   window.__order = map.layers.items.map(l => l.title);
 }
 setTimeout(reorderLayers, 1500);
@@ -412,7 +467,7 @@ async function frameMall(attempt = 0) {
   // much further away than intended. Computing the camera position directly
   // (a look-at position offset back along the heading and raised by the tilt)
   // gives an exact, reproducible framing.
-  const LOOK_TILT = 42, LOOK_HEADING = 30, LOOK_DIST = 260;
+  const LOOK_TILT = 41, LOOK_HEADING = 30, LOOK_DIST = 400;
   const AIM_Z = GROUND_M + 16.5 * V_SCALE;   // mid-stack height
   const mPerDegLat = 110574;
   const mPerDegLon = mPerDegLat * Math.cos(CENTRE[1] * Math.PI / 180);
@@ -525,7 +580,8 @@ function findBldGfxLayers() {
   // neighbouring buildings.
   return map.layers.items.filter(l =>
     (l.type === "graphics") &&
-    ((l.title || "").startsWith("體量 ") || l.title === "鄰近建築物"));
+    ((l.title || "").startsWith("體量 ") || l.title === "鄰近建築物" ||
+     l.title === "基座 Podium"));
 }
 bldToggle.addEventListener("change", (e) => {
   findBldGfxLayers().forEach(l => { l.visible = e.target.checked; });
