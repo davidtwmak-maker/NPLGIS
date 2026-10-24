@@ -53,8 +53,8 @@
     <span class="ct" id="bldCount">—</span>
   </label>
   <div class="foot">
-    樓層高度以港鐵層為 0 m 基準，每層 5.5 m 層高（示意，非官方高度）。<br>
-    垂直高度放大 4 倍，方便分辨各層；平面位置與數據不變。<br>
+    樓層高度以地下 G 樓為 0 m 基準，每層 5.5 m 層高（示意，非官方高度）。<br>
+    垂直高度不放大（1 倍），各層按實際示意樓層高度繪製。<br>
     一樓、二樓只有體量，並無官方行人路網資料。<br>
     樓層體量：各層行人路網範圍（緩衝 14 米）推算，非官方建築圖。<br>
     資料：3D 行人路網 landsd_rcd_1637222018065_52265 · 建築 BuildingID 1108222840（又一城）<br>
@@ -83,21 +83,34 @@ import Polygon from "https://js.arcgis.com/5.0/@arcgis/core/geometry/Polygon.js"
 import Color from "https://js.arcgis.com/5.0/@arcgis/core/Color.js";
 import SolidEdges3D from "https://js.arcgis.com/5.0/@arcgis/core/symbols/edges/SolidEdges3D.js";
 
+// Height of a floor relative to the G datum, for the legend readout.
+function heightRelToG(h) {
+  if (h === null || h === undefined || h === "") return null;
+  const v = Number(h) - G_DATUM_M;
+  if (!isFinite(v)) return null;
+  return (v > 0 ? "+" : "") + v.toFixed(1);
+}
+
 const LAYERS = [{"id": "festival_walk_MTR_Level", "name": "港鐵層 MTR Level  (MTR Level)", "url": "data/festival_walk_MTR_Level.geojson", "count": 14, "gtype": "MultiLineString", "fields": ["PedestrianRouteID", "Location", "FeatureType", "AliasNameEN", "AliasNameTC", "CrossingFeature", "WeatherProof", "WheelchairBarrier", "WheelchairAccess", "ObstaclesType", "Gradient", "Direction", "PositionCertainty", "Enabled", "DataSource", "LevelSource", "StreetNameEN", "StreetNameTC", "ST_CODE", "FloorID"], "title_field": "ALIASNAMEEN", "height": 0.0, "colour": "#f5a524", "order": 0, "labelOffset": [-40, 70]}, {"id": "festival_walk_LG2", "name": "低層地下二樓 LG2  (LG2)", "url": "data/festival_walk_LG2.geojson", "count": 22, "gtype": "MultiLineString", "fields": ["PedestrianRouteID", "Location", "FeatureType", "AliasNameEN", "AliasNameTC", "CrossingFeature", "WeatherProof", "WheelchairBarrier", "WheelchairAccess", "ObstaclesType", "Gradient", "Direction", "PositionCertainty", "Enabled", "DataSource", "LevelSource", "StreetNameEN", "StreetNameTC", "ST_CODE", "FloorID"], "title_field": "ALIASNAMEEN", "height": 5.5, "colour": "#ff6b9d", "order": 1, "labelOffset": [-120, 20]}, {"id": "festival_walk_LG1", "name": "低層地下一樓 LG1  (LG1)", "url": "data/festival_walk_LG1.geojson", "count": 30, "gtype": "MultiLineString", "fields": ["PedestrianRouteID", "Location", "FeatureType", "AliasNameEN", "AliasNameTC", "CrossingFeature", "WeatherProof", "WheelchairBarrier", "WheelchairAccess", "ObstaclesType", "Gradient", "Direction", "PositionCertainty", "Enabled", "DataSource", "LevelSource", "StreetNameEN", "StreetNameTC", "ST_CODE", "FloorID"], "title_field": "ALIASNAMEEN", "height": 11.0, "colour": "#3fe0d0", "order": 2, "labelOffset": [-105, -40]}, {"id": "festival_walk_G", "name": "地下 G  (G)", "url": "data/festival_walk_G.geojson", "count": 50, "gtype": "MultiLineString", "fields": ["PedestrianRouteID", "Location", "FeatureType", "AliasNameEN", "AliasNameTC", "CrossingFeature", "WeatherProof", "WheelchairBarrier", "WheelchairAccess", "ObstaclesType", "Gradient", "Direction", "PositionCertainty", "Enabled", "DataSource", "LevelSource", "StreetNameEN", "StreetNameTC", "ST_CODE", "FloorID"], "title_field": "ALIASNAMEEN", "height": 16.5, "colour": "#7c8cff", "order": 3, "labelOffset": [60, 75]}, {"id": "festival_walk_UG", "name": "高層地下 UG  (UG)", "url": "data/festival_walk_UG.geojson", "count": 14, "gtype": "MultiLineString", "fields": ["PedestrianRouteID", "Location", "FeatureType", "AliasNameEN", "AliasNameTC", "CrossingFeature", "WeatherProof", "WheelchairBarrier", "WheelchairAccess", "ObstaclesType", "Gradient", "Direction", "PositionCertainty", "Enabled", "DataSource", "LevelSource", "StreetNameEN", "StreetNameTC", "ST_CODE", "FloorID"], "title_field": "ALIASNAMEEN", "height": 22.0, "colour": "#8ce99a", "order": 4, "labelOffset": [130, 25]}, {"id": "festival_walk_1F", "name": "一樓 1/F  (1/F)", "url": "data/festival_walk_1F.geojson", "count": 0, "gtype": "MultiLineString", "fields": [], "title_field": "ALIASNAMEEN", "height": 27.5, "colour": "#c8a2ff", "order": 5, "labelOffset": [95, -45], "volume_only": true}, {"id": "festival_walk_2F", "name": "二樓 2/F  (2/F)", "url": "data/festival_walk_2F.geojson", "count": 0, "gtype": "MultiLineString", "fields": [], "title_field": "ALIASNAMEEN", "height": 33.0, "colour": "#ff9f6e", "order": 6, "labelOffset": [25, -85], "volume_only": true}, {"id": "festival_walk_vertical", "name": "垂直交通 升降機/扶手電梯/樓梯", "url": "data/festival_walk_vertical.geojson", "count": 77, "gtype": "MultiLineString", "fields": ["PedestrianRouteID", "Location", "FeatureType", "AliasNameEN", "AliasNameTC", "CrossingFeature", "WeatherProof", "WheelchairBarrier", "WheelchairAccess", "ObstaclesType", "Gradient", "Direction", "PositionCertainty", "Enabled", "DataSource", "LevelSource", "StreetNameEN", "StreetNameTC", "ST_CODE", "FloorID"], "title_field": "ALIASNAMEEN", "height": null, "colour": "#ffd43b", "order": 9}];
 const TILES = "https://server.arcgisonline.com/ArcGIS/rest/services";
 const TERRAIN = "https://elevation3d.arcgis.com/arcgis/rest/services/WorldElevation3D/Terrain3D/ImageServer";
 const CENTRE = [114.174679, 22.337468];
 const LABEL_ANCHORS = {"festival_walk_MTR_Level": [114.175381, 22.336754], "festival_walk_LG2": [114.17496, 22.337052], "festival_walk_LG1": [114.1749, 22.337023], "festival_walk_G": [114.174523, 22.337422], "festival_walk_UG": [114.174517, 22.337216], "festival_walk_1F": [114.174495, 22.337495], "festival_walk_2F": [114.174495, 22.337496]};
 const GROUND_M = 58.0;   // ground elevation at Festival Walk (Esri WorldElevation3D)
+// The height datum quoted in the panel is the ground floor G. CSDI publishes
+// the floors relative to the MTR level, so G sits at 16.5 m on that scale
+// and every floor is re-based on it for display: MTR -16.5, LG2 -11.0,
+// LG1 -5.5, G 0, UG +5.5, 1/F +11.0, 2/F +16.5.
+const G_DATUM_M = 16.5;
 
 // Vertical exaggeration.
 //
-// The mall's floors are 5.5 m apart. At a readable viewing distance that is
-// only a few pixels on screen, so the floors are impossible to tell apart.
-// Everything vertical is therefore drawn at V_SCALE times its true height --
-// a standard technique for floor-level 3D views. The footprints, the network
-// geometry and the data are all unchanged; only the display height is scaled.
-const V_SCALE = 4.0;
+// The mall's floors are 5.5 m apart. V_SCALE exaggerates that vertical spacing so
+// the levels separate on screen; at V_SCALE = 1 the model is drawn at its real
+// (still schematic) storey height and the camera simply moves closer.
+// The footprints, the network geometry and the data are never altered -- only
+// the display height is scaled, and the factor is stated in the panel.
+const V_SCALE = 1.0;
 
 window.__errors = [];
 window.addEventListener("error", (e) => window.__errors.push(String(e.message) + " @" + e.lineno));
@@ -109,8 +122,8 @@ map.ground = { layers: [new ElevationLayer({ url: TERRAIN })] };
 
 const view = new SceneView({
   container: "view", map,
-  camera: { position: { x: CENTRE[0], y: CENTRE[1], z: 420, spatialReference: { wkid: 4326 } },
-             tilt: 58, heading: 20 }
+  camera: { position: { x: CENTRE[0], y: CENTRE[1], z: 200, spatialReference: { wkid: 4326 } },
+             tilt: 42, heading: 30 }
 });
 window.__view = view;
 
@@ -242,9 +255,11 @@ LAYERS.forEach((L) => {
   // a label and a plate but no network.
   if (L.volume_only) {
     const anchor = (LABEL_ANCHORS && LABEL_ANCHORS[L.id]) || CENTRE;
-    const glV = new GraphicsLayer({ title: L.name + " 標籤", elevationInfo: { mode: "absolute-height", elevation: GROUND_M + L.height * V_SCALE + 2.0 } });
+    const lblZ = GROUND_M + L.height * V_SCALE + 2.0;
+    const glV = new GraphicsLayer({ title: L.name + " 標籤", elevationInfo: { mode: "absolute-height", elevation: lblZ, zOffset: 0 } });
     glV.add(new Graphic({
-      geometry: new Point({ longitude: anchor[0], latitude: anchor[1] }),
+      // Explicit z on the point, for the same reason the plates carry one.
+      geometry: new Point({ longitude: anchor[0], latitude: anchor[1], z: lblZ }),
       symbol: new TextSymbol({
         text: L.name, color: L.colour, haloColor: "#080b12", haloSize: 2,
         font: { size: 16, weight: "bold", family: "PingFang HK" },
@@ -262,7 +277,7 @@ LAYERS.forEach((L) => {
     rowV.innerHTML = `<input type="checkbox" checked>
       <span class="sw" style="background:${L.colour}"></span>
       <span class="nm" title="${L.id}">${L.name}</span>
-      <span class="ct">體量</span>`;
+      <span class="ct">體量 · ${heightRelToG(L.height)} m</span>`;
     rowV.querySelector("input").onchange = (e) => { glV.visible = e.target.checked; };
     box.appendChild(rowV);
     return;
@@ -317,9 +332,11 @@ LAYERS.forEach((L) => {
   // Floor name, floating just above that floor's own network centroid --
   // each floor gets its own anchor so the labels do not stack on one another.
   const anchor = (LABEL_ANCHORS && LABEL_ANCHORS[L.id]) || CENTRE;
-  const gl2 = new GraphicsLayer({ title: L.name + " 標籤", elevationInfo: { mode: "absolute-height", elevation: GROUND_M + L.height * V_SCALE + 2.0 } });
+  const lblZ = GROUND_M + L.height * V_SCALE + 2.0;
+  const gl2 = new GraphicsLayer({ title: L.name + " 標籤", elevationInfo: { mode: "absolute-height", elevation: lblZ, zOffset: 0 } });
   gl2.add(new Graphic({
-    geometry: new Point({ longitude: anchor[0], latitude: anchor[1] }),
+    // Explicit z on the point, for the same reason the plates carry one.
+    geometry: new Point({ longitude: anchor[0], latitude: anchor[1], z: lblZ }),
     symbol: new TextSymbol({
       text: L.name, color: L.colour, haloColor: "#080b12", haloSize: 2,
       font: { size: 16, weight: "bold", family: "PingFang HK" },
@@ -335,10 +352,12 @@ LAYERS.forEach((L) => {
 
   const row = document.createElement("label");
   row.className = "layer";
+  const hRel = heightRelToG(L.height);
+  const hTxt = hRel === null ? "" : ` · ${hRel} m`;
   row.innerHTML = `<input type="checkbox" checked>
     <span class="sw" style="background:${L.colour}"></span>
     <span class="nm" title="${L.id}">${L.name}</span>
-    <span class="ct">${L.count}</span>`;
+    <span class="ct">${L.count}${hTxt}</span>`;
   row.querySelector("input").onchange = (e) => {
     netLayer.visible = e.target.checked;
     const lb = labelLayers[L.id];
@@ -393,7 +412,7 @@ async function frameMall(attempt = 0) {
   // much further away than intended. Computing the camera position directly
   // (a look-at position offset back along the heading and raised by the tilt)
   // gives an exact, reproducible framing.
-  const LOOK_TILT = 40, LOOK_HEADING = 30, LOOK_DIST = 600;
+  const LOOK_TILT = 42, LOOK_HEADING = 30, LOOK_DIST = 260;
   const AIM_Z = GROUND_M + 16.5 * V_SCALE;   // mid-stack height
   const mPerDegLat = 110574;
   const mPerDegLon = mPerDegLat * Math.cos(CENTRE[1] * Math.PI / 180);
@@ -425,6 +444,78 @@ async function frameMall(attempt = 0) {
 }
 setTimeout(frameMall, 900);
 setTimeout(frameMall, 4000);
+
+// ---------------------------------------------------------- label fan-out
+//
+// At V_SCALE = 1 the floors are their real 5.5 m apart, so on screen they are
+// only a few pixels apart and the Chinese floor labels would sit on top of one
+// another. Rather than hand-tuned per-floor offsets that break whenever the
+// camera or the exaggeration changes, measure where each label actually lands
+// and fan them out evenly around the middle of the stack.
+async function fanLabels() {
+  const canvas = document.querySelector("#view canvas");
+  if (!canvas) return;
+  const entries = Object.entries(labelLayers)
+    .map(([id, layer]) => {
+      const g = layer.graphics.items[0];
+      if (!g) return null;
+      const p = g.geometry;
+      const lon = p.longitude !== undefined ? p.longitude : p.x;
+      const lat = p.latitude !== undefined ? p.latitude : p.y;
+      const s = view.toScreen(new Point({ longitude: lon, latitude: lat, z: layer.elevationInfo.elevation }));
+      if (!s || isNaN(s.y)) return null;
+      const sym = g.symbol;
+      // Remember the authored offset once. The fan runs several times (the
+      // camera settles late), so it must always work from this baseline --
+      // adding to the current offset would accumulate on every run.
+      if (sym.__baseYOffset === undefined) sym.__baseYOffset = sym.yOffset || 0;
+      return { id, layer, sym, anchorY: s.y, x: s.x };
+    })
+    .filter(Boolean);
+  if (entries.length < 2) return;
+
+  const canvasH = canvas.clientHeight || 640;
+  // The vertical-circulation label is a different thing from the seven floor
+  // labels: it is pushed out to the side so it never competes with them.
+  const vertical = entries.filter((e) => e.id.includes("vertical"));
+  const floors = entries.filter((e) => !e.id.includes("vertical"));
+
+  // Floors are pushed apart only as far as needed, preserving their real
+  // vertical order (2/F at the top, MTR at the bottom).
+  floors.sort((a, b) => a.anchorY - b.anchorY);
+  const GAP = 24;                                   // px between label centres
+  const target = floors.map((e) => e.anchorY);
+  for (let i = 1; i < target.length; i++) {
+    if (target[i] - target[i - 1] < GAP) target[i] = target[i - 1] + GAP;
+  }
+  // If the stack ran past the bottom, shift the whole group back up.
+  const overflow = target[target.length - 1] - (canvasH - 60);
+  if (overflow > 0) {
+    for (let i = 0; i < target.length; i++) target[i] -= overflow;
+  }
+
+  floors.forEach((e, i) => {
+    // TextSymbol.yOffset is in pixels and positive moves the text UP the
+    // screen, so to land on targetY we need (anchorY - targetY).
+    e.sym.yOffset = e.sym.__baseYOffset + (e.anchorY - target[i]);
+  });
+  // The vertical-circulation label sits just below the bottom of the stack,
+  // in screen space, so it never overlaps a floor label.
+  const bottom = floors.length ? target[floors.length - 1] : 0;
+  vertical.forEach((e) => {
+    const desired = Math.min(bottom + GAP, (canvasH || 640) - 24);
+    e.sym.xOffset = 0;
+    e.sym.yOffset = e.sym.__baseYOffset + (e.anchorY - desired);
+  });
+
+  window.__labelFan = floors.map((e, i) => ({
+    id: e.id, from: Math.round(e.anchorY), to: Math.round(target[i])
+  }));
+}
+setTimeout(fanLabels, 2200);
+setTimeout(fanLabels, 5200);
+setTimeout(fanLabels, 9000);
+setTimeout(fanLabels, 14000);
 
 // Wire the 3D-building toggle to its graphics layer.
 const bldToggle = document.getElementById("bldToggle");

@@ -29,10 +29,26 @@ Hong Kong geospatial projects — maps, 3D scenes, and the open data behind them
 - Click any line to see the official attributes from the source dataset.
 
 **Heights are schematic.** Each storey is drawn at 5.5 m (the CSDI published floor
-levels) and the whole model is then stretched **4× vertically** so the floors are
-separable on screen. Plan positions and the underlying data are unchanged — only the
-display height is scaled. Festival Walk's official architectural heights were not
-published, so the model must not be read as a measured building.
+levels), at **1× vertical scale** — the model is drawn at its real (still schematic)
+storey height, and the camera simply moves in closer. **The height datum is the
+ground floor G**, so each floor reads:
+
+| Floor | Height rel. G | | Floor | Height rel. G |
+|---|---|---|---|---|
+| MTR Level | −16.5 m | | UG | +5.5 m |
+| LG2 | −11.0 m | | 1/F | +11.0 m |
+| LG1 | −5.5 m | | 2/F | +16.5 m |
+| **G** | **0.0 m** | | | |
+
+Plan positions and the underlying data are unchanged. Festival Walk's official
+architectural heights were not published, so the model must not be read as a measured
+building.
+
+**Every polygon and polyline carries an explicit z.** GeoJSON rings are 2D, and in
+`absolute-height` mode SceneView does not fall back to the layer's elevation for
+polygon geometry — the extrusion base resolves to 0/NaN and the symbol renders as
+**zero pixels with no error**. Adding z to every vertex is what makes the plates and
+the floor networks appear.
 
 Open `apps/festival-walk-3d/index.html` directly, or serve the repo root and visit
 `/apps/festival-walk-3d/`. It needs WebGL3.

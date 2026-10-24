@@ -68,8 +68,10 @@ them back.
 
 ## Things to know before you quote the 3D model
 
-- **The storey height (5.5 m) is schematic**, and the model is stretched **4× vertically**
-  so the floors separate on screen. It is not a measured building.
+- **The storey height (5.5 m) is schematic**, drawn at 1× vertical scale. It is not a
+  measured building.
+- **The height datum is the ground floor G** (0 m): MTR −16.5 m, LG2 −11.0, LG1 −5.5,
+  G 0, UG +5.5, 1/F +11.0, 2/F +16.5.
 - **1/F and 2/F are massing only** — CSDI publishes route data for five floors, so the two
   upper floors are drawn inset from the G-floor envelope and marked `體量`.
 - **Floor outlines come from pedestrian-route extents**, not official floor plans.
