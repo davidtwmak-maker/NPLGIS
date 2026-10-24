@@ -1,0 +1,91 @@
+:root {
+	color-scheme: light;
+	--navy: #12324a;
+	--gold: #f1b84b;
+	--ink: #243744;
+	--muted: #637783;
+	--paper: #f4f8f7;
+	--white: #fff;
+	--shadow: 0 12px 32px rgb(18 50 74 / 10%);
+	font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	color: var(--ink);
+	background: var(--paper);
+	line-height: 1.6;
+}
+
+#content {
+	width: min(100% - 32px, 1200px);
+	margin: 24px auto;
+}
+
+#mapdesc {
+	margin: 0 0 12px;
+	color: var(--muted);
+}
+
+#map iframe {
+	display: block;
+	width: 100%;
+	height: min(75vh, 800px);
+	min-height: 420px;
+	border: 0;
+	border-radius: 14px;
+	background: #e5efeb;
+	box-shadow: var(--shadow);
+}
+
+.loading-screen {
+	position: fixed;
+	z-index: 1000;
+	inset: 0;
+	display: grid;
+	place-items: center;
+	background: #000;
+	opacity: 1;
+	transition: opacity .3s ease, visibility .3s ease;
+}
+
+.loading-screen.is-hidden {
+	visibility: hidden;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.loading-spinner {
+	width: 40px;
+	height: 40px;
+	border: 4px solid rgb(255 255 255 / 30%);
+	border-top-color: var(--white);
+	border-radius: 50%;
+	animation: loading-spin .8s linear infinite;
+}
+
+@keyframes loading-spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+html:not(.js) .loading-screen {
+	display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		transition-duration: .01ms !important;
+		animation-duration: .01ms !important;
+		animation-iteration-count: 1 !important;
+	}
+}

@@ -93,7 +93,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p _site
-          cp index.html favicon.png LICENSE.txt README.md _site/
+          cp index.html arcgis-scene.html favicon.png LICENSE.txt README.md _site/
           cp -R assets apps _site/
           echo "staged $(du -sh _site | cut -f1)"
 

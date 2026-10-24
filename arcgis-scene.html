@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="nplgis website test" />
+    <title>nplgis</title>
+    <link rel="stylesheet" href="./assets/arcgis-style.css" />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%238470FF'/%3E%3Ccircle cx='32' cy='32' r='15' fill='%23FFB6C1'/%3E%3Ccircle cx='38' cy='27' r='5' fill='%238470FF'/%3E%3C/svg%3E"
+    />
+  </head>
+
+  <body data-page="home">
+    <main id="content">
+      <p id="mapdesc">
+        Please be patient if the map doesn't load immediately. If an error shows up, please enable hardware acceleration or use a browser that supports WebGL3. -smons
+      </p>
+      <div id="map">
+        <iframe
+          src="https://plknplgeog.maps.arcgis.com/apps/instant/3dviewer/index.html?appid=3e2130bc075e48dcbff38969698d1d3d"
+          title="NPLGIS 3D map"
+          allowfullscreen
+        >iFrames are not supported on this page.</iframe>
+      </div>
+    </main>
+
+    <div class="loading-screen" id="loading-screen" role="status" aria-label="Loading map">
+      <div class="loading-spinner" aria-hidden="true"></div>
+    </div>
+
+    <script>
+      const loadingScreen = document.getElementById("loading-screen");
+      const mapFrame = document.querySelector("#map iframe");
+
+      function hideLoadingScreen() {
+        loadingScreen.classList.add("is-hidden");
+        loadingScreen.setAttribute("aria-hidden", "true");
+      }
+
+      mapFrame.addEventListener("load", () => {
+        window.setTimeout(hideLoadingScreen, 5000);
+      }, { once: true });
+    </script>
+  </body>
+</html>
