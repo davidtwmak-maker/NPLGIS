@@ -98,14 +98,14 @@ python3 scripts/export_pednet.py
 python3 scripts/arcgis_sheltered_chains.py
 
 # volleyball court GeoJSON build (fetch raw inputs first)
-bash "scripts/fetch_raw.sh (volleyball)"
+bash scripts/fetch_raw_volleyball.sh
 python3 scripts/build_geojson.py
 
 # Festival Walk 3D scene data
 python3 scripts/build_festival_walk_3d.py
 
 # Festival Walk relief render (needs the LiDAR DTM mosaic)
-python3 scripts/build_mosaic.py    # downloads tiles, builds the mosaic
+python3 scripts/build_mosaic_lidar_dtm.py    # downloads tiles, builds the mosaic
 python3 scripts/render_festival_walk_relief2.py
 ```
 
