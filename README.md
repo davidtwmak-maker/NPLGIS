@@ -15,9 +15,24 @@ Hong Kong geospatial projects — maps, 3D scenes, and the open data behind them
 - Each floor of Festival Walk (又一城) is a separate GeoJSON layer.
 - Every layer is lifted to its **own absolute height** — MTR level (0 m), LG2, LG1, G, UG —
   so the exits fan out up the hillside in the colour of the floor they belong to.
+- **The mall itself is drawn as 3D geometry.** Each floor is a separate translucent
+  slab (`PolygonSymbol3D` + `ExtrudeSymbol3DLayer`), and every floor gets its **own
+  footprint**, derived from that floor's own pedestrian routes buffered 14 m. The seven
+  floors therefore read as seven distinct sheets in a stack rather than one flat slab.
+- **1/F and 2/F are shown as massing only.** CSDI publishes route data for five floors
+  (MTR, LG2, LG1, G, UG); the two upper floors have no published network, so they are
+  drawn from the G-floor retail envelope, inset. They are labelled `體量` in the legend.
+- Each floor's Chinese label sits at that floor's **own route centroid**, so the labels
+  fan out instead of stacking on one point.
 - The ground is real terrain (Esri WorldElevation3D); Festival Walk's floor sits at
   about 58 m, with Lion Rock at 495 m directly behind it.
 - Click any line to see the official attributes from the source dataset.
+
+**Heights are schematic.** Each storey is drawn at 5.5 m (the CSDI published floor
+levels) and the whole model is then stretched **4× vertically** so the floors are
+separable on screen. Plan positions and the underlying data are unchanged — only the
+display height is scaled. Festival Walk's official architectural heights were not
+published, so the model must not be read as a measured building.
 
 Open `apps/festival-walk-3d/index.html` directly, or serve the repo root and visit
 `/apps/festival-walk-3d/`. It needs WebGL3.
@@ -25,11 +40,15 @@ Open `apps/festival-walk-3d/index.html` directly, or serve the repo root and vis
 **Rebuild the scene data** from the CSDI API:
 
 ```bash
-python3 scripts/build_festival_walk_3d.py
+python3 scripts/build_festival_walk_3d.py   # per-floor route GeoJSON from CSDI
+python3 scripts/build_buildings_3d.py       # mall floor plates + label anchors
 ```
 
-That queries the official FeatureServer for `BuildingID 1108222840` and writes
-`apps/festival-walk-3d/data/*.geojson`.
+`build_festival_walk_3d.py` queries the official FeatureServer for
+`BuildingID 1108222840` and writes `apps/festival-walk-3d/data/*.geojson`.
+`build_buildings_3d.py` turns those per-floor routes into the 3D floor plates
+(`buildings_3d.geojson`), the label anchors (`floor_labels.json`), and the camera
+centre in `index.html`.
 
 ---
 
@@ -52,8 +71,10 @@ assets/
     mtr/                        Fare savers, MTR lines and stations
     walk/                       Restaurant catchments
 apps/
-  festival-walk-3d/             The 3D scene (index.html + per-floor GeoJSON)
+  festival-walk-3d/             The 3D scene (index.html + per-floor GeoJSON + floor plates)
 scripts/                        Every build and render script, made portable
+  build_festival_walk_3d.py     Per-floor route GeoJSON from the CSDI FeatureServer
+  build_buildings_3d.py         Mall 3D floor plates + label anchors from those routes
 notes/                          Per-project provenance and validation notes
 ```
 

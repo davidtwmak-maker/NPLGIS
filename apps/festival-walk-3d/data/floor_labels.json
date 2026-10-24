@@ -1,0 +1,86 @@
+[
+ {
+  "id": "festival_walk_MTR_Level",
+  "zh": "港鐵層",
+  "en": "MTR Level",
+  "height": 0.0,
+  "colour": "#f5a524",
+  "anchor": {
+   "lon": 114.175381,
+   "lat": 22.336754
+  },
+  "count": 14
+ },
+ {
+  "id": "festival_walk_LG2",
+  "zh": "低層地下二樓",
+  "en": "LG2",
+  "height": 5.5,
+  "colour": "#ff6b9d",
+  "anchor": {
+   "lon": 114.17496,
+   "lat": 22.337052
+  },
+  "count": 22
+ },
+ {
+  "id": "festival_walk_LG1",
+  "zh": "低層地下一樓",
+  "en": "LG1",
+  "height": 11.0,
+  "colour": "#3fe0d0",
+  "anchor": {
+   "lon": 114.1749,
+   "lat": 22.337023
+  },
+  "count": 30
+ },
+ {
+  "id": "festival_walk_G",
+  "zh": "地下",
+  "en": "G",
+  "height": 16.5,
+  "colour": "#7c8cff",
+  "anchor": {
+   "lon": 114.174523,
+   "lat": 22.337422
+  },
+  "count": 50
+ },
+ {
+  "id": "festival_walk_UG",
+  "zh": "高層地下",
+  "en": "UG",
+  "height": 22.0,
+  "colour": "#8ce99a",
+  "anchor": {
+   "lon": 114.174517,
+   "lat": 22.337216
+  },
+  "count": 14
+ },
+ {
+  "id": "festival_walk_1F",
+  "zh": "一樓",
+  "en": "1/F",
+  "height": 27.5,
+  "colour": "#c8a2ff",
+  "anchor": {
+   "lon": 114.174495,
+   "lat": 22.337495
+  },
+  "count": 0
+ },
+ {
+  "id": "festival_walk_2F",
+  "zh": "二樓",
+  "en": "2/F",
+  "height": 33.0,
+  "colour": "#ff9f6e",
+  "anchor": {
+   "lon": 114.174495,
+   "lat": 22.337496
+  },
+  "count": 0
+ }
+]
