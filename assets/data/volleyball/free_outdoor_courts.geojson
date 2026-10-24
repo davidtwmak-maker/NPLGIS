@@ -1,0 +1,1956 @@
+{
+ "type": "FeatureCollection",
+ "name": "free_outdoor_courts",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_1",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Carpenter Road Park",
+    "venue_name_tc": "賈炳達道公園",
+    "district_en": "Kowloon City",
+    "district_tc": "九龍城區",
+    "address_en": "Carpenter Road, Kowloon City, Kowloon.",
+    "address_tc": "九龍城賈炳達道",
+    "no_of_courts": "2",
+    "opening_hours_en": "7 am to 11 pm daily",
+    "phone": "2716 9962",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.190833,
+     22.331111
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_2",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Kam Shing Road Recreation Ground",
+    "venue_name_tc": "金城道遊樂場",
+    "district_en": "Kowloon City",
+    "district_tc": "九龍城區",
+    "address_en": "Kam Shing Road, Kowloon.",
+    "address_tc": "九龍金城道",
+    "no_of_courts": "1",
+    "opening_hours_en": "7 am to 11 pm daily",
+    "phone": "2762 2083",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.181111,
+     22.339167
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_3",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Oxford Road Playground",
+    "venue_name_tc": "牛津道遊樂場",
+    "district_en": "Kowloon City",
+    "district_tc": "九龍城區",
+    "address_en": "Oxford Road, Kowloon.",
+    "address_tc": "九龍牛津道",
+    "no_of_courts": "1",
+    "opening_hours_en": "7 am to 11 pm daily",
+    "phone": "2762 2083",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.181111,
+     22.328333
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_4",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Peace Avenue Playground",
+    "venue_name_tc": "太平道遊樂場",
+    "district_en": "Kowloon City",
+    "district_tc": "九龍城區",
+    "address_en": "Peace Avenue, Ho Man Tin, Kowloon.",
+    "address_tc": "九龍何文田太平道",
+    "no_of_courts": "1",
+    "opening_hours_en": "7 am to 11 pm daily",
+    "phone": "2762 2083",
+    "remarks_en": "The court is located on the first floor of the Playground.",
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.173889,
+     22.318611
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_5",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Perth Street Sports Ground",
+    "venue_name_tc": "巴富街運動場",
+    "district_en": "Kowloon City",
+    "district_tc": "九龍城區",
+    "address_en": "Shek Ku Street , Ho Man Tin, Kowloon.",
+    "address_tc": "九龍何文田石鼓街",
+    "no_of_courts": "1",
+    "opening_hours_en": "7 am to 11 pm daily",
+    "phone": "2762 2083",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.181111,
+     22.320556
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_6",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Tsing Chau Street Playground",
+    "venue_name_tc": "青州街遊樂場",
+    "district_en": "Kowloon City",
+    "district_tc": "九龍城區",
+    "address_en": "Tsing Chau Street, Hung Hom, Kowloon.",
+    "address_tc": "九龍紅磡青州街",
+    "no_of_courts": "1",
+    "opening_hours_en": "7 am to 11 pm daily",
+    "phone": "2762 2083",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.186111,
+     22.310278
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_7",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Blake Gardens",
+    "venue_name_tc": "卜公花園",
+    "district_en": "Central & Western",
+    "district_tc": "中西區",
+    "address_en": "J/O Po Hing Fong & Kui In Fong",
+    "address_tc": "普興坊與居賢坊交界",
+    "no_of_courts": "1",
+    "opening_hours_en": "7:30 am &ndash; 10:00 pm&nbsp;daily",
+    "phone": "2853 2563",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.148056,
+     22.284167
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_8",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Chung Sing Path Playground",
+    "venue_name_tc": "鐘聲徑遊樂場",
+    "district_en": "Yuen Long",
+    "district_tc": "元朗區",
+    "address_en": "Chung Sing Path, Yuen Long",
+    "address_tc": "元朗鐘聲徑",
+    "no_of_courts": "2",
+    "opening_hours_en": "7 am to 11 pm",
+    "phone": "2478 4342",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.026111,
+     22.443611
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_9",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Fung Kwan Street Garden",
+    "venue_name_tc": "鳳群街花園",
+    "district_en": "Yuen Long",
+    "district_tc": "元朗區",
+    "address_en": "Fung Kwan Street, Yuen Long",
+    "address_tc": "元朗鳳群街",
+    "no_of_courts": "1",
+    "opening_hours_en": "7 am to 11 pm",
+    "phone": "2478 4342",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.034167,
+     22.4425
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_10",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Kin Yip Street Playground",
+    "venue_name_tc": "建業街遊樂場",
+    "district_en": "Yuen Long",
+    "district_tc": "元朗區",
+    "address_en": "Kin Yip Street, Yuen Long",
+    "address_tc": "元朗建業街",
+    "no_of_courts": "1",
+    "opening_hours_en": "7 am to 11 pm",
+    "phone": "2478 4342",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.031667,
+     22.442778
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_11",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Ping Pak Lane Park",
+    "venue_name_tc": "屏柏里公園",
+    "district_en": "Yuen Long",
+    "district_tc": "元朗區",
+    "address_en": "Ping Pak Lane, Ping Shan, Yuen Long",
+    "address_tc": "元朗屏山屏柏里",
+    "no_of_courts": "1",
+    "opening_hours_en": "7 am to 11 pm",
+    "phone": "2478 4342",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.006111,
+     22.440278
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_12",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Sheung Tsuen Park",
+    "venue_name_tc": "上村公園",
+    "district_en": "Yuen Long",
+    "district_tc": "元朗區",
+    "address_en": "J/O Kam Sheung Road and Kam Tin Road, Sheung Tsuen, Pat Heung, Yuen Long",
+    "address_tc": "元朗八鄉錦田公路與錦上路交界",
+    "no_of_courts": "1",
+    "opening_hours_en": "7 am to 11 pm",
+    "phone": "2478 4342",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1025,
+     22.431667
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_13",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Shui Pin Tsuen Playground",
+    "venue_name_tc": "水邊村遊樂場",
+    "district_en": "Yuen Long",
+    "district_tc": "元朗區",
+    "address_en": "Yuen Long Tai Yuk Road, Yuen Long",
+    "address_tc": "元朗體育路元朗",
+    "no_of_courts": "1",
+    "opening_hours_en": "7 am to 11 pm",
+    "phone": "2478 4342",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.021667,
+     22.444167
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_14",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Tin Pak Road Park",
+    "venue_name_tc": "天柏路公園",
+    "district_en": "Yuen Long",
+    "district_tc": "元朗區",
+    "address_en": "Tin Pak Road, Tin Shui Wai, Yuen Long",
+    "address_tc": "元朗天水圍天柏路",
+    "no_of_courts": "2",
+    "opening_hours_en": "7 am to 11 pm",
+    "phone": "2478 4342",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.007778,
+     22.457222
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_15",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Town Park South Playground",
+    "venue_name_tc": "市鎮公園南遊樂場",
+    "district_en": "Yuen Long",
+    "district_tc": "元朗區",
+    "address_en": "Town Park Road South, Yuen Long",
+    "address_tc": "元朗公園南路",
+    "no_of_courts": "1",
+    "opening_hours_en": "7 am to 11 pm",
+    "phone": "2478 4342",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.018056,
+     22.439444
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_16",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Butterfly Beach Park",
+    "venue_name_tc": "蝴蝶灣公園",
+    "district_en": "Tuen Mun",
+    "district_tc": "屯門區",
+    "address_en": "Area 45, Lung Mun Road, Tuen Mun (Near Melody Garden)",
+    "address_tc": "位於屯門四十五區龍門路，蝴蝶灣旁鄰近美樂花園",
+    "no_of_courts": "1",
+    "opening_hours_en": "7 am – 10 pm",
+    "phone": "2404 5979",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     113.958333,
+     22.373889
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_17",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Tsing Hoi Playground",
+    "venue_name_tc": "青海遊樂場",
+    "district_en": "Tuen Mun",
+    "district_tc": "屯門區",
+    "address_en": "Tsing Hoi Circuit,Tuen Mun ",
+    "address_tc": "屯門青海圍  ",
+    "no_of_courts": "1",
+    "opening_hours_en": "7 am – 11 pm",
+    "phone": "2451 3012 ",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     113.978611,
+     22.389444
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_18",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Tuen Mun Park",
+    "venue_name_tc": "屯門公園",
+    "district_en": "Tuen Mun",
+    "district_tc": "屯門區",
+    "address_en": "Tuen Mun Heung Sez Mui Road",
+    "address_tc": "屯門鄉事會路",
+    "no_of_courts": "1 (one volleyball court cum two badminton courts)",
+    "opening_hours_en": "7 am – 11 pm",
+    "phone": "2451 1144",
+    "remarks_en": "Fax : 2441 7231",
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     113.973333,
+     22.391944
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_19",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Fanling Recreation Ground",
+    "venue_name_tc": "粉嶺遊樂場",
+    "district_en": "North",
+    "district_tc": "北區",
+    "address_en": "No. 55 San Wan Road, Fanling, N.T.",
+    "address_tc": "新界粉嶺新運路55號",
+    "no_of_courts": "1",
+    "opening_hours_en": "7 am to 11 pm daily",
+    "phone": "2675 6925",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.137778,
+     22.493611
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_20",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "North District Park",
+    "venue_name_tc": "北區公園",
+    "district_en": "North",
+    "district_tc": "北區",
+    "address_en": "Jockey Club Road, Sheung Shui, N.T.",
+    "address_tc": "新界上水馬會道",
+    "no_of_courts": "2",
+    "opening_hours_en": "7 am to 11 pm daily",
+    "phone": "2670 6155",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.134167,
+     22.498889
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_21",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "North District Sports Ground",
+    "venue_name_tc": "北區運動場",
+    "district_en": "North",
+    "district_tc": "北區",
+    "address_en": "ockey Club Road, Sheung Shui, N.T.",
+    "address_tc": "新界上水馬會道",
+    "no_of_courts": "4",
+    "opening_hours_en": "7 am to 11 pm daily",
+    "phone": "2679 4913",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.130556,
+     22.506389
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_22",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Sha Tau Kok Recreation Ground",
+    "venue_name_tc": "沙頭角遊樂場",
+    "district_en": "North",
+    "district_tc": "北區",
+    "address_en": "2, Shun Hing Street, Sha Tau Kok, N.T.",
+    "address_tc": "新界, 沙頭角, 順興街, 2號 ",
+    "no_of_courts": "2",
+    "opening_hours_en": "7 am to 11 pm daily",
+    "phone": "2679 2818",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.221389,
+     22.544722
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_23",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Ta Kwu Ling Playground",
+    "venue_name_tc": "打鼓嶺遊樂場",
+    "district_en": "North",
+    "district_tc": "北區",
+    "address_en": "Ping Che Road, Ta Kwu Ling, N.T.",
+    "address_tc": "新界打鼓嶺坪輋路",
+    "no_of_courts": "1",
+    "opening_hours_en": "24 hours daily",
+    "phone": "2679 2818",
+    "remarks_en": "Without Floodlight ",
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.153889,
+     22.530833
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_24",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Wo Hing Playground",
+    "venue_name_tc": "和興遊樂場",
+    "district_en": "North",
+    "district_tc": "北區",
+    "address_en": "Lui Ming Road, Fanling, N.T.",
+    "address_tc": "新界粉嶺雷鳴路",
+    "no_of_courts": "2",
+    "opening_hours_en": "24 hours daily",
+    "phone": "2679 2818",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.143333,
+     22.484167
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_25",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Sheung Ning Playground",
+    "venue_name_tc": "常寧遊樂場",
+    "district_en": "Sai Kung",
+    "district_tc": "西貢區",
+    "address_en": "Sheung Ning Road, Tseung Kwan O",
+    "address_tc": "將軍澳常寧路",
+    "no_of_courts": "3",
+    "opening_hours_en": "7am &ndash; 11pm",
+    "phone": "2791 3100",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.261944,
+     22.315278
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_26",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Ngau Pei Sha Street Playground",
+    "venue_name_tc": "牛皮沙街遊樂場",
+    "district_en": "Sha Tin",
+    "district_tc": "沙田區",
+    "address_en": "Ngau Pei Sha Street, Sha Tin",
+    "address_tc": "沙田牛皮沙街",
+    "no_of_courts": "1",
+    "opening_hours_en": "7 am to 11 pm daily",
+    "phone": "2634 0119",
+    "remarks_en": "Non-smoking",
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.206389,
+     22.3825
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_27",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Tsang Tai Uk Recreation Ground",
+    "venue_name_tc": "曾大屋遊樂場",
+    "district_en": "Sha Tin",
+    "district_tc": "沙田區",
+    "address_en": "Sha Kok Street, Sha Tin",
+    "address_tc": "沙田沙角街",
+    "no_of_courts": "3 (next to the office of main venue), 2 (near Pok Hong Estate)",
+    "opening_hours_en": "7 am to 11 pm daily",
+    "phone": "2698 2648",
+    "remarks_en": "Non-smoking",
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.189722,
+     22.374167
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_28",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Yuen Wo Playground",
+    "venue_name_tc": "源禾遊樂場",
+    "district_en": "Sha Tin",
+    "district_tc": "沙田區",
+    "address_en": "No. 16, Yuen Wo Road, Sha Tin, New Territories.",
+    "address_tc": "新界沙田源禾路16號",
+    "no_of_courts": "2 nos. of volleyball courts",
+    "opening_hours_en": "7 am to 11 pm daily",
+    "phone": "2605 3622",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.195556,
+     22.385556
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_29",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Cherry Street Park",
+    "venue_name_tc": "櫻桃街公園",
+    "district_en": "Yau Tsim Mong",
+    "district_tc": "油尖旺區",
+    "address_en": "1 Cherry Street, Mong Kok, Kowloon",
+    "address_tc": "九龍旺角櫻桃街1號",
+    "no_of_courts": "2",
+    "opening_hours_en": "7am - 11pm daily",
+    "phone": "2625 4584",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.166111,
+     22.315556
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_30",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Ap Lei Chau Park",
+    "venue_name_tc": "鴨脷洲公園",
+    "district_en": "Southern",
+    "district_tc": "南區",
+    "address_en": "Ap Lei Chau Main Street, Aberdeen, Hong Kong",
+    "address_tc": "香港香港仔鴨脷洲大街",
+    "no_of_courts": "2",
+    "opening_hours_en": "7 am to 11 pm daily",
+    "phone": "2555 0103",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.158333,
+     22.245278
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_31",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Kwok Shui Road Park",
+    "venue_name_tc": "國瑞路公園",
+    "district_en": "Tsuen Wan",
+    "district_tc": "荃灣區",
+    "address_en": "Kwok Shui Road, Tsuen Wan",
+    "address_tc": "荃灣國瑞路",
+    "no_of_courts": "1",
+    "opening_hours_en": "7 am to 11 pm daily",
+    "phone": "2212 9702",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.128333,
+     22.371111
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_32",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Sham Tsz Street Playground",
+    "venue_name_tc": "深慈街遊樂場",
+    "district_en": "Tsuen Wan",
+    "district_tc": "荃灣區",
+    "address_en": "Sham Tsz Street, Sham Tseng, Tsuen Wan",
+    "address_tc": "荃灣深井深慈街",
+    "no_of_courts": "1 (can be served as 1 no. of basketball court)",
+    "opening_hours_en": "7 am to 11 pm daily",
+    "phone": "2212 9702",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.064167,
+     22.365278
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_33",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Shing Mun Valley Park",
+    "venue_name_tc": "城門谷公園",
+    "district_en": "Tsuen Wan",
+    "district_tc": "荃灣區",
+    "address_en": "21 Shing Mun Road, Tsuen Wan",
+    "address_tc": "荃灣城門道21號",
+    "no_of_courts": "2 (can be served as 2 nos. of  basketball court)",
+    "opening_hours_en": "7 am to 11 pm daily",
+    "phone": "2413 9665",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.125,
+     22.374722
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_34",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Tsuen Wan Tin Hau Temple Garden",
+    "venue_name_tc": "荃灣天后廟花園",
+    "district_en": "Tsuen Wan",
+    "district_tc": "荃灣區",
+    "address_en": "Wai Tsuen Road, Tsuen Wan",
+    "address_tc": "荃灣蕙荃路",
+    "no_of_courts": "1",
+    "opening_hours_en": "7 am to 11 pm",
+    "phone": "2212 9702",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.121667,
+     22.373056
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_35",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Cheung Sha Wan Playground",
+    "venue_name_tc": "長沙灣遊樂場",
+    "district_en": "Sham Shui Po",
+    "district_tc": "深水埗區",
+    "address_en": "J/O Cheung Sha Wan Road and Fat Tseung Street, Sham Shui Po, Kowloon",
+    "address_tc": "九龍深水埗長沙灣道及發祥街交界",
+    "no_of_courts": "2",
+    "opening_hours_en": "7 am to 11 pm daily",
+    "phone": "2741 4044",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.155,
+     22.335
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_36",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Fa Hui Park",
+    "venue_name_tc": "花墟公園",
+    "district_en": "Sham Shui Po",
+    "district_tc": "深水埗區",
+    "address_en": "101 Boundary Street, Kowloon",
+    "address_tc": "九龍界限街101號",
+    "no_of_courts": "4",
+    "opening_hours_en": "7 am to 11 pm daily",
+    "phone": "2741 4044",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.174444,
+     22.327778
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_37",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Lai Chi Kok Park (Stage III)",
+    "venue_name_tc": "荔枝角公園(第三期)",
+    "district_en": "Sham Shui Po",
+    "district_tc": "深水埗區",
+    "address_en": "Lai Wan Road, Lai Chi Kok, Kowloon.",
+    "address_tc": "九龍荔枝角荔灣道",
+    "no_of_courts": "2",
+    "opening_hours_en": "7 am to 11 pm daily",
+    "phone": "2741 4044",
+    "remarks_en": "Multi-purposed ball court<br />(2 nos. of basketball courts cum<br />2 nos. of volleyball courts)",
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.136944,
+     22.339444
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_38",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Po On Road Playground",
+    "venue_name_tc": "保安道遊樂場",
+    "district_en": "Sham Shui Po",
+    "district_tc": "深水埗區",
+    "address_en": "J/O Po On Road and Cheung Fat Street, Sham Shui Po, Kowloon",
+    "address_tc": "九龍深水埗保安道及長發街交界",
+    "no_of_courts": "1",
+    "opening_hours_en": "7 am to 11 pm daily",
+    "phone": "2741 4044",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.158056,
+     22.339444
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_39",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Sheung Li Uk Garden",
+    "venue_name_tc": "上李屋花園",
+    "district_en": "Sham Shui Po",
+    "district_tc": "深水埗區",
+    "address_en": "Tai Po Road North, Sham Shui Po, Kowloon (opposite to ex-North Kowloon Magistracy)",
+    "address_tc": "九龍深水埗大埔道北(前北九龍裁判司署對面)",
+    "no_of_courts": "1",
+    "opening_hours_en": "7 am to 11 pm daily",
+    "phone": "2741 4044",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.162222,
+     22.335556
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_40",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Tung Chau Street Park",
+    "venue_name_tc": "通州街公園",
+    "district_en": "Sham Shui Po",
+    "district_tc": "深水埗區",
+    "address_en": "No.163 Tung Chau Street , Sham Shui Po , Kowloon",
+    "address_tc": "九龍深水埗通州街163號",
+    "no_of_courts": "2",
+    "opening_hours_en": "7 am to 11 pm daily",
+    "phone": "2741 4044",
+    "remarks_en": "Multi-purposed ball court<br>(2 nos. of basketball courts cum<br>2 nos. of volleyball courts)",
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.160278,
+     22.325556
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_41",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Shek Ku Lung Road Playground",
+    "venue_name_tc": "石鼓壟道遊樂場",
+    "district_en": "Wong Tai Sin",
+    "district_tc": "黃大仙區",
+    "address_en": "18 Lok Sin Road, Wong Tai Sin ",
+    "address_tc": "黃大仙樂善道18號",
+    "no_of_courts": "2",
+    "opening_hours_en": "7 am to 11 pm daily",
+    "phone": "2383 9024 ",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.193611,
+     22.331111
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_42",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Central Kwai Chung Park",
+    "venue_name_tc": "中葵涌公園",
+    "district_en": "Kwai Tsing",
+    "district_tc": "葵青區",
+    "address_en": "San Kwai Street, Kwai Chung",
+    "address_tc": "葵涌新葵街",
+    "no_of_courts": "2",
+    "opening_hours_en": "7 A.M. to 11 P.M. daily",
+    "phone": "2619 9200",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.133056,
+     22.357222
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_43",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Kwai Yi Road Playground",
+    "venue_name_tc": "葵義路遊樂場",
+    "district_en": "Kwai Tsing",
+    "district_tc": "葵青區",
+    "address_en": "Kwai Yi Road, Kwai Chung, New Territories",
+    "address_tc": "新界葵涌葵義路",
+    "no_of_courts": "2",
+    "opening_hours_en": "7 A.M. to 11 P.M. daily",
+    "phone": "2619 9200",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.128056,
+     22.355278
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_44",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Lai King Hill Road Playground",
+    "venue_name_tc": "荔景山路遊樂場",
+    "district_en": "Kwai Tsing",
+    "district_tc": "葵青區",
+    "address_en": "Lai King Hill Road, Kwai Chung, New Territories",
+    "address_tc": "新界葵涌荔景山路",
+    "no_of_courts": "1",
+    "opening_hours_en": "7 A.M. to 11 P.M. daily",
+    "phone": "2619 9200",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1275,
+     22.345556
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_45",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Shek Pai Street Park",
+    "venue_name_tc": "石排街公園",
+    "district_en": "Kwai Tsing",
+    "district_tc": "葵青區",
+    "address_en": "Shek Pai Street, Kwai Chung, New Territories",
+    "address_tc": "新界葵涌石排街",
+    "no_of_courts": "2",
+    "opening_hours_en": "(The volleyball courts in Shek Pai Street Park are temporarily closed until further notice)<br /><br />7 A.M. to 11 P.M. daily",
+    "phone": "2619 9200",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.137222,
+     22.363611
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_46",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Tai Lin Pai Road Playground",
+    "venue_name_tc": "大連排道遊樂場",
+    "district_en": "Kwai Tsing",
+    "district_tc": "葵青區",
+    "address_en": "Tai Lin Pai Road, Kwai Chung, New Territories",
+    "address_tc": "新界葵涌大連排道",
+    "no_of_courts": "1",
+    "opening_hours_en": "7 A.M. to 11 P.M. daily",
+    "phone": "2619 9200",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.133611,
+     22.362222
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_47",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Man Tung Road Park",
+    "venue_name_tc": "文東路公園",
+    "district_en": "Islands",
+    "district_tc": "離島區",
+    "address_en": "55 Man Tung Raod, Tung Chung, Lantau Island",
+    "address_tc": "新界大嶼山東涌文東路55號",
+    "no_of_courts": "2",
+    "opening_hours_en": "7 am to 11 pm daily",
+    "phone": "2109 2546 / 2852 4845",
+    "remarks_en": "1 7-a-side artificial turf soccer pitch, children play equipment, pebble walking trail and Leisure Link Self-Service Kiosk",
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     113.940833,
+     22.292222
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_48",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Peng Chau Waterfront Playground",
+    "venue_name_tc": "坪洲海濱遊樂場",
+    "district_en": "Islands",
+    "district_tc": "離島區",
+    "address_en": "Peng Chau Lo Peng Street",
+    "address_tc": "坪洲露坪街",
+    "no_of_courts": "2",
+    "opening_hours_en": "8 am to 11 pm daily",
+    "phone": "2852 4845",
+    "remarks_en": "Roller skating rink, children play equipment, pebble walking trail, elderly fitness equipment and chess tables",
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.037222,
+     22.285278
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_49",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Pui O Playground, Lantau",
+    "venue_name_tc": "大嶼山貝澳遊樂場",
+    "district_en": "Islands",
+    "district_tc": "離島區",
+    "address_en": "Chi Ma Wan Road, Pui O, Lantau Island",
+    "address_tc": "大嶼山貝澳芝麻灣路",
+    "no_of_courts": "1",
+    "opening_hours_en": "7 am to 11 pm daily",
+    "phone": "2852 4845",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     113.9775,
+     22.241111
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_50",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Moreton Terrace Temporary Playground",
+    "venue_name_tc": "摩頓臺臨時遊樂場",
+    "district_en": "Wan Chai",
+    "district_tc": "灣仔區",
+    "address_en": "Moreton Terrace, Causeway Bay",
+    "address_tc": "銅鑼灣摩頓臺",
+    "no_of_courts": "2",
+    "opening_hours_en": "7am – 11pm",
+    "phone": "2879 5602  /  2890 5127",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.19,
+     22.279444
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_51",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Sam Ka Tsuen Recreation Ground",
+    "venue_name_tc": "三家村遊樂場",
+    "district_en": "Kwun Tong",
+    "district_tc": "觀塘區",
+    "address_en": "Junction of Cha Kwo Ling Road & <br>Sze Shan Street, <br>Sam Ka Tsuen, Kowloon",
+    "address_tc": "九龍觀塘三家村茶果嶺道四山街交界",
+    "no_of_courts": "2",
+    "opening_hours_en": "7 am to 11 pm (1 hour per session)",
+    "phone": "2341 4755",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.237222,
+     22.294167
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_52",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "North Point Vehicular Ferry Pier Playground",
+    "venue_name_tc": "北角汽車渡海輪碼頭遊樂場",
+    "district_en": "Eastern",
+    "district_tc": "東區",
+    "address_en": "Java Road, North Point",
+    "address_tc": "北角渣華道",
+    "no_of_courts": "1",
+    "opening_hours_en": "7 am - 11 pm daily",
+    "phone": "2562 2137",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.203889,
+     22.293333
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_53",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Tsing Yi Northeast Park",
+    "venue_name_tc": "青衣東北公園",
+    "district_en": "Kwai Tsing",
+    "district_tc": "葵青區",
+    "address_en": "10 Tam Kon Shan Road, Tsing Yi",
+    "address_tc": "青衣担桿山路10號",
+    "no_of_courts": "2 Basketball cum Volleyball Courts",
+    "opening_hours_en": "7:00 am to 11:00 pm daily",
+    "phone": "2436 3422",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.098889,
+     22.362222
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_54",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Tin Sau Road Park",
+    "venue_name_tc": "天秀路公園",
+    "district_en": "Yuen Long",
+    "district_tc": "元朗區",
+    "address_en": "Tin Sau Road, Tin Shui Wai, Yuen Long",
+    "address_tc": "天水圍天秀路",
+    "no_of_courts": "1",
+    "opening_hours_en": "7 am to 11 pm",
+    "phone": "2478 4342",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.001667,
+     22.466111
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_55",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Kwun Tong Recreation Ground",
+    "venue_name_tc": "觀塘遊樂場",
+    "district_en": "Kwun Tong",
+    "district_tc": "觀塘區",
+    "address_en": "No.6, Tsui Ping Road, Kwun Tong",
+    "address_tc": "觀塘翠屏道6號",
+    "no_of_courts": "1",
+    "opening_hours_en": "7 am to 11 pm (1 hour per session)",
+    "phone": "2253 1559",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.230556,
+     22.311389
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_56",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Victoria Park",
+    "venue_name_tc": "維多利亞公園",
+    "district_en": "Wan Chai",
+    "district_tc": "灣仔區",
+    "address_en": "1 Hing Fat Street, Causeway Bay, Hong Kong",
+    "address_tc": "香港銅鑼灣興發街一號",
+    "no_of_courts": "2",
+    "opening_hours_en": "7am – 11pm daily",
+    "phone": "2890 5824",
+    "remarks_en": " Multi-purpose ball court (1 no. of handball court cum 2 nos. of volleyball courts)",
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.188333,
+     22.2825
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_57",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "To Kwa Wan Complex Playground",
+    "venue_name_tc": "土瓜灣市政大廈遊樂場",
+    "district_en": "Kowloon City",
+    "district_tc": "九龍城區",
+    "address_en": "165 Ma Tau Wai Road, To Kwa Wan",
+    "address_tc": "土瓜灣馬頭圍道165號",
+    "no_of_courts": "1",
+    "opening_hours_en": "7am-11pm daily",
+    "phone": "2333 0516",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.187778,
+     22.3175
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383751618_95284_58",
+    "court_type": "Volleyball Courts (Free Outdoor Pitches/Courts)",
+    "venue_name_en": "Ma Wo Road Garden",
+    "venue_name_tc": "馬窩路花園",
+    "district_en": "Tai Po",
+    "district_tc": "大埔區",
+    "address_en": "2 Ma Wo Road, Tai Po, N.T.",
+    "address_tc": "大埔馬窩路2號",
+    "no_of_courts": "2",
+    "opening_hours_en": "7 am to 11 pm",
+    "phone": "3183 9050",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383751618_95284",
+    "dataset_title": "Volleyball Courts (Free Outdoor Pitches/Courts)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.165,
+     22.441944
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383539632_8620_1",
+    "court_type": "Beach Volleyball Courts",
+    "venue_name_en": "Choi Hung Road Playground",
+    "venue_name_tc": "彩虹道遊樂場",
+    "district_en": "Wong Tai Sin",
+    "district_tc": "黃大仙區",
+    "address_en": "150 Choi Hung Road, San Po Kong",
+    "address_tc": "新蒲崗彩虹道150號",
+    "no_of_courts": "1",
+    "opening_hours_en": "7 am to 11 pm daily",
+    "phone": "2326 2517",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383539632_8620",
+    "dataset_title": "Beach Volleyball Courts"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.195833,
+     22.337222
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383539632_8620_2",
+    "court_type": "Beach Volleyball Courts",
+    "venue_name_en": "Kwai Chung Sports Ground<br>Beach Volleyball Court cum Handball Court",
+    "venue_name_tc": "葵涌運動場<br>沙灘排球場兼手球場",
+    "district_en": "Kwai Tsing",
+    "district_tc": "葵青區",
+    "address_en": "93 Hing Shing Road, Kwai Chung, N.T.",
+    "address_tc": "新界葵涌興盛路93號",
+    "no_of_courts": "1 (Beach Volleyball Court cum Handball Court)",
+    "opening_hours_en": "Every Monday to Sunday <br>8am to 10pm<br>(Closed for Maintenance on Every Tuesday from 8am to 5pm)",
+    "phone": "2429 8039",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383539632_8620",
+    "dataset_title": "Beach Volleyball Courts"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.125278,
+     22.358333
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383539632_8620_3",
+    "court_type": "Beach Volleyball Courts",
+    "venue_name_en": "Repulse Bay Beach",
+    "venue_name_tc": "淺水灣泳灘",
+    "district_en": "Southern",
+    "district_tc": "南區",
+    "address_en": "Beach Road, Repulse Bay",
+    "address_tc": "淺水灣海灘道",
+    "no_of_courts": "1",
+    "opening_hours_en": "November to March :  8am to 5pm daily<br>April to October :    9am to 6pm daily",
+    "phone": "2812 2483",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383539632_8620",
+    "dataset_title": "Beach Volleyball Courts"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.196111,
+     22.236944
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383539632_8620_4",
+    "court_type": "Beach Volleyball Courts",
+    "venue_name_en": "Silver Mine Bay Beach",
+    "venue_name_tc": "銀礦灣泳灘",
+    "district_en": "Islands",
+    "district_tc": "離島區",
+    "address_en": "Tung Wan Tau Road, Mui Wo, Lantau Island",
+    "address_tc": "大嶼山，梅窩東灣頭路",
+    "no_of_courts": "1",
+    "opening_hours_en": "9am to 6pm daily",
+    "phone": "2984 8229",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383539632_8620",
+    "dataset_title": "Beach Volleyball Courts"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     113.998889,
+     22.27
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383539632_8620_5",
+    "court_type": "Beach Volleyball Courts",
+    "venue_name_en": "Cafeteria New Beach",
+    "venue_name_tc": "新咖啡灣泳灘",
+    "district_en": "Tuen Mun",
+    "district_tc": "屯門區",
+    "address_en": "18 1/2 milestone, Castle Peak Road",
+    "address_tc": "青山公路 18咪半",
+    "no_of_courts": "1",
+    "opening_hours_en": "9am to 6pm daily (except every Wednesday from 9 am to 12nn)",
+    "phone": "2450 6440",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383539632_8620",
+    "dataset_title": "Beach Volleyball Courts"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     113.986944,
+     22.373611
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383539632_8620_6",
+    "court_type": "Beach Volleyball Courts",
+    "venue_name_en": "Lido Beach",
+    "venue_name_tc": "麗都灣泳灘",
+    "district_en": "Tsuen Wan",
+    "district_tc": "荃灣區",
+    "address_en": "11 1/2 milestone, Castle Peak Road - Ting Kau",
+    "address_tc": "青山公路汀九段11咪半",
+    "no_of_courts": "2",
+    "opening_hours_en": "<table border=\"0\"><tr><td width=\"80\" valign=\"top\">Court No.1 </td><td>(April to May, Monday to Saturday, except Public Holidays)</td><tr><tr><td></td><td >(June to October, Monday to Friday, except Public Holidays)</td></tr><tr><td></td><td >(November to March, all days)</td></tr><tr><td>Court No.2</td><td>(November to March, all days)</td></tr><tr><td colspan=\"2\">9am to 6pm daily</td></tr></table>",
+    "phone": "2491 1209",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383539632_8620",
+    "dataset_title": "Beach Volleyball Courts"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.076111,
+     22.367778
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "court_id": "lcsd_rcd_1670383539632_8620_7",
+    "court_type": "Beach Volleyball Courts",
+    "venue_name_en": "Tin Yip Road Artificial Sand Court",
+    "venue_name_tc": "天業路人造沙灘球場",
+    "district_en": "Yuen Long",
+    "district_tc": "元朗區",
+    "address_en": "Tin Yip Road, Tin Shui Wai",
+    "address_tc": "新界天水圍天業路",
+    "no_of_courts": "1 (Beach Volleyball Court or Beach Handball Court)",
+    "opening_hours_en": "Beach Volleyball Court or Beach Handball Court<br>8am to 10pm daily<br>(Closed for Maintenance on Every Wednesday from 8am to 5pm)",
+    "phone": "2682 3197 ",
+    "remarks_en": null,
+    "booking_fee_hkd": 0,
+    "fee_note": "free outdoor hard-surface court; first-come first-served; no hire charge",
+    "live_vacancy_available": "n/a",
+    "usage_pct": null,
+    "dataset_id": "lcsd_rcd_1670383539632_8620",
+    "dataset_title": "Beach Volleyball Courts"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.006389,
+     22.464444
+    ]
+   }
+  }
+ ]
+}

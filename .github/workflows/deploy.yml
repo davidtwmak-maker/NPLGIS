@@ -1,0 +1,107 @@
+name: Deploy NPL GIS site to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v6
+      - name: Verify data files are intact
+        run: |
+          set -euo pipefail
+          echo "Checking gzipped layers can be decompressed..."
+          fail=0
+          for f in assets/data/**/*.gz assets/data/*.gz; do
+            [ -e "$f" ] || continue
+            if gzip -t "$f"; then
+              printf '  ok   %s (%s)\n' "$f" "$(du -h "$f" | cut -f1)"
+            else
+              printf '  FAIL %s\n' "$f"
+              fail=1
+            fi
+          done
+          [ "$fail" -eq 0 ] || { echo "::error::a .gz file is corrupt"; exit 1; }
+
+      - name: Verify the 3D scene's GeoJSON is present and parseable
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, pathlib, sys
+          data = pathlib.Path("apps/festival-walk-3d/data")
+          files = sorted(data.glob("*.geojson"))
+          if not files:
+              sys.exit("::error::no GeoJSON found for the 3D scene")
+          total = 0
+          for f in files:
+              d = json.loads(f.read_text())
+              n = len(d.get("features", []))
+              total += n
+              print(f"  ok   {f.name}: {n} features")
+          print(f"  total {total} features across {len(files)} layers")
+          PY
+
+      - name: Verify every map referenced by the landing page exists
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import pathlib, re, sys
+          html = pathlib.Path("index.html").read_text()
+          refs = set(re.findall(r'(?:src|href)="\./([^"#]+)"', html))
+          missing = []
+          for r in sorted(refs):
+              if r.startswith("http"):
+                  continue
+              p = pathlib.Path(r)
+              if not p.exists():
+                  missing.append(r)
+          for m in missing:
+              print(f"  MISSING {m}")
+          if missing:
+              sys.exit(f"::error::{len(missing)} referenced file(s) missing")
+          print(f"  ok   all {len([r for r in refs if not r.startswith('http')])} local references resolve")
+          PY
+
+      - name: Check no file exceeds the GitHub push limit
+        run: |
+          set -euo pipefail
+          big=$(find . -path ./.git -prune -o -type f -size +95M -print)
+          if [ -n "$big" ]; then
+            echo "::error::these files exceed 95 MB and would be rejected by GitHub:"
+            echo "$big"
+            exit 1
+          fi
+          echo "  ok   no file over 95 MB"
+
+      - name: Stage the site
+        run: |
+          set -euo pipefail
+          mkdir -p _site
+          cp index.html favicon.png LICENSE.txt README.md _site/
+          cp -R assets apps _site/
+          echo "staged $(du -sh _site | cut -f1)"
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,2106 @@
+{
+ "type": "FeatureCollection",
+ "name": "usage_by_venue",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vaberdeen_sports_centre",
+    "venue_name_en": "Aberdeen Sports Centre",
+    "district_en": "Southern",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 86.0,
+    "usage_pct_2021": 96.0,
+    "usage_pct_2022": 94.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.154358,
+     22.2495647
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vap_lei_chau_sports_centre",
+    "venue_name_en": "Ap Lei Chau Sports Centre",
+    "district_en": "Southern",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 86.0,
+    "usage_pct_2021": 96.0,
+    "usage_pct_2022": 94.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1554162,
+     22.2444805
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vboundary_street_sports_centr",
+    "venue_name_en": "Boundary Street Sports Centre",
+    "district_en": "Yau Tsim Mong",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 94.0,
+    "usage_pct_2021": 96.0,
+    "usage_pct_2022": 97.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.17053,
+     22.32611
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vchai_wan_sports_centre",
+    "venue_name_en": "Chai Wan Sports Centre",
+    "district_en": "Eastern",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 88.0,
+    "usage_pct_2021": 96.0,
+    "usage_pct_2022": 96.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.2399095,
+     22.2648519
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vche_kung_temple_sports_centr",
+    "venue_name_en": "Che Kung Temple Sports Centre",
+    "district_en": "Sha Tin",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 94.0,
+    "usage_pct_2021": null,
+    "usage_pct_2022": 99.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1859786,
+     22.372535
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vcheung_chau_sports_centre_ad",
+    "venue_name_en": "Cheung Chau Sports Centre (Adjacent to St. John Hospital)",
+    "district_en": "Islands",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 40.0,
+    "usage_pct_2021": null,
+    "usage_pct_2022": 74.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.0311775,
+     22.2075083
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vcheung_fat_sports_centre",
+    "venue_name_en": "Cheung Fat Sports Centre",
+    "district_en": "Kwai Tsing",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 76.0,
+    "usage_pct_2021": 97.0,
+    "usage_pct_2022": 95.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1028145,
+     22.3623514
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vcheung_sha_wan_sports_centre",
+    "venue_name_en": "Cheung Sha Wan Sports Centre",
+    "district_en": "Sham Shui Po",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 91.0,
+    "usage_pct_2021": 99.0,
+    "usage_pct_2022": 98.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.15347,
+     22.33797
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vchoi_hung_road_sports_centre",
+    "venue_name_en": "Choi Hung Road Sports Centre",
+    "district_en": "Wong Tai Sin",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 89.0,
+    "usage_pct_2021": 99.0,
+    "usage_pct_2022": 97.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1964538,
+     22.337126
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vchoi_wing_road_sports_centre",
+    "venue_name_en": "Choi Wing Road Sports Centre",
+    "district_en": "Kwun Tong",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": null,
+    "usage_pct_2021": 92.0,
+    "usage_pct_2022": 97.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.216519,
+     22.3293498
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vchuk_yuen_sports_centre",
+    "venue_name_en": "Chuk Yuen Sports Centre",
+    "district_en": "Wong Tai Sin",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 82.0,
+    "usage_pct_2021": 94.0,
+    "usage_pct_2022": 97.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1935135,
+     22.3455247
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vchun_wah_road_sports_centre",
+    "venue_name_en": "Chun Wah Road Sports Centre",
+    "district_en": "Kwun Tong",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 85.0,
+    "usage_pct_2021": 94.0,
+    "usage_pct_2022": 94.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.2205134,
+     22.3224736
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vfa_yuen_street_sports_centre",
+    "venue_name_en": "Fa Yuen Street Sports Centre",
+    "district_en": "Yau Tsim Mong",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 94.0,
+    "usage_pct_2021": 97.0,
+    "usage_pct_2022": 99.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1707013,
+     22.3207817
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vfat_kwong_street_sports_cent",
+    "venue_name_en": "Fat Kwong Street Sports Centre",
+    "district_en": "Kowloon City",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 77.0,
+    "usage_pct_2021": 80.0,
+    "usage_pct_2022": 93.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.181106,
+     22.3148306
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vfu_heng_sports_centre",
+    "venue_name_en": "Fu Heng Sports Centre",
+    "district_en": "Tai Po",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 84.0,
+    "usage_pct_2021": 94.0,
+    "usage_pct_2022": 94.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1713559,
+     22.4582894
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vfu_shin_sports_centre_non_ai",
+    "venue_name_en": "Fu Shin Sports Centre (Non-air-conditioned in Arena)",
+    "district_en": "Tai Po",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 80.0,
+    "usage_pct_2021": 92.0,
+    "usage_pct_2022": 92.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1741152,
+     22.4538826
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vfung_kam_street_sports_centr",
+    "venue_name_en": "Fung Kam Street Sports Centre",
+    "district_en": "Yuen Long",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 89.0,
+    "usage_pct_2021": null,
+    "usage_pct_2022": 97.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.0330312,
+     22.4430633
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vfung_shue_wo_sports_centre",
+    "venue_name_en": "Fung Shue Wo Sports Centre",
+    "district_en": "Kwai Tsing",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 74.0,
+    "usage_pct_2021": null,
+    "usage_pct_2022": 93.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1027114,
+     22.3555145
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vhang_hau_sports_centre",
+    "venue_name_en": "Hang Hau Sports Centre",
+    "district_en": "Sai Kung",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 90.0,
+    "usage_pct_2021": 94.0,
+    "usage_pct_2022": 96.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.2682352,
+     22.3171736
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vharbour_road_sports_centre",
+    "venue_name_en": "Harbour Road Sports Centre",
+    "district_en": "Wan Chai",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 86.0,
+    "usage_pct_2021": 97.0,
+    "usage_pct_2022": 98.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.176787,
+     22.2812186
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vheng_on_sports_centre_non_ai",
+    "venue_name_en": "Heng On Sports Centre (Non-air-conditioned in Arena)",
+    "district_en": "Sha Tin",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 87.0,
+    "usage_pct_2021": 91.0,
+    "usage_pct_2022": 97.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.22751,
+     22.41704
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vhin_keng_sports_centre_non_a",
+    "venue_name_en": "Hin Keng Sports Centre (Non-air-conditioned in Arena)",
+    "district_en": "Sha Tin",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 90.0,
+    "usage_pct_2021": 98.0,
+    "usage_pct_2022": 98.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1713403,
+     22.3630718
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vhiu_kwong_street_sports_cent",
+    "venue_name_en": "Hiu Kwong Street Sports Centre",
+    "district_en": "Kwun Tong",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 86.0,
+    "usage_pct_2021": 96.0,
+    "usage_pct_2022": 87.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.227695,
+     22.3197985
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vhong_kong_park_sports_centre",
+    "venue_name_en": "Hong Kong Park Sports Centre",
+    "district_en": "Central & Western",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 92.0,
+    "usage_pct_2021": null,
+    "usage_pct_2022": 98.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1592924,
+     22.2773436
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vhong_kong_velodrome",
+    "venue_name_en": "Hong Kong Velodrome",
+    "district_en": "Sai Kung",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 78.0,
+    "usage_pct_2021": 92.0,
+    "usage_pct_2022": 89.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.26252,
+     22.31314
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vhung_hom_municipal_services_",
+    "venue_name_en": "Hung Hom Municipal Services Building Sports Centre",
+    "district_en": "Kowloon City",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 96.0,
+    "usage_pct_2021": 94.0,
+    "usage_pct_2022": 99.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1873559,
+     22.3072717
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Visland_east_sports_centre",
+    "venue_name_en": "Island East Sports Centre",
+    "district_en": "Eastern",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 96.0,
+    "usage_pct_2021": null,
+    "usage_pct_2022": 98.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.2222871,
+     22.2847252
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vjc_tuen_mun_butterfly_beach_",
+    "venue_name_en": "JC Tuen Mun Butterfly Beach Sports Centre",
+    "district_en": "Tuen Mun",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 83.0,
+    "usage_pct_2021": null,
+    "usage_pct_2022": 92.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     113.9646999,
+     22.3786912
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vjava_road_sports_centre",
+    "venue_name_en": "Java Road Sports Centre",
+    "district_en": "Eastern",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 96.0,
+    "usage_pct_2021": 95.0,
+    "usage_pct_2022": 96.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1993976,
+     22.2922525
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vkai_tak_east_sports_centre",
+    "venue_name_en": "Kai Tak East Sports Centre",
+    "district_en": "Wong Tai Sin",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 88.0,
+    "usage_pct_2021": 97.0,
+    "usage_pct_2022": 97.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.2005597,
+     22.3359514
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vkowloon_bay_sports_centre",
+    "venue_name_en": "Kowloon Bay Sports Centre",
+    "district_en": "Kwun Tong",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 90.0,
+    "usage_pct_2021": 96.0,
+    "usage_pct_2022": 96.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.2112353,
+     22.3268647
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vkowloon_city_sports_centre",
+    "venue_name_en": "Kowloon City Sports Centre",
+    "district_en": "Kowloon City",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 90.0,
+    "usage_pct_2021": 93.0,
+    "usage_pct_2022": 98.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1888912,
+     22.3296403
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vkowloon_park_sports_centre",
+    "venue_name_en": "Kowloon Park Sports Centre",
+    "district_en": "Yau Tsim Mong",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 96.0,
+    "usage_pct_2021": null,
+    "usage_pct_2022": 98.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1697511,
+     22.3017903
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vkwun_chung_sports_centre",
+    "venue_name_en": "Kwun Chung Sports Centre",
+    "district_en": "Yau Tsim Mong",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 96.0,
+    "usage_pct_2021": 99.0,
+    "usage_pct_2022": null,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1682564,
+     22.3044362
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vlai_chi_kok_park_sports_cent",
+    "venue_name_en": "Lai Chi Kok Park Sports Centre",
+    "district_en": "Sham Shui Po",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 93.0,
+    "usage_pct_2021": null,
+    "usage_pct_2022": 94.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1382096,
+     22.3406986
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vlai_king_sports_centre",
+    "venue_name_en": "Lai King Sports Centre",
+    "district_en": "Kwai Tsing",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 79.0,
+    "usage_pct_2021": 93.0,
+    "usage_pct_2022": 95.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1276738,
+     22.3498708
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vlam_tin_south_sports_centre",
+    "venue_name_en": "Lam Tin South Sports Centre",
+    "district_en": "Kwun Tong",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 84.0,
+    "usage_pct_2021": null,
+    "usage_pct_2022": 94.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.2388401,
+     22.3038646
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vlei_yue_mun_sports_centre",
+    "venue_name_en": "Lei Yue Mun Sports Centre",
+    "district_en": "Kwun Tong",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 83.0,
+    "usage_pct_2021": null,
+    "usage_pct_2022": 94.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.2386796,
+     22.2920617
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vleung_tin_sports_centre",
+    "venue_name_en": "Leung Tin Sports Centre",
+    "district_en": "Tuen Mun",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 85.0,
+    "usage_pct_2021": 98.0,
+    "usage_pct_2022": 93.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     113.9650848,
+     22.4066048
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vlockhart_road_sports_centre",
+    "venue_name_en": "Lockhart Road Sports Centre",
+    "district_en": "Wan Chai",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 94.0,
+    "usage_pct_2021": null,
+    "usage_pct_2022": 99.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1754311,
+     22.278119
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vlong_ping_sports_centre",
+    "venue_name_en": "Long Ping Sports Centre",
+    "district_en": "Yuen Long",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 81.0,
+    "usage_pct_2021": 97.0,
+    "usage_pct_2022": 94.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.0231921,
+     22.4502966
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vlung_sum_avenue_sports_centr",
+    "venue_name_en": "Lung Sum Avenue Sports Centre",
+    "district_en": "North",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 86.0,
+    "usage_pct_2021": 96.0,
+    "usage_pct_2022": 95.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1304474,
+     22.504979
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vma_on_shan_sports_centre",
+    "venue_name_en": "Ma On Shan Sports Centre",
+    "district_en": "Sha Tin",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 91.0,
+    "usage_pct_2021": 97.0,
+    "usage_pct_2022": 93.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.2295597,
+     22.426024
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vmei_lam_sports_centre",
+    "venue_name_en": "Mei Lam Sports Centre",
+    "district_en": "Sha Tin",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 90.0,
+    "usage_pct_2021": 97.0,
+    "usage_pct_2022": 90.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1754955,
+     22.3790831
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vmorse_park_sports_centre",
+    "venue_name_en": "Morse Park Sports Centre",
+    "district_en": "Wong Tai Sin",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 90.0,
+    "usage_pct_2021": 96.0,
+    "usage_pct_2022": 97.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1901248,
+     22.3383096
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vmui_wo_sports_centre",
+    "venue_name_en": "Mui Wo Sports Centre",
+    "district_en": "Islands",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 31.0,
+    "usage_pct_2021": 92.0,
+    "usage_pct_2022": 62.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     113.9964788,
+     22.2669856
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vngau_chi_wan_sports_centre",
+    "venue_name_en": "Ngau Chi Wan Sports Centre",
+    "district_en": "Wong Tai Sin",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 74.0,
+    "usage_pct_2021": 97.0,
+    "usage_pct_2022": 94.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.2096356,
+     22.3345501
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vngau_tau_kok_road_sports_cen",
+    "venue_name_en": "Ngau Tau Kok Road Sports Centre",
+    "district_en": "Kwun Tong",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 91.0,
+    "usage_pct_2021": 96.0,
+    "usage_pct_2022": null,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.2163782,
+     22.3214813
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vnorth_kwai_chung_tang_shiu_k",
+    "venue_name_en": "North Kwai Chung Tang Shiu Kin Sports Centre",
+    "district_en": "Kwai Tsing",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 62.0,
+    "usage_pct_2021": 82.0,
+    "usage_pct_2022": 92.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1375306,
+     22.373678
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vosman_ramju_sadick_memorial_",
+    "venue_name_en": "Osman Ramju Sadick Memorial Sports Centre",
+    "district_en": "Kwai Tsing",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 89.0,
+    "usage_pct_2021": 94.0,
+    "usage_pct_2022": null,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.12944,
+     22.361325
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vpei_ho_street_sports_centre",
+    "venue_name_en": "Pei Ho Street Sports Centre",
+    "district_en": "Sham Shui Po",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 92.0,
+    "usage_pct_2021": 98.0,
+    "usage_pct_2022": 98.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1611302,
+     22.3292427
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vpeng_chau_sports_centre",
+    "venue_name_en": "Peng Chau Sports Centre",
+    "district_en": "Islands",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 27.0,
+    "usage_pct_2021": 64.0,
+    "usage_pct_2022": 57.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.038055,
+     22.284889
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vping_shan_tin_shui_wai_sport",
+    "venue_name_en": "Ping Shan Tin Shui Wai Sports Centre",
+    "district_en": "Yuen Long",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 75.0,
+    "usage_pct_2021": 96.0,
+    "usage_pct_2022": 96.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.0046536,
+     22.4473927
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vpo_kong_village_road_sports_",
+    "venue_name_en": "Po Kong Village Road Sports Centre",
+    "district_en": "Wong Tai Sin",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 86.0,
+    "usage_pct_2021": null,
+    "usage_pct_2022": 97.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.2015904,
+     22.3454605
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vpo_lam_sports_centre_non_air",
+    "venue_name_en": "Po Lam Sports Centre (Non-air-conditioned in Arena)",
+    "district_en": "Sai Kung",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 84.0,
+    "usage_pct_2021": 97.0,
+    "usage_pct_2022": 92.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.2551081,
+     22.3258561
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vpo_on_road_sports_centre",
+    "venue_name_en": "Po On Road Sports Centre",
+    "district_en": "Sham Shui Po",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 90.0,
+    "usage_pct_2021": null,
+    "usage_pct_2022": 97.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1579619,
+     22.3383564
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vpo_wing_road_sports_centre",
+    "venue_name_en": "Po Wing Road Sports Centre",
+    "district_en": "North",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 88.0,
+    "usage_pct_2021": 95.0,
+    "usage_pct_2022": 95.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.12834,
+     22.49698
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vquarry_bay_sports_centre",
+    "venue_name_en": "Quarry Bay Sports Centre",
+    "district_en": "Eastern",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 95.0,
+    "usage_pct_2021": 99.0,
+    "usage_pct_2022": 98.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.21179,
+     22.28369
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vsham_shui_po_sports_centre",
+    "venue_name_en": "Sham Shui Po Sports Centre",
+    "district_en": "Sham Shui Po",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": null,
+    "usage_pct_2021": null,
+    "usage_pct_2022": 96.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1490436,
+     22.3301691
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vshek_kip_mei_park_sports_cen",
+    "venue_name_en": "Shek Kip Mei Park Sports Centre",
+    "district_en": "Sham Shui Po",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 88.0,
+    "usage_pct_2021": 98.0,
+    "usage_pct_2022": 96.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.16996,
+     22.33729
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vshek_tong_tsui_sports_centre",
+    "venue_name_en": "Shek Tong Tsui Sports Centre",
+    "district_en": "Central & Western",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 91.0,
+    "usage_pct_2021": null,
+    "usage_pct_2022": null,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1362025,
+     22.2857549
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vsheung_wan_sports_centre",
+    "venue_name_en": "Sheung Wan Sports Centre",
+    "district_en": "Central & Western",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 91.0,
+    "usage_pct_2021": 98.0,
+    "usage_pct_2022": 98.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1496265,
+     22.2860026
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vshui_wo_street_sports_centre",
+    "venue_name_en": "Shui Wo Street Sports Centre",
+    "district_en": "Kwun Tong",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 86.0,
+    "usage_pct_2021": 94.0,
+    "usage_pct_2022": 95.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.224277,
+     22.3156635
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vshun_lee_tsuen_sports_centre",
+    "venue_name_en": "Shun Lee Tsuen Sports Centre",
+    "district_en": "Kwun Tong",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 81.0,
+    "usage_pct_2021": null,
+    "usage_pct_2022": 95.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.22544,
+     22.32969
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vsiu_lun_sports_centre",
+    "venue_name_en": "Siu Lun Sports Centre",
+    "district_en": "Tuen Mun",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 80.0,
+    "usage_pct_2021": 94.0,
+    "usage_pct_2022": 94.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     113.9792,
+     22.38425
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vsiu_sai_wan_sports_centre",
+    "venue_name_en": "Siu Sai Wan Sports Centre",
+    "district_en": "Eastern",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 85.0,
+    "usage_pct_2021": 98.0,
+    "usage_pct_2022": 96.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.2495529,
+     22.2635746
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vsmithfield_sports_centre",
+    "venue_name_en": "Smithfield Sports Centre",
+    "district_en": "Central & Western",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 89.0,
+    "usage_pct_2021": null,
+    "usage_pct_2022": 98.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.12866,
+     22.28179
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vstanley_sports_centre",
+    "venue_name_en": "Stanley Sports Centre",
+    "district_en": "Southern",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 72.0,
+    "usage_pct_2021": 96.0,
+    "usage_pct_2022": 85.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.212208,
+     22.219156
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vsun_yat_sen_memorial_park_sp",
+    "venue_name_en": "Sun Yat Sen Memorial Park Sports Centre",
+    "district_en": "Central & Western",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 84.0,
+    "usage_pct_2021": null,
+    "usage_pct_2022": 92.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1434928,
+     22.2901736
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vtai_hing_sports_centre",
+    "venue_name_en": "Tai Hing Sports Centre",
+    "district_en": "Tuen Mun",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 87.0,
+    "usage_pct_2021": 95.0,
+    "usage_pct_2022": 95.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     113.9731896,
+     22.4031656
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vtai_kok_tsui_sports_centre",
+    "venue_name_en": "Tai Kok Tsui Sports Centre",
+    "district_en": "Yau Tsim Mong",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 89.0,
+    "usage_pct_2021": 99.0,
+    "usage_pct_2022": 96.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1627907,
+     22.3218829
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vtai_po_hui_sports_centre",
+    "venue_name_en": "Tai Po Hui Sports Centre",
+    "district_en": "Tai Po",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 82.0,
+    "usage_pct_2021": 95.0,
+    "usage_pct_2022": 92.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1665768,
+     22.4461251
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vtai_po_sports_centre",
+    "venue_name_en": "Tai Po Sports Centre",
+    "district_en": "Tai Po",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 91.0,
+    "usage_pct_2021": 94.0,
+    "usage_pct_2022": 94.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1648953,
+     22.4553361
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vtai_wo_hau_sports_centre",
+    "venue_name_en": "Tai Wo Hau Sports Centre",
+    "district_en": "Kwai Tsing",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 83.0,
+    "usage_pct_2021": 91.0,
+    "usage_pct_2022": 96.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1249189,
+     22.3701165
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vtai_wo_sports_centre",
+    "venue_name_en": "Tai Wo Sports Centre",
+    "district_en": "Tai Po",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 90.0,
+    "usage_pct_2021": 90.0,
+    "usage_pct_2022": null,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1605822,
+     22.4510011
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vtin_fai_road_sports_centre",
+    "venue_name_en": "Tin Fai Road Sports Centre",
+    "district_en": "Yuen Long",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 88.0,
+    "usage_pct_2021": 95.0,
+    "usage_pct_2022": 96.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     113.99702,
+     22.4648
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vtin_ping_sports_centre_non_a",
+    "venue_name_en": "Tin Ping Sports Centre (Non-air-conditioned in Arena)",
+    "district_en": "North",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 77.0,
+    "usage_pct_2021": null,
+    "usage_pct_2022": 90.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1336454,
+     22.5033183
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vtin_shui_sports_centre",
+    "venue_name_en": "Tin Shui Sports Centre",
+    "district_en": "Yuen Long",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 77.0,
+    "usage_pct_2021": 97.0,
+    "usage_pct_2022": null,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     113.9979759,
+     22.4547678
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vtin_shui_wai_sports_centre",
+    "venue_name_en": "Tin Shui Wai Sports Centre",
+    "district_en": "Yuen Long",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 82.0,
+    "usage_pct_2021": null,
+    "usage_pct_2022": 98.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.0065445,
+     22.4550119
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vtiu_keng_leng_sports_centre",
+    "venue_name_en": "Tiu Keng Leng Sports Centre",
+    "district_en": "Sai Kung",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 90.0,
+    "usage_pct_2021": 88.0,
+    "usage_pct_2022": 97.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.2546313,
+     22.3062997
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vto_kwa_wan_sports_centre",
+    "venue_name_en": "To Kwa Wan Sports Centre",
+    "district_en": "Kowloon City",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 91.0,
+    "usage_pct_2021": 99.0,
+    "usage_pct_2022": null,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.190123,
+     22.3188487
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vtseung_kwan_o_sports_centre",
+    "venue_name_en": "Tseung Kwan O Sports Centre",
+    "district_en": "Sai Kung",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 86.0,
+    "usage_pct_2021": 95.0,
+    "usage_pct_2022": 95.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.259528,
+     22.3174263
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vtsing_yi_southwest_sports_ce",
+    "venue_name_en": "Tsing Yi Southwest Sports Centre",
+    "district_en": "Kwai Tsing",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 81.0,
+    "usage_pct_2021": null,
+    "usage_pct_2022": 94.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1021103,
+     22.3514551
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vtsing_yi_sports_centre",
+    "venue_name_en": "Tsing Yi Sports Centre",
+    "district_en": "Kwai Tsing",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 85.0,
+    "usage_pct_2021": 96.0,
+    "usage_pct_2022": 95.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.10653,
+     22.35408
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vtsuen_king_circuit_sports_ce",
+    "venue_name_en": "Tsuen King Circuit Sports Centre",
+    "district_en": "Tsuen Wan",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 84.0,
+    "usage_pct_2021": 97.0,
+    "usage_pct_2022": 95.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1112445,
+     22.37767
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vtsuen_wan_sports_centre_adja",
+    "venue_name_en": "Tsuen Wan Sports Centre (adjacent to Tsuen Wan West Station)",
+    "district_en": "Tsuen Wan",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 88.0,
+    "usage_pct_2021": null,
+    "usage_pct_2022": 96.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.11264,
+     22.36596
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vtsuen_wan_west_sports_centre",
+    "venue_name_en": "Tsuen Wan West Sports Centre (adjacent to Belvedere Garden)",
+    "district_en": "Tsuen Wan",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 84.0,
+    "usage_pct_2021": 90.0,
+    "usage_pct_2022": 96.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1005091,
+     22.370477
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vtsui_lam_sports_centre",
+    "venue_name_en": "Tsui Lam Sports Centre",
+    "district_en": "Sai Kung",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 77.0,
+    "usage_pct_2021": 97.0,
+    "usage_pct_2022": 89.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.2495347,
+     22.3222284
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vtung_cheong_street_sports_ce",
+    "venue_name_en": "Tung Cheong Street Sports Centre",
+    "district_en": "Tai Po",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": null,
+    "usage_pct_2021": null,
+    "usage_pct_2022": null,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.17015,
+     22.44992
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vtung_chung_man_tung_road_spo",
+    "venue_name_en": "Tung Chung Man Tung Road Sports Centre",
+    "district_en": "Islands",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 83.0,
+    "usage_pct_2021": 57.0,
+    "usage_pct_2022": 93.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     113.9438309,
+     22.2905878
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vwai_tsuen_sports_centre",
+    "venue_name_en": "Wai Tsuen Sports Centre",
+    "district_en": "Tsuen Wan",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 89.0,
+    "usage_pct_2021": 96.0,
+    "usage_pct_2022": null,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1224907,
+     22.3723191
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vwo_hing_sports_centre",
+    "venue_name_en": "Wo Hing Sports Centre",
+    "district_en": "North",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 70.0,
+    "usage_pct_2021": 96.0,
+    "usage_pct_2022": 91.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1431354,
+     22.4847541
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vwong_chuk_hang_sports_centre",
+    "venue_name_en": "Wong Chuk Hang Sports Centre",
+    "district_en": "Southern",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 81.0,
+    "usage_pct_2021": 90.0,
+    "usage_pct_2022": 91.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1733916,
+     22.2497378
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vwong_nai_chung_sports_centre",
+    "venue_name_en": "Wong Nai Chung Sports Centre",
+    "district_en": "Wan Chai",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 84.0,
+    "usage_pct_2021": 97.0,
+    "usage_pct_2022": 95.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1857521,
+     22.2689458
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vyau_oi_sports_centre",
+    "venue_name_en": "Yau Oi Sports Centre",
+    "district_en": "Tuen Mun",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 83.0,
+    "usage_pct_2021": 96.0,
+    "usage_pct_2022": 93.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     113.9716883,
+     22.3853948
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vyeung_uk_road_sports_centre",
+    "venue_name_en": "Yeung Uk Road Sports Centre",
+    "district_en": "Tsuen Wan",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 92.0,
+    "usage_pct_2021": 96.0,
+    "usage_pct_2022": 97.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1145206,
+     22.368993
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vyue_kwong_road_sports_centre",
+    "venue_name_en": "Yue Kwong Road Sports Centre",
+    "district_en": "Southern",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 81.0,
+    "usage_pct_2021": 87.0,
+    "usage_pct_2022": 91.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1570062,
+     22.2505132
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vyuen_chau_kok_sports_centre",
+    "venue_name_en": "Yuen Chau Kok Sports Centre",
+    "district_en": "Sha Tin",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 95.0,
+    "usage_pct_2021": 97.0,
+    "usage_pct_2022": 98.0,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.2045289,
+     22.3797399
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vyuen_long_sports_centre",
+    "venue_name_en": "Yuen Long Sports Centre",
+    "district_en": "Yuen Long",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 86.0,
+    "usage_pct_2021": null,
+    "usage_pct_2022": null,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.0238643,
+     22.4414664
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "venue_id": "Vyuen_wo_road_sports_centre",
+    "venue_name_en": "Yuen Wo Road Sports Centre",
+    "district_en": "Sha Tin",
+    "usage_facility_type": "Arena",
+    "usage_pct_2020": 93.0,
+    "usage_pct_2021": 97.0,
+    "usage_pct_2022": null,
+    "usage_unit": "per cent of available hours booked",
+    "source": "LCSD Usage of Recreational and Sports Facilities by Venue (annual)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.1925663,
+     22.3829383
+    ]
+   }
+  }
+ ]
+}

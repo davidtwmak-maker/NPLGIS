@@ -1,0 +1,20 @@
+# OS noise
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Working artefacts that should never be committed
+raw/
+lidar_dtm/
+tiles_ib20000/
+*.log
+build.log
+kc.log
+
+# Editor
+.vscode/
+.idea/

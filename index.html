@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="NPL GIS Team — Hong Kong geospatial projects: 3D pedestrian network, Festival Walk floor exits, volleyball courts, historical maps." />
+    <title>NPL GIS Team</title>
+    <link rel="icon" type="image/png" href="./favicon.png" />
+    <link rel="stylesheet" href="./assets/style.css" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <a class="brand" href="./">NPL <span>GIS</span></a>
+      <nav>
+        <a href="./apps/festival-walk-3d/">3D Map</a>
+        <a href="./#projects">Projects</a>
+        <a href="./#maps">Maps</a>
+        <a href="./#data">Data</a>
+        <a href="https://github.com/smonss1/nplgis" rel="noopener">GitHub</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h1>Hong Kong, in layers.</h1>
+        <p class="lede">
+          Every map here is built from official open data — the CSDI portal, Lands Department,
+          LCSD and MTR opendata. The flagship is a 3D view of the pedestrian network that
+          shows <em>which floor you are actually on</em>.
+        </p>
+        <p class="hero-actions">
+          <a class="btn btn-primary" href="./apps/festival-walk-3d/">Open the 3D map</a>
+          <a class="btn" href="https://github.com/smonss1/nplgis">Browse the repository</a>
+        </p>
+        <p class="note">
+          The 3D map needs WebGL3 and a moment to load. If an error appears, enable hardware
+          acceleration or try a different browser.
+        </p>
+      </section>
+
+      <section id="projects">
+        <h2>Projects</h2>
+        <div class="cards">
+          <article class="card card-featured">
+            <h3>Festival Walk — 3D floor exits <span class="tag tag-live">live</span></h3>
+            <p>
+              Festival Walk (又一城) sits in a valley floor with 495 m of hill behind it.
+              This scene lifts each floor of the official 3D pedestrian network to its own
+              height — MTR level, LG2, LG1, G, UG — so the exits fan out up the slope in
+              the colour of the floor they belong to.
+            </p>
+            <p class="meta">CSDI <code>landsd_rcd_1637222018065_52265</code> · BuildingID 1108222840</p>
+            <p><a class="btn btn-primary" href="./apps/festival-walk-3d/">Launch 3D scene →</a></p>
+          </article>
+
+          <article class="card">
+            <h3>3D Pedestrian Network</h3>
+            <p>
+              All 465,892 segments of Hong Kong's 3D pedestrian network, split by the
+              authoritative <code>WeatherProof</code> and <code>Location</code> attributes:
+              which paths are exposed to sun and rain, and which are sheltered.
+            </p>
+            <p class="meta">
+              Lands Department via CSDI · 380,957 exposed · 54,341 covered · 25,784 indoor
+            </p>
+            <p><a href="#maps">See the maps ↓</a></p>
+          </article>
+
+          <article class="card">
+            <h3>Volleyball courts</h3>
+            <p>
+              Every bookable court in Hong Kong with live vacancy status, hire charges and
+              annual usage. Peak sessions are 7.7% available against 19.8% off-peak — and
+              65 outdoor courts carry no price and no wait.
+            </p>
+            <p class="meta">LCSD SmartPLAY feed · refreshed every 5 minutes</p>
+          </article>
+
+          <article class="card">
+            <h3>Historical maps</h3>
+            <p>
+              21 sheets of the LandsD historical map series, 1889 to 1970, over the
+              iB20000 1:20,000 territory sheet — the harbour in 1927 against the harbour today.
+            </p>
+            <p class="meta">Lands Department GeoInfo Map · iB1000 / iB20000</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="maps">
+        <h2>Maps</h2>
+        <p class="section-lede">All rendered output, full resolution.</p>
+        <div class="map-grid">
+          <figure>
+            <a href="./assets/maps/festival-walk/festival_walk_3d_relief.png">
+              <img src="./assets/maps/festival-walk/festival_walk_3d_relief.png"
+                   alt="3D relief map of Kowloon Tong and Lion Rock with the pedestrian network overlaid, and a zoom on Festival Walk showing exits by floor" loading="lazy" />
+            </a>
+            <figcaption><strong>Festival Walk in 3D relief</strong> — district view and floor-level zoom</figcaption>
+          </figure>
+          <figure>
+            <a href="./assets/maps/pedestrian-network/map_covered_paths.png">
+              <img src="./assets/maps/pedestrian-network/map_covered_paths.png"
+                   alt="Map of Hong Kong showing covered pedestrian paths" loading="lazy" />
+            </a>
+            <figcaption><strong>Covered paths</strong> — 54,341 sheltered segments, 665 km</figcaption>
+          </figure>
+          <figure>
+            <a href="./assets/maps/pedestrian-network/map_sheltered_chain.png">
+              <img src="./assets/maps/pedestrian-network/map_sheltered_chain.png"
+                   alt="Map showing the longest chain of sheltered walking under cover" loading="lazy" />
+            </a>
+            <figcaption><strong>Longest sheltered chain</strong> — 10.8 km, Sheung Wan to Central</figcaption>
+          </figure>
+          <figure>
+            <a href="./assets/maps/volleyball-courts/hk_outline_map.png">
+              <img src="./assets/maps/volleyball-courts/hk_outline_map.png"
+                   alt="Map of Hong Kong outline with volleyball court locations" loading="lazy" />
+            </a>
+            <figcaption><strong>Volleyball courts</strong> — 101 bookable venues, 65 free outdoor</figcaption>
+          </figure>
+          <figure>
+            <a href="./assets/maps/festival-walk/festival_walk_floors_map.png">
+              <img src="./assets/maps/festival-walk/festival_walk_floors_map.png"
+                   alt="Map showing Festival Walk exits on each floor" loading="lazy" />
+            </a>
+            <figcaption><strong>Festival Walk exits</strong> — 2D plan, one colour per floor</figcaption>
+          </figure>
+          <figure>
+            <a href="./assets/maps/festival-walk/mtr_fare_saver_map.png">
+              <img src="./assets/maps/festival-walk/mtr_fare_saver_map.png"
+                   alt="Map of MTR lines with fare saver shopping malls" loading="lazy" />
+            </a>
+            <figcaption><strong>MTR fare savers</strong> — 41 malls mapped to their station</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="data">
+        <h2>Data</h2>
+        <p class="section-lede">
+          Everything needed to rebuild the maps. Large files are gzipped — decompress with
+          <code>gunzip</code> before loading into ArcGIS Pro or QGIS.
+        </p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Dataset</th><th>Records</th><th>Source</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>assets/data/pedestrian/pedestrian_network_hk.geojson.gz</code></td>
+                <td>465,892</td>
+                <td>LandsD 3D Pedestrian Network <code>landsd_rcd_1637222018065_52265</code></td>
+              </tr>
+              <tr>
+                <td><code>assets/data/pedestrian/exposed_outdoor_paths.geojson.gz</code></td>
+                <td>380,957</td>
+                <td>Outdoor + NonCovered</td>
+              </tr>
+              <tr>
+                <td><code>assets/data/pedestrian/covered_outdoor_paths.geojson.gz</code></td>
+                <td>54,341</td>
+                <td>Outdoor + Covered</td>
+              </tr>
+              <tr>
+                <td><code>assets/data/volleyball/sessions.geojson</code></td>
+                <td>13,152</td>
+                <td>LCSD SmartPLAY live booking feed</td>
+              </tr>
+              <tr>
+                <td><code>assets/data/volleyball/shoreline.geojson.gz</code></td>
+                <td>9,031</td>
+                <td>Esri China (HK) Shoreline, iB1000</td>
+              </tr>
+              <tr>
+                <td><code>assets/data/festival-walk/kc_pedestrian.geojson.gz</code></td>
+                <td>111,238</td>
+                <td>Kowloon Tong pedestrian network</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note">
+          The 3D scene data lives in <code>apps/festival-walk-3d/data/</code> as plain
+          GeoJSON, uncompressed — the browser fetches it directly.
+        </p>
+      </section>
+
+      <section id="credits">
+        <h2>Sources</h2>
+        <ul class="sources">
+          <li>CSDI Portal — LandsD 3D Pedestrian Network, LiDAR DTM 2020, GeoInfo Map</li>
+          <li>LCSD SmartPLAY — live venue, session and hire-charge data</li>
+          <li>MTR open data — line and station definitions</li>
+          <li>OpenStreetMap — geocoding and coastline reference</li>
+          <li>Esri — WorldElevation3D terrain, basemap tiles</li>
+        </ul>
+        <p class="note">Data © HKSAR Government. Terms: non-commercial with attribution.</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>NPL GIS Team · <a href="https://github.com/smonss1/nplgis">github.com/smonss1/nplgis</a></p>
+    </footer>
+  </body>
+</html>

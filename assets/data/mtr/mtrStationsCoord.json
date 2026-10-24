@@ -1,0 +1,578 @@
+[
+  {
+    "id": "1",
+    "name": "Admiralty",
+    "lat": "22.2788",
+    "long": "114.1646"
+  },
+  {
+    "id": "2",
+    "name": "Exhibition Centre",
+    "lat": "22.2818",
+    "long": "114.1754"
+  },
+  {
+    "id": "3",
+    "name": "Hung Hom",
+    "lat": "22.3029",
+    "long": "114.1816"
+  },
+  {
+    "id": "4",
+    "name": "Mong Kok East",
+    "lat": "22.3222",
+    "long": "114.1728"
+  },
+  {
+    "id": "5",
+    "name": "Kowloon Tong",
+    "lat": "22.337",
+    "long": "114.1762"
+  },
+  {
+    "id": "6",
+    "name": "Tai Wai",
+    "lat": "22.3731",
+    "long": "114.1786"
+  },
+  {
+    "id": "7",
+    "name": "Sha Tin",
+    "lat": "22.3825",
+    "long": "114.1875"
+  },
+  {
+    "id": "8",
+    "name": "Fo Tan",
+    "lat": "22.3953",
+    "long": "114.1982"
+  },
+  {
+    "id": "9",
+    "name": "Racecourse",
+    "lat": "22.4004",
+    "long": "114.2029"
+  },
+  {
+    "id": "10",
+    "name": "University",
+    "lat": "22.4134",
+    "long": "114.2102"
+  },
+  {
+    "id": "11",
+    "name": "Tai Po Market",
+    "lat": "22.4446",
+    "long": "114.1706"
+  },
+  {
+    "id": "12",
+    "name": "Tai Wo",
+    "lat": "22.4511",
+    "long": "114.1611"
+  },
+  {
+    "id": "13",
+    "name": "Fanling",
+    "lat": "22.4921",
+    "long": "114.1387"
+  },
+  {
+    "id": "14",
+    "name": "Sheung Shui",
+    "lat": "22.5012",
+    "long": "114.128"
+  },
+  {
+    "id": "15",
+    "name": "Lo Wu",
+    "lat": "22.5283",
+    "long": "114.1134"
+  },
+  {
+    "id": "16",
+    "name": "Lok Ma Chau",
+    "lat": "22.5144",
+    "long": "114.0657"
+  },
+  {
+    "id": "17",
+    "name": "Whampoa",
+    "lat": "22.305",
+    "long": "114.1896"
+  },
+  {
+    "id": "18",
+    "name": "Ho Man Tin",
+    "lat": "22.3093",
+    "long": "114.1829"
+  },
+  {
+    "id": "19",
+    "name": "Yau Ma Tei",
+    "lat": "22.3129",
+    "long": "114.1707"
+  },
+  {
+    "id": "20",
+    "name": "Mong Kok",
+    "lat": "22.3191",
+    "long": "114.1694"
+  },
+  {
+    "id": "21",
+    "name": "Prince Edward",
+    "lat": "22.3245",
+    "long": "114.1683"
+  },
+  {
+    "id": "22",
+    "name": "Shek Kip Mei",
+    "lat": "22.332",
+    "long": "114.1687"
+  },
+  {
+    "id": "23",
+    "name": "Lok Fu",
+    "lat": "22.338",
+    "long": "114.1871"
+  },
+  {
+    "id": "24",
+    "name": "Wong Tai Sin",
+    "lat": "22.3417",
+    "long": "114.1939"
+  },
+  {
+    "id": "25",
+    "name": "Diamond Hill",
+    "lat": "22.3401",
+    "long": "114.2016"
+  },
+  {
+    "id": "26",
+    "name": "Choi Hung",
+    "lat": "22.3348",
+    "long": "114.2089"
+  },
+  {
+    "id": "27",
+    "name": "Kowloon Bay",
+    "lat": "22.3235",
+    "long": "114.2141"
+  },
+  {
+    "id": "28",
+    "name": "Ngau Tau Kok",
+    "lat": "22.3154",
+    "long": "114.2193"
+  },
+  {
+    "id": "29",
+    "name": "Kwun Tong",
+    "lat": "22.3121",
+    "long": "114.2265"
+  },
+  {
+    "id": "30",
+    "name": "Lam Tin",
+    "lat": "22.3068",
+    "long": "114.233"
+  },
+  {
+    "id": "31",
+    "name": "Yau Tong",
+    "lat": "22.2979",
+    "long": "114.2371"
+  },
+  {
+    "id": "32",
+    "name": "Tiu Keng Leng",
+    "lat": "22.3042",
+    "long": "114.2524"
+  },
+  {
+    "id": "33",
+    "name": "Tsuen Wan",
+    "lat": "22.3736",
+    "long": "114.1178"
+  },
+  {
+    "id": "34",
+    "name": "Tai Wo Hau",
+    "lat": "22.3708",
+    "long": "114.125"
+  },
+  {
+    "id": "35",
+    "name": "Kwai Hing",
+    "lat": "22.3632",
+    "long": "114.1312"
+  },
+  {
+    "id": "36",
+    "name": "Kwai Fong",
+    "lat": "22.3569",
+    "long": "114.1279"
+  },
+  {
+    "id": "37",
+    "name": "Lai King",
+    "lat": "22.3484",
+    "long": "114.1261"
+  },
+  {
+    "id": "38",
+    "name": "Mei Foo",
+    "lat": "22.3381",
+    "long": "114.1376"
+  },
+  {
+    "id": "39",
+    "name": "Lai Chi Kok",
+    "lat": "22.3373",
+    "long": "114.1482"
+  },
+  {
+    "id": "40",
+    "name": "Cheung Sha Wan",
+    "lat": "22.3354",
+    "long": "114.1563"
+  },
+  {
+    "id": "41",
+    "name": "Sham Shui Po",
+    "lat": "22.3307",
+    "long": "114.1623"
+  },
+  {
+    "id": "42",
+    "name": "Jordan",
+    "lat": "22.3049",
+    "long": "114.1718"
+  },
+  {
+    "id": "43",
+    "name": "Tsim Sha Tsui",
+    "lat": "22.2973",
+    "long": "114.1722"
+  },
+  {
+    "id": "44",
+    "name": "Central",
+    "lat": "22.282",
+    "long": "114.1576"
+  },
+  {
+    "id": "45",
+    "name": "Kennedy Town",
+    "lat": "22.2812",
+    "long": "114.1285"
+  },
+  {
+    "id": "46",
+    "name": "HKU",
+    "lat": "22.2841",
+    "long": "114.1356"
+  },
+  {
+    "id": "47",
+    "name": "Sai Ying Pun",
+    "lat": "22.2856",
+    "long": "114.1427"
+  },
+  {
+    "id": "48",
+    "name": "Sheung Wan",
+    "lat": "22.2862",
+    "long": "114.1518"
+  },
+  {
+    "id": "49",
+    "name": "Wan Chai",
+    "lat": "22.2773",
+    "long": "114.1728"
+  },
+  {
+    "id": "50",
+    "name": "Causeway Bay",
+    "lat": "22.2802",
+    "long": "114.1835"
+  },
+  {
+    "id": "51",
+    "name": "Tin Hau",
+    "lat": "22.2827",
+    "long": "114.1917"
+  },
+  {
+    "id": "52",
+    "name": "Fortress Hill",
+    "lat": "22.2881",
+    "long": "114.1936"
+  },
+  {
+    "id": "53",
+    "name": "North Point",
+    "lat": "22.2909",
+    "long": "114.2007"
+  },
+  {
+    "id": "54",
+    "name": "Quarry Bay",
+    "lat": "22.2878",
+    "long": "114.2096"
+  },
+  {
+    "id": "55",
+    "name": "Tai Koo",
+    "lat": "22.2846",
+    "long": "114.2161"
+  },
+  {
+    "id": "56",
+    "name": "Sai Wan Ho",
+    "lat": "22.2816",
+    "long": "114.2224"
+  },
+  {
+    "id": "57",
+    "name": "Shau Kei Wan",
+    "lat": "22.2789",
+    "long": "114.2289"
+  },
+  {
+    "id": "58",
+    "name": "Heng Fa Chuen",
+    "lat": "22.2769",
+    "long": "114.2398"
+  },
+  {
+    "id": "59",
+    "name": "Chai Wan",
+    "lat": "22.2644",
+    "long": "114.2368"
+  },
+  {
+    "id": "60",
+    "name": "Tung Chung",
+    "lat": "22.2893",
+    "long": "113.9416"
+  },
+  {
+    "id": "61",
+    "name": "Sunny Bay",
+    "lat": "22.3318",
+    "long": "114.0288"
+  },
+  {
+    "id": "62",
+    "name": "Tsing Yi",
+    "lat": "22.3584",
+    "long": "114.107"
+  },
+  {
+    "id": "63",
+    "name": "Nam Cheong",
+    "lat": "22.3268",
+    "long": "114.1533"
+  },
+  {
+    "id": "64",
+    "name": "Olympic",
+    "lat": "22.3178",
+    "long": "114.1602"
+  },
+  {
+    "id": "65",
+    "name": "Kowloon",
+    "lat": "22.3049",
+    "long": "114.1615"
+  },
+  {
+    "id": "66",
+    "name": "Hong Kong",
+    "lat": "22.285",
+    "long": "114.158"
+  },
+  {
+    "id": "67",
+    "name": "Po Lam",
+    "lat": "22.3224",
+    "long": "114.258"
+  },
+  {
+    "id": "68",
+    "name": "Hang Hau",
+    "lat": "22.3156",
+    "long": "114.2644"
+  },
+  {
+    "id": "69",
+    "name": "LOHAS Park",
+    "lat": "22.2957",
+    "long": "114.2689"
+  },
+  {
+    "id": "70",
+    "name": "Tseung Kwan O",
+    "lat": "22.3074",
+    "long": "114.26"
+  },
+  {
+    "id": "71",
+    "name": "Wu Kai Sha",
+    "lat": "22.4291",
+    "long": "114.2438"
+  },
+  {
+    "id": "72",
+    "name": "Ma On Shan",
+    "lat": "22.4247",
+    "long": "114.2316"
+  },
+  {
+    "id": "73",
+    "name": "Heng On",
+    "lat": "22.4174",
+    "long": "114.2258"
+  },
+  {
+    "id": "74",
+    "name": "Tai Shui Hang",
+    "lat": "22.4088",
+    "long": "114.223"
+  },
+  {
+    "id": "75",
+    "name": "Shek Mun",
+    "lat": "22.3877",
+    "long": "114.2083"
+  },
+  {
+    "id": "76",
+    "name": "City One",
+    "lat": "22.3828",
+    "long": "114.2035"
+  },
+  {
+    "id": "77",
+    "name": "Sha Tin Wai",
+    "lat": "22.3771",
+    "long": "114.195"
+  },
+  {
+    "id": "78",
+    "name": "Che Kung Temple",
+    "lat": "22.3748",
+    "long": "114.1861"
+  },
+  {
+    "id": "79",
+    "name": "Hin Keng",
+    "lat": "22.364",
+    "long": "114.1708"
+  },
+  {
+    "id": "80",
+    "name": "Kai Tak",
+    "lat": "22.3304",
+    "long": "114.1994"
+  },
+  {
+    "id": "81",
+    "name": "Sung Wong Toi",
+    "lat": "22.3258",
+    "long": "114.1914"
+  },
+  {
+    "id": "82",
+    "name": "To Kwa Wan",
+    "lat": "22.3172",
+    "long": "114.1876"
+  },
+  {
+    "id": "83",
+    "name": "East Tsim Sha Tsui",
+    "lat": "22.2955",
+    "long": "114.1754"
+  },
+  {
+    "id": "84",
+    "name": "Austin",
+    "lat": "22.3046",
+    "long": "114.1665"
+  },
+  {
+    "id": "85",
+    "name": "Tsuen Wan West",
+    "lat": "22.3686",
+    "long": "114.1098"
+  },
+  {
+    "id": "86",
+    "name": "Kam Sheung Road",
+    "lat": "22.4348",
+    "long": "114.0634"
+  },
+  {
+    "id": "87",
+    "name": "Yuen Long",
+    "lat": "22.4461",
+    "long": "114.0352"
+  },
+  {
+    "id": "88",
+    "name": "Long Ping",
+    "lat": "22.4477",
+    "long": "114.0253"
+  },
+  {
+    "id": "89",
+    "name": "Tin Shui Wai",
+    "lat": "22.4481",
+    "long": "114.0046"
+  },
+  {
+    "id": "90",
+    "name": "Siu Hong",
+    "lat": "22.412",
+    "long": "113.9786"
+  },
+  {
+    "id": "91",
+    "name": "Tuen Mun",
+    "lat": "22.3952",
+    "long": "113.9731"
+  },
+  {
+    "id": "92",
+    "name": "Disneyland Resort",
+    "lat": "22.3155",
+    "long": "114.0451"
+  },
+  {
+    "id": "93",
+    "name": "South Horizons",
+    "lat": "22.2425",
+    "long": "114.1491"
+  },
+  {
+    "id": "94",
+    "name": "Lei Tung",
+    "lat": "22.2421",
+    "long": "114.1562"
+  },
+  {
+    "id": "95",
+    "name": "Wong Chuk Hang",
+    "lat": "22.248",
+    "long": "114.1681"
+  },
+  {
+    "id": "96",
+    "name": "Ocean Park",
+    "lat": "22.2486",
+    "long": "114.1743"
+  }
+]

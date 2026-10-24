@@ -1,0 +1,673 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "region": "Hong Kong Island",
+        "designated": "中環／香港／上環",
+        "name_zh": "中環至半山自動扶手電梯系統",
+        "name_en": "Central-Mid-Levels Escalators and Walkway System"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1546723,
+          22.2833659
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region": "Hong Kong Island",
+        "designated": "炮台山／北角",
+        "name_zh": "和富",
+        "name_en": "WORFU"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1965955,
+          22.2923459
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region": "Hong Kong Island",
+        "designated": "上環",
+        "name_zh": "偉利廣場",
+        "name_en": "Welland Plaza"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1490951,
+          22.2857927
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region": "Hong Kong Island",
+        "designated": "黃竹坑",
+        "name_zh": "深灣辦公室大樓",
+        "name_en": "Shum Wan Office Building"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1649476,
+          22.2446949
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region": "Kowloon",
+        "designated": "柯士甸／尖沙咀",
+        "name_zh": "海港城港威商場",
+        "name_en": "The Gateway Harbour City"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1682975,
+          22.2978954
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region": "Kowloon",
+        "designated": "彩虹",
+        "name_zh": "彩雲商場",
+        "name_en": "Choi Wan Shopping Centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.2150032,
+          22.3332996
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region": "Kowloon",
+        "designated": "鑽石山",
+        "name_zh": "鳳德商場",
+        "name_en": "Fung Tak Shopping Centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1999735,
+          22.3438136
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region": "Kowloon",
+        "designated": "尖東／尖沙咀",
+        "name_zh": "半島中心",
+        "name_en": "Peninsula Centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1772831,
+          22.2990771
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region": "Kowloon",
+        "designated": "何文田",
+        "name_zh": "何文田廣場",
+        "name_en": "Ho Man Tin Plaza"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.181846,
+          22.3162584
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region": "Kowloon",
+        "designated": "何文田",
+        "name_zh": "愛民廣場",
+        "name_en": "Oi Man Plaza"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1786791,
+          22.3120306
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region": "Kowloon",
+        "designated": "何文田／黃埔",
+        "name_zh": "家維商場",
+        "name_en": "Ka Wai Plaza",
+        "lat": "22.3052",
+        "lon": "114.1901"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1901,
+          22.3052
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region": "Kowloon",
+        "designated": "九龍灣",
+        "name_zh": "企業廣場",
+        "name_en": "Enterprise Square"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.2078543,
+          22.3220181
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region": "Kowloon",
+        "designated": "藍田",
+        "name_zh": "平田商場",
+        "name_en": "Ping Tin Shopping Centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.2373457,
+          22.3058653
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region": "Kowloon",
+        "designated": "美孚",
+        "name_zh": "盈暉薈",
+        "name_en": "Nob Hill Square",
+        "lat": "22.3378",
+        "lon": "114.143"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.143,
+          22.3378
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region": "Kowloon",
+        "designated": "旺角／奧運／太子",
+        "name_zh": "大角咀市政大廈",
+        "name_en": "Tai Kok Tsui Municipal Services Building"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1628089,
+          22.3219396
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region": "Kowloon",
+        "designated": "南昌",
+        "name_zh": "海盈邨",
+        "name_en": "Hoi Ying Estate"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1484165,
+          22.3286099
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region": "Kowloon",
+        "designated": "南昌／奧運",
+        "name_zh": "港灣豪庭廣場",
+        "name_en": "Metro Harbour Plaza"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1604357,
+          22.3245317
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region": "Kowloon",
+        "designated": "石硤尾",
+        "name_zh": "白田商場",
+        "name_en": "Pak Tin Commercial Centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1657713,
+          22.3363705
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region": "Kowloon",
+        "designated": "宋皇臺／土瓜灣",
+        "name_zh": "欣榮商場",
+        "name_en": "Jubilant Plaza",
+        "lat": "22.3165",
+        "lon": "114.186"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.186,
+          22.3165
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region": "Kowloon",
+        "designated": "土瓜灣",
+        "name_zh": "土瓜灣體育館",
+        "name_en": "To Kwa Wan Sports Centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1902883,
+          22.3188814
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region": "Kowloon",
+        "designated": "黃大仙",
+        "name_zh": "啟德花園購物商場",
+        "name_en": "Kai Tak Garden Shopping Arcade"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1953,
+          22.3401
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region": "Kowloon",
+        "designated": "油麻地",
+        "name_zh": "駿發花園商場",
+        "name_en": "Prosperous Garden Shopping Arcade",
+        "lat": "22.3075",
+        "lon": "114.17"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.17,
+          22.3075
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region": "New Territories",
+        "designated": "第一城",
+        "name_zh": "置富第一城",
+        "name_en": "Fortune City One"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.2039241,
+          22.386401
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region": "New Territories",
+        "designated": "火炭",
+        "name_zh": "沙田商業中心",
+        "name_en": "Shatin Galleria"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1934467,
+          22.3972894
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region": "New Territories",
+        "designated": "火炭",
+        "name_zh": "穗禾商場",
+        "name_en": "Sui Wo Shopping Centre",
+        "lat": "22.3935",
+        "lon": "114.19"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.19,
+          22.3935
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region": "New Territories",
+        "designated": "坑口",
+        "name_zh": "富寧花園商場",
+        "name_en": "Fu Ning Garden Commercial Complex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.2676936,
+          22.3187955
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region": "New Territories",
+        "designated": "恆安／馬鞍山",
+        "name_zh": "頌安商場",
+        "name_en": "Chung On Shopping Centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.2266787,
+          22.4218575
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region": "New Territories",
+        "designated": "葵興",
+        "name_zh": "葵盛東商場",
+        "name_en": "Kwai Shing East Shopping Centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1270602,
+          22.3641408
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region": "New Territories",
+        "designated": "葵興",
+        "name_zh": "葵星中心",
+        "name_en": "Kwai Sing Centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1355302,
+          22.3657818
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region": "New Territories",
+        "designated": "馬鞍山",
+        "name_zh": "耀安商場",
+        "name_en": "Yiu On Shopping Centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.2309225,
+          22.4199451
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region": "New Territories",
+        "designated": "大圍",
+        "name_zh": "美林商場",
+        "name_en": "Mei Lam Shopping Centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1764181,
+          22.3781873
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region": "New Territories",
+        "designated": "大圍",
+        "name_zh": "新翠商場",
+        "name_en": "Sun Chui Shopping Centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1811174,
+          22.3691602
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region": "New Territories",
+        "designated": "大窩口",
+        "name_zh": "葵涌商場",
+        "name_en": "Kwai Chung Shopping Centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1283331,
+          22.3677796
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region": "New Territories",
+        "designated": "大窩口",
+        "name_zh": "悅來坊",
+        "name_en": "Panda Place"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1206949,
+          22.368996
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region": "New Territories",
+        "designated": "大窩口",
+        "name_zh": "大窩口第二商場",
+        "name_en": "Tai Wo Hau Shopping Centre 2",
+        "lat": "22.3705",
+        "lon": "114.1248"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1248,
+          22.3705
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region": "New Territories",
+        "designated": "將軍澳",
+        "name_zh": "TKO Spot",
+        "name_en": "TKO Spot"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.2588273,
+          22.31099
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region": "New Territories",
+        "designated": "青衣",
+        "name_zh": "長發街市",
+        "name_en": "Cheung Fat Market"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1038488,
+          22.3625698
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region": "New Territories",
+        "designated": "青衣",
+        "name_zh": "青衣市政大廈",
+        "name_en": "Tsing Yi Municipal Services Building"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1064911,
+          22.35409
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region": "New Territories",
+        "designated": "荃灣／荃灣西",
+        "name_zh": "荃新天地",
+        "name_en": "Citywalk"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1135247,
+          22.3699783
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region": "New Territories",
+        "designated": "荃灣",
+        "name_zh": "愉景新城",
+        "name_en": "D·Park"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1118819,
+          22.3761112
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "region": "New Territories",
+        "designated": "荃灣",
+        "name_zh": "大鴻輝(荃灣)中心",
+        "name_en": "Tai Hung Fai (Tsuen Wan) Centre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1166902,
+          22.3700165
+        ]
+      }
+    }
+  ]
+}
