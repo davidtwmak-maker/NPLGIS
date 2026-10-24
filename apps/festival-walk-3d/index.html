@@ -176,11 +176,22 @@ bldLayer.when().then(() => {
           })
         ]
       });
+      const plateZ = GROUND_M + h * V_SCALE - thick;
+      // The polygon MUST carry explicit z values on every ring vertex.
+      // GeoJSON rings are 2D, and in "absolute-height" mode SceneView does
+      // NOT fall back to the layer's elevationInfo.elevation for polygon
+      // geometry: the extrusion base resolves to 0/NaN and the entire symbol
+      // is clipped away -- it renders as zero pixels with no error.
+      // Measured on this app: a 2D ring produced 0 coloured pixels, the same
+      // ring with z produced 62,501.
+      const ring = f.geometry.rings ? f.geometry.rings[0] : f.geometry.coordinates[0];
+      const ringZ = ring.map((pt) => [pt[0], pt[1], plateZ]);
+      const poly = new Polygon({ rings: [ringZ] });
       const gl = new GraphicsLayer({
         title: "體量 " + (p.en || ""),
-        elevationInfo: { mode: "absolute-height", elevation: GROUND_M + h * V_SCALE - thick, zOffset: 0 }
+        elevationInfo: { mode: "absolute-height", elevation: plateZ, zOffset: 0 }
       });
-      gl.add(new Graphic({ geometry: f.geometry, attributes: p, symbol: sym }));
+      gl.add(new Graphic({ geometry: poly, attributes: p, symbol: sym }));
       map.add(gl);
       window.__plateLayers = window.__plateLayers || [];
       window.__plateLayers.push(gl);
@@ -259,7 +270,7 @@ LAYERS.forEach((L) => {
 
   const isVert = L.height === null;
   const symbol = isVert
-    ? { type: "simple-line", color: L.colour, width: 4.0, style: "short-dot", cap: "round" }
+    ? { type: "simple-line", color: L.colour, width: 2.0, style: "short-dot", cap: "round" }
     : { type: "simple-line", color: L.colour, width: 4.0 };
 
   // Fetch the floor's routes and draw them into a GraphicsLayer. A
@@ -267,8 +278,12 @@ LAYERS.forEach((L) => {
   // own level above the terrain (a GeoJSONLayer ignores it).
   const netLayer = new GraphicsLayer({
     title: L.name,
+    // Vertical circulation (lifts / escalators / stairs) has no floor of its
+    // own -- it links floors -- so it is drawn just above the ground. Giving
+    // it a real z keeps it from being drawn as a flat mesh draped over the
+    // terrain, which previously buried the mall's coloured floor plates.
     elevationInfo: isVert
-      ? { mode: "on-the-ground" }
+      ? { mode: "absolute-height", elevation: GROUND_M + 0.6, zOffset: 0 }
       // +0.8 m so the network rides just above its own floor plate rather
       // than being coplanar with (and hidden by) it.
       : { mode: "absolute-height", elevation: GROUND_M + L.height * V_SCALE + 0.8, zOffset: 0 }
@@ -282,9 +297,16 @@ LAYERS.forEach((L) => {
       const paths = g.type === "MultiLineString" ? g.coordinates
                  : g.type === "LineString" ? [g.coordinates]
                  : [];
+      // The same z requirement applies to polylines: a 2D path in
+      // "absolute-height" mode is drawn at the wrong height (or clipped).
+      // Give every vertex the floor's own elevation.
+      const netZ = isVert
+        ? GROUND_M + 0.6
+        : GROUND_M + L.height * V_SCALE + 0.8;
       paths.forEach((path) => {
+        const pathZ = path.map((pt) => [pt[0], pt[1], netZ]);
         netLayer.add(new Graphic({
-          geometry: { type: "polyline", paths: [path], spatialReference: { wkid: 4326 } },
+          geometry: { type: "polyline", paths: [pathZ], spatialReference: { wkid: 4326 } },
           attributes: ft.properties || {},
           symbol
         }));
