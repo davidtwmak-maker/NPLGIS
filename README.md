@@ -36,6 +36,15 @@ every floor's footprint, extruded from below the terrain up to the G floor — c
 building into the hill. The underground floors (MTR, LG2, LG1) sit inside that mass, so
 `map.ground.opacity` is reduced to 0.5 to let them show through the surface.
 
+**The G floor is set to Tat Chee Avenue (達之路).** The G floor's pedestrian
+routes touch the street at four junctions; the closest is an exact vertex match. The
+street there is at **33.0 m**, measured from Esri WorldElevation3D Terrain3D with
+`ElevationLayer.queryElevation` (33.03 m at the main junction). The mall's G floor is
+a podium deck that meets the street at that junction, so the whole stack is measured
+from there. A translucent podium — the union of all seven floor footprints — runs
+from −6 m up to the G floor, carrying the building into the hillside. The ground is
+drawn at 50% opacity so the three underground floors remain visible through it.
+
 **Heights are schematic.** Each storey is drawn at 5.5 m (the CSDI published floor
 levels), at **2× vertical scale** so the levels separate on screen. **The height datum is
 the ground floor G**, so each floor reads:
@@ -50,6 +59,13 @@ the ground floor G**, so each floor reads:
 Plan positions and the underlying data are unchanged. Festival Walk's official
 architectural heights were not published, so the model must not be read as a measured
 building. The podium is a schematic foundation mass, not the real building envelope.
+
+| Floor | Absolute elevation | | Floor | Absolute elevation |
+|---|---|---|---|---|
+| MTR Level | 0.0 m | | UG | 44.0 m |
+| LG2 | 11.0 m | | 1/F | 55.0 m |
+| LG1 | 22.0 m | | 2/F | 66.0 m |
+| **G** | **33.0 m** (= Tat Chee Ave) | | | |
 
 **Every polygon and polyline carries an explicit z.** GeoJSON rings are 2D, and in
 `absolute-height` mode SceneView does not fall back to the layer's elevation for

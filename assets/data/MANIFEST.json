@@ -1,7 +1,7 @@
 {
- "generated": "2026-10-24T19:04:11Z",
+ "generated": "2026-10-25T02:01:24Z",
  "repository": "davidtwmak-maker/NPLGIS",
- "note": "Every layer shipped in assets/data plus the Festival Walk 3D app data. Features counted from the file itself. Floor plate heights are schematic (5.5 m storey, 2x vertical exaggeration) and the podium is a schematic foundation mass - not measured architectural heights.",
+ "note": "Every layer shipped in assets/data plus the Festival Walk 3D app data. Features counted from the file itself. Floor plate heights are schematic (5.5 m storey, 2x vertical exaggeration). The G floor is set to Tat Chee Avenue (達之路) at the junction where it meets the mall - 33.0 m measured from Esri WorldElevation3D Terrain3D - and the podium is a schematic foundation mass, not measured architectural heights.",
  "sources": [
   {
    "name": "3D Pedestrian Network",
@@ -46,15 +46,15 @@
  "files": [
   {
    "file": "apps/festival-walk-3d/data/buildings_3d.geojson",
-   "bytes": 22420,
-   "mb": 0.02,
+   "bytes": 22587,
+   "mb": 0.022,
    "gzipped": false,
    "features": 8,
    "title": "Festival Walk mall floor plates (3D)",
    "dataset_id": "landsd_rcd_1637222018065_52265",
    "records": "",
-   "notes": "7 translucent floor plates (MTR..2/F) plus a translucent podium. Each floor has its own footprint derived from that floor's route network buffered 14 m; the podium is the union of all floor footprints, extruded from below the terrain up to the G floor so the building is founded on the hillside (terrain under the footprint runs 18.9-35.2 m). Storey height 5.5 m is schematic; display heights are stretched 2x.",
-   "sha256": "fc2c2a2d600f318d"
+   "notes": "7 translucent floor plates (MTR..2/F) plus a translucent podium. Each floor has its own footprint derived from that floor's route network buffered 14 m; the podium is the union of all floor footprints, extruded from -6 m up to the G floor (33.0 m) so the building is founded on the hillside. The G floor is set to Tat Chee Avenue at the mall junction - 33.0 m from Esri WorldElevation3D Terrain3D. Terrain under the footprint runs 18.9-35.2 m. Storey height 5.5 m is schematic; display heights are stretched 2x.",
+   "sha256": "383cfa6d17aa8973"
   },
   {
    "file": "apps/festival-walk-3d/data/floor_labels.json",
@@ -71,7 +71,7 @@
   {
    "file": "assets/data/festival-walk/festival_walk_3d_pedestrian.geojson",
    "bytes": 84797,
-   "mb": 0.08,
+   "mb": 0.081,
    "gzipped": false,
    "features": 163,
    "title": "",
@@ -83,7 +83,7 @@
   {
    "file": "assets/data/festival-walk/kc_pedestrian.geojson.gz",
    "bytes": 9635088,
-   "mb": 9.64,
+   "mb": 9.189,
    "gzipped": true,
    "features": 111238,
    "title": "Kowloon Tong pedestrian network",
@@ -95,7 +95,7 @@
   {
    "file": "assets/data/festival-walk/kc_population.geojson.gz",
    "bytes": 11467371,
-   "mb": 11.47,
+   "mb": 10.936,
    "gzipped": true,
    "features": 211,
    "title": "Kowloon Tong population",
@@ -107,7 +107,7 @@
   {
    "file": "assets/data/festival-walk/ped_network_kowloontong.geojson.gz",
    "bytes": 5576757,
-   "mb": 5.58,
+   "mb": 5.318,
    "gzipped": true,
    "features": 111238,
    "title": "Kowloon Tong pedestrian network (relief render input)",
@@ -131,7 +131,7 @@
   {
    "file": "assets/data/mtr/fare_savers.geojson",
    "bytes": 14741,
-   "mb": 0.01,
+   "mb": 0.014,
    "gzipped": false,
    "features": 41,
    "title": "",
@@ -143,7 +143,7 @@
   {
    "file": "assets/data/mtr/fare_savers_geocoded.csv",
    "bytes": 3513,
-   "mb": 0.0,
+   "mb": 0.003,
    "gzipped": false,
    "features": null,
    "title": "",
@@ -155,7 +155,7 @@
   {
    "file": "assets/data/mtr/fare_savers_routes.geojson",
    "bytes": 4051,
-   "mb": 0.0,
+   "mb": 0.004,
    "gzipped": false,
    "features": 10,
    "title": "",
@@ -167,7 +167,7 @@
   {
    "file": "assets/data/mtr/fare_savers_stations.geojson",
    "bytes": 12365,
-   "mb": 0.01,
+   "mb": 0.012,
    "gzipped": false,
    "features": 98,
    "title": "",
@@ -179,7 +179,7 @@
   {
    "file": "assets/data/mtr/kc_smtpu_suggestions.csv",
    "bytes": 61411,
-   "mb": 0.06,
+   "mb": 0.059,
    "gzipped": false,
    "features": null,
    "title": "",
@@ -191,7 +191,7 @@
   {
    "file": "assets/data/mtr/kc_smtpus.geojson",
    "bytes": 3011698,
-   "mb": 3.01,
+   "mb": 2.872,
    "gzipped": false,
    "features": 1100,
    "title": "",
@@ -203,7 +203,7 @@
   {
    "file": "assets/data/mtr/kc_suggestions_named.csv",
    "bytes": 2371,
-   "mb": 0.0,
+   "mb": 0.002,
    "gzipped": false,
    "features": null,
    "title": "",
@@ -215,7 +215,7 @@
   {
    "file": "assets/data/mtr/kc_tpus.geojson",
    "bytes": 1821518,
-   "mb": 1.82,
+   "mb": 1.737,
    "gzipped": false,
    "features": 66,
    "title": "",
@@ -227,7 +227,7 @@
   {
    "file": "assets/data/mtr/mtrStationsCoord.json",
    "bytes": 9183,
-   "mb": 0.01,
+   "mb": 0.009,
    "gzipped": false,
    "features": null,
    "title": "",
@@ -239,7 +239,7 @@
   {
    "file": "assets/data/mtr/mtr_lines_and_stations.csv",
    "bytes": 14161,
-   "mb": 0.01,
+   "mb": 0.014,
    "gzipped": false,
    "features": null,
    "title": "",
@@ -251,7 +251,7 @@
   {
    "file": "assets/data/pedestrian/covered_indoor_or_unclassified.geojson.gz",
    "bytes": 4147911,
-   "mb": 4.15,
+   "mb": 3.956,
    "gzipped": true,
    "features": 84935,
    "title": "3D Pedestrian Network — indoor + unclassified",
@@ -263,7 +263,7 @@
   {
    "file": "assets/data/pedestrian/covered_outdoor_paths.geojson.gz",
    "bytes": 2748555,
-   "mb": 2.75,
+   "mb": 2.621,
    "gzipped": true,
    "features": 54341,
    "title": "3D Pedestrian Network — covered paths",
@@ -275,7 +275,7 @@
   {
    "file": "assets/data/pedestrian/covered_paths_pt_connected.geojson.gz",
    "bytes": 3012066,
-   "mb": 3.01,
+   "mb": 2.873,
    "gzipped": true,
    "features": 54341,
    "title": "3D Pedestrian Network — covered + PT connection",
@@ -287,7 +287,7 @@
   {
    "file": "assets/data/pedestrian/exposed_outdoor_paths.geojson.gz",
    "bytes": 29585816,
-   "mb": 29.59,
+   "mb": 28.215,
    "gzipped": true,
    "features": 380957,
    "title": "3D Pedestrian Network — exposed paths",
@@ -299,7 +299,7 @@
   {
    "file": "assets/data/pedestrian/pedestrian_network_hk.geojson.gz",
    "bytes": 33670178,
-   "mb": 33.67,
+   "mb": 32.11,
    "gzipped": true,
    "features": 465892,
    "title": "3D Pedestrian Network — full network",
@@ -311,7 +311,7 @@
   {
    "file": "assets/data/volleyball/districts.geojson",
    "bytes": 469817,
-   "mb": 0.47,
+   "mb": 0.448,
    "gzipped": false,
    "features": 18,
    "title": "",
@@ -323,7 +323,7 @@
   {
    "file": "assets/data/volleyball/free_outdoor_courts.geojson",
    "bytes": 63804,
-   "mb": 0.06,
+   "mb": 0.061,
    "gzipped": false,
    "features": 65,
    "title": "",
@@ -347,7 +347,7 @@
   {
    "file": "assets/data/volleyball/sessions.csv",
    "bytes": 3419499,
-   "mb": 3.42,
+   "mb": 3.261,
    "gzipped": false,
    "features": null,
    "title": "",
@@ -359,7 +359,7 @@
   {
    "file": "assets/data/volleyball/sessions.geojson",
    "bytes": 12406426,
-   "mb": 12.41,
+   "mb": 11.832,
    "gzipped": false,
    "features": 13152,
    "title": "",
@@ -371,7 +371,7 @@
   {
    "file": "assets/data/volleyball/shoreline.geojson.gz",
    "bytes": 6532911,
-   "mb": 6.53,
+   "mb": 6.23,
    "gzipped": true,
    "features": 9031,
    "title": "Esri China (HK) Shoreline",
@@ -383,7 +383,7 @@
   {
    "file": "assets/data/volleyball/usage_by_venue.geojson",
    "bytes": 55165,
-   "mb": 0.06,
+   "mb": 0.053,
    "gzipped": false,
    "features": 100,
    "title": "",
@@ -407,7 +407,7 @@
   {
    "file": "assets/data/volleyball/venues.geojson",
    "bytes": 169525,
-   "mb": 0.17,
+   "mb": 0.162,
    "gzipped": false,
    "features": 101,
    "title": "",
@@ -419,7 +419,7 @@
   {
    "file": "assets/data/walk/network_segments.geojson",
    "bytes": 11789373,
-   "mb": 11.79,
+   "mb": 11.243,
    "gzipped": false,
    "features": 67337,
    "title": "",
@@ -431,7 +431,7 @@
   {
    "file": "assets/data/walk/openrice_5min.jsonl",
    "bytes": 51252,
-   "mb": 0.05,
+   "mb": 0.049,
    "gzipped": false,
    "features": null,
    "title": "",
@@ -443,7 +443,7 @@
   {
    "file": "assets/data/walk/openrice_cards.jsonl",
    "bytes": 3771,
-   "mb": 0.0,
+   "mb": 0.004,
    "gzipped": false,
    "features": null,
    "title": "",
@@ -455,7 +455,7 @@
   {
    "file": "assets/data/walk/restaurants_15min.csv",
    "bytes": 134883,
-   "mb": 0.13,
+   "mb": 0.129,
    "gzipped": false,
    "features": null,
    "title": "",
@@ -491,7 +491,7 @@
   {
    "file": "assets/data/walk/restaurants_bbox.geojson",
    "bytes": 1547902,
-   "mb": 1.55,
+   "mb": 1.476,
    "gzipped": false,
    "features": 2654,
    "title": "",

@@ -242,6 +242,10 @@ def main():
                     "floor_id": "festival_walk_podium",
                     "height_m": 16.5,
                     "plate_thickness_m": 16.5,
+                    "datum_m": 33.0,
+                    "datum_source": ("Tat Chee Avenue (達之路) at the junction where it "
+                                     "meets the mall's G floor; Esri WorldElevation3D "
+                                     "Terrain3D measured 33.03 m there."),
                     "colour": "#5c6b86",
                     "alpha": 0.30,
                     "schematic": True,

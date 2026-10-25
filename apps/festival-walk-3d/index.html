@@ -53,10 +53,11 @@
     <span class="ct" id="bldCount">—</span>
   </label>
   <div class="foot">
-    樓層高度以地下 G 樓為 0 m 基準，每層 5.5 m 層高（示意，非官方高度）。<br>
+    樓層高度以地下 G 樓為 0 m 基準，G 樓高度取達之路與商場接駁處的地面高程（33.0 m）；每層 5.5 m 層高（示意，非官方高度）。<br>
     垂直高度放大 2 倍，方便分辨各層；平面位置與數據不變。<br>
     一樓、二樓只有體量，並無官方行人路網資料。<br>
     樓層體量：各層行人路網範圍（緩衝 14 米）推算，非官方建築圖。<br>
+    基準高程：Esri WorldElevation3D · 達之路（Tat Chee Avenue）與商場 G 樓接駁處 33.0 m<br>
     資料：3D 行人路網 landsd_rcd_1637222018065_52265 · 建築 BuildingID 1108222840（又一城）<br>
     Basemap: Esri · Powered by Esri
   </div>
@@ -101,12 +102,29 @@ const LABEL_ANCHORS = {"festival_walk_MTR_Level": [114.175381, 22.336754], "fest
 //     min 19.0 m, max 35.2 m under the plate footprints -- a 16.2 m spread.
 // GROUND_MIN_M is the lowest terrain under any floor: the stack is based on
 // it so the plates sit ON the hillside instead of floating over it.
-const GROUND_MIN_M = 18.9;   // lowest terrain under any floor (Esri Terrain3D)
-const GROUND_MAX_M = 35.2;   // highest terrain under any floor
-// The building is founded on the LOWEST terrain under its footprint, so the
-// stack sits on the hillside instead of hovering above it. Underground floors
-// then dip below the uphill terrain, which is why the ground is translucent.
-const GROUND_M = GROUND_MIN_M;
+// Terrain heights, measured from Esri WorldElevation3D (Terrain3D) with
+// ElevationLayer.queryElevation -- the elevation layer lives in
+// map.ground.layers, and the height comes back on res.geometry.z.
+//
+// The datum is TAT CHEE AVENUE (達之路) at the point where it meets the mall.
+// The G floor's pedestrian routes touch the street at four junctions; the
+// closest is an exact vertex match. The street is at 31.5-34.5 m there, and
+// 33.0 m at the main junction.
+//
+// The mall's G floor is a podium deck: it meets the street level at that
+// junction, so the G floor is placed AT the street height and the floors
+// above and below it are measured from there.
+const TAT_CHEE_JUNCTION_M = 33.0;   // G floor = Tat Chee Avenue at the mall
+// The lowest terrain under any floor footprint (18.9 m) -- the podium is
+// founded below this so the building is carried into the hillside rather than
+// hovering over the downhill end.
+const GROUND_MIN_M = 18.9;
+const GROUND_MAX_M = 35.2;
+// Ground reference for the stack: the G floor's own deck height.
+const GROUND_M = TAT_CHEE_JUNCTION_M;
+// The G floor's own CSDI height on the MTR scale (16.5 m). It is the
+// datum, so its offset from GROUND_M is zero.
+const G_FLOOR_H_M = 16.5;
 // The height datum quoted in the panel is the ground floor G. CSDI publishes
 // the floors relative to the MTR level, so G sits at 16.5 m on that scale
 // and every floor is re-based on it for display: MTR -16.5, LG2 -11.0,
@@ -139,6 +157,7 @@ const view = new SceneView({
              tilt: 41, heading: 30 }
 });
 window.__view = view;
+
 
 // ---------------------------------------------------------------- 3D buildings
 // The mall is a stack of thin floor plates (not one solid box) so the coloured
@@ -191,8 +210,13 @@ bldLayer.when().then(() => {
       // floors reads as floors INSIDE a building rather than a shape hovering
       // above the ground. The underground floors (MTR, LG2, LG1) sit inside
       // this mass; the ground is translucent so they can still be seen.
-      const topZ = GROUND_M + 16.5 * V_SCALE;          // G floor level
-      const botZ = GROUND_MIN_M - 15;                  // 15 m below the low ground
+      const topZ = GROUND_M;                            // G floor level
+      // The podium must reach BELOW the deepest floor (the MTR level, at
+      // 0 m absolute) as well as below the lowest terrain, so every
+      // underground floor is enclosed by the mass rather than hanging
+      // beneath it.
+      const mtrZ = GROUND_M + (0 - G_FLOOR_H_M) * V_SCALE;   // MTR floor
+      const botZ = Math.min(GROUND_MIN_M - 15, mtrZ - 6);
       const height = Math.max(topZ - botZ, 5);
       const col = new Color(p.colour || "#5c6b86");
       col.alpha = Number(p.alpha) || 0.30;
@@ -243,7 +267,11 @@ bldLayer.when().then(() => {
           })
         ]
       });
-      const plateZ = GROUND_M + h * V_SCALE - thick;
+      // Heights are quoted against the G floor (the datum), so subtract G's
+      // own CSDI height before scaling. G therefore sits exactly at
+      // GROUND_M, and every other floor is placed relative to it.
+      const hRelG = h - G_FLOOR_H_M;
+      const plateZ = GROUND_M + hRelG * V_SCALE - thick;
       // The polygon MUST carry explicit z values on every ring vertex.
       // GeoJSON rings are 2D, and in "absolute-height" mode SceneView does
       // NOT fall back to the layer's elevationInfo.elevation for polygon
@@ -309,7 +337,7 @@ LAYERS.forEach((L) => {
   // a label and a plate but no network.
   if (L.volume_only) {
     const anchor = (LABEL_ANCHORS && LABEL_ANCHORS[L.id]) || CENTRE;
-    const lblZ = GROUND_M + L.height * V_SCALE + 2.0;
+    const lblZ = GROUND_M + (L.height - G_FLOOR_H_M) * V_SCALE + 2.0;
     const glV = new GraphicsLayer({ title: L.name + " 標籤", elevationInfo: { mode: "absolute-height", elevation: lblZ, zOffset: 0 } });
     glV.add(new Graphic({
       // Explicit z on the point, for the same reason the plates carry one.
@@ -371,7 +399,7 @@ LAYERS.forEach((L) => {
       // Give every vertex the floor's own elevation.
       const netZ = isVert
         ? GROUND_M + 0.6
-        : GROUND_M + L.height * V_SCALE + 0.8;
+        : GROUND_M + (L.height - G_FLOOR_H_M) * V_SCALE + 0.8;
       paths.forEach((path) => {
         const pathZ = path.map((pt) => [pt[0], pt[1], netZ]);
         netLayer.add(new Graphic({
@@ -386,7 +414,7 @@ LAYERS.forEach((L) => {
   // Floor name, floating just above that floor's own network centroid --
   // each floor gets its own anchor so the labels do not stack on one another.
   const anchor = (LABEL_ANCHORS && LABEL_ANCHORS[L.id]) || CENTRE;
-  const lblZ = GROUND_M + L.height * V_SCALE + 2.0;
+  const lblZ = GROUND_M + (L.height - G_FLOOR_H_M) * V_SCALE + 2.0;
   const gl2 = new GraphicsLayer({ title: L.name + " 標籤", elevationInfo: { mode: "absolute-height", elevation: lblZ, zOffset: 0 } });
   gl2.add(new Graphic({
     // Explicit z on the point, for the same reason the plates carry one.
@@ -468,7 +496,7 @@ async function frameMall(attempt = 0) {
   // (a look-at position offset back along the heading and raised by the tilt)
   // gives an exact, reproducible framing.
   const LOOK_TILT = 41, LOOK_HEADING = 30, LOOK_DIST = 400;
-  const AIM_Z = GROUND_M + 16.5 * V_SCALE;   // mid-stack height
+  const AIM_Z = GROUND_M + 8.25 * V_SCALE;    // mid-stack height
   const mPerDegLat = 110574;
   const mPerDegLon = mPerDegLat * Math.cos(CENTRE[1] * Math.PI / 180);
   const tR = LOOK_TILT * Math.PI / 180, hR = LOOK_HEADING * Math.PI / 180;
