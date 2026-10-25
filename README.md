@@ -67,6 +67,32 @@ building. The podium is a schematic foundation mass, not the real building envel
 | LG1 | 22.0 m | | 2/F | 66.0 m |
 | **G** | **33.0 m** (= Tat Chee Ave) | | | |
 
+**Vertical circulation is drawn in 3D.** The CSDI route table links floors
+through routes that carry no floor id — lifts, escalators, staircases and
+ramps. The first version of this layer took *every* route with no floor id and
+drew all 77 at one constant elevation, which collapsed them into a flat yellow
+mesh draped over the building.
+
+`scripts/build_vertical_3d.py` now separates them properly. It uses the CSDI
+`FeatureType` domain (Escalator 8, Lift 10, Staircase 12, Ramp 11 — versus
+Traffic Island 6, Crossing 32/33, Footway 1) and the `Location` field
+(Indoor 2 / Outdoor 1) to tell real connectors from flat outdoor surfaces, and
+resolves which two published floors each connector joins by matching its ends
+against the floor networks — a connector's ends land at **0.00 m** from the
+floor network it serves, because the two share vertices.
+
+| Connector | Count | Drawn as |
+|---|---|---|
+| Escalator | 18 | sloping line between its two floors |
+| Lift | 8 | vertical shaft between its two floors |
+| Staircase | 2 | sloping line |
+| Ramp | 1 | sloping line |
+
+That leaves **29 genuine connectors** (drawn at 18 distinct z values from 0 to
+44 m) and **48 flat surfaces** — podium decks, traffic islands, crossings and
+footways — which are not vertical circulation and belong on the terrain, not
+inside the building.
+
 **Every polygon and polyline carries an explicit z.** GeoJSON rings are 2D, and in
 `absolute-height` mode SceneView does not fall back to the layer's elevation for
 polygon geometry — the extrusion base resolves to 0/NaN and the symbol renders as
@@ -81,6 +107,7 @@ Open `apps/festival-walk-3d/index.html` directly, or serve the repo root and vis
 ```bash
 python3 scripts/build_festival_walk_3d.py   # per-floor route GeoJSON from CSDI
 python3 scripts/build_buildings_3d.py       # mall floor plates + label anchors
+python3 scripts/build_vertical_3d.py        # 3D vertical circulation + site surfaces
 ```
 
 `build_festival_walk_3d.py` queries the official FeatureServer for

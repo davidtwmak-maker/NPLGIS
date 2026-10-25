@@ -92,7 +92,7 @@ function heightRelToG(h) {
   return (v > 0 ? "+" : "") + v.toFixed(1);
 }
 
-const LAYERS = [{"id": "festival_walk_MTR_Level", "name": "港鐵層 MTR Level  (MTR Level)", "url": "data/festival_walk_MTR_Level.geojson", "count": 14, "gtype": "MultiLineString", "fields": ["PedestrianRouteID", "Location", "FeatureType", "AliasNameEN", "AliasNameTC", "CrossingFeature", "WeatherProof", "WheelchairBarrier", "WheelchairAccess", "ObstaclesType", "Gradient", "Direction", "PositionCertainty", "Enabled", "DataSource", "LevelSource", "StreetNameEN", "StreetNameTC", "ST_CODE", "FloorID"], "title_field": "ALIASNAMEEN", "height": 0.0, "colour": "#f5a524", "order": 0, "labelOffset": [-40, 70]}, {"id": "festival_walk_LG2", "name": "低層地下二樓 LG2  (LG2)", "url": "data/festival_walk_LG2.geojson", "count": 22, "gtype": "MultiLineString", "fields": ["PedestrianRouteID", "Location", "FeatureType", "AliasNameEN", "AliasNameTC", "CrossingFeature", "WeatherProof", "WheelchairBarrier", "WheelchairAccess", "ObstaclesType", "Gradient", "Direction", "PositionCertainty", "Enabled", "DataSource", "LevelSource", "StreetNameEN", "StreetNameTC", "ST_CODE", "FloorID"], "title_field": "ALIASNAMEEN", "height": 5.5, "colour": "#ff6b9d", "order": 1, "labelOffset": [-120, 20]}, {"id": "festival_walk_LG1", "name": "低層地下一樓 LG1  (LG1)", "url": "data/festival_walk_LG1.geojson", "count": 30, "gtype": "MultiLineString", "fields": ["PedestrianRouteID", "Location", "FeatureType", "AliasNameEN", "AliasNameTC", "CrossingFeature", "WeatherProof", "WheelchairBarrier", "WheelchairAccess", "ObstaclesType", "Gradient", "Direction", "PositionCertainty", "Enabled", "DataSource", "LevelSource", "StreetNameEN", "StreetNameTC", "ST_CODE", "FloorID"], "title_field": "ALIASNAMEEN", "height": 11.0, "colour": "#3fe0d0", "order": 2, "labelOffset": [-105, -40]}, {"id": "festival_walk_G", "name": "地下 G  (G)", "url": "data/festival_walk_G.geojson", "count": 50, "gtype": "MultiLineString", "fields": ["PedestrianRouteID", "Location", "FeatureType", "AliasNameEN", "AliasNameTC", "CrossingFeature", "WeatherProof", "WheelchairBarrier", "WheelchairAccess", "ObstaclesType", "Gradient", "Direction", "PositionCertainty", "Enabled", "DataSource", "LevelSource", "StreetNameEN", "StreetNameTC", "ST_CODE", "FloorID"], "title_field": "ALIASNAMEEN", "height": 16.5, "colour": "#7c8cff", "order": 3, "labelOffset": [60, 75]}, {"id": "festival_walk_UG", "name": "高層地下 UG  (UG)", "url": "data/festival_walk_UG.geojson", "count": 14, "gtype": "MultiLineString", "fields": ["PedestrianRouteID", "Location", "FeatureType", "AliasNameEN", "AliasNameTC", "CrossingFeature", "WeatherProof", "WheelchairBarrier", "WheelchairAccess", "ObstaclesType", "Gradient", "Direction", "PositionCertainty", "Enabled", "DataSource", "LevelSource", "StreetNameEN", "StreetNameTC", "ST_CODE", "FloorID"], "title_field": "ALIASNAMEEN", "height": 22.0, "colour": "#8ce99a", "order": 4, "labelOffset": [130, 25]}, {"id": "festival_walk_1F", "name": "一樓 1/F  (1/F)", "url": "data/festival_walk_1F.geojson", "count": 0, "gtype": "MultiLineString", "fields": [], "title_field": "ALIASNAMEEN", "height": 27.5, "colour": "#c8a2ff", "order": 5, "labelOffset": [95, -45], "volume_only": true}, {"id": "festival_walk_2F", "name": "二樓 2/F  (2/F)", "url": "data/festival_walk_2F.geojson", "count": 0, "gtype": "MultiLineString", "fields": [], "title_field": "ALIASNAMEEN", "height": 33.0, "colour": "#ff9f6e", "order": 6, "labelOffset": [25, -85], "volume_only": true}, {"id": "festival_walk_vertical", "name": "垂直交通 升降機/扶手電梯/樓梯", "url": "data/festival_walk_vertical.geojson", "count": 77, "gtype": "MultiLineString", "fields": ["PedestrianRouteID", "Location", "FeatureType", "AliasNameEN", "AliasNameTC", "CrossingFeature", "WeatherProof", "WheelchairBarrier", "WheelchairAccess", "ObstaclesType", "Gradient", "Direction", "PositionCertainty", "Enabled", "DataSource", "LevelSource", "StreetNameEN", "StreetNameTC", "ST_CODE", "FloorID"], "title_field": "ALIASNAMEEN", "height": null, "colour": "#ffd43b", "order": 9}];
+const LAYERS = [{"id": "festival_walk_MTR_Level", "name": "港鐵層 MTR Level  (MTR Level)", "url": "data/festival_walk_MTR_Level.geojson", "count": 14, "gtype": "MultiLineString", "fields": ["PedestrianRouteID", "Location", "FeatureType", "AliasNameEN", "AliasNameTC", "CrossingFeature", "WeatherProof", "WheelchairBarrier", "WheelchairAccess", "ObstaclesType", "Gradient", "Direction", "PositionCertainty", "Enabled", "DataSource", "LevelSource", "StreetNameEN", "StreetNameTC", "ST_CODE", "FloorID"], "title_field": "ALIASNAMEEN", "height": 0.0, "colour": "#f5a524", "order": 0, "labelOffset": [-40, 70]}, {"id": "festival_walk_LG2", "name": "低層地下二樓 LG2  (LG2)", "url": "data/festival_walk_LG2.geojson", "count": 22, "gtype": "MultiLineString", "fields": ["PedestrianRouteID", "Location", "FeatureType", "AliasNameEN", "AliasNameTC", "CrossingFeature", "WeatherProof", "WheelchairBarrier", "WheelchairAccess", "ObstaclesType", "Gradient", "Direction", "PositionCertainty", "Enabled", "DataSource", "LevelSource", "StreetNameEN", "StreetNameTC", "ST_CODE", "FloorID"], "title_field": "ALIASNAMEEN", "height": 5.5, "colour": "#ff6b9d", "order": 1, "labelOffset": [-120, 20]}, {"id": "festival_walk_LG1", "name": "低層地下一樓 LG1  (LG1)", "url": "data/festival_walk_LG1.geojson", "count": 30, "gtype": "MultiLineString", "fields": ["PedestrianRouteID", "Location", "FeatureType", "AliasNameEN", "AliasNameTC", "CrossingFeature", "WeatherProof", "WheelchairBarrier", "WheelchairAccess", "ObstaclesType", "Gradient", "Direction", "PositionCertainty", "Enabled", "DataSource", "LevelSource", "StreetNameEN", "StreetNameTC", "ST_CODE", "FloorID"], "title_field": "ALIASNAMEEN", "height": 11.0, "colour": "#3fe0d0", "order": 2, "labelOffset": [-105, -40]}, {"id": "festival_walk_G", "name": "地下 G  (G)", "url": "data/festival_walk_G.geojson", "count": 50, "gtype": "MultiLineString", "fields": ["PedestrianRouteID", "Location", "FeatureType", "AliasNameEN", "AliasNameTC", "CrossingFeature", "WeatherProof", "WheelchairBarrier", "WheelchairAccess", "ObstaclesType", "Gradient", "Direction", "PositionCertainty", "Enabled", "DataSource", "LevelSource", "StreetNameEN", "StreetNameTC", "ST_CODE", "FloorID"], "title_field": "ALIASNAMEEN", "height": 16.5, "colour": "#7c8cff", "order": 3, "labelOffset": [60, 75]}, {"id": "festival_walk_UG", "name": "高層地下 UG  (UG)", "url": "data/festival_walk_UG.geojson", "count": 14, "gtype": "MultiLineString", "fields": ["PedestrianRouteID", "Location", "FeatureType", "AliasNameEN", "AliasNameTC", "CrossingFeature", "WeatherProof", "WheelchairBarrier", "WheelchairAccess", "ObstaclesType", "Gradient", "Direction", "PositionCertainty", "Enabled", "DataSource", "LevelSource", "StreetNameEN", "StreetNameTC", "ST_CODE", "FloorID"], "title_field": "ALIASNAMEEN", "height": 22.0, "colour": "#8ce99a", "order": 4, "labelOffset": [130, 25]}, {"id": "festival_walk_1F", "name": "一樓 1/F  (1/F)", "url": "data/festival_walk_1F.geojson", "count": 0, "gtype": "MultiLineString", "fields": [], "title_field": "ALIASNAMEEN", "height": 27.5, "colour": "#c8a2ff", "order": 5, "labelOffset": [95, -45], "volume_only": true}, {"id": "festival_walk_2F", "name": "二樓 2/F  (2/F)", "url": "data/festival_walk_2F.geojson", "count": 0, "gtype": "MultiLineString", "fields": [], "title_field": "ALIASNAMEEN", "height": 33.0, "colour": "#ff9f6e", "order": 6, "labelOffset": [25, -85], "volume_only": true}, {"id": "festival_walk_vertical", "name": "垂直交通 升降機/扶手電梯/樓梯", "url": "data/festival_walk_vertical_3d.geojson", "count": 29, "gtype": "LineString", "fields": ["kind", "mode", "floor_from", "floor_to", "run_m", "gradient", "rise_m", "alias"], "title_field": "ALIASNAMEEN", "height": null, "colour": "#ffd43b", "order": 9, "vertical_3d": true}];
 const TILES = "https://server.arcgisonline.com/ArcGIS/rest/services";
 const TERRAIN = "https://elevation3d.arcgis.com/arcgis/rest/services/WorldElevation3D/Terrain3D/ImageServer";
 const CENTRE = [114.174679, 22.337468];
@@ -157,7 +157,6 @@ const view = new SceneView({
              tilt: 41, heading: 30 }
 });
 window.__view = view;
-
 
 // ---------------------------------------------------------------- 3D buildings
 // The mall is a stack of thin floor plates (not one solid box) so the coloured
@@ -332,6 +331,86 @@ const labelLayers = {};
 
 const box = document.getElementById("layers");
 
+// ---------------------------------------------------------------------------
+// Vertical circulation: drawn as REAL 3D connectors.
+//
+// The earlier version drew all 77 FloorID-less routes at one constant
+// elevation, which collapsed the lifts, escalators and stairs into a flat
+// yellow mesh draped over the building. Two things were wrong:
+//
+//   1. The dataset was "every route with no FloorID", which swept in 48 flat
+//      outdoor surfaces (podium decks, traffic islands, crossings, footways)
+//      that are not vertical circulation at all.
+//   2. Even the real connectors were flat, so a lift between two floors
+//      looked exactly like a painted line on the ground.
+//
+// scripts/build_vertical_3d.py now separates the two using the CSDI
+// FeatureType and Gradient fields, and resolves which two published floors
+// each connector joins by matching its ends against the floor networks (a
+// connector's ends land at 0.00 m from the floor it serves).
+//
+// Each connector is drawn with a DIFFERENT z on each vertex, so it genuinely
+// slopes in 3D from its lower floor to its upper floor.
+const FLOOR_H_M = { "MTR Level": 0.0, "LG2": 5.5, "LG1": 11.0, "G": 16.5, "UG": 22.0 };
+
+function floorZ(fname) {
+  if (fname === null || fname === undefined) return GROUND_M;
+  const h = FLOOR_H_M[fname];
+  return h === undefined ? GROUND_M : GROUND_M + (h - G_FLOOR_H_M) * V_SCALE;
+}
+
+async function drawVertical(L, netLayer) {
+  const res = await fetch(L.url);
+  const fc = await res.json();
+  (fc.features || []).forEach((ft) => {
+    const g = ft.geometry;
+    if (!g) return;
+    const pr = ft.properties || {};
+    const coords = g.type === "LineString" ? g.coordinates
+                : g.type === "MultiLineString" ? g.coordinates[0]
+                : [];
+    if (!coords || coords.length < 2) return;
+
+    const zFrom = floorZ(pr.floor_from);
+    const zTo = floorZ(pr.floor_to);
+
+    // A lift is a vertical shaft: draw it as a true vertical line between
+    // the two floors rather than along its (0.1 m) plan length.
+    let pathZ;
+    if (pr.kind === "Lift") {
+      pathZ = [[coords[0][0], coords[0][1], zFrom],
+               [coords[coords.length - 1][0], coords[coords.length - 1][1], zTo]];
+    } else if (pr.mode === "incline") {
+      // A within-floor incline: it climbs by its own gradient-implied rise
+      // from the floor it sits on.
+      const rise = (Number(pr.rise_m) || 0) * V_SCALE;
+      pathZ = [[coords[0][0], coords[0][1], zFrom],
+               [coords[coords.length - 1][0], coords[coords.length - 1][1], zFrom + rise]];
+    } else {
+      // A floor-to-floor link: slope from the lower floor to the upper.
+      pathZ = [[coords[0][0], coords[0][1], zFrom],
+               [coords[coords.length - 1][0], coords[coords.length - 1][1], zTo]];
+    }
+
+    netLayer.add(new Graphic({
+      geometry: { type: "polyline", paths: [pathZ], spatialReference: { wkid: 4326 } },
+      attributes: pr,
+      symbol: { type: "simple-line", color: L.colour, width: 3.0, cap: "round" }
+    }));
+
+    // A small marker at the LOWER end, so the connector's foot is visible
+    // against the floor plate it starts from.
+    const lowerZ = Math.min(zFrom, zTo);
+    netLayer.add(new Graphic({
+      geometry: { type: "point", longitude: pathZ[0][0], latitude: pathZ[0][1], z: lowerZ + 0.4,
+                  spatialReference: { wkid: 4326 } },
+      attributes: pr,
+      symbol: { type: "simple-marker", color: L.colour, size: 5,
+                outline: { color: "#101420", width: 1 } }
+    }));
+  });
+}
+
 LAYERS.forEach((L) => {
   // Volume-only floors (1/F, 2/F) have no published route data, so they get
   // a label and a plate but no network.
@@ -375,18 +454,22 @@ LAYERS.forEach((L) => {
   // own level above the terrain (a GeoJSONLayer ignores it).
   const netLayer = new GraphicsLayer({
     title: L.name,
-    // Vertical circulation (lifts / escalators / stairs) has no floor of its
-    // own -- it links floors -- so it is drawn just above the ground. Giving
-    // it a real z keeps it from being drawn as a flat mesh draped over the
-    // terrain, which previously buried the mall's coloured floor plates.
+    // +0.8 m so the network rides just above its own floor plate rather
+    // than being coplanar with (and hidden by) it.
+    // For the vertical layer the height is null (no floor of its own), and
+    // every graphic carries its own explicit z -- so the layer elevation is
+    // left at 0 and does not offset them.
     elevationInfo: isVert
-      ? { mode: "absolute-height", elevation: GROUND_M + 0.6, zOffset: 0 }
-      // +0.8 m so the network rides just above its own floor plate rather
-      // than being coplanar with (and hidden by) it.
-      : { mode: "absolute-height", elevation: GROUND_M + L.height * V_SCALE + 0.8, zOffset: 0 }
+      ? { mode: "absolute-height", elevation: 0, zOffset: 0 }
+      : { mode: "absolute-height", elevation: GROUND_M + (L.height - G_FLOOR_H_M) * V_SCALE + 0.8, zOffset: 0 }
   });
   map.add(netLayer);
 
+  if (isVert) {
+    // ---- vertical circulation: drawn as REAL 3D connectors --------------
+    drawVertical(L, netLayer);
+  } else {
+  // ---- the five published floor networks -------------------------------
   fetch(L.url).then(r => r.json()).then((fc) => {
     (fc.features || []).forEach((ft) => {
       const g = ft.geometry;
@@ -397,9 +480,7 @@ LAYERS.forEach((L) => {
       // The same z requirement applies to polylines: a 2D path in
       // "absolute-height" mode is drawn at the wrong height (or clipped).
       // Give every vertex the floor's own elevation.
-      const netZ = isVert
-        ? GROUND_M + 0.6
-        : GROUND_M + (L.height - G_FLOOR_H_M) * V_SCALE + 0.8;
+      const netZ = GROUND_M + (L.height - G_FLOOR_H_M) * V_SCALE + 0.8;
       paths.forEach((path) => {
         const pathZ = path.map((pt) => [pt[0], pt[1], netZ]);
         netLayer.add(new Graphic({
@@ -410,6 +491,7 @@ LAYERS.forEach((L) => {
       });
     });
   }).catch((e) => { window.__errors.push(L.id + " fetch: " + e); });
+  }
 
   // Floor name, floating just above that floor's own network centroid --
   // each floor gets its own anchor so the labels do not stack on one another.

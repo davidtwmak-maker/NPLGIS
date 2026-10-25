@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-25T02:01:24Z",
+ "generated": "2026-10-25T02:50:50Z",
  "repository": "davidtwmak-maker/NPLGIS",
  "note": "Every layer shipped in assets/data plus the Festival Walk 3D app data. Features counted from the file itself. Floor plate heights are schematic (5.5 m storey, 2x vertical exaggeration). The G floor is set to Tat Chee Avenue (達之路) at the junction where it meets the mall - 33.0 m measured from Esri WorldElevation3D Terrain3D - and the podium is a schematic foundation mass, not measured architectural heights.",
  "sources": [
@@ -499,6 +499,42 @@
    "records": "",
    "notes": "",
    "sha256": "c39b2fddcd3441a5"
+  },
+  {
+   "file": "apps/festival-walk-3d/data/festival_walk_vertical_3d.geojson",
+   "title": "Festival Walk vertical circulation, 3D (lifts / escalators / stairs / ramps)",
+   "dataset_id": "landsd_rcd_1637222018065_52265",
+   "gzipped": false,
+   "records": "",
+   "notes": "29 genuine floor-to-floor connectors, separated from the 48 flat site surfaces using the CSDI FeatureType domain and Gradient field. Each connector's two floors are resolved by matching its ends against the published floor networks (a connector's ends land at 0.00 m from the floor it serves). Carries floor_from, floor_to, mode (link / shaft / incline) and rise_m. The app draws each connector with a different z on each vertex, so lifts are vertical shafts and escalators slope between floors.",
+   "bytes": 10096,
+   "mb": 0.01,
+   "sha256": "fd2888e91a9504b8",
+   "features": 29
+  },
+  {
+   "file": "apps/festival-walk-3d/data/festival_walk_site_surface.geojson",
+   "title": "Festival Walk flat site surfaces (podium decks, traffic islands, crossings, footways)",
+   "dataset_id": "landsd_rcd_1637222018065_52265",
+   "gzipped": false,
+   "records": "",
+   "notes": "48 flat surfaces from the CSDI routes that have no floor id and are NOT vertical circulation. They are outdoor podium decks, traffic islands, crossings and footways, which belong on the terrain rather than inside the building. Kept separate so they are not drawn as a flat mesh through the mall.",
+   "bytes": 14795,
+   "mb": 0.014,
+   "sha256": "f98fd251f2b11df0",
+   "features": 48
+  },
+  {
+   "file": "apps/festival-walk-3d/data/festival_walk_vertical.geojson",
+   "bytes": 69811,
+   "mb": 0.067,
+   "gzipped": false,
+   "features": 77,
+   "title": "Festival Walk raw FloorID-less route extract (superseded)",
+   "dataset_id": "landsd_rcd_1637222018065_52265",
+   "records": "",
+   "notes": "Raw CSDI routes for Festival Walk that carry no FloorID -- 77 features. SUPERSEDED for the 3D app by festival_walk_vertical_3d.geojson (29 genuine connectors) and festival_walk_site_surface.geojson (48 flat surfaces); kept as the unmodified source extract.",
+   "sha256": "a315aeacedcfdd62"
   }
  ]
 }
