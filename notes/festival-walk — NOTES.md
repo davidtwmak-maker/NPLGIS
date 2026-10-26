@@ -38,3 +38,9 @@
 - `build_map_data.py` — data prep pipeline
 - `render_map.py` — map renderer
 - `mtr_fare_saver_map.png` — output
+
+---
+
+## Student worksheet
+
+[[Student Worksheet — Festival Walk 3D Mall Model]]

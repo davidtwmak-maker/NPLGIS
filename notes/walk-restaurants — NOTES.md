@@ -43,3 +43,9 @@ GUI equivalent: Vector → Network Analysis → Service Area (from point) → th
 
 - 497 restaurants reachable — check top licence categories: General Restaurant vs Light Refreshment split in the CSV.
 - Compare with a 5-minute catchment (400 m) to see how fast food choices thin out.
+
+---
+
+## Student worksheet
+
+[[Student Worksheet — 15-Minute Walk Catchment]]

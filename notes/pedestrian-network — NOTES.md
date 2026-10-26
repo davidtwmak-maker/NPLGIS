@@ -102,3 +102,9 @@ Exported fields: `PedestrianRouteID, FeatureType, WeatherProof, Location, Street
 ## Direct use in ArcGIS without downloading
 ArcGIS Pro → Add Data → From URL → paste the FeatureServer/0 URL, then definition query:
 `Location = 1 AND WeatherProof = 2`
+
+---
+
+## Student worksheet
+
+[[Student Worksheet — 3D Pedestrian Network and Covered Walkways]]

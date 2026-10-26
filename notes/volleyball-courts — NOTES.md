@@ -188,3 +188,9 @@ gap — $148 vs $57 an hour buys availability.
 
 Data © HKSAR Government (LCSD, CSDI Portal, LandsD). Terms: non-commercial with
 attribution.
+
+---
+
+## Student worksheet
+
+[[Student Worksheet — Volleyball Courts Booking Data]]

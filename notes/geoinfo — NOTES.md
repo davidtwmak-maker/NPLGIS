@@ -110,3 +110,9 @@ python3 ib20000.py --prefetch 14         # refresh territory mosaic
 
 > Base map: © The Government of the HKSAR (LandsD), www.map.gov.hk · Data: GeoInfo Map,
 > participating HKSAR departments · iB20000 orthophoto: LandsD
+
+---
+
+## Student worksheet
+
+[[Student Worksheet — Building Heights in 3D]]
