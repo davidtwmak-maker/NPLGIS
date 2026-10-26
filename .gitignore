@@ -18,3 +18,7 @@ kc.log
 # Editor
 .vscode/
 .idea/
+
+# Generated student worksheet HTML - rebuilt by scripts/build_worksheets.py
+# during the Pages deploy, so it is not committed.
+worksheet-site/

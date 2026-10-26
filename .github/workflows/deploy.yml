@@ -57,6 +57,15 @@ jobs:
           print(f"  total {total} features across {len(files)} layers")
           PY
 
+      - name: Build the student worksheet pages
+        run: |
+          set -euo pipefail
+          python3 scripts/build_worksheets.py
+          test -f worksheet-site/index.html
+          n=$(ls worksheet-site/*.html | wc -l | tr -d ' ')
+          echo "  ok   $n worksheet pages built"
+          [ "$n" -eq 7 ] || { echo "::error::expected 7 worksheet pages, got $n"; exit 1; }
+
       - name: Verify every map referenced by the landing page exists
         run: |
           set -euo pipefail
@@ -69,6 +78,10 @@ jobs:
               if r.startswith("http"):
                   continue
               p = pathlib.Path(r)
+              # the worksheet pages are generated into worksheet-site/ and
+              # published at /worksheets/, so check the source of truth
+              if not p.exists() and r.startswith("worksheets/"):
+                  p = pathlib.Path("worksheet-site") / r.split("/", 1)[1]
               if not p.exists():
                   missing.append(r)
           for m in missing:
@@ -77,7 +90,6 @@ jobs:
               sys.exit(f"::error::{len(missing)} referenced file(s) missing")
           print(f"  ok   all {len([r for r in refs if not r.startswith('http')])} local references resolve")
           PY
-
       - name: Check no file exceeds the GitHub push limit
         run: |
           set -euo pipefail
@@ -95,6 +107,7 @@ jobs:
           mkdir -p _site
           cp index.html arcgis-scene.html favicon.png LICENSE.txt README.md _site/
           cp -R assets apps _site/
+          cp -R worksheet-site _site/worksheets
           echo "staged $(du -sh _site | cut -f1)"
 
       - name: Upload Pages artifact
