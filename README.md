@@ -206,6 +206,7 @@ apps/
 scripts/                        Every build and render script, made portable
   build_festival_walk_3d.py     Per-floor route GeoJSON from the CSDI FeatureServer
   build_buildings_3d.py         Mall 3D floor plates + label anchors from those routes
+worksheets/                     Student task sheets, one per project, with check numbers
 notes/                          Per-project provenance and validation notes
 ```
 
@@ -266,6 +267,29 @@ python3 scripts/render_festival_walk_relief2.py
 **Python dependencies:** `rasterio`, `numpy`, `matplotlib`, `shapely`, `requests`,
 `pillow`. The 3D scene itself needs no build step — it is plain HTML + JS loading
 ArcGIS from the CDN.
+
+---
+
+## Student worksheets
+
+Six task sheets built from the projects in this repository, for secondary students
+and CSDI Awards entrants — real data, the real method, the check numbers, the
+traps, and the limitations to declare.
+
+Start with **`worksheets/Student Worksheets — GIS Projects.md`** (the index).
+
+| Worksheet | The question |
+|---|---|
+| 3D Pedestrian Network and Covered Walkways | Can you walk across Hong Kong without getting wet? |
+| Volleyball Courts Booking Data | When is it easiest to get a volleyball court? |
+| 15-Minute Walk Catchment | What can you reach from a school in 15 minutes on foot? |
+| Festival Walk 3D Mall Model | How do you get between floors in a mall built into a hillside? |
+| Building Heights in 3D | What does a city look like when you can see its height? |
+| MTR Fare Saver Map | Which neighbourhoods have no fare-saver mall within a short walk? |
+
+Every live figure in them was re-verified against the source service on
+26 Oct 2026, and the Sham Shui Po building-height statistics were recomputed from
+`B1K_Bldg` rather than copied.
 
 ---
 
