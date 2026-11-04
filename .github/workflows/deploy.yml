@@ -140,6 +140,10 @@ jobs:
           cp index.html arcgis-scene.html favicon.png LICENSE.txt README.md _site/
           cp -R assets apps _site/
           cp -R worksheet-site _site/worksheets
+          # the per-project notes are linked from the web map and the landing
+          # page, so they must be published, not just committed
+          mkdir -p _site/notes
+          cp notes/*.md _site/notes/
           echo "staged $(du -sh _site | cut -f1)"
 
       - name: Upload Pages artifact
