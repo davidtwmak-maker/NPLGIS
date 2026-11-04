@@ -101,6 +101,38 @@ jobs:
           fi
           echo "  ok   no file over 95 MB"
 
+      - name: Verify the landslide susceptibility web map's data is intact
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, pathlib, sys
+          data = pathlib.Path("apps/landslide-susceptibility/data")
+          grid = json.loads((data / "susceptibility_grid.json").read_text())
+          n = grid["rows"] * grid["cols"]
+          if len(grid["scores"]) != n:
+              sys.exit(f"::error::score array is {len(grid['scores'])}, expected {n}")
+          if len(grid["classes"]) != 5:
+              sys.exit("::error::expected 5 susceptibility classes")
+          total = sum(c["cells"] for c in grid["classes"])
+          if total != grid["land_cells"]:
+              sys.exit(f"::error::class cells sum to {total}, expected {grid['land_cells']}")
+          resid = grid["fit"]["max_residual_m"]
+          if resid > 0.01:
+              sys.exit(f"::error::projection fit residual {resid} m is too coarse for a 200 m cell")
+          print(f"  ok   {n} scores, 5 classes, {grid['land_cells']} land cells")
+          print(f"  ok   projection fit residual {resid*1000:.2f} mm")
+          for png in ("susceptibility_surface.png", "landslide_points.png"):
+              p = data / png
+              if not p.exists() or p.stat().st_size < 1000:
+                  sys.exit(f"::error::{png} missing or too small")
+              print(f"  ok   {png} ({p.stat().st_size//1024} KB)")
+          for f in pathlib.Path("assets/data/landslide").glob("*.gz"):
+              import gzip
+              with gzip.open(f, "rt", encoding="utf-8") as fh:
+                  feats = json.load(fh)["features"]
+              print(f"  ok   {f.name}: {len(feats)} features")
+          PY
+
       - name: Stage the site
         run: |
           set -euo pipefail

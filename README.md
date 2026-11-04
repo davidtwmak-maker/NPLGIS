@@ -118,6 +118,59 @@ centre in `index.html`.
 
 ---
 
+## The landslide susceptibility map
+
+`apps/landslide-susceptibility/` is an interactive Leaflet map of where Hong
+Kong's ground fails, on a 200 m grid.
+
+- **Hover any cell** to read its susceptibility score, class and HK1980
+  coordinates. The scores ship as a flat JSON array, so the page converts a
+  mouse position to a row/column and reads the number back with no server
+  round-trip.
+- **XGBoost** on 19 static predictors: terrain from the LandsD 5 m DTM, land
+  cover from ESA WorldCover 2021, and a **weathering-susceptibility** factor
+  derived from the CEDD geological map.
+- **5-fold spatial blocked cross-validation** on 5 km blocks — ROC-AUC **0.882**,
+  PR-AUC 0.853. A random split leaks neighbouring cells and inflates the score.
+- Trained against **19,332 cells holding a recorded landslide** (CEDD Location
+  of Landslide Incidents + the ENTLI historical crown inventory, 124,020 points
+  in all).
+
+**Why a PNG overlay and not 29,614 polygons.** Leaflet creates one DOM element
+per vector feature, so the cell polygons would stall the browser on every pan.
+The five-class surface is therefore a transparent PNG, and the scores live
+beside it in JSON. The 124,020 landslide points are baked into a second PNG on
+the same pixel grid for the same reason. The **vector layers still ship** in
+`assets/data/landslide/` (gzipped GeoJSON in EPSG:2326, plus a GeoTIFF score
+raster) for anyone opening them in QGIS or ArcGIS Pro.
+
+**The projection is a fitted affine transform**, not a library: the build
+script fits HK1980 → WGS84 over the grid corners by least squares and writes
+both directions into the JSON. The measured residual is **0.48 mm** over 64 km.
+The overlay's alignment was then verified in the browser by checking that the
+image pixel for a given cell lands on the same screen pixel as that cell's
+projected centre — agreement within **1 px** at all four corners.
+
+**Weathering is derived, not measured.** No Hong Kong open dataset carries a
+decomposition grade: the geological maps expose only lithology, the 330,467
+Ground Investigation boreholes expose only strata grade, and the 23,954 GEO AGS
+borehole-log archives contain no weathering text at all. So the factor is
+inferred from lithology, which is the standard engineering proxy and the right
+one for Hong Kong (Geoguide 3, CEDD).
+
+**What the model says that the original storymap did not.** The storymap
+asserted most landslides fall on 30–45° slopes. Re-measured and area-
+normalised, the 45–90° band holds a quarter of the land at **2.11×** the
+incident rate, while 0–30° runs at **0.46×**. Granite terrain carries
+**4.61×** the incident rate of resistant rock on gentle slopes — but adding
+weathering to the model moves ROC-AUC by −0.0002, because slope already
+captures it. Report the weathering factor as evidence about the landscape, not
+as a model improvement.
+
+Full method, validation and limitations: `notes/landslide-susceptibility — NOTES.md`.
+
+---
+
 ## Uploading to GitHub (team member)
 
 The repository is already published at <https://github.com/davidtwmak-maker/NPLGIS> and
@@ -194,18 +247,33 @@ assets/
     volleyball-courts/          2   · outline basemap, quick-look
     walk-restaurants/           2   · 5-minute and 15-minute catchments
     geoinfo/                   22   · iB20000 territory sheet + 21 historical sheets
+    landslide-susceptibility/   1   · the published susceptibility map
   data/                         Source data, geocoded layers, flat CSVs
     pedestrian/                 3D pedestrian network, split by WeatherProof/Location
     festival-walk/              Festival Walk + Kowloon Tong layers
     volleyball/                 Venues, sessions, usage, districts, shoreline
     mtr/                        Fare savers, MTR lines and stations
     walk/                       Restaurant catchments
+    landslide/                  Susceptibility cells (29,614), landslide records
+                                (124,020), score raster — all EPSG:2326
 apps/
   festival-walk-3d/             The 3D scene (index.html + per-floor GeoJSON + floor plates
                                 + the podium that grounds the stack on the hillside)
+  landslide-susceptibility/    The interactive landslide map (Leaflet + score grid
+                                + two PNG overlays)
 scripts/                        Every build and render script, made portable
   build_festival_walk_3d.py     Per-floor route GeoJSON from the CSDI FeatureServer
   build_buildings_3d.py         Mall 3D floor plates + label anchors from those routes
+  prep_terrain.py               LandsD DTM 5 m → 200 m terrain predictors
+  prep_landcover.py             ESA WorldCover → areal class fractions per cell
+  prep_geology.py               CEDD geological maps → weathering-susceptibility classes
+  fetch_vectors.py              CSDI REST → landslide, rainfall, ENTLI raw CSVs
+  build_dataset.py              Labels + predictors → training table
+  train_model.py                Spatial blocked CV, baselines, final XGBoost model
+  export_layers.py              GeoJSON cells + points, GeoTIFF score raster
+  make_susceptibility_map.py    The published static figure
+  ablation_weathering.py        Weathering-only vs incremental-value test
+  ablation_slope_control.py     Area-normalised incident rates within slope bands
 worksheets/                     Student task sheets, one per project, with check numbers
 notes/                          Per-project provenance and validation notes
 ```

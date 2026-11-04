@@ -14,6 +14,7 @@
       <a class="brand" href="./">NPL <span>GIS</span></a>
       <nav>
         <a href="./apps/festival-walk-3d/">3D Map</a>
+        <a href="./apps/landslide-susceptibility/">Landslide Map</a>
         <a href="./#projects">Projects</a>
         <a href="./#maps">Maps</a>
         <a href="./#data">Data</a>
@@ -55,6 +56,21 @@
             <p><a class="btn btn-primary" href="./apps/festival-walk-3d/">Launch 3D scene →</a></p>
           </article>
 
+          <article class="card card-featured">
+            <h3>Landslide susceptibility <span class="tag tag-live">live</span></h3>
+            <p>
+              An XGBoost model of where Hong Kong's ground fails, on 200 m cells.
+              Terrain, land cover and a weathering-susceptibility factor derived from
+              the CEDD geological map, fitted against 19,332 cells that hold a recorded
+              landslide. Hover any cell to read its score.
+            </p>
+            <p class="meta">
+              LandsD DTM 5 m · CEDD landslide records + geological map · ESA WorldCover
+              · 5-fold spatial CV, ROC-AUC 0.88
+            </p>
+            <p><a class="btn btn-primary" href="./apps/landslide-susceptibility/">Open the web map →</a></p>
+          </article>
+
           <article class="card">
             <h3>3D Pedestrian Network</h3>
             <p>
@@ -93,6 +109,13 @@
         <h2>Maps</h2>
         <p class="section-lede">All rendered output, full resolution.</p>
         <div class="map-grid">
+          <figure>
+            <a href="./assets/maps/landslide-susceptibility/landslide_susceptibility_map.png">
+              <img src="./assets/maps/landslide-susceptibility/landslide_susceptibility_map.png"
+                   alt="Map of Hong Kong showing landslide susceptibility in five classes on a 200 m grid, with recorded landslide locations" loading="lazy" />
+            </a>
+            <figcaption><strong>Landslide susceptibility</strong> — XGBoost on 200 m cells, 19,332 recorded landslides</figcaption>
+          </figure>
           <figure>
             <a href="./assets/maps/festival-walk/festival_walk_3d_relief.png">
               <img src="./assets/maps/festival-walk/festival_walk_3d_relief.png"
@@ -150,6 +173,21 @@
               <tr><th>Dataset</th><th>Records</th><th>Source</th></tr>
             </thead>
             <tbody>
+              <tr>
+                <td><code>assets/data/landslide/susceptibility_cells.geojson.gz</code></td>
+                <td>29,614</td>
+                <td>XGBoost susceptibility score per 200 m cell, EPSG:2326</td>
+              </tr>
+              <tr>
+                <td><code>assets/data/landslide/landslide_records.geojson.gz</code></td>
+                <td>124,020</td>
+                <td>CEDD landslide incidents + ENTLI historical crowns, EPSG:2326</td>
+              </tr>
+              <tr>
+                <td><code>assets/data/landslide/landslide_susceptibility.tif</code></td>
+                <td>240 × 318</td>
+                <td>Susceptibility raster, 200 m, EPSG:2326</td>
+              </tr>
               <tr>
                 <td><code>assets/data/pedestrian/pedestrian_network_hk.geojson.gz</code></td>
                 <td>465,892</td>
@@ -213,10 +251,12 @@
         <h2>Sources</h2>
         <ul class="sources">
           <li>CSDI Portal — LandsD 3D Pedestrian Network, LiDAR DTM 2020, GeoInfo Map</li>
+          <li>CSDI Portal — CEDD landslide incidents, ENTLI, geological map, GEO raingauge</li>
           <li>LCSD SmartPLAY — live venue, session and hire-charge data</li>
           <li>MTR open data — line and station definitions</li>
           <li>OpenStreetMap — geocoding and coastline reference</li>
           <li>Esri — WorldElevation3D terrain, basemap tiles</li>
+          <li>ESA — WorldCover 2021 land cover</li>
         </ul>
         <p class="note">Data © HKSAR Government. Terms: non-commercial with attribution.</p>
       </section>

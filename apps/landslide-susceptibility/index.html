@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Landslide susceptibility of Hong Kong on 200 m cells — an XGBoost model built from the LandsD terrain model, CEDD landslide records, ESA WorldCover and the CEDD geological map." />
+    <title>Landslide Susceptibility — NPL GIS Team</title>
+    <link rel="icon" type="image/png" href="../../favicon.png" />
+    <link rel="stylesheet" href="../../assets/style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <style>
+      html, body { height: 100%; }
+      body { margin: 0; overflow-y: auto; }
+      #map {
+        /* Hong Kong is 64 km x 45 km, so a 1.42:1 box fits the grid exactly.
+           aspect-ratio keeps the map proportional at any window size, and
+           the max-width stops it floating in a wide empty frame. */
+        width: 100%; max-width: 900px;
+        aspect-ratio: 1.42 / 1; height: auto;
+        margin: 0 auto;
+        background: #0a0f18; border-bottom: 1px solid var(--line);
+      }
+      .panel {
+        background: var(--bg-raised);
+        padding: 1.1rem 1.2rem 1.4rem;
+        max-width: 1120px; margin: 0 auto;
+      }
+      .panel h1 { font-size: 1.15rem; margin: 0 0 0.15rem; }
+      .panel h1 span { color: var(--teal); }
+      .panel .sub { color: var(--fg-dim); font-size: 0.82rem; margin: 0 0 0.8rem; }
+      .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); gap: 1.1rem; }
+      .panel h2 {
+        font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.07em;
+        color: var(--fg-faint); margin: 0 0 0.45rem; font-weight: 600;
+      }
+      table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+      th { text-align: left; font-weight: 600; color: var(--fg-dim); font-size: 0.72rem;
+           text-transform: uppercase; letter-spacing: 0.04em; padding: 0 0.4rem 0.3rem 0;
+           border-bottom: 1px solid var(--line); }
+      td { padding: 0.3rem 0.4rem 0.3rem 0; border-bottom: 1px solid var(--line); }
+      td.num { text-align: right; font-variant-numeric: tabular-nums; }
+      .swatch { display: inline-block; width: 0.85rem; height: 0.85rem; border-radius: 2px;
+                border: 1px solid rgba(255,255,255,0.25); vertical-align: -1px; margin-right: 0.4rem; }
+      .legend { list-style: none; padding: 0; margin: 0; font-size: 0.8rem; }
+      .legend li { display: flex; align-items: center; padding: 0.2rem 0; }
+      .legend .lab { flex: 0 0 6.4rem; }
+      .legend .rate { margin-left: auto; color: var(--fg-dim); font-variant-numeric: tabular-nums; }
+      .facts { list-style: none; padding: 0; margin: 0; font-size: 0.8rem; }
+      .facts li { padding: 0.22rem 0; border-bottom: 1px solid var(--line); }
+      .facts b { color: var(--teal); font-variant-numeric: tabular-nums; }
+      .probe {
+        position: absolute; left: 12px; bottom: 28px; z-index: 1000;
+        background: rgba(8,11,18,0.92); border: 1px solid var(--line-strong);
+        border-radius: 10px; padding: 0.6rem 0.75rem; font-size: 0.78rem;
+        color: var(--fg); min-width: 15rem; pointer-events: none;
+        backdrop-filter: blur(6px);
+      }
+      .probe .head { color: var(--fg-faint); font-size: 0.66rem; text-transform: uppercase;
+                     letter-spacing: 0.06em; margin-bottom: 0.3rem; }
+      .probe .big { font-size: 1.05rem; font-weight: 600; display: flex; align-items: center; gap: 0.45rem; }
+      .probe .meta { color: var(--fg-dim); margin-top: 0.25rem; font-variant-numeric: tabular-nums; }
+      .probe.hidden { display: none; }
+      .leaflet-container { font: inherit; }
+      .leaflet-popup-content { margin: 0.6rem 0.75rem; font-size: 0.82rem; }
+      .leaflet-popup-content b { color: var(--teal); }
+      .attrib-note { position: absolute; right: 8px; bottom: 24px; z-index: 1000;
+                     background: rgba(8,11,18,0.8); border-radius: 6px; padding: 0.25rem 0.5rem;
+                     font-size: 0.66rem; color: var(--fg-dim); }
+      .togglebar { position: absolute; top: 12px; right: 12px; z-index: 1000;
+                   display: flex; flex-direction: column; gap: 0.35rem; }
+      .togglebar label {
+        background: rgba(8,11,18,0.9); border: 1px solid var(--line-strong); border-radius: 7px;
+        padding: 0.3rem 0.55rem; font-size: 0.74rem; display: flex; align-items: center; gap: 0.4rem;
+        cursor: pointer; user-select: none;
+      }
+      .togglebar input { accent-color: var(--teal); margin: 0; }
+      .note { font-size: 0.76rem; color: var(--fg-faint); margin: 0.7rem 0 0; }
+      .note a { color: var(--fg-dim); }
+      @media (max-width: 720px) {
+        .panel { max-height: 54vh; }
+        .probe { min-width: 12rem; font-size: 0.72rem; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="map"></div>
+
+    <div class="probe hidden" id="probe">
+      <div class="head">Cell under cursor</div>
+      <div class="big"><span class="swatch" id="p-swatch"></span><span id="p-class">—</span></div>
+      <div class="meta" id="p-meta">—</div>
+    </div>
+
+    <div class="attrib-note">HK1980 grid · 200 m cells · EPSG:2326</div>
+
+    <div class="togglebar">
+      <label><input type="checkbox" id="t-points" /> Recorded landslides</label>
+      <label><input type="checkbox" id="t-wire" checked /> Cell outlines</label>
+    </div>
+
+    <div class="panel">
+      <h1>Landslide Susceptibility <span>of Hong Kong</span></h1>
+      <p class="sub">
+        An XGBoost model on 200 m cells, trained on 19,332 cells that hold a recorded
+        landslide. Terrain, land cover and weathering susceptibility as predictors;
+        5-fold spatial blocked cross-validation (5 km blocks), ROC-AUC 0.88.
+      </p>
+
+      <div class="cols">
+        <div>
+          <h2>Susceptibility class</h2>
+          <ul class="legend" id="legend"></ul>
+          <p class="note">
+            The five classes are <b>equal-area fifths of the model score</b>, so each
+            covers 20% of the land by construction. The columns that carry the
+            information are the landslide rate and the risk against the territory
+            average.
+          </p>
+        </div>
+
+        <div>
+          <h2>Model</h2>
+          <ul class="facts" id="facts"></ul>
+        </div>
+
+        <div>
+          <h2>Factors and weight</h2>
+          <table>
+            <thead>
+              <tr><th>Factor</th><th class="num">Gain %</th></tr>
+            </thead>
+            <tbody id="factors"></tbody>
+          </table>
+          <p class="note">
+            Gain share from the fitted ensemble — how much of the model's
+            discrimination passes through each factor. Weathering is
+            <b>derived from lithology</b>: no Hong Kong dataset maps a
+            decomposition grade.
+          </p>
+        </div>
+      </div>
+
+      <p class="note">
+        Sources: LandsD Digital Terrain Model 5 m · CEDD Location of Landslide Incidents
+        and Enhanced Natural Terrain Landslide Inventory (via CSDI) · CEDD Geological Map ·
+        ESA WorldCover 2021. Data © HKSAR Government and ESA; non-commercial use with
+        attribution. Full method and limitations in
+        <a href="../../notes/landslide-susceptibility — NOTES.md">the project notes</a>
+        and <a href="https://github.com/davidtwmak-maker/NPLGIS">the repository</a>.
+      </p>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
