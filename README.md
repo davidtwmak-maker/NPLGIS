@@ -171,6 +171,52 @@ Full method, validation and limitations: `notes/landslide-susceptibility — NOT
 
 ---
 
+## The steep slopes map — ground steeper than 30°
+
+`assets/data/landslide/steep_slopes_over30.geojson.gz` is a stand-alone
+vector layer of Hong Kong's steep ground: **33,231 polygons covering
+113.29 km², which is 10.09% of the land area** (1,122.26 km²). It is a
+polygon layer rather than a raster so it can be restyled, dissolved and
+overlaid in QGIS or ArcGIS Pro without re-running anything.
+
+**The threshold is on the MAXIMUM gradient in each 20 m cell, not the mean.**
+This is not a detail. Re-measured against all 124,020 recorded incidents,
+**22,700 of them sit in cells whose mean slope is under 30° but whose maximum
+is over it.** A mean-slope threshold would erase roughly a fifth of the
+evidence — including the steepest ground in the territory. With mean slope,
+100% of incidents appear below 30° and the "high-risk band" claim inverts.
+
+**Steep cells are merged with 8-connectivity**, so corner-touching cells
+become one hillside instead of confetti: 33,231 coherent regions rather than
+47,140 fragments for the same mask.
+
+The class raster behind it is five classes from the LandsD 5 m DTM —
+0–15° (48.4% of land), 15–30° (41.5%), 30–45° (8.7%), 45–60° (1.2%), 60°+
+(0.2%) — and ships as `slope_classes_20m.tif` with `slope_max_20m.tif`
+alongside it.
+
+**What drives landslides here.** Gain share from the fitted ensemble: terrain
+**68.6%**, land cover 17.0%, weathering 14.5%. The single biggest predictor is
+**roughness** (elevation standard deviation within the cell) at **33%** —
+more than all four weathering classes combined. It measures drainage texture
+and gully density, and gullies are where slides initiate. The original
+storymap did not consider it at all.
+
+Weathering is a genuine but *redundant* factor: granite carries **4.61×** the
+incident rate of resistant rock on gentle ground, yet adding it to
+terrain + land cover moves ROC-AUC by **−0.0002**. Slope already captures the
+signal. Report it as evidence about the landscape, not as a model improvement.
+
+Rainfall is a **trigger, not a static predictor**: adding it to the static
+model lowers AUC, but in the daily trigger model rainfall carries most of the
+discrimination and susceptibility × rainfall reaches ROC-AUC **0.770**. The
+terrain says where the ground is fragile; the rain says when it fails.
+
+Full method, the factor table, six build gates and honest limitations:
+`notes/steep-slopes-over30 — NOTES.md`.
+
+---
+
 ## Uploading to GitHub (team member)
 
 The repository is already published at <https://github.com/davidtwmak-maker/NPLGIS> and
@@ -247,7 +293,7 @@ assets/
     volleyball-courts/          2   · outline basemap, quick-look
     walk-restaurants/           2   · 5-minute and 15-minute catchments
     geoinfo/                   22   · iB20000 territory sheet + 21 historical sheets
-    landslide-susceptibility/   1   · the published susceptibility map
+    landslide-susceptibility/   2   · the susceptibility map, steep-slopes map
   data/                         Source data, geocoded layers, flat CSVs
     pedestrian/                 3D pedestrian network, split by WeatherProof/Location
     festival-walk/              Festival Walk + Kowloon Tong layers
@@ -255,7 +301,8 @@ assets/
     mtr/                        Fare savers, MTR lines and stations
     walk/                       Restaurant catchments
     landslide/                  Susceptibility cells (29,614), landslide records
-                                (124,020), score raster — all EPSG:2326
+                                (124,020), score raster, steep-slope polygons
+                                (33,231) + slope rasters — all EPSG:2326
 apps/
   festival-walk-3d/             The 3D scene (index.html + per-floor GeoJSON + floor plates
                                 + the podium that grounds the stack on the hillside)
@@ -274,6 +321,12 @@ scripts/                        Every build and render script, made portable
   make_susceptibility_map.py    The published static figure
   ablation_weathering.py        Weathering-only vs incremental-value test
   ablation_slope_control.py     Area-normalised incident rates within slope bands
+  build_steep_slope_polygons.py Ground steeper than 30 deg -> 33,231 polygons
+  make_steep_slope_map.py       The two-panel steep-slopes figure
+  export_slope_layers.py        Packages + verifies the shipped slope layers
+  update_manifest.py            Extends MANIFEST.json with the slope layers
+  test_slope30_definition.py    Max-vs-mean slope measurement against incidents
+  test_slope_coherence.py       4- vs 8-connectivity region count
 worksheets/                     Student task sheets, one per project, with check numbers
 notes/                          Per-project provenance and validation notes
 ```

@@ -1,7 +1,7 @@
 {
- "generated": "2026-11-04",
+ "generated": "2026-11-05",
  "repository": "davidtwmak-maker/NPLGIS",
- "note": "Every layer shipped in assets/data plus the Festival Walk 3D app data. Features counted from the file itself. Floor plate heights are schematic (5.5 m storey, 2x vertical exaggeration). The G floor is set to Tat Chee Avenue (達之路) at the junction where it meets the mall - 33.0 m measured from Esri WorldElevation3D Terrain3D - and the podium is a schematic foundation mass, not measured architectural heights. | 2026-11-04: added HK Landslide Susceptibility (XGBoost, 200 m cells, ROC-AUC 0.882) - published map, 29,614 susceptibility polygons, 124,020 recorded landslide points, score raster, and the browser data for the interactive Leaflet map. Weathering susceptibility is DERIVED from lithology because no HK open dataset carries a decomposition grade. | 2026-11-04: added HK Landslide Susceptibility (XGBoost, 200 m cells, ROC-AUC 0.882) - published map, 29,614 susceptibility polygons, 124,020 recorded landslide points, score raster, and the browser data for the interactive Leaflet map. Weathering susceptibility is DERIVED from lithology because no HK open dataset carries a decomposition grade. | 2026-11-04: added HK Landslide Susceptibility (XGBoost, 200 m cells, ROC-AUC 0.882) - published map, 29,614 susceptibility polygons, 124,020 recorded landslide points, score raster, and the browser data for the interactive Leaflet map. Weathering susceptibility is DERIVED from lithology because no HK open dataset carries a decomposition grade.",
+ "note": "Every layer shipped in assets/data plus the Festival Walk 3D app data. Features counted from the file itself. Floor plate heights are schematic (5.5 m storey, 2x vertical exaggeration). The G floor is set to Tat Chee Avenue (達之路) at the junction where it meets the mall - 33.0 m measured from Esri WorldElevation3D Terrain3D - and the podium is a schematic foundation mass, not measured architectural heights. | 2026-11-05: added HK Steep Slopes >30 deg - 33,231 polygons of ground steeper than 30 degrees (113.29 km2 = 10.09% of land), the five-class slope raster at 20 m, the maximum-slope raster, and the two-panel map. Slope is the MAXIMUM gradient within each 20 m cell, not the mean: 22,700 recorded incidents sit in cells whose mean slope is under 30 degrees but whose max is over it, so a mean threshold would erase a fifth of the evidence. Area reconciliation error 0.0 m2, 0 invalid geometries. ",
  "sources": [
   {
    "name": "3D Pedestrian Network",
@@ -757,6 +757,54 @@
    "records": "",
    "notes": "All 124,020 recorded landslide points baked into a transparent PNG on the same pixel grid as the class surface.",
    "sha256": "ff97426416851588"
+  },
+  {
+   "file": "assets/data/landslide/steep_slopes_over30.geojson.gz",
+   "bytes": 1484916,
+   "mb": 1.485,
+   "gzipped": true,
+   "features": 33231,
+   "title": "Steep slope polygons - ground steeper than 30 degrees",
+   "dataset_id": "",
+   "records": "33231",
+   "notes": "33,231 polygons of ground exceeding a 30 degree gradient, 113.29 km2 = 10.09% of Hong Kong's land area (1,122.26 km2). Slope is the MAXIMUM gradient within each 20 m cell (Horn's method) from the LandsD 5 m DTM, because 22,700 recorded incidents sit in cells whose mean slope is under 30 degrees but whose max is over it. 8-connectivity, so corner-touching steep cells merge into one hillside. Area reconciliation error 0.0 m2, 0 invalid geometries. EPSG:2326 (HK1980).",
+   "sha256": "dca8396206ccf45d"
+  },
+  {
+   "file": "assets/data/landslide/slope_classes_20m.tif",
+   "bytes": 529318,
+   "mb": 0.529,
+   "gzipped": false,
+   "features": null,
+   "title": "Slope class raster (20 m)",
+   "dataset_id": "",
+   "records": "",
+   "notes": "Five classes: 1 = 0-15 deg, 2 = 15-30, 3 = 30-45, 4 = 45-60, 5 = 60+. 3187 x 2400 at 20 m, EPSG:2326 (HK1980). Class areas: 0-15 = 543.43 km2 (48.42% of land), 15-30 = 465.53 km2 (41.48%), 30-45 = 97.95 km2 (8.73%), 45-60 = 13.61 km2 (1.21%), 60+ = 1.73 km2 (0.15%).",
+   "sha256": "f31da6b0f924473c"
+  },
+  {
+   "file": "assets/data/landslide/slope_max_20m.tif",
+   "bytes": 3174387,
+   "mb": 3.174,
+   "gzipped": false,
+   "features": null,
+   "title": "Maximum slope raster (20 m)",
+   "dataset_id": "",
+   "records": "",
+   "notes": "Maximum gradient within each 20 m cell, degrees, from the LandsD 5 m DTM (Horn's method). 3187 x 2400 at 20 m, float32, EPSG:2326 (HK1980), nodata -9999.",
+   "sha256": "3cb9b9907bd1bc33"
+  },
+  {
+   "file": "assets/maps/landslide-susceptibility/steep_slopes_over30_map.png",
+   "bytes": 2186322,
+   "mb": 2.186,
+   "gzipped": false,
+   "features": null,
+   "title": "Steep slopes of Hong Kong - two-panel map",
+   "dataset_id": "",
+   "records": "",
+   "notes": "Panel A: five slope classes with 40,000 of the 124,020 recorded landslide incidents overprinted. Panel B: the >30 degree polygons alone over the gentler land, with the six largest regions labelled by area. Scale bar, north arrow and source line. Text overlap and off-canvas checks both pass at zero; a pixel probe confirms all five classes are rendered.",
+   "sha256": "247bf71afe93c07d"
   }
  ]
 }
