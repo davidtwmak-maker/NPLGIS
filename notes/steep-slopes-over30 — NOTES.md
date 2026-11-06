@@ -175,11 +175,25 @@ publishing separately from the susceptibility raster.
 | `assets/data/landslide/slope_classes_20m.tif` | five-class slope raster (1=0–15°, 2=15–30°, 3=30–45°, 4=45–60°, 5=60°+), EPSG:2326, 20 m |
 | `assets/data/landslide/slope_max_20m.tif` | maximum slope per 20 m cell, degrees, EPSG:2326 |
 | `assets/maps/landslide-susceptibility/steep_slopes_over30_map.png` | the two-panel figure |
+| `assets/data/landslide/agol/` | **ArcGIS Online-ready versions (EPSG:4326) + `AGOL_PUBLISH_GUIDE.md`** |
 | `scripts/build_steep_slope_polygons.py` | mask → polygonise → repair → verify |
 | `scripts/make_steep_slope_map.py` | figure generator |
 | `scripts/export_slope_layers.py` | packages and verifies the shipped files |
 | `scripts/test_slope30_definition.py` | the max-vs-mean measurement |
 | `scripts/test_slope_coherence.py` | the 4- vs 8-connectivity comparison |
+
+### Publishing to ArcGIS Online
+
+`assets/data/landslide/agol/` holds the same two vector layers reprojected to
+**EPSG:4326** (AGOL publishes from a file *assuming* longitude/latitude, so
+the HK1980 source would land in the wrong part of the world), plus
+`AGOL_PUBLISH_GUIDE.md` with the full recipe — download links, the publish
+steps, the field-name restoration table for the 10-character shapefile DBF
+limit, the 2,000-record limit, styling, and the caveats to state.
+
+The guide is also in the team vault as
+**[[HK Steep Slopes >30 — GitHub to ArcGIS Online Recipe]]**.
+
 
 ### Layer fields
 
