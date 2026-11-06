@@ -117,6 +117,13 @@
             <figcaption><strong>Landslide susceptibility</strong> — XGBoost on 200 m cells, 19,332 recorded landslides</figcaption>
           </figure>
           <figure>
+            <a href="./assets/maps/landslide-susceptibility/steep_slopes_over30_map.png">
+              <img src="./assets/maps/landslide-susceptibility/steep_slopes_over30_map.png"
+                   alt="Two maps of Hong Kong: slope classes from the LandsD 5 m DTM with recorded landslide incidents overprinted, and below it the ground steeper than 30 degrees shown as 33,231 polygons covering 10.09% of the land area" loading="lazy" />
+            </a>
+            <figcaption><strong>Steep slopes over 30°</strong> — 33,231 polygons, 113.29 km² = 10.09% of the land</figcaption>
+          </figure>
+          <figure>
             <a href="./assets/maps/festival-walk/festival_walk_3d_relief.png">
               <img src="./assets/maps/festival-walk/festival_walk_3d_relief.png"
                    alt="3D relief map of Kowloon Tong and Lion Rock with the pedestrian network overlaid, and a zoom on Festival Walk showing exits by floor" loading="lazy" />
@@ -187,6 +194,21 @@
                 <td><code>assets/data/landslide/landslide_susceptibility.tif</code></td>
                 <td>240 × 318</td>
                 <td>Susceptibility raster, 200 m, EPSG:2326</td>
+              </tr>
+              <tr>
+                <td><code>assets/data/landslide/steep_slopes_over30.geojson.gz</code></td>
+                <td>33,231</td>
+                <td>Polygons of ground steeper than 30° — 113.29 km² = 10.09% of the land. Slope is the <em>maximum</em> gradient within each 20 m cell. EPSG:2326</td>
+              </tr>
+              <tr>
+                <td><code>assets/data/landslide/slope_classes_20m.tif</code></td>
+                <td>3187 × 2400</td>
+                <td>Five slope classes (0–15° / 15–30° / 30–45° / 45–60° / 60°+), 20 m, EPSG:2326</td>
+              </tr>
+              <tr>
+                <td><code>assets/data/landslide/slope_max_20m.tif</code></td>
+                <td>3187 × 2400</td>
+                <td>Maximum gradient within each 20 m cell, degrees, EPSG:2326</td>
               </tr>
               <tr>
                 <td><code>assets/data/pedestrian/pedestrian_network_hk.geojson.gz</code></td>
