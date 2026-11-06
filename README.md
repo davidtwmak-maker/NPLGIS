@@ -217,6 +217,35 @@ Full method, the factor table, six build gates and honest limitations:
 
 ---
 
+## Publishing these layers to ArcGIS Online
+
+`assets/data/landslide/agol/` holds the **ArcGIS Online-ready** versions of
+the same layers, plus `AGOL_PUBLISH_GUIDE.md` — a step-by-step recipe for
+downloading from GitHub and publishing a live hosted layer.
+
+| File | Features | Size | What it is |
+|---|---:|---:|---|
+| **`steep_slopes_over30.zip`** | 33,231 | 4.5 MB | **Start here.** Zipped shapefile, has `.prj` |
+| `slope_classes.zip` | 106,874 | 24 MB | Zipped shapefile, five slope classes |
+| `steep_slopes_over30_wgs84.geojson` | 33,231 | 21 MB | Same data, original field names |
+| `hk_slopes_agol_both_layers.zip` | both | 32 MB | One GeoPackage, **both** layers |
+| `field_mapping.json` | — | 1 KB | Which field name became which |
+
+Two things students get wrong, both handled in the guide:
+
+- **The CRS trap.** These layers were computed in EPSG:2326 (HK1980 Grid,
+  metres). AGOL publishes from a file *assuming* longitude/latitude, so the
+  HK1980 version lands in the wrong part of the world. Every file in `agol/`
+  is already reprojected to **EPSG:4326** — upload as-is.
+- **The 2,000-record limit.** AGOL returns 2,000 records per request by
+  default, so the 106,874-feature class layer draws only its first 2,000
+  until *Allow >2000 features per request* is enabled on the source view.
+
+Shapefile `.dbf` field names are capped at 10 characters, so they were
+shortened on export; `field_mapping.json` maps them back.
+
+---
+
 ## Uploading to GitHub (team member)
 
 The repository is already published at <https://github.com/davidtwmak-maker/NPLGIS> and
@@ -303,6 +332,8 @@ assets/
     landslide/                  Susceptibility cells (29,614), landslide records
                                 (124,020), score raster, steep-slope polygons
                                 (33,231) + slope rasters — all EPSG:2326
+      agol/                     ArcGIS Online-ready versions (EPSG:4326) +
+                                AGOL_PUBLISH_GUIDE.md
 apps/
   festival-walk-3d/             The 3D scene (index.html + per-floor GeoJSON + floor plates
                                 + the podium that grounds the stack on the hillside)

@@ -22,6 +22,7 @@ import gzip
 import json
 import os
 import shutil
+import zipfile
 
 import geopandas as gpd
 
@@ -50,6 +51,36 @@ def gz_feature_count(path):
         return int(len(g))
     finally:
         os.remove(tmp)
+
+
+def geojson_feature_count(path):
+    """Count features in a plain GeoJSON by parsing the JSON directly."""
+    with open(path, encoding="utf-8") as fh:
+        payload = json.load(fh)
+    assert payload.get("type") == "FeatureCollection", f"{path} is not a FeatureCollection"
+    return len(payload.get("features", []))
+
+
+def shp_zip_feature_count(path):
+    """Count features in a zipped shapefile by reading it back with GDAL.
+
+    GDAL cannot read a .geojson.gz directly, but it reads a shapefile inside
+    a zip fine, so the count comes from the file that will actually be
+    uploaded.
+    """
+    import tempfile
+    tmpdir = tempfile.mkdtemp()
+    try:
+        with zipfile.ZipFile(path) as zf:
+            names = zf.namelist()
+            shp = next(n for n in names if n.lower().endswith(".shp"))
+            # AGOL requires the shapefile components in the ZIP ROOT
+            assert "/" not in shp, f"{path}: shapefile is nested at {shp}"
+            zf.extractall(tmpdir)
+        g = gpd.read_file(os.path.join(tmpdir, shp))
+        return int(len(g))
+    finally:
+        shutil.rmtree(tmpdir, ignore_errors=True)
 
 
 def entry_for(rel, title, notes, features=None, records="", dataset_id=""):
@@ -122,6 +153,69 @@ def main():
         "area. Scale bar, north arrow and source line. Text overlap and "
         "off-canvas checks both pass at zero; a pixel probe confirms all five "
         "classes are rendered.",
+    ))
+
+    # --- the ArcGIS Online-ready pack -------------------------------------
+    # These are EPSG:4326 reprojections of the two vector layers, plus the
+    # field-name mapping and the publishing guide.  The feature counts are
+    # read FROM THE SHIPPED FILES, not carried over.
+    agol = os.path.join(REPO, "assets/data/landslide/agol")
+    agol_specs = [
+        ("steep_slopes_over30.zip", "Steep slope polygons - ArcGIS Online pack",
+         "Zipped shapefile of the 33,231 >30 degree polygons, EPSG:4326 "
+         "(WGS84), with .shp/.shx/.dbf/.prj/.cpg in the zip root. This is the "
+         "recommended upload: it carries its own .prj and the field names are "
+         "documented in field_mapping.json (DBF names are capped at 10 "
+         "characters).",
+         33231),
+        ("slope_classes.zip", "Slope class polygons - ArcGIS Online pack",
+         "Zipped shapefile of the 106,874 five-class slope polygons, "
+         "EPSG:4326 (WGS84). AGOL returns 2,000 records per request by "
+         "default - enable 'Allow >2000 features per request' on the source "
+         "view or the layer draws only its first 2,000 features.",
+         106874),
+        ("steep_slopes_over30_wgs84.geojson",
+         "Steep slope polygons - GeoJSON with original field names",
+         "The same 33,231 polygons as GeoJSON in EPSG:4326, with the full "
+         "field names (slope_mean_deg, slope_sd_deg, slope_max_deg) intact - "
+         "no renaming needed after upload. No 'crs' member, per RFC 7946.",
+         33231),
+        ("hk_slopes_agol_both_layers.zip",
+         "Both slope layers in one GeoPackage - ArcGIS Online pack",
+         "A single GeoPackage containing both layers (steep_slopes_over30 "
+         "33,231 features, slope_classes 106,874 features), EPSG:4326. Upload "
+         "once to publish both as separate layers in one hosted item.",
+         None),
+    ]
+    for fname, title, notes, want in agol_specs:
+        p = os.path.join(agol, fname)
+        assert os.path.exists(p), f"missing AGOL pack file {fname}"
+        feats = None
+        if want is not None:
+            if fname.endswith(".zip"):
+                feats = shp_zip_feature_count(p)
+            else:
+                feats = geojson_feature_count(p)
+            assert feats == want, f"{fname}: {feats} features, expected {want}"
+        new_entries.append(entry_for(
+            f"assets/data/landslide/agol/{fname}", title, notes, features=feats,
+            records=str(feats) if feats else "both layers",
+        ))
+
+    new_entries.append(entry_for(
+        "assets/data/landslide/agol/field_mapping.json",
+        "Field name mapping - shapefile to original",
+        "The shapefile .dbf field names are capped at 10 characters and were "
+        "renamed on export (slope_mean_deg -> slp_mean, slope_class -> "
+        "slope_cls, and so on). This maps every one back to its original "
+        "name.",
+    ))
+    new_entries.append(entry_for(
+        "assets/data/landslide/agol/AGOL_PUBLISH_GUIDE.md",
+        "ArcGIS Online publishing guide",
+        "Step-by-step recipe for students: download links, the CRS trap, the "
+        "publishing steps, the field-name restoration table, the 2,000-record "
+        "limit, styling, and the caveats to state in a write-up.",
     ))
 
     # --- extend in place, keeping existing entries and their order -------

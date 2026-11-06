@@ -805,6 +805,78 @@
    "records": "",
    "notes": "Panel A: five slope classes with 40,000 of the 124,020 recorded landslide incidents overprinted. Panel B: the >30 degree polygons alone over the gentler land, with the six largest regions labelled by area. Scale bar, north arrow and source line. Text overlap and off-canvas checks both pass at zero; a pixel probe confirms all five classes are rendered.",
    "sha256": "247bf71afe93c07d"
+  },
+  {
+   "file": "assets/data/landslide/agol/steep_slopes_over30.zip",
+   "bytes": 4508635,
+   "mb": 4.509,
+   "gzipped": false,
+   "features": 33231,
+   "title": "Steep slope polygons - ArcGIS Online pack",
+   "dataset_id": "",
+   "records": "33231",
+   "notes": "Zipped shapefile of the 33,231 >30 degree polygons, EPSG:4326 (WGS84), with .shp/.shx/.dbf/.prj/.cpg in the zip root. This is the recommended upload: it carries its own .prj and the field names are documented in field_mapping.json (DBF names are capped at 10 characters).",
+   "sha256": "2f8908ab89fd1e65"
+  },
+  {
+   "file": "assets/data/landslide/agol/slope_classes.zip",
+   "bytes": 23894135,
+   "mb": 23.894,
+   "gzipped": false,
+   "features": 106874,
+   "title": "Slope class polygons - ArcGIS Online pack",
+   "dataset_id": "",
+   "records": "106874",
+   "notes": "Zipped shapefile of the 106,874 five-class slope polygons, EPSG:4326 (WGS84). AGOL returns 2,000 records per request by default - enable 'Allow >2000 features per request' on the source view or the layer draws only its first 2,000 features.",
+   "sha256": "7ad2306b02e612d1"
+  },
+  {
+   "file": "assets/data/landslide/agol/steep_slopes_over30_wgs84.geojson",
+   "bytes": 21123089,
+   "mb": 21.123,
+   "gzipped": false,
+   "features": 33231,
+   "title": "Steep slope polygons - GeoJSON with original field names",
+   "dataset_id": "",
+   "records": "33231",
+   "notes": "The same 33,231 polygons as GeoJSON in EPSG:4326, with the full field names (slope_mean_deg, slope_sd_deg, slope_max_deg) intact - no renaming needed after upload. No 'crs' member, per RFC 7946.",
+   "sha256": "09b6b65811ef3393"
+  },
+  {
+   "file": "assets/data/landslide/agol/hk_slopes_agol_both_layers.zip",
+   "bytes": 31885261,
+   "mb": 31.885,
+   "gzipped": false,
+   "features": null,
+   "title": "Both slope layers in one GeoPackage - ArcGIS Online pack",
+   "dataset_id": "",
+   "records": "both layers",
+   "notes": "A single GeoPackage containing both layers (steep_slopes_over30 33,231 features, slope_classes 106,874 features), EPSG:4326. Upload once to publish both as separate layers in one hosted item.",
+   "sha256": "0399413188d7f83a"
+  },
+  {
+   "file": "assets/data/landslide/agol/field_mapping.json",
+   "bytes": 1323,
+   "mb": 0.001,
+   "gzipped": false,
+   "features": null,
+   "title": "Field name mapping - shapefile to original",
+   "dataset_id": "",
+   "records": "",
+   "notes": "The shapefile .dbf field names are capped at 10 characters and were renamed on export (slope_mean_deg -> slp_mean, slope_class -> slope_cls, and so on). This maps every one back to its original name.",
+   "sha256": "ea495b4bd0c9d6c8"
+  },
+  {
+   "file": "assets/data/landslide/agol/AGOL_PUBLISH_GUIDE.md",
+   "bytes": 7852,
+   "mb": 0.008,
+   "gzipped": false,
+   "features": null,
+   "title": "ArcGIS Online publishing guide",
+   "dataset_id": "",
+   "records": "",
+   "notes": "Step-by-step recipe for students: download links, the CRS trap, the publishing steps, the field-name restoration table, the 2,000-record limit, styling, and the caveats to state in a write-up.",
+   "sha256": "cd5312034b0e37ff"
   }
  ]
 }

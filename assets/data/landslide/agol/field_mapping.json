@@ -1,0 +1,44 @@
+{
+  "note": "Shapefile DBF field names are capped at 10 characters and were renamed on export. Restore these names in the AGOL hosted layer.",
+  "source": "HK Landslide Susceptibility project, steep slope polygons",
+  "crs": "EPSG:4326 (WGS84) - reprojected from EPSG:2326 (HK1980 Grid)",
+  "field_map": {
+    "slope_mean_deg": "slp_mean",
+    "slope_sd_deg": "slp_sd",
+    "slope_max_deg": "slp_max",
+    "slope_class": "slope_cls",
+    "slope_class_id": "slope_id",
+    "slope_def": "slope_def",
+    "area_m2": "area_m2",
+    "area_km2": "area_km2",
+    "n_cells": "n_cells",
+    "over_30": "over_30",
+    "region_id": "region_id"
+  },
+  "steep_slopes_over30": {
+    "features": 33231,
+    "area_km2": 113.29,
+    "threshold_deg": 30,
+    "slope_definition": "max slope within 20 m cell (Horn), LandsD DTM 5 m"
+  },
+  "slope_classes": {
+    "features": 106874,
+    "classes": [
+      "0-15",
+      "15-30",
+      "30-45",
+      "45-60",
+      "60+"
+    ]
+  },
+  "files": {
+    "steep_slopes_over30_wgs84.geojson": 21123089,
+    "steep_slopes_over30.zip": 4508635,
+    "slope_classes_wgs84.geojson": 99390017,
+    "slope_classes.zip": 23894135,
+    "hk_slopes_agol.gpkg": 75313152,
+    "steep_slopes_over30_agol.gpkg": 14012416,
+    "slope_classes_agol.gpkg": 61378560,
+    "hk_slopes_agol_both_layers.zip": 31885261
+  }
+}
