@@ -1041,9 +1041,15 @@
   },
   {
    "file": "scripts/camping/update_manifest_scripts.py",
-   "bytes": 4064,
-   "sha256": "e9a87d4329045f19",
+   "bytes": 4391,
+   "sha256": "f472e7cd5ec9fb76",
    "description": "Record the build scripts in this manifest and verify each one against the file on disk."
+  },
+  {
+   "file": "scripts/camping/verify_fresh_checkout.py",
+   "bytes": 3567,
+   "sha256": "e67d88a5d39d55da",
+   "description": "Download the published script and its two inputs into a fresh temporary directory and run the build there with only the environment variables set. Proves the repo copy works off the author's machine, which is the thing a student actually needs."
   }
  ]
 }

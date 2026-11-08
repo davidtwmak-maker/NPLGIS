@@ -51,6 +51,11 @@ SCRIPTS = [
     ("scripts/camping/update_manifest_scripts.py",
      "Record the build scripts in this manifest and verify each one "
      "against the file on disk."),
+    ("scripts/camping/verify_fresh_checkout.py",
+     "Download the published script and its two inputs into a fresh "
+     "temporary directory and run the build there with only the "
+     "environment variables set. Proves the repo copy works off the "
+     "author's machine, which is the thing a student actually needs."),
 ]
 
 
