@@ -1,0 +1,91 @@
+{
+ "n_campsites": 41,
+ "night_lights_source": "night_composite_median.tif",
+ "weights": {
+  "light": 0.5,
+  "access": 0.2,
+  "facility": 0.2,
+  "view": 0.1
+ },
+ "dnb_range": [
+  29,
+  173
+ ],
+ "dnb_median": 83.0,
+ "top10": [
+  {
+   "rank": 1,
+   "site": "Wan Tsai South Campsite",
+   "park": "SAI KUNG WEST COUNTRY PARK (WAN TSAI EXTENSION)",
+   "dnb": 37,
+   "score": 0.899650123762504
+  },
+  {
+   "rank": 2,
+   "site": "Wan Tsai West Campsite",
+   "park": "SAI KUNG WEST COUNTRY PARK (WAN TSAI EXTENSION)",
+   "dnb": 37,
+   "score": 0.8971126721684405
+  },
+  {
+   "rank": 3,
+   "site": "Ham Tin Wan Campsite",
+   "park": "SAI KUNG EAST COUNTRY PARK",
+   "dnb": 33,
+   "score": 0.8711370553730005
+  },
+  {
+   "rank": 4,
+   "site": "Sai Wan Campsite",
+   "park": "SAI KUNG EAST COUNTRY PARK",
+   "dnb": 41,
+   "score": 0.8605385760517554
+  },
+  {
+   "rank": 5,
+   "site": "Hau Tong Kai Campsite",
+   "park": "SAI KUNG WEST COUNTRY PARK",
+   "dnb": 37,
+   "score": 0.7978039503520024
+  },
+  {
+   "rank": 6,
+   "site": "Man Cheung Po Campsite",
+   "park": "LANTAU SOUTH COUNTRY PARK",
+   "dnb": 33,
+   "score": 0.71601859672443
+  },
+  {
+   "rank": 7,
+   "site": "Pak Lap Campsite",
+   "park": "SAI KUNG EAST COUNTRY PARK",
+   "dnb": 33,
+   "score": 0.7063966338096439
+  },
+  {
+   "rank": 8,
+   "site": "Nga Ying Kok Campsite",
+   "park": "LANTAU NORTH COUNTRY PARK",
+   "dnb": 33,
+   "score": 0.6958814706056693
+  },
+  {
+   "rank": 9,
+   "site": "Tsin Yue Wan Campsite",
+   "park": "LANTAU SOUTH COUNTRY PARK",
+   "dnb": 29,
+   "score": 0.6911880153351322
+  },
+  {
+   "rank": 10,
+   "site": "Cheung Sheung Campsite",
+   "park": "SAI KUNG WEST COUNTRY PARK",
+   "dnb": 45,
+   "score": 0.6889534155344225
+  }
+ ],
+ "rank_shift_vs_single_night": {
+  "max": 14.0,
+  "mean": 3.6341463414634148
+ }
+}

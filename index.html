@@ -72,6 +72,21 @@
           </article>
 
           <article class="card">
+            <h3>Campsites ranked for dark skies</h3>
+            <p>
+              All 41 AFCD country-park campsites scored for night-sky quality
+              using VIIRS Day/Night Band imagery, then weighed against access,
+              facilities and open horizon. The six darkest are in Sai Kung and
+              Lantau South; Ngong Ping is the brightest, and it shows.
+            </p>
+            <p class="meta">
+              VIIRS DNB (12-night median) · AFCD campsites, visitor centres and
+              trails · LandsD 5 m DTM
+            </p>
+            <p><a href="#maps">See the map ↓</a></p>
+          </article>
+
+          <article class="card">
             <h3>3D Pedestrian Network</h3>
             <p>
               All 465,892 segments of Hong Kong's 3D pedestrian network, split by the
@@ -109,6 +124,13 @@
         <h2>Maps</h2>
         <p class="section-lede">All rendered output, full resolution.</p>
         <div class="map-grid">
+          <figure>
+            <a href="./assets/maps/camping-sites/HK_camping_sites_dark_sky_map.png">
+              <img src="./assets/maps/camping-sites/HK_camping_sites_dark_sky_map.png"
+                   alt="Map of Hong Kong showing night-time light pollution from the VIIRS Day/Night Band, with all 41 country-park campsites marked and the six darkest numbered, and below it a bar chart ranking the 20 best campsites by darkness, access, facilities and open horizon" loading="lazy" />
+            </a>
+            <figcaption><strong>Campsites ranked for dark skies</strong> — 41 AFCD sites scored on VIIRS night lights, access and facilities</figcaption>
+          </figure>
           <figure>
             <a href="./assets/maps/landslide-susceptibility/landslide_susceptibility_map.png">
               <img src="./assets/maps/landslide-susceptibility/landslide_susceptibility_map.png"
@@ -180,6 +202,21 @@
               <tr><th>Dataset</th><th>Records</th><th>Source</th></tr>
             </thead>
             <tbody>
+              <tr>
+                <td><code>assets/data/camping/campsite_scores.geojson.gz</code></td>
+                <td>41</td>
+                <td>AFCD country-park campsites scored for night-sky darkness, access, facilities and open horizon. EPSG:4326</td>
+              </tr>
+              <tr>
+                <td><code>assets/data/camping/night_lights_composite.tif</code></td>
+                <td>1807 × 2600</td>
+                <td>VIIRS Day/Night Band (NOAA-21), median of 12 nights, 27 Oct – 7 Nov 2026. NASA GIBS. 8-bit display render</td>
+              </tr>
+              <tr>
+                <td><code>assets/data/camping/campsite_scores.csv</code></td>
+                <td>41</td>
+                <td>Every factor behind the score, and the single-night rank-shift robustness check</td>
+              </tr>
               <tr>
                 <td><code>assets/data/landslide/susceptibility_cells.geojson.gz</code></td>
                 <td>29,614</td>
@@ -274,9 +311,11 @@
         <ul class="sources">
           <li>CSDI Portal — LandsD 3D Pedestrian Network, LiDAR DTM 2020, GeoInfo Map</li>
           <li>CSDI Portal — CEDD landslide incidents, ENTLI, geological map, GEO raingauge</li>
+          <li>CSDI Portal — AFCD campsites, country parks, visitor centres, facilities and trails</li>
+          <li>NASA GIBS — VIIRS Day/Night Band (NOAA-21) night-lights composite</li>
+          <li>OpenStreetMap — geocoding and coastline reference</li>
           <li>LCSD SmartPLAY — live venue, session and hire-charge data</li>
           <li>MTR open data — line and station definitions</li>
-          <li>OpenStreetMap — geocoding and coastline reference</li>
           <li>Esri — WorldElevation3D terrain, basemap tiles</li>
           <li>ESA — WorldCover 2021 land cover</li>
         </ul>

@@ -1,7 +1,7 @@
 {
- "generated": "2026-11-05",
+ "generated": "2026-11-09",
  "repository": "davidtwmak-maker/NPLGIS",
- "note": "Every layer shipped in assets/data plus the Festival Walk 3D app data. Features counted from the file itself. Floor plate heights are schematic (5.5 m storey, 2x vertical exaggeration). The G floor is set to Tat Chee Avenue (達之路) at the junction where it meets the mall - 33.0 m measured from Esri WorldElevation3D Terrain3D - and the podium is a schematic foundation mass, not measured architectural heights. | 2026-11-05: added HK Steep Slopes >30 deg - 33,231 polygons of ground steeper than 30 degrees (113.29 km2 = 10.09% of land), the five-class slope raster at 20 m, the maximum-slope raster, and the two-panel map. Slope is the MAXIMUM gradient within each 20 m cell, not the mean: 22,700 recorded incidents sit in cells whose mean slope is under 30 degrees but whose max is over it, so a mean threshold would erase a fifth of the evidence. Area reconciliation error 0.0 m2, 0 invalid geometries. ",
+ "note": "Every layer shipped in assets/data plus the Festival Walk 3D app data. Features counted from the file itself. Floor plate heights are schematic (5.5 m storey, 2x vertical exaggeration). The G floor is set to Tat Chee Avenue (\u9054\u4e4b\u8def) at the junction where it meets the mall - 33.0 m measured from Esri WorldElevation3D Terrain3D - and the podium is a schematic foundation mass, not measured architectural heights. | 2026-11-05: added HK Steep Slopes >30 deg - 33,231 polygons of ground steeper than 30 degrees (113.29 km2 = 10.09% of land), the five-class slope raster at 20 m, the maximum-slope raster, and the two-panel map. Slope is the MAXIMUM gradient within each 20 m cell, not the mean: 22,700 recorded incidents sit in cells whose mean slope is under 30 degrees but whose max is over it, so a mean threshold would erase a fifth of the evidence. Area reconciliation error 0.0 m2, 0 invalid geometries. ",
  "sources": [
   {
    "name": "3D Pedestrian Network",
@@ -16,7 +16,7 @@
    "url": "https://portal.csdi.gov.hk/server/rest/services/common/cedd_rcd_1629267205233_87895/FeatureServer"
   },
   {
-   "name": "Volleyball courts — live vacancy",
+   "name": "Volleyball courts \u2014 live vacancy",
    "id": "sp_volleyball",
    "provider": "LCSD SmartPLAY open data",
    "url": "https://data.smartplay.lcsd.gov.hk/rest/cms/api/v1/publ/contents/open-data/volleyball/file"
@@ -83,6 +83,42 @@
    "id": "ESA_WorldCover_10m_2021_v200_N21E111/N21E114",
    "provider": "European Space Agency",
    "url": "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_N21E111_Map.tif"
+  },
+  {
+   "name": "Location of campsites in country parks",
+   "id": "afcd_rcd_1635133060194_82554",
+   "provider": "AFCD via CSDI Portal",
+   "url": "https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1635133060194_82554/FeatureServer"
+  },
+  {
+   "name": "Country parks",
+   "id": "afcd_rcd_1635129924112_81508",
+   "provider": "AFCD via CSDI Portal",
+   "url": "https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1635129924112_81508/FeatureServer"
+  },
+  {
+   "name": "Visitor centres in country parks",
+   "id": "afcd_rcd_1635133243757_2529",
+   "provider": "AFCD via CSDI Portal",
+   "url": "https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1635133243757_2529/FeatureServer"
+  },
+  {
+   "name": "Facilities in country parks",
+   "id": "afcd_rcd_1635136427551_29173",
+   "provider": "AFCD via CSDI Portal",
+   "url": "https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1635136427551_29173/FeatureServer"
+  },
+  {
+   "name": "Trails in country parks",
+   "id": "afcd_rcd_1665568199103_4360",
+   "provider": "AFCD via CSDI Portal",
+   "url": "https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665568199103_4360/FeatureServer"
+  },
+  {
+   "name": "VIIRS Day/Night Band (NOAA-21), NASA GIBS",
+   "id": "VIIRS_NOAA21_GapFilled_BRDF_Corrected",
+   "provider": "NASA Global Imagery Browse Services",
+   "url": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi"
   }
  ],
  "files": [
@@ -296,7 +332,7 @@
    "mb": 3.956,
    "gzipped": true,
    "features": 84935,
-   "title": "3D Pedestrian Network — indoor + unclassified",
+   "title": "3D Pedestrian Network \u2014 indoor + unclassified",
    "dataset_id": "landsd_rcd_1637222018065_52265",
    "records": "84,935",
    "notes": "Everything not exposed/covered outdoor",
@@ -308,7 +344,7 @@
    "mb": 2.621,
    "gzipped": true,
    "features": 54341,
-   "title": "3D Pedestrian Network — covered paths",
+   "title": "3D Pedestrian Network \u2014 covered paths",
    "dataset_id": "landsd_rcd_1637222018065_52265",
    "records": "54,341",
    "notes": "Location=1 AND WeatherProof=1",
@@ -320,7 +356,7 @@
    "mb": 2.873,
    "gzipped": true,
    "features": 54341,
-   "title": "3D Pedestrian Network — covered + PT connection",
+   "title": "3D Pedestrian Network \u2014 covered + PT connection",
    "dataset_id": "landsd_rcd_1637222018065_52265",
    "records": "54,341",
    "notes": "Includes ai_ derived fields",
@@ -332,7 +368,7 @@
    "mb": 28.215,
    "gzipped": true,
    "features": 380957,
-   "title": "3D Pedestrian Network — exposed paths",
+   "title": "3D Pedestrian Network \u2014 exposed paths",
    "dataset_id": "landsd_rcd_1637222018065_52265",
    "records": "380,957",
    "notes": "Location=1 AND WeatherProof=2",
@@ -344,7 +380,7 @@
    "mb": 32.11,
    "gzipped": true,
    "features": 465892,
-   "title": "3D Pedestrian Network — full network",
+   "title": "3D Pedestrian Network \u2014 full network",
    "dataset_id": "landsd_rcd_1637222018065_52265",
    "records": "465,892",
    "notes": "Full network, all attributes",
@@ -591,84 +627,84 @@
    "sha256": "ec45505420f03cba"
   },
   {
-   "file": "worksheets/Student Worksheet — 15-Minute Walk Catchment.md",
+   "file": "worksheets/Student Worksheet \u2014 15-Minute Walk Catchment.md",
    "bytes": 10253,
    "mb": 0.01,
    "gzipped": false,
    "features": null,
-   "title": "Student Worksheet — 15-Minute Walk Catchment",
+   "title": "Student Worksheet \u2014 15-Minute Walk Catchment",
    "dataset_id": "",
    "records": "",
    "notes": "Student worksheet - task sheet built from a real GIS project, with the method, the check numbers, the data traps and the limitations to declare. All live figures re-verified against the source service on 2026-10-26.",
    "sha256": "213e77fbd9a4af0e"
   },
   {
-   "file": "worksheets/Student Worksheet — 3D Pedestrian Network and Covered Walkways.md",
+   "file": "worksheets/Student Worksheet \u2014 3D Pedestrian Network and Covered Walkways.md",
    "bytes": 10650,
    "mb": 0.01,
    "gzipped": false,
    "features": null,
-   "title": "Student Worksheet — 3D Pedestrian Network and Covered Walkways",
+   "title": "Student Worksheet \u2014 3D Pedestrian Network and Covered Walkways",
    "dataset_id": "",
    "records": "",
    "notes": "Student worksheet - task sheet built from a real GIS project, with the method, the check numbers, the data traps and the limitations to declare. All live figures re-verified against the source service on 2026-10-26.",
    "sha256": "78fc9970fa9af497"
   },
   {
-   "file": "worksheets/Student Worksheet — Building Heights in 3D.md",
+   "file": "worksheets/Student Worksheet \u2014 Building Heights in 3D.md",
    "bytes": 10539,
    "mb": 0.01,
    "gzipped": false,
    "features": null,
-   "title": "Student Worksheet — Building Heights in 3D",
+   "title": "Student Worksheet \u2014 Building Heights in 3D",
    "dataset_id": "",
    "records": "",
    "notes": "Student worksheet - task sheet built from a real GIS project, with the method, the check numbers, the data traps and the limitations to declare. All live figures re-verified against the source service on 2026-10-26.",
    "sha256": "a09d5a9ed9bb2104"
   },
   {
-   "file": "worksheets/Student Worksheet — Festival Walk 3D Mall Model.md",
+   "file": "worksheets/Student Worksheet \u2014 Festival Walk 3D Mall Model.md",
    "bytes": 14218,
    "mb": 0.014,
    "gzipped": false,
    "features": null,
-   "title": "Student Worksheet — Festival Walk 3D Mall Model",
+   "title": "Student Worksheet \u2014 Festival Walk 3D Mall Model",
    "dataset_id": "",
    "records": "",
    "notes": "Student worksheet - task sheet built from a real GIS project, with the method, the check numbers, the data traps and the limitations to declare. All live figures re-verified against the source service on 2026-10-26.",
    "sha256": "23725750799034d5"
   },
   {
-   "file": "worksheets/Student Worksheet — MTR Fare Saver Map.md",
+   "file": "worksheets/Student Worksheet \u2014 MTR Fare Saver Map.md",
    "bytes": 10813,
    "mb": 0.01,
    "gzipped": false,
    "features": null,
-   "title": "Student Worksheet — MTR Fare Saver Map",
+   "title": "Student Worksheet \u2014 MTR Fare Saver Map",
    "dataset_id": "",
    "records": "",
    "notes": "Student worksheet - task sheet built from a real GIS project, with the method, the check numbers, the data traps and the limitations to declare. All live figures re-verified against the source service on 2026-10-26.",
    "sha256": "5997e9e20a660a6f"
   },
   {
-   "file": "worksheets/Student Worksheet — Volleyball Courts Booking Data.md",
+   "file": "worksheets/Student Worksheet \u2014 Volleyball Courts Booking Data.md",
    "bytes": 12763,
    "mb": 0.012,
    "gzipped": false,
    "features": null,
-   "title": "Student Worksheet — Volleyball Courts Booking Data",
+   "title": "Student Worksheet \u2014 Volleyball Courts Booking Data",
    "dataset_id": "",
    "records": "",
    "notes": "Student worksheet - task sheet built from a real GIS project, with the method, the check numbers, the data traps and the limitations to declare. All live figures re-verified against the source service on 2026-10-26.",
    "sha256": "8c2d68cbc95fd0c4"
   },
   {
-   "file": "worksheets/Student Worksheets — GIS Projects.md",
+   "file": "worksheets/Student Worksheets \u2014 GIS Projects.md",
    "bytes": 5513,
    "mb": 0.005,
    "gzipped": false,
    "features": null,
-   "title": "Student Worksheets — GIS Projects",
+   "title": "Student Worksheets \u2014 GIS Projects",
    "dataset_id": "",
    "records": "",
    "notes": "Student worksheet - task sheet built from a real GIS project, with the method, the check numbers, the data traps and the limitations to declare. All live figures re-verified against the source service on 2026-10-26.",
@@ -877,6 +913,66 @@
    "records": "",
    "notes": "Step-by-step recipe for students: download links, the CRS trap, the publishing steps, the field-name restoration table, the 2,000-record limit, styling, and the caveats to state in a write-up.",
    "sha256": "cd5312034b0e37ff"
+  },
+  {
+   "file": "assets/data/camping/campsite_scores.geojson.gz",
+   "bytes": 4359,
+   "mb": 0.004,
+   "gzipped": true,
+   "features": 41,
+   "title": "Campsite scores for dark skies",
+   "dataset_id": "afcd_rcd_1635133060194_82554",
+   "records": "",
+   "notes": "41 AFCD country-park campsites scored for night-sky darkness (VIIRS DNB, median of 12 nights), access, facilities and open horizon. EPSG:4326, lon/lat.",
+   "sha256": "435888ec3e458d60"
+  },
+  {
+   "file": "assets/data/camping/night_lights_composite.tif",
+   "bytes": 4702184,
+   "mb": 4.702,
+   "gzipped": false,
+   "features": null,
+   "title": "VIIRS night lights over Hong Kong (12-night median)",
+   "dataset_id": "",
+   "records": "1807 x 2600",
+   "notes": "VIIRS Day/Night Band NOAA-21 from NASA GIBS, median of 12 nights 27 Oct - 7 Nov 2026. 8-bit display render, not calibrated radiance. EPSG:4326.",
+   "sha256": "b57cdacd0d5f7772"
+  },
+  {
+   "file": "assets/data/camping/campsite_scores.csv",
+   "bytes": 8973,
+   "mb": 0.009,
+   "gzipped": false,
+   "features": 41,
+   "title": "Campsite score table",
+   "dataset_id": "",
+   "records": "",
+   "notes": "All factors, the weighted score, and the single-night rank-shift robustness figure.",
+   "sha256": "ee84bd7a18efddfb"
+  },
+  {
+   "file": "assets/data/camping/campsite_scores_summary.json",
+   "bytes": 1790,
+   "mb": 0.002,
+   "gzipped": false,
+   "features": null,
+   "title": "Run statistics and robustness checks",
+   "dataset_id": "",
+   "records": "",
+   "notes": "Run statistics: night-lights range, top 10, rank shift vs a single night.",
+   "sha256": "973abf2066a7689e"
+  },
+  {
+   "file": "assets/maps/camping-sites/HK_camping_sites_dark_sky_map.png",
+   "bytes": 731618,
+   "mb": 0.732,
+   "gzipped": false,
+   "features": null,
+   "title": "Light pollution and country-park campsites",
+   "dataset_id": "",
+   "records": "",
+   "notes": "Two panels: VIIRS night lights over Hong Kong with all 41 campsites marked, and the 20 best campsites broken down by factor.",
+   "sha256": "1f14780120bd1966"
   }
  ]
 }
