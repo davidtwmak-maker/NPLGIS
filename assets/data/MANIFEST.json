@@ -973,6 +973,15 @@
    "records": "",
    "notes": "Two panels: VIIRS night lights over Hong Kong with all 41 campsites marked, and the 20 best campsites broken down by factor.",
    "sha256": "1f14780120bd1966"
+  },
+  {
+   "name": "HK campsites ranked for dark skies \u2014 full methodology",
+   "file": "notes/hk-camping-dark-sky \u2014 METHODOLOGY.md",
+   "description": "Full method write-up for the campsite dark-sky study: the four GIBS traps, the four land-mask attempts that failed, scoring, results, limitations",
+   "format": "markdown",
+   "bytes": 14496,
+   "mb": 0.014,
+   "sha256": "270f19e394755d98"
   }
  ]
 }

@@ -140,4 +140,6 @@ assets/maps/camping-sites/HK_camping_sites_dark_sky_map.png
 ```
 
 Build scripts are in `scripts/camping/`; the full method write-up is in
-`notes/hk-camping-dark-sky — NOTES.md`.
+`notes/hk-camping-dark-sky — METHODOLOGY.md` (the longer version, including
+the four land-mask attempts that failed), and the shorter summary is
+`notes/hk-camping-dark-sky — NOTES.md` (this file).
