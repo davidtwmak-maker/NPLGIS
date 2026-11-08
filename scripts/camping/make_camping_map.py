@@ -30,12 +30,18 @@ from matplotlib.patches import Patch
 from rasterio.plot import reshape_as_image
 from rasterio.transform import rowcol
 
-BASE = "/Users/davidhermes/GIS Data"
-OUT = f"{BASE}/HK Camping Sites"
-NL = f"{BASE}/HK Night Lights"
+# Paths can be overridden from the environment so that the copy in the
+# NPLGIS repo runs on another machine:
+#   CAMPING_DATA_DIR   where campsite_scores.csv lives
+#   NIGHTLIGHTS_DIR    where raw/night_composite_median.tif lives
+BASE = os.environ.get("GIS_DATA_DIR", "/Users/davidhermes/GIS Data")
+OUT = os.environ.get("CAMPING_DATA_DIR", f"{BASE}/HK Camping Sites")
+NL = os.environ.get("NIGHTLIGHTS_DIR", f"{BASE}/HK Night Lights")
 N_COMP = f"{NL}/raw/night_composite_median.tif"
-SHP = f"{NL}/raw/landsd_rcd_1637223499176_68379.geojson"
-LAND_GJ = f"{OUT}/hk_land_boundary.geojson"
+# The OSM coastline is an optional orientation overlay only.  It is not
+# shipped, and the map is correct without it.
+COAST_WAYS = os.environ.get("COAST_WAYS_JSON",
+                            f"{OUT}/_coast_ways.json")
 
 LAND = "#EFE9DC"
 SEA = "#FFFFFF"
@@ -46,23 +52,6 @@ GOOD = "#4E7A5A"
 
 def log(m):
     print(m, flush=True)
-
-
-def load_land():
-    """Clean HK land boundary, used to mask the sea.
-
-    Do NOT use the LandsD iC1000 layer for this: its union area is
-    ~2130 km2 against ~1106 km2 of real land, because it includes
-    territorial waters.  The DTM validity mask fails too (narrow
-    channels get interpolated across, small islands drop out).
-    """
-    import geopandas as gpd
-    g = gpd.read_file(LAND_GJ)
-    if g.crs is None:
-        g = g.set_crs(4326)
-    if g.crs.to_epsg() != 4326:
-        g = g.to_crs(4326)
-    return g
 
 
 def build():
@@ -80,8 +69,14 @@ def build():
     lo, hi = np.percentile(v, 2), np.percentile(v, 99.5)
     v = np.clip((v - lo) / max(hi - lo, 1e-6), 0, 1)
 
-    land = load_land()
-    log(f"land boundary: {len(land)} features")
+    # NO land mask is applied, and none is needed.  Every Hong Kong land
+    # polygon in the public set includes territorial waters (LandsD iC1000
+    # ~2130 km2, DC constituencies ~2768 km2, OSM relation 913110
+    # ~2770 km2, against ~1106 km2 of real land), and the alternatives
+    # fail their own point tests.  The sea is genuinely dark in this
+    # raster (open sea 13 against Mong Kok 255), so masking would remove
+    # information rather than add it.  The coastline is drawn below as a
+    # thin orientation line only.
 
     fig = plt.figure(figsize=(17.5, 14.4), facecolor="white")
     gs = fig.add_gridspec(2, 1, height_ratios=[1.28, 1.0],
@@ -118,7 +113,7 @@ def build():
     # The coastline as a thin line, for orientation only.
     try:
         import json as _json
-        cw = f"{OUT}/_coast_ways.json"
+        cw = COAST_WAYS
         if os.path.exists(cw):
             segs = _json.load(open(cw))
             for s in segs:

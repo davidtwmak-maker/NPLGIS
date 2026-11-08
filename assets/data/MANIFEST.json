@@ -119,6 +119,12 @@
    "id": "VIIRS_NOAA21_GapFilled_BRDF_Corrected",
    "provider": "NASA Global Imagery Browse Services",
    "url": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi"
+  },
+  {
+   "name": "VIIRS Day/Night Band (NOAA-21), NASA GIBS",
+   "id": "VIIRS_NOAA21_GapFilled_BRDF_Corrected",
+   "provider": "NASA Global Imagery Browse Services",
+   "url": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi"
   }
  ],
  "files": [
@@ -982,6 +988,62 @@
    "bytes": 14496,
    "mb": 0.014,
    "sha256": "270f19e394755d98"
+  }
+ ],
+ "scripts": [
+  {
+   "file": "scripts/camping/fetch_nights.py",
+   "bytes": 9133,
+   "sha256": "d81d80d52c365c4e",
+   "description": "Fetch and validate the VIIRS night-lights nights. Rejects blank (all-zero) rasters by CONTENT, not by HTTP status, because GIBS returns 200 with an empty raster for unserved dates."
+  },
+  {
+   "file": "scripts/camping/score_campsites.py",
+   "bytes": 15612,
+   "sha256": "67966f0d55293091",
+   "description": "Score the 41 campsites on darkness, access, facilities and horizon. Asserts every factor is populated, no score is NaN, and that the access term yields more than 20 distinct values."
+  },
+  {
+   "file": "scripts/camping/make_camping_map.py",
+   "bytes": 22269,
+   "sha256": "5181ef1c83658c47",
+   "description": "Build the two-panel figure. Checks text overlap and off-canvas text BEFORE saving, then verifies the rendered pixels over the bright city, the dark country and the dark sea each match the source raster value at that location."
+  },
+  {
+   "file": "scripts/camping/export_to_repo.py",
+   "bytes": 7601,
+   "sha256": "d1d66ef56b5f6933",
+   "description": "Copy the outputs into the repo layout and verify each shipped file."
+  },
+  {
+   "file": "scripts/camping/update_manifest_camping.py",
+   "bytes": 3915,
+   "sha256": "6378faf23d50cdac",
+   "description": "Extend this manifest with the camping entries and verify every entry against the file on disk."
+  },
+  {
+   "file": "scripts/camping/fetch_coastline_osm.py",
+   "bytes": 6346,
+   "sha256": "f66498d1a6a4d632",
+   "description": "Fetch the OSM coastline via /map, with adaptive bbox splitting on HTTP 400 and backoff on HTTP 429. The coastline is an orientation overlay only - it is NOT used as a land mask."
+  },
+  {
+   "file": "scripts/camping/merge_coast_fragments.py",
+   "bytes": 4657,
+   "sha256": "84a8cd2d7bd2b500",
+   "description": "Merge the bbox-clipped coastline fragments into complete ways. Merging by way id instead of node sequence keeps only the last fragment of any way crossing a box boundary, which guts the coastline."
+  },
+  {
+   "file": "scripts/camping/land_mask_flood.py",
+   "bytes": 7146,
+   "sha256": "45ae28d035645059",
+   "description": "Flood-fill the land from the sea over a rasterised coastline. Kept for the record: it fails where the coastline is not closed, which is why the shipped map applies no land mask at all."
+  },
+  {
+   "file": "scripts/camping/update_manifest_scripts.py",
+   "bytes": 4064,
+   "sha256": "e9a87d4329045f19",
+   "description": "Record the build scripts in this manifest and verify each one against the file on disk."
   }
  ]
 }
