@@ -27,7 +27,8 @@ from PIL import Image
 
 GIS_DATA = os.environ.get("GIS_DATA_DIR", "/Users/davidhermes/GIS Data")
 BASE = f"{GIS_DATA}/HK Landslide Susceptibility"
-REPO = "/Users/davidhermes/.hermes/cache/scratch/NPLGIS"
+REPO = os.environ.get("NPLGIS_REPO", os.path.dirname(os.path.dirname(
+    os.path.abspath(__file__))))
 APPDIR = os.path.join(REPO, "apps", "landslide-susceptibility")
 DATADIR = os.path.join(APPDIR, "data")
 ASSETDIR = os.path.join(REPO, "assets", "data", "landslide")

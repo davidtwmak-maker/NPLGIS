@@ -26,7 +26,8 @@ import zipfile
 
 import geopandas as gpd
 
-REPO = "/Users/davidhermes/nplgis"
+REPO = os.environ.get("NPLGIS_REPO", os.path.dirname(os.path.dirname(
+    os.path.abspath(__file__))))
 MANIFEST = os.path.join(REPO, "assets/data/MANIFEST.json")
 DATA = os.path.join(REPO, "assets/data/landslide")
 MAPS = os.path.join(REPO, "assets/maps/landslide-susceptibility")

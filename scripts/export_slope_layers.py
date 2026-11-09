@@ -46,7 +46,8 @@ import rasterio
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(BASE, "out")
-REPO = "/Users/davidhermes/nplgis"
+REPO = os.environ.get("NPLGIS_REPO", os.path.dirname(os.path.dirname(
+    os.path.abspath(__file__))))
 DEST_DATA = os.path.join(REPO, "assets/data/landslide")
 DEST_MAP = os.path.join(REPO, "assets/maps/landslide-susceptibility")
 

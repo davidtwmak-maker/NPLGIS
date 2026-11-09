@@ -45,7 +45,8 @@ GIS_DATA = os.environ.get("GIS_DATA_DIR", "/Users/davidhermes/GIS Data")
 ROOT = os.environ.get("GIS_DATA_DIR", f"{GIS_DATA}") + "/HK Flood Prone Areas"
 SUP = f"{ROOT}/support"
 COAST = f"{GIS_DATA}/HK Night Lights/_coast_ways_full.json"
-DTM = "/Users/davidhermes/.hermes/cache/scratch/Whole_HK_DTM_5m.asc"
+SCRATCH = os.environ.get("HK_SCRATCH", "/Users/davidhermes/.hermes/cache/scratch")
+DTM = f"{SCRATCH}/Whole_HK_DTM_5m.asc"
 OUT_GJ = f"{ROOT}/flood_mechanism.geojson"
 OUT_CSV = f"{ROOT}/flood_mechanism.csv"
 
@@ -178,7 +179,7 @@ def main():
     # The ASCII grid is 12,751 x 9,601 = 122 M cells; random window reads
     # through rasterio's ASCII driver take minutes.  Convert once to a .npy
     # and index it directly.
-    NPY = "/Users/davidhermes/.hermes/cache/scratch/hk_dtm_5m.npy"
+    NPY = f"{SCRATCH}/hk_dtm_5m.npy"
     log("loading the 5 m DTM ...")
     if not os.path.exists(NPY):
         raise SystemExit(f"{NPY} missing - convert the ASC first with np.loadtxt")

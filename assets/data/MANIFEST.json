@@ -1237,8 +1237,8 @@
     },
     {
       "file": "scripts/camping/score_campsites.py",
-      "bytes": 15669,
-      "sha256": "c58fc807284ee22b",
+      "bytes": 15663,
+      "sha256": "b3c5dc9f206403c6",
       "description": "Score the 41 campsites on darkness, access, facilities and horizon. Asserts every factor is populated, no score is NaN, and that the access term yields more than 20 distinct values."
     },
     {
@@ -1249,14 +1249,14 @@
     },
     {
       "file": "scripts/camping/export_to_repo.py",
-      "bytes": 7642,
-      "sha256": "85258c02204e19dd",
+      "bytes": 7710,
+      "sha256": "279f6351ab067325",
       "description": "Copy the outputs into the repo layout and verify each shipped file."
     },
     {
       "file": "scripts/camping/update_manifest_camping.py",
-      "bytes": 3972,
-      "sha256": "12ff7fd961bccf0f",
+      "bytes": 4040,
+      "sha256": "25f7cb1a5f48e299",
       "description": "Extend this manifest with the camping entries and verify every entry against the file on disk."
     },
     {
@@ -1279,14 +1279,14 @@
     },
     {
       "file": "scripts/camping/update_manifest_scripts.py",
-      "bytes": 4391,
-      "sha256": "f472e7cd5ec9fb76",
+      "bytes": 4459,
+      "sha256": "a620f1d607991aa4",
       "description": "Record the build scripts in this manifest and verify each one against the file on disk."
     },
     {
       "file": "scripts/camping/verify_fresh_checkout.py",
-      "bytes": 3640,
-      "sha256": "750772c33513a060",
+      "bytes": 3623,
+      "sha256": "3dc7ed8797f8e7d9",
       "description": "Download the published script and its two inputs into a fresh temporary directory and run the build there with only the environment variables set. Proves the repo copy works off the author's machine, which is the thing a student actually needs."
     },
     {
@@ -1375,8 +1375,8 @@
       "description": "Derives the flood mechanism for all 267 locations from the coastline, the 5 m DTM, the drainage network and the catchments",
       "source": "derived",
       "type": "script",
-      "bytes": 14483,
-      "sha256": "b9fe1f0d33eea031",
+      "bytes": 14506,
+      "sha256": "9504cd62eb365abb",
       "mb": 0.014
     },
     {
@@ -1435,8 +1435,8 @@
     },
     {
       "file": "scripts/refresh_manifest_scripts.py",
-      "bytes": 2007,
-      "sha256": "9fb719f917fde010",
+      "bytes": 2075,
+      "sha256": "dd08e5f040409e44",
       "description": "Refresh the scripts section of MANIFEST.json after a cross-cutting code change: updates bytes and sha256 for every script entry, and checks that the files section holds no code"
     }
   ]

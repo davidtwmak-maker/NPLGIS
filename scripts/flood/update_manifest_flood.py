@@ -17,7 +17,8 @@ import hashlib
 import json
 import os
 
-REPO = "/Users/davidhermes/nplgis"
+REPO = os.environ.get("NPLGIS_REPO", os.path.dirname(os.path.dirname(
+    os.path.abspath(__file__))))
 MANIFEST = f"{REPO}/assets/data/MANIFEST.json"
 
 FLOOD = [

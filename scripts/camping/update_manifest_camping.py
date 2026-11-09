@@ -15,7 +15,8 @@ import os
 import subprocess
 
 GIS_DATA = os.environ.get("GIS_DATA_DIR", "/Users/davidhermes/GIS Data")
-REPO = "/Users/davidhermes/nplgis"
+REPO = os.environ.get("NPLGIS_REPO", os.path.dirname(os.path.dirname(
+    os.path.abspath(__file__))))
 MANIFEST = f"{REPO}/assets/data/MANIFEST.json"
 NEW = f"{GIS_DATA}/HK Camping Sites/_manifest_entries.json"
 

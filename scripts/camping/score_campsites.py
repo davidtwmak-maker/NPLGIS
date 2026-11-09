@@ -49,6 +49,7 @@ Every gate here has caught a real defect:
 
 Run:  ls-venv/bin/python score_campsites.py
 """
+import sys
 import json
 import os
 
@@ -67,7 +68,7 @@ BASE = os.environ.get("GIS_DATA_DIR", f"{GIS_DATA}")
 CSDI = f"{BASE}/hk-spatial/data"
 NL = os.environ.get("NIGHTLIGHTS_DIR", f"{BASE}/HK Night Lights")
 OUT = os.environ.get("CAMPING_DATA_DIR", f"{BASE}/HK Camping Sites")
-LS = "/Users/davidhermes/.hermes/cache/scratch/ls-venv/bin/python"
+LS = os.environ.get("PYTHON_BIN", sys.executable)
 
 D_CAMPS = f"{CSDI}/afcd_rcd_1635133060194_82554.geojson"
 D_TRAILS = f"{CSDI}/afcd_rcd_1665568199103_4360.geojson"

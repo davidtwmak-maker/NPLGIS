@@ -203,7 +203,7 @@ input data from one directory. That directory is now configurable, so the
 scripts work on a machine that is not the one they were written on:
 
 ```bash
-export HK_DATA_ROOT="/path/to/your/data/dir"
+export GIS_DATA_DIR="/path/to/your/data/dir"
 python scripts/fishing-light/definitive_analysis.py
 ```
 

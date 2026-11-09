@@ -23,7 +23,8 @@ import subprocess
 import sys
 
 GIS_DATA = os.environ.get("GIS_DATA_DIR", "/Users/davidhermes/GIS Data")
-REPO = "/Users/davidhermes/nplgis"
+REPO = os.environ.get("NPLGIS_REPO", os.path.dirname(os.path.dirname(
+    os.path.abspath(__file__))))
 SRC = f"{GIS_DATA}/HK Camping Sites"
 NL = f"{GIS_DATA}/HK Night Lights"
 
