@@ -137,7 +137,8 @@ def main():
         "because 22,700 recorded incidents sit in cells whose mean slope is "
         "under 30 degrees but whose max is over it. 8-connectivity, so corner-"
         "touching steep cells merge into one hillside. Area reconciliation "
-        "error 0.0 m2, 0 invalid geometries. EPSG:2326 (HK1980).",
+        "error 0.0 m2, 0 invalid geometries. EPSG:4326 (GeoJSON is always "
+        "lon/lat); the area above is measured in EPSG:2326 (HK1980).",
         features=n,
         records=str(n),
     ))
@@ -262,9 +263,29 @@ def main():
         "geometries. "
     )
 
+    # --- refresh EVERY existing entry's byte count and sha256 -------------
+    # The entries above are only the ones this script builds. A layer that
+    # changed on disk (a reprojection, a rerun) keeps its old sha256 until
+    # something refreshes it, and a stale sha means the manifest no longer
+    # describes the files that ship. The metadata - title, notes, feature
+    # counts - is preserved; only the measured values are re-read.
+    refreshed = 0
+    for i, e in enumerate(man["files"]):
+        p = os.path.join(REPO, e["file"])
+        if not os.path.exists(p):
+            continue
+        size = os.path.getsize(p)
+        sha = sha16(p)
+        if e.get("bytes") != size or e.get("sha256") != sha:
+            e["bytes"] = size
+            e["mb"] = round(size / 1e6, 3)
+            e["sha256"] = sha
+            refreshed += 1
+
     with open(MANIFEST, "w") as f:
         json.dump(man, f, indent=1, ensure_ascii=False)
-    print(f"manifest updated: {added} new entries, {len(man['files'])} total")
+    print(f"manifest updated: {added} new entries, {refreshed} refreshed, "
+          f"{len(man['files'])} total")
 
     # --- verify by reading the manifest back -----------------------------
     with open(MANIFEST) as f:
@@ -277,7 +298,17 @@ def main():
         # bytes must match disk
         real = os.path.getsize(os.path.join(REPO, e["file"]))
         assert match[0]["bytes"] == real, f"{e['file']} byte count stale"
-    print("manifest verified: every new entry's sha256 and byte count match disk")
+    # EVERY entry must now describe the file on disk
+    stale = []
+    for e in back["files"]:
+        p = os.path.join(REPO, e["file"])
+        if not os.path.exists(p):
+            stale.append((e["file"], "missing"))
+            continue
+        if os.path.getsize(p) != e["bytes"] or not sha16(p).startswith(e["sha256"]):
+            stale.append((e["file"], "mismatch"))
+    assert not stale, f"stale manifest entries: {stale}"
+    print("manifest verified: every entry's sha256 and byte count match disk")
 
 
 if __name__ == "__main__":

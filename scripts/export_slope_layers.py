@@ -39,10 +39,15 @@ import gzip
 import json
 import os
 import shutil
+import sys
 
 import geopandas as gpd
 import numpy as np
 import rasterio
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                "landslide"))
+from geojson_wgs84 import check_rfc7946  # noqa: E402
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(BASE, "out")
@@ -118,11 +123,22 @@ def main():
     steep_r = steep.copy()
     steep_r.geometry = steep_r.geometry.apply(round_geom)
     raw = os.path.join(DEST_DATA, "_steep_tmp.geojson")
-    steep_r.to_file(raw, driver="GeoJSON")
+    # The analysis is in EPSG:2326 (HK1980), but GeoJSON is always CRS84 -
+    # lon/lat in decimal degrees - and carries no crs member. So the layer is
+    # reprojected to EPSG:4326 at the shipping boundary, and the area gate
+    # above stays in EPSG:2326 where the units are metres.
+    steep_wgs = steep_r.to_crs(4326)
+    steep_wgs.to_file(raw, driver="GeoJSON")
     with open(raw, "rb") as fin, gzip.open(gj, "wb", compresslevel=9) as fout:
         shutil.copyfileobj(fin, fout)
     os.remove(raw)
     log(f"  {os.path.getsize(gj)/1e6:.2f} MB")
+
+    # RFC 7946 gate: the shipped file must carry no crs member and its
+    # coordinates must be lon/lat.
+    with gzip.open(gj, "rb") as fin:
+        shipped = json.load(fin)
+    log("  " + check_rfc7946(shipped, "shipped steep slopes"))
 
     # --- 2. read the SHIPPED file back and count from it ------------------
     # NOTE: GDAL/pyogrio does NOT auto-detect a .geojson.gz here (it fails
@@ -138,7 +154,11 @@ def main():
     log(f"  features read back: {n_back:,} (expected {EXPECT_STEEP:,})")
     assert n_back == EXPECT_STEEP, f"shipped file has {n_back} features"
 
-    back_km2 = back.geometry.area.sum() / 1e6
+    # The shipped file is lon/lat, so its .area is meaningless. Reproject it
+    # back to EPSG:2326 to measure the area in metres and compare with the
+    # source - that is the real check that the reprojection did not distort
+    # the polygons.
+    back_km2 = back.to_crs(2326).geometry.area.sum() / 1e6
     log(f"  area measured from shipped file: {back_km2:.4f} km^2 "
         f"(source {steep_km2:.4f})")
     # Tolerance 0.01 km^2: the shipped coordinates are rounded to 1e-6 m,
@@ -149,7 +169,7 @@ def main():
     n_bad = int((~back.is_valid).sum())
     log(f"  invalid geometries in shipped file: {n_bad}")
     assert n_bad == 0, f"{n_bad} invalid geometries in the shipped file"
-    assert str(back.crs) == "EPSG:2326", f"shipped CRS {back.crs}"
+    assert str(back.crs) == "EPSG:4326", f"shipped CRS {back.crs}"
     os.remove(tmp_gj)
 
     # --- 3. rasters --------------------------------------------------------

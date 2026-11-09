@@ -171,7 +171,7 @@ publishing separately from the susceptibility raster.
 
 | File | What |
 |---|---|
-| `assets/data/landslide/steep_slopes_over30.geojson.gz` | 33,231 polygons, EPSG:2326, with slope stats and area per polygon |
+| `assets/data/landslide/steep_slopes_over30.geojson.gz` | 33,231 polygons, EPSG:4326 (GeoJSON is always lon/lat), with slope stats and area per polygon |
 | `assets/data/landslide/slope_classes_20m.tif` | five-class slope raster (1=0–15°, 2=15–30°, 3=30–45°, 4=45–60°, 5=60°+), EPSG:2326, 20 m |
 | `assets/data/landslide/slope_max_20m.tif` | maximum slope per 20 m cell, degrees, EPSG:2326 |
 | `assets/maps/landslide-susceptibility/steep_slopes_over30_map.png` | the two-panel figure |

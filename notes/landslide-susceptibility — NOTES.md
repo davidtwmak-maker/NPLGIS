@@ -339,8 +339,8 @@ four corners.
 | `apps/landslide-susceptibility/data/susceptibility_grid.json` | 76,320 scores + class stats + projection fit (430 KB) |
 | `apps/landslide-susceptibility/data/susceptibility_surface.png` | the 5-class surface (41 KB) |
 | `apps/landslide-susceptibility/data/landslide_points.png` | the 124,020 recorded points (24 KB) |
-| `assets/data/landslide/susceptibility_cells.geojson.gz` | 29,614 polygons, EPSG:2326 |
-| `assets/data/landslide/landslide_records.geojson.gz` | 124,020 points, EPSG:2326 |
+| `assets/data/landslide/susceptibility_cells.geojson.gz` | 29,614 polygons, EPSG:4326 (GeoJSON is always lon/lat) |
+| `assets/data/landslide/landslide_records.geojson.gz` | 124,020 points, EPSG:4326 (GeoJSON is always lon/lat) |
 | `assets/data/landslide/landslide_susceptibility.tif` | the score raster, EPSG:2326 |
 | `assets/maps/landslide-susceptibility/landslide_susceptibility_map.png` | the published static figure |
 

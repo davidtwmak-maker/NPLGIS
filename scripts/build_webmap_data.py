@@ -20,10 +20,14 @@ Writes:
   apps/landslide-susceptibility/data/landslide_points.geojson.gz (browser points)
 """
 import os
-import os, csv, json, gzip, shutil
+import os, csv, json, gzip, shutil, sys
 import numpy as np
 from pyproj import Transformer
 from PIL import Image
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                "landslide"))
+from geojson_wgs84 import check_rfc7946, to_wgs84_collection  # noqa: E402
 
 GIS_DATA = os.environ.get("GIS_DATA_DIR", "/Users/davidhermes/GIS Data")
 BASE = f"{GIS_DATA}/HK Landslide Susceptibility"
@@ -286,8 +290,18 @@ for src, dst in (("susceptibility_cells.geojson", "susceptibility_cells.geojson.
                  ("landslide_susceptibility.tif", "landslide_susceptibility.tif")):
     s = os.path.join(BASE, "out", src); d = os.path.join(ASSETDIR, dst)
     if dst.endswith(".gz"):
-        with open(s, "rb") as fi, gzip.open(d, "wb") as fo:
-            shutil.copyfileobj(fi, fo)
+        if src.endswith(".geojson"):
+            # The working layer is in EPSG:2326 (HK1980, metres). GeoJSON is
+            # always CRS84 - lon/lat in decimal degrees - and carries no crs
+            # member, so the layer is reprojected at the shipping boundary.
+            fc = json.load(open(s))
+            fc = to_wgs84_collection(fc)
+            check_rfc7946(fc, dst)
+            with gzip.open(d, "wt", encoding="utf-8") as fo:
+                json.dump(fc, fo, separators=(",", ":"))
+        else:
+            with open(s, "rb") as fi, gzip.open(d, "wb") as fo:
+                shutil.copyfileobj(fi, fo)
     else:
         shutil.copy2(s, d)
     print(f"  asset {dst}: {os.path.getsize(d)/1024/1024:.2f} MB")
