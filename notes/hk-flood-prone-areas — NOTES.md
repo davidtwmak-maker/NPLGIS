@@ -97,6 +97,31 @@ The three lists are **the study area**. DSD's own note on every page: *"The loca
 **DTM direct download** (the CSDI file-api returns 403 for it):
 `https://www.landsd.gov.hk/landsd_psi_data/SMO/data/Whole_HK_DTM_5m.zip` → 28.7 MB zip, `Whole_HK_DTM_5m.asc` (12,751 × 9,601, 5 m cells, HK1980 origin 799997.5/799997.5, NODATA −9999). Open with rasterio/GDAL, **not** `np.loadtxt`.
 
+```bash
+python3 scripts/flood/fetch_dtm.py            # download + convert
+python3 scripts/flood/fetch_dtm.py --out DIR  # choose the destination
+```
+
+The script downloads the zip, extracts the ASCII grid and converts it to a
+`.npy` array, because reading a small window out of the 302 MB ASCII grid
+with rasterio takes **minutes per call** — the driver parses the whole file
+to find the header offsets. Converting once and sampling the array with
+numpy afterwards is instant. The conversion takes about 15 seconds.
+
+Two details worth knowing if you do it by hand:
+
+- The ESRI ASCII grid starts with a **6-line header** (`ncols`, `nrows`,
+  `xllcorner`, `yllcorner`, `cellsize`, `NODATA_value`). `np.loadtxt` cannot
+  parse those and fails with *"could not convert string to float: 'ncols'"* —
+  it needs `skiprows=6`.
+- The resulting array is **9,601 × 12,751 (rows × cols)**, float32, ~490 MB,
+  with elevations from −26 m to 958 m. `derive_mechanism_v2.py` samples it
+  with `np.load(..., mmap_mode="r")`, so the file is never fully read into
+  memory.
+
+The script's output was verified to be **identical, value for value**, to
+the array the published flood results were computed from.
+
 ---
 
 ## 4. Methodology — the recommended study

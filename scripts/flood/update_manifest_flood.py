@@ -80,6 +80,9 @@ SCRIPTS = [
     ("scripts/flood/fetch_support.sh",
      "Fetches the supporting DSD, WSD and CEDD layers with pagination and "
      "asserted final counts"),
+    ("scripts/flood/fetch_dtm.py",
+     "Downloads the LandsD Whole HK DTM 5 m and converts the 302 MB ESRI "
+     "ASCII grid to a fast .npy array for sampling"),
     ("scripts/flood/verify_against_pdf.py",
      "Cross-checks the 226 scraped blockage titles against DSD's own "
      "published PDF"),
