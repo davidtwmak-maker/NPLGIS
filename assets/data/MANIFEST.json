@@ -125,6 +125,30 @@
    "id": "VIIRS_NOAA21_GapFilled_BRDF_Corrected",
    "provider": "NASA Global Imagery Browse Services",
    "url": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi"
+  },
+  {
+   "name": "Areas where bright-light fishing is permitted in Hong Kong waters",
+   "id": "mardep_rcd_1730952503222_38811",
+   "provider": "Marine Department via CSDI Portal",
+   "url": "https://portal.csdi.gov.hk/server/rest/services/common/mardep_rcd_1730952503222_38811/FeatureServer"
+  },
+  {
+   "name": "Distribution of fishing operation in Hong Kong waters",
+   "id": "afcd_rcd_1697167244880_33192",
+   "provider": "AFCD via CSDI Portal",
+   "url": "https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1697167244880_33192/FeatureServer"
+  },
+  {
+   "name": "VIIRS Day/Night Band (SNPP), gap-filled BRDF-corrected, NASA GIBS",
+   "id": "VIIRS_SNPP_GapFilled_BRDF_Corrected_DayNightBand_Radiance",
+   "provider": "NASA Global Imagery Browse Services",
+   "url": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi"
+  },
+  {
+   "name": "VIIRS Day/Night Band (SNPP), gap-filled BRDF-corrected, NASA GIBS",
+   "id": "VIIRS_SNPP_GapFilled_BRDF_Corrected_DayNightBand_Radiance",
+   "provider": "NASA Global Imagery Browse Services",
+   "url": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi"
   }
  ],
  "files": [
@@ -988,6 +1012,102 @@
    "bytes": 14496,
    "mb": 0.014,
    "sha256": "270f19e394755d98"
+  },
+  {
+   "file": "assets/data/fishing-light/permitted_bright_light_fishing_areas.geojson.gz",
+   "description": "The 16 areas in Hong Kong waters where bright-light fishing is permitted",
+   "bytes": 922198,
+   "mb": 0.922,
+   "sha256": "5a97973d4c058527",
+   "features": 16,
+   "source": "Marine Department via CSDI Portal",
+   "format": "GeoJSON (gzip)"
+  },
+  {
+   "file": "assets/data/fishing-light/fishing_operation_distribution.geojson.gz",
+   "description": "Distribution of fishing operations of local vessels in HK waters, by grid and vessel class",
+   "bytes": 825491,
+   "mb": 0.825,
+   "sha256": "4b989452446c7fa8",
+   "features": 356,
+   "source": "AFCD via CSDI Portal",
+   "format": "GeoJSON (gzip)"
+  },
+  {
+   "file": "assets/data/fishing-light/night_lights_may_aug.tif",
+   "description": "Mean VIIRS night-lights value over the May-Aug window, 2012-2026",
+   "bytes": 603433,
+   "mb": 0.603,
+   "sha256": "d431e1ddb4f75ecf",
+   "source": "NASA GIBS VIIRS Day/Night Band (SNPP)",
+   "format": "GeoTIFF"
+  },
+  {
+   "file": "assets/data/fishing-light/night_lights_sep_apr.tif",
+   "description": "Mean VIIRS night-lights value over the Sep-Apr window, 2012-2026",
+   "bytes": 603392,
+   "mb": 0.603,
+   "sha256": "54644d0fc57762a3",
+   "source": "NASA GIBS VIIRS Day/Night Band (SNPP)",
+   "format": "GeoTIFF"
+  },
+  {
+   "file": "assets/data/fishing-light/night_lights_change_may_minus_sep.tif",
+   "description": "May-Aug minus Sep-Apr night-lights change, per cell",
+   "bytes": 675748,
+   "mb": 0.676,
+   "sha256": "9c569be6a0866b4f",
+   "source": "NASA GIBS VIIRS Day/Night Band (SNPP)",
+   "format": "GeoTIFF"
+  },
+  {
+   "file": "assets/data/fishing-light/permitted_areas_seasonal_change.geojson.gz",
+   "description": "Each permitted bright-light area with its seasonal change in night-sky brightness",
+   "bytes": 748,
+   "mb": 0.001,
+   "sha256": "64542f1bed70f223",
+   "features": 14,
+   "format": "GeoJSON (gzip)"
+  },
+  {
+   "file": "assets/data/fishing-light/fishing_light_monthly.csv",
+   "description": "Monthly fishing-light signal for Hong Kong, 2012-2026 (the recommendation table)",
+   "bytes": 475,
+   "mb": 0.0,
+   "sha256": "6d9ec2585214d92b",
+   "format": "CSV"
+  },
+  {
+   "file": "assets/data/fishing-light/fishing_light_seasonal.json",
+   "description": "Every result number from the study, machine-readable",
+   "bytes": 6266,
+   "mb": 0.006,
+   "sha256": "291ecc964f8d3fa1",
+   "format": "JSON"
+  },
+  {
+   "file": "assets/data/fishing-light/nightly_measurements.csv.gz",
+   "description": "Per-night night-lights measurements for all 693 usable nights, 2012-2026",
+   "bytes": 11675,
+   "mb": 0.012,
+   "sha256": "b667b11f50c31c68",
+   "format": "CSV (gzip)"
+  },
+  {
+   "file": "assets/maps/fishing-light/HK_fishing_light_seasonal_map.png",
+   "description": "Figure: fishing lights and the Hong Kong stargazing season",
+   "bytes": 531050,
+   "mb": 0.531,
+   "sha256": "44418424430901db",
+   "format": "PNG"
+  },
+  {
+   "file": "notes/hk-fishing-light-seasonal \u2014 NOTES.md",
+   "description": "The full study write-up: method, results, confounder checks and limitations",
+   "bytes": 12978,
+   "mb": 0.013,
+   "sha256": "23f1742b008efecb",
+   "format": "Markdown"
   }
  ],
  "scripts": [
@@ -1050,6 +1170,30 @@
    "bytes": 3567,
    "sha256": "e67d88a5d39d55da",
    "description": "Download the published script and its two inputs into a fresh temporary directory and run the build there with only the environment variables set. Proves the repo copy works off the author's machine, which is the thing a student actually needs."
+  },
+  {
+   "file": "scripts/fishing-light/fetch_seasonal.py",
+   "description": "Build script: fetch_seasonal.py",
+   "bytes": 16863,
+   "mb": 0.017,
+   "sha256": "35caf183e13d469f",
+   "format": "Python"
+  },
+  {
+   "file": "scripts/fishing-light/analyse_fishing_light.py",
+   "description": "Build script: analyse_fishing_light.py",
+   "bytes": 12837,
+   "mb": 0.013,
+   "sha256": "7b66b00b2b5120c5",
+   "format": "Python"
+  },
+  {
+   "file": "scripts/fishing-light/make_fishing_light_map.py",
+   "description": "Build script: make_fishing_light_map.py",
+   "bytes": 11475,
+   "mb": 0.011,
+   "sha256": "2cd8aaf377064e09",
+   "format": "Python"
   }
  ]
 }

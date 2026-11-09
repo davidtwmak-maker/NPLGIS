@@ -72,6 +72,22 @@
           </article>
 
           <article class="card">
+            <h3>Fishing lights and the stargazing season</h3>
+            <p>
+              Fifteen years of VIIRS night-time satellite data over the 16 areas where
+              bright-light fishing is permitted in Hong Kong waters. The fishing areas
+              brighten from June and peak in September, so the darkest skies in the
+              east and south come in March and April — not during the summer
+              fishing moratorium, which moves the fleets in rather than away.
+            </p>
+            <p class="meta">
+              VIIRS DNB (SNPP, 693 nights, 2012–2026) · Marine Department permitted
+              areas · AFCD fishing-operation grids
+            </p>
+            <p><a href="#maps">See the map ↓</a></p>
+          </article>
+
+          <article class="card">
             <h3>Campsites ranked for dark skies</h3>
             <p>
               All 41 AFCD country-park campsites scored for night-sky quality
@@ -124,6 +140,13 @@
         <h2>Maps</h2>
         <p class="section-lede">All rendered output, full resolution.</p>
         <div class="map-grid">
+          <figure>
+            <a href="./assets/maps/fishing-light/HK_fishing_light_seasonal_map.png">
+              <img src="./assets/maps/fishing-light/HK_fishing_light_seasonal_map.png"
+                   alt="Three panels on fishing lights in Hong Kong: a difference map of night-sky brightness between May-August and September-April with the 16 permitted bright-light fishing areas outlined, a map of the absolute night-lights level, and a line chart of the monthly fishing-light signal with the lowest point in April and the highest in September" loading="lazy" />
+            </a>
+            <figcaption><strong>Fishing lights and the stargazing season</strong> — 15 years of VIIRS night lights, 693 nights</figcaption>
+          </figure>
           <figure>
             <a href="./assets/maps/camping-sites/HK_camping_sites_dark_sky_map.png">
               <img src="./assets/maps/camping-sites/HK_camping_sites_dark_sky_map.png"
@@ -202,6 +225,36 @@
               <tr><th>Dataset</th><th>Records</th><th>Source</th></tr>
             </thead>
             <tbody>
+              <tr>
+                <td><code>assets/data/fishing-light/permitted_bright_light_fishing_areas.geojson.gz</code></td>
+                <td>16</td>
+                <td>The areas in Hong Kong waters where bright-light fishing is permitted. Marine Department, EPSG:4326</td>
+              </tr>
+              <tr>
+                <td><code>assets/data/fishing-light/fishing_operation_distribution.geojson.gz</code></td>
+                <td>356</td>
+                <td>Distribution of fishing operations of local vessels by grid and vessel class. AFCD, EPSG:4326</td>
+              </tr>
+              <tr>
+                <td><code>assets/data/fishing-light/night_lights_may_aug.tif</code></td>
+                <td>1200 × 840</td>
+                <td>Mean VIIRS night-lights value over May–Aug, 2012–2026. NASA GIBS, EPSG:4326</td>
+              </tr>
+              <tr>
+                <td><code>assets/data/fishing-light/night_lights_change_may_minus_sep.tif</code></td>
+                <td>1200 × 840</td>
+                <td>May–Aug minus Sep–Apr change per cell, the difference map behind the seasonal finding</td>
+              </tr>
+              <tr>
+                <td><code>assets/data/fishing-light/fishing_light_monthly.csv</code></td>
+                <td>12</td>
+                <td>Monthly fishing-light signal for Hong Kong — the recommendation table</td>
+              </tr>
+              <tr>
+                <td><code>assets/data/fishing-light/nightly_measurements.csv.gz</code></td>
+                <td>693</td>
+                <td>Per-night night-lights measurements across 2012–2026, with moon phase and the open-sea control</td>
+              </tr>
               <tr>
                 <td><code>assets/data/camping/campsite_scores.geojson.gz</code></td>
                 <td>41</td>
@@ -312,7 +365,9 @@
           <li>CSDI Portal — LandsD 3D Pedestrian Network, LiDAR DTM 2020, GeoInfo Map</li>
           <li>CSDI Portal — CEDD landslide incidents, ENTLI, geological map, GEO raingauge</li>
           <li>CSDI Portal — AFCD campsites, country parks, visitor centres, facilities and trails</li>
+          <li>CSDI Portal — Marine Department permitted bright-light fishing areas; AFCD fishing-operation distribution</li>
           <li>NASA GIBS — VIIRS Day/Night Band (NOAA-21) night-lights composite</li>
+          <li>NASA GIBS — VIIRS Day/Night Band (SNPP), gap-filled BRDF-corrected, 2012–2026 seasonal series</li>
           <li>OpenStreetMap — geocoding and coastline reference</li>
           <li>LCSD SmartPLAY — live venue, session and hire-charge data</li>
           <li>MTR open data — line and station definitions</li>
