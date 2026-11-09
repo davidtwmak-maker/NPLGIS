@@ -72,6 +72,24 @@
           </article>
 
           <article class="card">
+            <h3>Flood-prone areas and the mechanism behind each</h3>
+            <p>
+              All 267 official Hong Kong flood-prone locations from the Drainage
+              Services Department's three lists, each classified by a
+              <strong>derived mechanism</strong> — local drainage and blockage (185),
+              channel backflow (48), coastal and tidal (32), low-lying ponding (2) —
+              from the coastline, the 5 m terrain model, the drainage network and the
+              catchments. DSD files 226 locations as "blockage", but 46 of them sit
+              beside a major channel.
+            </p>
+            <p class="meta">
+              DSD flood-prone lists (verified 226/226 against DSD's PDF) · DSD
+              channels and inlets · WSD catchments · CEDD coastline · LandsD DTM 5 m
+            </p>
+            <p><a href="#maps">See the map ↓</a></p>
+          </article>
+
+          <article class="card">
             <h3>Fishing lights and the stargazing season</h3>
             <p>
               Fifteen years of VIIRS night-time satellite data (693 nights, 2012–2026)
@@ -147,6 +165,13 @@
                    alt="Four panels on fishing lights in Hong Kong: a map of the 16 permitted bright-light fishing areas with numbered markers for excluded fixed structures, a horizontal bar chart of the nights that carried the fishing-light signal, a monthly chart of the median excess bright cells, and a panel of headline statistics" loading="lazy" />
             </a>
             <figcaption><strong>Fishing lights and the stargazing season</strong> — 15 years of VIIRS night lights, 693 nights <em>(corrected analysis)</em></figcaption>
+          </figure>
+          <figure>
+            <a href="./assets/maps/flood/HK_flood_mechanism_map.png">
+              <img src="./assets/maps/flood/HK_flood_mechanism_map.png"
+                   alt="Map of Hong Kong with the 267 official flood-prone locations coloured by their derived flood mechanism — local drainage and blockage, channel backflow, coastal and tidal, or low-lying ponding — over the drainage network, with a bar chart of the mechanism counts and a stacked bar chart cross-tabulating the derived mechanism against DSD's own three lists" loading="lazy" />
+            </a>
+            <figcaption><strong>Flood-prone areas by derived mechanism</strong> — 267 DSD locations classified from the coastline, the 5 m DTM and the drainage network</figcaption>
           </figure>
           <figure>
             <a href="./assets/maps/camping-sites/HK_camping_sites_dark_sky_map.png">
@@ -255,6 +280,21 @@
                 <td><code>assets/data/fishing-light/nightly_measurements.csv.gz</code></td>
                 <td>693</td>
                 <td>Per-night night-lights measurements across 2012–2026, with moon phase and the open-sea control</td>
+              </tr>
+              <tr>
+                <td><code>assets/data/flood/dsd_flood_prone_areas.geojson.gz</code></td>
+                <td>267</td>
+                <td>The official Hong Kong flood-prone locations from DSD's three lists: 226 prone to blockage, 15 with drainage improvement works in progress, 26 coastal low-lying or windy residential areas. EPSG:4326</td>
+              </tr>
+              <tr>
+                <td><code>assets/data/flood/flood_prone_areas_mechanism.geojson.gz</code></td>
+                <td>267</td>
+                <td>The same locations with the flood mechanism derived from the coastline, the 5 m terrain model, the drainage network and the catchments, with the evidence for each classification. EPSG:4326</td>
+              </tr>
+              <tr>
+                <td><code>assets/data/flood/flood_prone_areas_mechanism.csv</code></td>
+                <td>267</td>
+                <td>The derived mechanism table: mechanism, confidence, elevation, distance to the coast, to a major channel, to the nearest inlet and to the catchment edge</td>
               </tr>
               <tr>
                 <td><code>assets/data/camping/campsite_scores.geojson.gz</code></td>
@@ -367,6 +407,9 @@
           <li>CSDI Portal — CEDD landslide incidents, ENTLI, geological map, GEO raingauge</li>
           <li>CSDI Portal — AFCD campsites, country parks, visitor centres, facilities and trails</li>
           <li>CSDI Portal — Marine Department permitted bright-light fishing areas; AFCD fishing-operation distribution</li>
+          <li>Drainage Services Department — the three official flood-prone area lists, verified 226/226 against DSD's published PDF</li>
+          <li>CSDI Portal — DSD drainage channels, engineered channels and inlets; WSD catchments; CEDD geological coastline</li>
+          <li>LandsD — Whole Hong Kong Digital Terrain Model 5 m</li>
           <li>NASA GIBS — VIIRS Day/Night Band (NOAA-21) night-lights composite</li>
           <li>NASA GIBS — VIIRS Day/Night Band (SNPP), gap-filled BRDF-corrected, 2012–2026 seasonal series</li>
           <li>OpenStreetMap — geocoding and coastline reference</li>

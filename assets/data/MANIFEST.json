@@ -161,6 +161,36 @@
    "id": "VIIRS_SNPP_GapFilled_BRDF_Corrected_DayNightBand_Radiance",
    "provider": "NASA Global Imagery Browse Services",
    "url": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi"
+  },
+  {
+   "name": "Drainage channels",
+   "id": "dsd_rcd_1629267205231_66675",
+   "provider": "DSD via CSDI Portal",
+   "url": "https://portal.csdi.gov.hk/server/rest/services/common/dsd_rcd_1629267205231_66675/FeatureServer"
+  },
+  {
+   "name": "Engineered channels",
+   "id": "dsd_rcd_1742963120722_16615",
+   "provider": "DSD via CSDI Portal",
+   "url": "https://portal.csdi.gov.hk/server/rest/services/common/dsd_rcd_1742963120722_16615/FeatureServer"
+  },
+  {
+   "name": "Stormwater inlets",
+   "id": "dsd_rcd_1629267205231_69065",
+   "provider": "DSD via CSDI Portal",
+   "url": "https://portal.csdi.gov.hk/server/rest/services/common/dsd_rcd_1629267205231_69065/FeatureServer"
+  },
+  {
+   "name": "Catchment and subcatchment areas",
+   "id": "wsd_rcd_1629267205232_5923",
+   "provider": "WSD via CSDI Portal",
+   "url": "https://portal.csdi.gov.hk/server/rest/services/common/wsd_rcd_1629267205232_5923/FeatureServer"
+  },
+  {
+   "name": "Whole Hong Kong Digital Terrain Model 5 m",
+   "id": "landsd_Whole_HK_DTM_5m",
+   "provider": "Lands and Survey Department",
+   "url": "https://www.landsd.gov.hk/landsd_psi_data/SMO/data/Whole_HK_DTM_5m.zip"
   }
  ],
  "files": [
@@ -1102,6 +1132,54 @@
    "bytes": 367808,
    "sha256": "561baf17bd963753",
    "mb": 0.368
+  },
+  {
+   "file": "assets/data/flood/dsd_flood_prone_areas.geojson.gz",
+   "description": "The 267 official Hong Kong flood-prone locations from the Drainage Services Department's three lists (226 prone to blockage, 15 with drainage improvement works in progress, 26 coastal low-lying or windy residential areas), EPSG:4326",
+   "source": "Drainage Services Department",
+   "type": "vector",
+   "bytes": 10287,
+   "sha256": "0f25abb27795fce0",
+   "mb": 0.01,
+   "features": 267
+  },
+  {
+   "file": "assets/data/flood/flood_prone_areas_mechanism.geojson.gz",
+   "description": "The same 267 locations with the flood mechanism derived from the drainage network, the coastline and the 5 m terrain model: local drainage/blockage (185), channel backflow (48), coastal/tidal (32), low-lying ponding (2). Carries the distance and elevation evidence behind each classification, EPSG:4326",
+   "source": "derived from DSD, WSD, CEDD and LandsD",
+   "type": "vector",
+   "bytes": 17090,
+   "sha256": "715f1b8bf95d845f",
+   "mb": 0.017,
+   "features": 267
+  },
+  {
+   "file": "assets/data/flood/flood_prone_areas_mechanism.csv",
+   "description": "The derived mechanism table: one row per location with its mechanism, confidence, elevation, distance to the coast, to a major channel, to the nearest inlet, to the catchment edge, and the evidence sentence",
+   "source": "derived",
+   "type": "table",
+   "bytes": 67208,
+   "sha256": "38600bd7d8c6e3d3",
+   "mb": 0.067,
+   "records": 267
+  },
+  {
+   "file": "assets/maps/flood/HK_flood_mechanism_map.png",
+   "description": "The 267 flood-prone locations coloured by derived mechanism over the drainage network and coastline, with the mechanism counts and the cross-tab against DSD's own grouping",
+   "source": "derived",
+   "type": "map",
+   "bytes": 333787,
+   "sha256": "0ed44c08f5f46ad4",
+   "mb": 0.334
+  },
+  {
+   "file": "notes/hk-flood-prone-areas \u2014 NOTES.md",
+   "description": "The flood-prone-areas study note: the data recipe, the official lists, the derived mechanism method and its validation, the recommended index methodology, the assumptions and the validation block",
+   "source": "derived",
+   "type": "note",
+   "bytes": 19798,
+   "sha256": "7116935120b82705",
+   "mb": 0.02
   }
  ],
  "scripts": [
@@ -1245,6 +1323,60 @@
    "bytes": 6208,
    "sha256": "2d7a5ed5c4310a42",
    "mb": 0.006
+  },
+  {
+   "file": "scripts/flood/derive_mechanism_v2.py",
+   "description": "Derives the flood mechanism for all 267 locations from the coastline, the 5 m DTM, the drainage network and the catchments",
+   "source": "derived",
+   "type": "script",
+   "bytes": 14421,
+   "sha256": "961633c5ba7368ed",
+   "mb": 0.014
+  },
+  {
+   "file": "scripts/flood/make_mechanism_map.py",
+   "description": "Builds the flood-mechanism figure",
+   "source": "derived",
+   "type": "script",
+   "bytes": 10190,
+   "sha256": "5b195dee6f2ef7e7",
+   "mb": 0.01
+  },
+  {
+   "file": "scripts/flood/gate_mechanism_map.py",
+   "description": "The figure gate: text overlap, off-canvas and pixel probes",
+   "source": "derived",
+   "type": "script",
+   "bytes": 3879,
+   "sha256": "60fc6d3d54b33043",
+   "mb": 0.004
+  },
+  {
+   "file": "scripts/flood/fetch_support.sh",
+   "description": "Fetches the supporting DSD, WSD and CEDD layers with pagination and asserted final counts",
+   "source": "derived",
+   "type": "script",
+   "bytes": 2602,
+   "sha256": "f2ac601add13d725",
+   "mb": 0.003
+  },
+  {
+   "file": "scripts/flood/verify_against_pdf.py",
+   "description": "Cross-checks the 226 scraped blockage titles against DSD's own published PDF",
+   "source": "derived",
+   "type": "script",
+   "bytes": 2540,
+   "sha256": "bc9740ead3111f80",
+   "mb": 0.003
+  },
+  {
+   "file": "scripts/flood/make_overview_map.py",
+   "description": "Builds the flood-prone-areas overview map",
+   "source": "derived",
+   "type": "script",
+   "bytes": 8352,
+   "sha256": "ab8e61862e7cfc2c",
+   "mb": 0.008
   }
  ]
 }
