@@ -15,8 +15,25 @@ import os
 import subprocess
 
 GIS_DATA = os.environ.get("GIS_DATA_DIR", "/Users/davidhermes/GIS Data")
-REPO = os.environ.get("NPLGIS_REPO", os.path.dirname(os.path.dirname(
-    os.path.abspath(__file__))))
+def _find_repo_root():
+    """Walk up from this script until the repo root is found.
+
+    The repo is recognised by its assets/data directory, so this works for a
+    script in scripts/ and for one in scripts/<project>/ alike.
+    """
+    d = os.path.dirname(os.path.abspath(__file__))
+    for _ in range(6):
+        if os.path.isdir(os.path.join(d, "assets", "data")):
+            return d
+        parent = os.path.dirname(d)
+        if parent == d:
+            break
+        d = parent
+    return None
+
+
+REPO = os.environ.get("NPLGIS_REPO") or _find_repo_root() or os.path.dirname(
+    os.path.dirname(os.path.abspath(__file__)))
 MANIFEST = f"{REPO}/assets/data/MANIFEST.json"
 NEW = f"{GIS_DATA}/HK Camping Sites/_manifest_entries.json"
 

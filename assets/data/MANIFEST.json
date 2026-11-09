@@ -1,1443 +1,1455 @@
 {
-  "generated": "2026-11-09",
-  "repository": "davidtwmak-maker/NPLGIS",
-  "note": "Every layer shipped in assets/data plus the Festival Walk 3D app data. Features counted from the file itself. Floor plate heights are schematic (5.5 m storey, 2x vertical exaggeration). The G floor is set to Tat Chee Avenue (達之路) at the junction where it meets the mall - 33.0 m measured from Esri WorldElevation3D Terrain3D - and the podium is a schematic foundation mass, not measured architectural heights. | 2026-11-05: added HK Steep Slopes >30 deg - 33,231 polygons of ground steeper than 30 degrees (113.29 km2 = 10.09% of land), the five-class slope raster at 20 m, the maximum-slope raster, and the two-panel map. Slope is the MAXIMUM gradient within each 20 m cell, not the mean: 22,700 recorded incidents sit in cells whose mean slope is under 30 degrees but whose max is over it, so a mean threshold would erase a fifth of the evidence. Area reconciliation error 0.0 m2, 0 invalid geometries. ",
-  "sources": [
-    {
-      "name": "3D Pedestrian Network",
-      "id": "landsd_rcd_1637222018065_52265",
-      "provider": "Lands Department via CSDI Portal",
-      "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637222018065_52265/FeatureServer"
-    },
-    {
-      "name": "LiDAR DTM 2020",
-      "id": "cedd_rcd_1629267205233_87895",
-      "provider": "CEDD via CSDI Portal",
-      "url": "https://portal.csdi.gov.hk/server/rest/services/common/cedd_rcd_1629267205233_87895/FeatureServer"
-    },
-    {
-      "name": "Volleyball courts — live vacancy",
-      "id": "sp_volleyball",
-      "provider": "LCSD SmartPLAY open data",
-      "url": "https://data.smartplay.lcsd.gov.hk/rest/cms/api/v1/publ/contents/open-data/volleyball/file"
-    },
-    {
-      "name": "Sports centre usage",
-      "id": "lcsd_rcd_1670389615666_788",
-      "provider": "LCSD via CSDI Portal"
-    },
-    {
-      "name": "MTR lines and stations",
-      "id": "",
-      "provider": "MTR Corporation",
-      "url": "https://opendata.mtr.com.hk/data/mtr_lines_and_stations.csv"
-    },
-    {
-      "name": "Historical maps",
-      "id": "",
-      "provider": "Lands Department GeoInfo Map"
-    },
-    {
-      "name": "Shoreline",
-      "id": "Shoreline_view",
-      "provider": "Esri China (HK), derived from LandsD"
-    },
-    {
-      "name": "Location of Landslide Incidents",
-      "id": "cedd_rcd_1640249280153_17521",
-      "provider": "CEDD via CSDI Portal",
-      "url": "https://portal.csdi.gov.hk/server/rest/services/common/cedd_rcd_1640249280153_17521/FeatureServer"
-    },
-    {
-      "name": "Enhanced Natural Terrain Landslide Inventory (ENTLI)",
-      "id": "cedd_rcd_1636520697377_96152",
-      "provider": "CEDD via CSDI Portal",
-      "url": "https://portal.csdi.gov.hk/server/rest/services/common/cedd_rcd_1636520697377_96152/FeatureServer"
-    },
-    {
-      "name": "Digital Terrain Model 5 m",
-      "id": "",
-      "provider": "Lands Department",
-      "url": "https://www.landsd.gov.hk/landsd_psi_data/SMO/data/Whole_HK_DTM_5m.zip"
-    },
-    {
-      "name": "GEO Raingauge Data (daily rainfall)",
-      "id": "cedd_rcd_1636517963140_47030",
-      "provider": "CEDD via CSDI Portal",
-      "url": "https://portal.csdi.gov.hk/server/rest/services/common/cedd_rcd_1636517963140_47030/FeatureServer"
-    },
-    {
-      "name": "Geological Map (1:100,000)",
-      "id": "cedd_rcd_1636520962284_7237",
-      "provider": "CEDD via CSDI Portal",
-      "url": "https://portal.csdi.gov.hk/server/rest/services/common/cedd_rcd_1636520962284_7237/FeatureServer"
-    },
-    {
-      "name": "Geological Map (1:20,000)",
-      "id": "cedd_rcd_1636520885302_41109",
-      "provider": "CEDD via CSDI Portal",
-      "url": "https://portal.csdi.gov.hk/server/rest/services/common/cedd_rcd_1636520885302_41109/FeatureServer"
-    },
-    {
-      "name": "ESA WorldCover 2021 (10 m)",
-      "id": "ESA_WorldCover_10m_2021_v200_N21E111/N21E114",
-      "provider": "European Space Agency",
-      "url": "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_N21E111_Map.tif"
-    },
-    {
-      "name": "Location of campsites in country parks",
-      "id": "afcd_rcd_1635133060194_82554",
-      "provider": "AFCD via CSDI Portal",
-      "url": "https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1635133060194_82554/FeatureServer"
-    },
-    {
-      "name": "Country parks",
-      "id": "afcd_rcd_1635129924112_81508",
-      "provider": "AFCD via CSDI Portal",
-      "url": "https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1635129924112_81508/FeatureServer"
-    },
-    {
-      "name": "Visitor centres in country parks",
-      "id": "afcd_rcd_1635133243757_2529",
-      "provider": "AFCD via CSDI Portal",
-      "url": "https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1635133243757_2529/FeatureServer"
-    },
-    {
-      "name": "Facilities in country parks",
-      "id": "afcd_rcd_1635136427551_29173",
-      "provider": "AFCD via CSDI Portal",
-      "url": "https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1635136427551_29173/FeatureServer"
-    },
-    {
-      "name": "Trails in country parks",
-      "id": "afcd_rcd_1665568199103_4360",
-      "provider": "AFCD via CSDI Portal",
-      "url": "https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665568199103_4360/FeatureServer"
-    },
-    {
-      "name": "VIIRS Day/Night Band (NOAA-21), NASA GIBS",
-      "id": "VIIRS_NOAA21_GapFilled_BRDF_Corrected",
-      "provider": "NASA Global Imagery Browse Services",
-      "url": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi"
-    },
-    {
-      "name": "VIIRS Day/Night Band (NOAA-21), NASA GIBS",
-      "id": "VIIRS_NOAA21_GapFilled_BRDF_Corrected",
-      "provider": "NASA Global Imagery Browse Services",
-      "url": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi"
-    },
-    {
-      "name": "Areas where bright-light fishing is permitted in Hong Kong waters",
-      "id": "mardep_rcd_1730952503222_38811",
-      "provider": "Marine Department via CSDI Portal",
-      "url": "https://portal.csdi.gov.hk/server/rest/services/common/mardep_rcd_1730952503222_38811/FeatureServer"
-    },
-    {
-      "name": "Distribution of fishing operation in Hong Kong waters",
-      "id": "afcd_rcd_1697167244880_33192",
-      "provider": "AFCD via CSDI Portal",
-      "url": "https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1697167244880_33192/FeatureServer"
-    },
-    {
-      "name": "VIIRS Day/Night Band (SNPP), gap-filled BRDF-corrected, NASA GIBS",
-      "id": "VIIRS_SNPP_GapFilled_BRDF_Corrected_DayNightBand_Radiance",
-      "provider": "NASA Global Imagery Browse Services",
-      "url": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi"
-    },
-    {
-      "name": "VIIRS Day/Night Band (SNPP), gap-filled BRDF-corrected, NASA GIBS",
-      "id": "VIIRS_SNPP_GapFilled_BRDF_Corrected_DayNightBand_Radiance",
-      "provider": "NASA Global Imagery Browse Services",
-      "url": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi"
-    },
-    {
-      "name": "VIIRS Day/Night Band (SNPP), gap-filled BRDF-corrected, NASA GIBS",
-      "id": "VIIRS_SNPP_GapFilled_BRDF_Corrected_DayNightBand_Radiance",
-      "provider": "NASA Global Imagery Browse Services",
-      "url": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi"
-    },
-    {
-      "name": "VIIRS Day/Night Band (SNPP), gap-filled BRDF-corrected, NASA GIBS",
-      "id": "VIIRS_SNPP_GapFilled_BRDF_Corrected_DayNightBand_Radiance",
-      "provider": "NASA Global Imagery Browse Services",
-      "url": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi"
-    },
-    {
-      "name": "Drainage channels",
-      "id": "dsd_rcd_1629267205231_66675",
-      "provider": "DSD via CSDI Portal",
-      "url": "https://portal.csdi.gov.hk/server/rest/services/common/dsd_rcd_1629267205231_66675/FeatureServer"
-    },
-    {
-      "name": "Engineered channels",
-      "id": "dsd_rcd_1742963120722_16615",
-      "provider": "DSD via CSDI Portal",
-      "url": "https://portal.csdi.gov.hk/server/rest/services/common/dsd_rcd_1742963120722_16615/FeatureServer"
-    },
-    {
-      "name": "Stormwater inlets",
-      "id": "dsd_rcd_1629267205231_69065",
-      "provider": "DSD via CSDI Portal",
-      "url": "https://portal.csdi.gov.hk/server/rest/services/common/dsd_rcd_1629267205231_69065/FeatureServer"
-    },
-    {
-      "name": "Catchment and subcatchment areas",
-      "id": "wsd_rcd_1629267205232_5923",
-      "provider": "WSD via CSDI Portal",
-      "url": "https://portal.csdi.gov.hk/server/rest/services/common/wsd_rcd_1629267205232_5923/FeatureServer"
-    },
-    {
-      "name": "Whole Hong Kong Digital Terrain Model 5 m",
-      "id": "landsd_Whole_HK_DTM_5m",
-      "provider": "Lands and Survey Department",
-      "url": "https://www.landsd.gov.hk/landsd_psi_data/SMO/data/Whole_HK_DTM_5m.zip"
-    },
-    {
-      "name": "VIIRS Day/Night Band (SNPP), gap-filled BRDF-corrected, NASA GIBS",
-      "id": "VIIRS_SNPP_GapFilled_BRDF_Corrected_DayNightBand_Radiance",
-      "provider": "NASA Global Imagery Browse Services",
-      "url": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi"
-    },
-    {
-      "name": "VIIRS Day/Night Band (SNPP), gap-filled BRDF-corrected, NASA GIBS",
-      "id": "VIIRS_SNPP_GapFilled_BRDF_Corrected_DayNightBand_Radiance",
-      "provider": "NASA Global Imagery Browse Services",
-      "url": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi"
-    },
-    {
-      "name": "VIIRS Day/Night Band (SNPP), gap-filled BRDF-corrected, NASA GIBS",
-      "id": "VIIRS_SNPP_GapFilled_BRDF_Corrected_DayNightBand_Radiance",
-      "provider": "NASA Global Imagery Browse Services",
-      "url": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi"
-    },
-    {
-      "name": "VIIRS Day/Night Band (NOAA-21), NASA GIBS",
-      "id": "VIIRS_NOAA21_GapFilled_BRDF_Corrected",
-      "provider": "NASA Global Imagery Browse Services",
-      "url": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi"
-    },
-    {
-      "name": "VIIRS Day/Night Band (SNPP), gap-filled BRDF-corrected, NASA GIBS",
-      "id": "VIIRS_SNPP_GapFilled_BRDF_Corrected_DayNightBand_Radiance",
-      "provider": "NASA Global Imagery Browse Services",
-      "url": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi"
-    },
-    {
-      "name": "VIIRS Day/Night Band (NOAA-21), NASA GIBS",
-      "id": "VIIRS_NOAA21_GapFilled_BRDF_Corrected",
-      "provider": "NASA Global Imagery Browse Services",
-      "url": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi"
-    }
-  ],
-  "files": [
-    {
-      "file": "apps/festival-walk-3d/data/buildings_3d.geojson",
-      "bytes": 22587,
-      "mb": 0.022,
-      "gzipped": false,
-      "features": 8,
-      "title": "Festival Walk mall floor plates (3D)",
-      "dataset_id": "landsd_rcd_1637222018065_52265",
-      "records": "",
-      "notes": "7 translucent floor plates (MTR..2/F) plus a translucent podium. Each floor has its own footprint derived from that floor's route network buffered 14 m; the podium is the union of all floor footprints, extruded from -6 m up to the G floor (33.0 m) so the building is founded on the hillside. The G floor is set to Tat Chee Avenue at the mall junction - 33.0 m from Esri WorldElevation3D Terrain3D. Terrain under the footprint runs 18.9-35.2 m. Storey height 5.5 m is schematic; display heights are stretched 2x.",
-      "sha256": "383cfa6d17aa8973"
-    },
-    {
-      "file": "apps/festival-walk-3d/data/floor_labels.json",
-      "bytes": 1327,
-      "mb": 0.001,
-      "gzipped": false,
-      "features": null,
-      "title": "Festival Walk floor label anchors",
-      "dataset_id": "landsd_rcd_1637222018065_52265",
-      "records": "",
-      "notes": "Per-floor label anchor, taken from that floor's own route centroid.",
-      "sha256": "38fc75b89d912e6a"
-    },
-    {
-      "file": "assets/data/festival-walk/festival_walk_3d_pedestrian.geojson",
-      "bytes": 84797,
-      "mb": 0.081,
-      "gzipped": false,
-      "features": 163,
-      "title": "",
-      "dataset_id": "",
-      "records": "",
-      "notes": "",
-      "sha256": "b955add4dae38727"
-    },
-    {
-      "file": "assets/data/festival-walk/kc_pedestrian.geojson.gz",
-      "bytes": 9635088,
-      "mb": 9.189,
-      "gzipped": true,
-      "features": 111238,
-      "title": "Kowloon Tong pedestrian network",
-      "dataset_id": "landsd_rcd_1637222018065_52265",
-      "records": "111,238",
-      "notes": "District extract",
-      "sha256": "5d9564339cf2c1c4"
-    },
-    {
-      "file": "assets/data/festival-walk/kc_population.geojson.gz",
-      "bytes": 11467371,
-      "mb": 10.936,
-      "gzipped": true,
-      "features": 211,
-      "title": "Kowloon Tong population",
-      "dataset_id": "2021 Population Census",
-      "records": "211",
-      "notes": "District polygon population",
-      "sha256": "e3efb1453a64a800"
-    },
-    {
-      "file": "assets/data/festival-walk/ped_network_kowloontong.geojson.gz",
-      "bytes": 5576757,
-      "mb": 5.318,
-      "gzipped": true,
-      "features": 111238,
-      "title": "Kowloon Tong pedestrian network (relief render input)",
-      "dataset_id": "landsd_rcd_1637222018065_52265",
-      "records": "111,238",
-      "notes": "Used by render_festival_walk_relief2.py",
-      "sha256": "b8d6d36d30255ee2"
-    },
-    {
-      "file": "assets/data/mtr/MTRMap.js",
-      "bytes": 52824,
-      "mb": 0.05,
-      "gzipped": false,
-      "features": null,
-      "title": "",
-      "dataset_id": "",
-      "records": "",
-      "notes": "",
-      "sha256": "59d4eb5f5a73c132"
-    },
-    {
-      "file": "assets/data/mtr/fare_savers.geojson",
-      "bytes": 14741,
-      "mb": 0.014,
-      "gzipped": false,
-      "features": 41,
-      "title": "",
-      "dataset_id": "",
-      "records": "",
-      "notes": "",
-      "sha256": "fe7870702274bd6d"
-    },
-    {
-      "file": "assets/data/mtr/fare_savers_geocoded.csv",
-      "bytes": 3513,
-      "mb": 0.003,
-      "gzipped": false,
-      "features": null,
-      "title": "",
-      "dataset_id": "",
-      "records": "",
-      "notes": "",
-      "sha256": "7c93af59c0248372"
-    },
-    {
-      "file": "assets/data/mtr/fare_savers_routes.geojson",
-      "bytes": 4051,
-      "mb": 0.004,
-      "gzipped": false,
-      "features": 10,
-      "title": "",
-      "dataset_id": "",
-      "records": "",
-      "notes": "",
-      "sha256": "47e49003438dc465"
-    },
-    {
-      "file": "assets/data/mtr/fare_savers_stations.geojson",
-      "bytes": 12365,
-      "mb": 0.012,
-      "gzipped": false,
-      "features": 98,
-      "title": "",
-      "dataset_id": "",
-      "records": "",
-      "notes": "",
-      "sha256": "d916cd82a6bf8267"
-    },
-    {
-      "file": "assets/data/mtr/kc_smtpu_suggestions.csv",
-      "bytes": 61411,
-      "mb": 0.059,
-      "gzipped": false,
-      "features": null,
-      "title": "",
-      "dataset_id": "",
-      "records": "",
-      "notes": "",
-      "sha256": "6a284d176620df83"
-    },
-    {
-      "file": "assets/data/mtr/kc_smtpus.geojson",
-      "bytes": 3011698,
-      "mb": 2.872,
-      "gzipped": false,
-      "features": 1100,
-      "title": "",
-      "dataset_id": "",
-      "records": "",
-      "notes": "",
-      "sha256": "a7a1c158cacc592c"
-    },
-    {
-      "file": "assets/data/mtr/kc_suggestions_named.csv",
-      "bytes": 2371,
-      "mb": 0.002,
-      "gzipped": false,
-      "features": null,
-      "title": "",
-      "dataset_id": "",
-      "records": "",
-      "notes": "",
-      "sha256": "946eb96c09b0e9d5"
-    },
-    {
-      "file": "assets/data/mtr/kc_tpus.geojson",
-      "bytes": 1821518,
-      "mb": 1.737,
-      "gzipped": false,
-      "features": 66,
-      "title": "",
-      "dataset_id": "",
-      "records": "",
-      "notes": "",
-      "sha256": "13a3a43997387803"
-    },
-    {
-      "file": "assets/data/mtr/mtrStationsCoord.json",
-      "bytes": 9183,
-      "mb": 0.009,
-      "gzipped": false,
-      "features": null,
-      "title": "",
-      "dataset_id": "",
-      "records": "",
-      "notes": "",
-      "sha256": "d43f9dc664e50fc3"
-    },
-    {
-      "file": "assets/data/mtr/mtr_lines_and_stations.csv",
-      "bytes": 14161,
-      "mb": 0.014,
-      "gzipped": false,
-      "features": null,
-      "title": "",
-      "dataset_id": "",
-      "records": "",
-      "notes": "",
-      "sha256": "e0e781152e2e6c5f"
-    },
-    {
-      "file": "assets/data/pedestrian/covered_indoor_or_unclassified.geojson.gz",
-      "bytes": 4147911,
-      "mb": 3.956,
-      "gzipped": true,
-      "features": 84935,
-      "title": "3D Pedestrian Network — indoor + unclassified",
-      "dataset_id": "landsd_rcd_1637222018065_52265",
-      "records": "84,935",
-      "notes": "Everything not exposed/covered outdoor",
-      "sha256": "ec41f6f6f4fcd892"
-    },
-    {
-      "file": "assets/data/pedestrian/covered_outdoor_paths.geojson.gz",
-      "bytes": 2748555,
-      "mb": 2.621,
-      "gzipped": true,
-      "features": 54341,
-      "title": "3D Pedestrian Network — covered paths",
-      "dataset_id": "landsd_rcd_1637222018065_52265",
-      "records": "54,341",
-      "notes": "Location=1 AND WeatherProof=1",
-      "sha256": "fcc5bc45e4a61af3"
-    },
-    {
-      "file": "assets/data/pedestrian/covered_paths_pt_connected.geojson.gz",
-      "bytes": 3012066,
-      "mb": 2.873,
-      "gzipped": true,
-      "features": 54341,
-      "title": "3D Pedestrian Network — covered + PT connection",
-      "dataset_id": "landsd_rcd_1637222018065_52265",
-      "records": "54,341",
-      "notes": "Includes ai_ derived fields",
-      "sha256": "3a39356ff89cad52"
-    },
-    {
-      "file": "assets/data/pedestrian/exposed_outdoor_paths.geojson.gz",
-      "bytes": 29585816,
-      "mb": 28.215,
-      "gzipped": true,
-      "features": 380957,
-      "title": "3D Pedestrian Network — exposed paths",
-      "dataset_id": "landsd_rcd_1637222018065_52265",
-      "records": "380,957",
-      "notes": "Location=1 AND WeatherProof=2",
-      "sha256": "61d5f53cabeb6e04"
-    },
-    {
-      "file": "assets/data/pedestrian/pedestrian_network_hk.geojson.gz",
-      "bytes": 33670178,
-      "mb": 32.11,
-      "gzipped": true,
-      "features": 465892,
-      "title": "3D Pedestrian Network — full network",
-      "dataset_id": "landsd_rcd_1637222018065_52265",
-      "records": "465,892",
-      "notes": "Full network, all attributes",
-      "sha256": "0d7383e1302a1290"
-    },
-    {
-      "file": "assets/data/volleyball/districts.geojson",
-      "bytes": 469817,
-      "mb": 0.448,
-      "gzipped": false,
-      "features": 18,
-      "title": "",
-      "dataset_id": "",
-      "records": "",
-      "notes": "",
-      "sha256": "855dfd43814219a1"
-    },
-    {
-      "file": "assets/data/volleyball/free_outdoor_courts.geojson",
-      "bytes": 63804,
-      "mb": 0.061,
-      "gzipped": false,
-      "features": 65,
-      "title": "",
-      "dataset_id": "",
-      "records": "",
-      "notes": "",
-      "sha256": "50e5a0e89a08a81d"
-    },
-    {
-      "file": "assets/data/volleyball/hk_territory.geojson",
-      "bytes": 10277,
-      "mb": 0.01,
-      "gzipped": false,
-      "features": 1,
-      "title": "",
-      "dataset_id": "",
-      "records": "",
-      "notes": "",
-      "sha256": "c552366c6c81e1e7"
-    },
-    {
-      "file": "assets/data/volleyball/sessions.csv",
-      "bytes": 3419499,
-      "mb": 3.261,
-      "gzipped": false,
-      "features": null,
-      "title": "",
-      "dataset_id": "",
-      "records": "",
-      "notes": "",
-      "sha256": "22fa9481ee24b5a8"
-    },
-    {
-      "file": "assets/data/volleyball/sessions.geojson",
-      "bytes": 12406426,
-      "mb": 11.832,
-      "gzipped": false,
-      "features": 13152,
-      "title": "",
-      "dataset_id": "",
-      "records": "",
-      "notes": "",
-      "sha256": "99c5153e2929f487"
-    },
-    {
-      "file": "assets/data/volleyball/shoreline.geojson.gz",
-      "bytes": 6532911,
-      "mb": 6.23,
-      "gzipped": true,
-      "features": 9031,
-      "title": "Esri China (HK) Shoreline",
-      "dataset_id": "Esri China / iB1000 from LandsD",
-      "records": "9,031",
-      "notes": "Polylines, not a filled polygon",
-      "sha256": "8811d8e5d6a58892"
-    },
-    {
-      "file": "assets/data/volleyball/usage_by_venue.geojson",
-      "bytes": 55165,
-      "mb": 0.053,
-      "gzipped": false,
-      "features": 100,
-      "title": "",
-      "dataset_id": "",
-      "records": "",
-      "notes": "",
-      "sha256": "7b8bbe50ab5dc0b3"
-    },
-    {
-      "file": "assets/data/volleyball/venues.csv",
-      "bytes": 63437,
-      "mb": 0.06,
-      "gzipped": false,
-      "features": null,
-      "title": "",
-      "dataset_id": "",
-      "records": "",
-      "notes": "",
-      "sha256": "ba2b1c6793f6d56c"
-    },
-    {
-      "file": "assets/data/volleyball/venues.geojson",
-      "bytes": 169525,
-      "mb": 0.162,
-      "gzipped": false,
-      "features": 101,
-      "title": "",
-      "dataset_id": "",
-      "records": "",
-      "notes": "",
-      "sha256": "27d6dda59313fa2b"
-    },
-    {
-      "file": "assets/data/walk/network_segments.geojson",
-      "bytes": 11789373,
-      "mb": 11.243,
-      "gzipped": false,
-      "features": 67337,
-      "title": "",
-      "dataset_id": "",
-      "records": "",
-      "notes": "",
-      "sha256": "08eea3ac7088ed51"
-    },
-    {
-      "file": "assets/data/walk/openrice_5min.jsonl",
-      "bytes": 51252,
-      "mb": 0.049,
-      "gzipped": false,
-      "features": null,
-      "title": "",
-      "dataset_id": "",
-      "records": "",
-      "notes": "",
-      "sha256": "30fc3f49ca70ed83"
-    },
-    {
-      "file": "assets/data/walk/openrice_cards.jsonl",
-      "bytes": 3771,
-      "mb": 0.004,
-      "gzipped": false,
-      "features": null,
-      "title": "",
-      "dataset_id": "",
-      "records": "",
-      "notes": "",
-      "sha256": "7f462305f8e64006"
-    },
-    {
-      "file": "assets/data/walk/restaurants_15min.csv",
-      "bytes": 134883,
-      "mb": 0.129,
-      "gzipped": false,
-      "features": null,
-      "title": "",
-      "dataset_id": "",
-      "records": "",
-      "notes": "",
-      "sha256": "c5a05aa4d5efa35b"
-    },
-    {
-      "file": "assets/data/walk/restaurants_5min.csv",
-      "bytes": 21422,
-      "mb": 0.02,
-      "gzipped": false,
-      "features": null,
-      "title": "",
-      "dataset_id": "",
-      "records": "",
-      "notes": "",
-      "sha256": "cdaa88443ec01856"
-    },
-    {
-      "file": "assets/data/walk/restaurants_5min_ratings.csv",
-      "bytes": 20737,
-      "mb": 0.02,
-      "gzipped": false,
-      "features": null,
-      "title": "",
-      "dataset_id": "",
-      "records": "",
-      "notes": "",
-      "sha256": "7dcb4144b8634460"
-    },
-    {
-      "file": "assets/data/walk/restaurants_bbox.geojson",
-      "bytes": 1547902,
-      "mb": 1.476,
-      "gzipped": false,
-      "features": 2654,
-      "title": "",
-      "dataset_id": "",
-      "records": "",
-      "notes": "",
-      "sha256": "c39b2fddcd3441a5"
-    },
-    {
-      "file": "apps/festival-walk-3d/data/festival_walk_vertical_3d.geojson",
-      "title": "Festival Walk vertical circulation, 3D (lifts / escalators / stairs / ramps)",
-      "dataset_id": "landsd_rcd_1637222018065_52265",
-      "gzipped": false,
-      "records": "",
-      "notes": "29 genuine floor-to-floor connectors, separated from the 48 flat site surfaces using the CSDI FeatureType domain and Gradient field. Each connector's two floors are resolved by matching its ends against the published floor networks (a connector's ends land at 0.00 m from the floor it serves). Carries floor_from, floor_to, mode (link / shaft / incline) and rise_m. The app draws each connector with a different z on each vertex, so lifts are vertical shafts and escalators slope between floors.",
-      "bytes": 10096,
-      "mb": 0.01,
-      "sha256": "fd2888e91a9504b8",
-      "features": 29
-    },
-    {
-      "file": "apps/festival-walk-3d/data/festival_walk_site_surface.geojson",
-      "title": "Festival Walk flat site surfaces (podium decks, traffic islands, crossings, footways)",
-      "dataset_id": "landsd_rcd_1637222018065_52265",
-      "gzipped": false,
-      "records": "",
-      "notes": "48 flat surfaces from the CSDI routes that have no floor id and are NOT vertical circulation. They are outdoor podium decks, traffic islands, crossings and footways, which belong on the terrain rather than inside the building. Kept separate so they are not drawn as a flat mesh through the mall.",
-      "bytes": 14795,
-      "mb": 0.014,
-      "sha256": "f98fd251f2b11df0",
-      "features": 48
-    },
-    {
-      "file": "apps/festival-walk-3d/data/festival_walk_vertical.geojson",
-      "bytes": 69811,
-      "mb": 0.067,
-      "gzipped": false,
-      "features": 77,
-      "title": "Festival Walk raw FloorID-less route extract (superseded)",
-      "dataset_id": "landsd_rcd_1637222018065_52265",
-      "records": "",
-      "notes": "Raw CSDI routes for Festival Walk that carry no FloorID -- 77 features. SUPERSEDED for the 3D app by festival_walk_vertical_3d.geojson (29 genuine connectors) and festival_walk_site_surface.geojson (48 flat surfaces); kept as the unmodified source extract.",
-      "sha256": "a315aeacedcfdd62"
-    },
-    {
-      "file": "worksheets/README.md",
-      "bytes": 3245,
-      "mb": 0.003,
-      "gzipped": false,
-      "features": null,
-      "title": "README",
-      "dataset_id": "",
-      "records": "",
-      "notes": "Student worksheet - task sheet built from a real GIS project, with the method, the check numbers, the data traps and the limitations to declare. All live figures re-verified against the source service on 2026-10-26.",
-      "sha256": "ec45505420f03cba"
-    },
-    {
-      "file": "worksheets/Student Worksheet — 15-Minute Walk Catchment.md",
-      "bytes": 10253,
-      "mb": 0.01,
-      "gzipped": false,
-      "features": null,
-      "title": "Student Worksheet — 15-Minute Walk Catchment",
-      "dataset_id": "",
-      "records": "",
-      "notes": "Student worksheet - task sheet built from a real GIS project, with the method, the check numbers, the data traps and the limitations to declare. All live figures re-verified against the source service on 2026-10-26.",
-      "sha256": "213e77fbd9a4af0e"
-    },
-    {
-      "file": "worksheets/Student Worksheet — 3D Pedestrian Network and Covered Walkways.md",
-      "bytes": 10650,
-      "mb": 0.01,
-      "gzipped": false,
-      "features": null,
-      "title": "Student Worksheet — 3D Pedestrian Network and Covered Walkways",
-      "dataset_id": "",
-      "records": "",
-      "notes": "Student worksheet - task sheet built from a real GIS project, with the method, the check numbers, the data traps and the limitations to declare. All live figures re-verified against the source service on 2026-10-26.",
-      "sha256": "78fc9970fa9af497"
-    },
-    {
-      "file": "worksheets/Student Worksheet — Building Heights in 3D.md",
-      "bytes": 10539,
-      "mb": 0.01,
-      "gzipped": false,
-      "features": null,
-      "title": "Student Worksheet — Building Heights in 3D",
-      "dataset_id": "",
-      "records": "",
-      "notes": "Student worksheet - task sheet built from a real GIS project, with the method, the check numbers, the data traps and the limitations to declare. All live figures re-verified against the source service on 2026-10-26.",
-      "sha256": "a09d5a9ed9bb2104"
-    },
-    {
-      "file": "worksheets/Student Worksheet — Festival Walk 3D Mall Model.md",
-      "bytes": 14218,
-      "mb": 0.014,
-      "gzipped": false,
-      "features": null,
-      "title": "Student Worksheet — Festival Walk 3D Mall Model",
-      "dataset_id": "",
-      "records": "",
-      "notes": "Student worksheet - task sheet built from a real GIS project, with the method, the check numbers, the data traps and the limitations to declare. All live figures re-verified against the source service on 2026-10-26.",
-      "sha256": "23725750799034d5"
-    },
-    {
-      "file": "worksheets/Student Worksheet — MTR Fare Saver Map.md",
-      "bytes": 10813,
-      "mb": 0.01,
-      "gzipped": false,
-      "features": null,
-      "title": "Student Worksheet — MTR Fare Saver Map",
-      "dataset_id": "",
-      "records": "",
-      "notes": "Student worksheet - task sheet built from a real GIS project, with the method, the check numbers, the data traps and the limitations to declare. All live figures re-verified against the source service on 2026-10-26.",
-      "sha256": "5997e9e20a660a6f"
-    },
-    {
-      "file": "worksheets/Student Worksheet — Volleyball Courts Booking Data.md",
-      "bytes": 12763,
-      "mb": 0.012,
-      "gzipped": false,
-      "features": null,
-      "title": "Student Worksheet — Volleyball Courts Booking Data",
-      "dataset_id": "",
-      "records": "",
-      "notes": "Student worksheet - task sheet built from a real GIS project, with the method, the check numbers, the data traps and the limitations to declare. All live figures re-verified against the source service on 2026-10-26.",
-      "sha256": "8c2d68cbc95fd0c4"
-    },
-    {
-      "file": "worksheets/Student Worksheets — GIS Projects.md",
-      "bytes": 5513,
-      "mb": 0.005,
-      "gzipped": false,
-      "features": null,
-      "title": "Student Worksheets — GIS Projects",
-      "dataset_id": "",
-      "records": "",
-      "notes": "Student worksheet - task sheet built from a real GIS project, with the method, the check numbers, the data traps and the limitations to declare. All live figures re-verified against the source service on 2026-10-26.",
-      "sha256": "e86cd3a61a2c5dae"
-    },
-    {
-      "file": "assets/data/landslide/susceptibility_cells.geojson.gz",
-      "bytes": 994488,
-      "mb": 0.948,
-      "gzipped": true,
-      "features": 29614,
-      "title": "Landslide susceptibility cells (200 m polygons)",
-      "dataset_id": "",
-      "records": "29614",
-      "notes": "One polygon per 200 m cell with the XGBoost susceptibility score, class and the key attributes (slope, elevation, weathering class). EPSG:2326 (HK1980). 5-fold spatial blocked CV, ROC-AUC 0.882.",
-      "sha256": "a1d5631df1e51384"
-    },
-    {
-      "file": "assets/data/landslide/landslide_records.geojson.gz",
-      "bytes": 2587934,
-      "mb": 2.468,
-      "gzipped": true,
-      "features": 124020,
-      "title": "Recorded landslide points",
-      "dataset_id": "",
-      "records": "124020",
-      "notes": "CEDD Location of Landslide Incidents (10,854) + ENTLI historical crowns (113,166, 1924-2023). EPSG:2326 (HK1980).",
-      "sha256": "7dc5171183ee6bcb"
-    },
-    {
-      "file": "assets/data/landslide/landslide_susceptibility.tif",
-      "bytes": 114214,
-      "mb": 0.109,
-      "gzipped": false,
-      "features": null,
-      "title": "Landslide susceptibility raster (model score)",
-      "dataset_id": "",
-      "records": "",
-      "notes": "240 x 318 at 200 m, float32, nodata -9999, EPSG:2326, with source and model tags.",
-      "sha256": "ce7a9428f5ea9757"
-    },
-    {
-      "file": "assets/maps/landslide-susceptibility/landslide_susceptibility_map.png",
-      "bytes": 1219277,
-      "mb": 1.163,
-      "gzipped": false,
-      "features": null,
-      "title": "Landslide susceptibility of Hong Kong - finalised map",
-      "dataset_id": "",
-      "records": "",
-      "notes": "XGBoost on 200 m cells, terrain + land cover + weathering-susceptibility predictors, 5-fold spatial blocked CV (5 km blocks), ROC-AUC 0.882. Five equal-area quintiles of the model score.",
-      "sha256": "c9eaf250a19b2607"
-    },
-    {
-      "file": "apps/landslide-susceptibility/data/susceptibility_grid.json",
-      "bytes": 440550,
-      "mb": 0.42,
-      "gzipped": false,
-      "features": null,
-      "title": "Susceptibility score grid (browser data)",
-      "dataset_id": "",
-      "records": "",
-      "notes": "76,320 cell scores in a flat array plus class statistics and the fitted HK1980<->WGS84 affine transform (max residual 0.48 mm over 64 km).",
-      "sha256": "2563e583bf2d646d"
-    },
-    {
-      "file": "apps/landslide-susceptibility/data/susceptibility_surface.png",
-      "bytes": 42007,
-      "mb": 0.04,
-      "gzipped": false,
-      "features": null,
-      "title": "Susceptibility class surface (browser overlay)",
-      "dataset_id": "",
-      "records": "",
-      "notes": "Transparent PNG of the five susceptibility classes, 4 px per cell, georeferenced to the grid bounds.",
-      "sha256": "b4201c1077ea56f5"
-    },
-    {
-      "file": "apps/landslide-susceptibility/data/landslide_points.png",
-      "bytes": 25005,
-      "mb": 0.024,
-      "gzipped": false,
-      "features": null,
-      "title": "Recorded landslide points overlay (browser)",
-      "dataset_id": "",
-      "records": "",
-      "notes": "All 124,020 recorded landslide points baked into a transparent PNG on the same pixel grid as the class surface.",
-      "sha256": "ff97426416851588"
-    },
-    {
-      "file": "assets/data/landslide/steep_slopes_over30.geojson.gz",
-      "bytes": 1484916,
-      "mb": 1.485,
-      "gzipped": true,
-      "features": 33231,
-      "title": "Steep slope polygons - ground steeper than 30 degrees",
-      "dataset_id": "",
-      "records": "33231",
-      "notes": "33,231 polygons of ground exceeding a 30 degree gradient, 113.29 km2 = 10.09% of Hong Kong's land area (1,122.26 km2). Slope is the MAXIMUM gradient within each 20 m cell (Horn's method) from the LandsD 5 m DTM, because 22,700 recorded incidents sit in cells whose mean slope is under 30 degrees but whose max is over it. 8-connectivity, so corner-touching steep cells merge into one hillside. Area reconciliation error 0.0 m2, 0 invalid geometries. EPSG:2326 (HK1980).",
-      "sha256": "dca8396206ccf45d"
-    },
-    {
-      "file": "assets/data/landslide/slope_classes_20m.tif",
-      "bytes": 529318,
-      "mb": 0.529,
-      "gzipped": false,
-      "features": null,
-      "title": "Slope class raster (20 m)",
-      "dataset_id": "",
-      "records": "",
-      "notes": "Five classes: 1 = 0-15 deg, 2 = 15-30, 3 = 30-45, 4 = 45-60, 5 = 60+. 3187 x 2400 at 20 m, EPSG:2326 (HK1980). Class areas: 0-15 = 543.43 km2 (48.42% of land), 15-30 = 465.53 km2 (41.48%), 30-45 = 97.95 km2 (8.73%), 45-60 = 13.61 km2 (1.21%), 60+ = 1.73 km2 (0.15%).",
-      "sha256": "f31da6b0f924473c"
-    },
-    {
-      "file": "assets/data/landslide/slope_max_20m.tif",
-      "bytes": 3174387,
-      "mb": 3.174,
-      "gzipped": false,
-      "features": null,
-      "title": "Maximum slope raster (20 m)",
-      "dataset_id": "",
-      "records": "",
-      "notes": "Maximum gradient within each 20 m cell, degrees, from the LandsD 5 m DTM (Horn's method). 3187 x 2400 at 20 m, float32, EPSG:2326 (HK1980), nodata -9999.",
-      "sha256": "3cb9b9907bd1bc33"
-    },
-    {
-      "file": "assets/maps/landslide-susceptibility/steep_slopes_over30_map.png",
-      "bytes": 2186322,
-      "mb": 2.186,
-      "gzipped": false,
-      "features": null,
-      "title": "Steep slopes of Hong Kong - two-panel map",
-      "dataset_id": "",
-      "records": "",
-      "notes": "Panel A: five slope classes with 40,000 of the 124,020 recorded landslide incidents overprinted. Panel B: the >30 degree polygons alone over the gentler land, with the six largest regions labelled by area. Scale bar, north arrow and source line. Text overlap and off-canvas checks both pass at zero; a pixel probe confirms all five classes are rendered.",
-      "sha256": "247bf71afe93c07d"
-    },
-    {
-      "file": "assets/data/landslide/agol/steep_slopes_over30.zip",
-      "bytes": 4508635,
-      "mb": 4.509,
-      "gzipped": false,
-      "features": 33231,
-      "title": "Steep slope polygons - ArcGIS Online pack",
-      "dataset_id": "",
-      "records": "33231",
-      "notes": "Zipped shapefile of the 33,231 >30 degree polygons, EPSG:4326 (WGS84), with .shp/.shx/.dbf/.prj/.cpg in the zip root. This is the recommended upload: it carries its own .prj and the field names are documented in field_mapping.json (DBF names are capped at 10 characters).",
-      "sha256": "2f8908ab89fd1e65"
-    },
-    {
-      "file": "assets/data/landslide/agol/slope_classes.zip",
-      "bytes": 23894135,
-      "mb": 23.894,
-      "gzipped": false,
-      "features": 106874,
-      "title": "Slope class polygons - ArcGIS Online pack",
-      "dataset_id": "",
-      "records": "106874",
-      "notes": "Zipped shapefile of the 106,874 five-class slope polygons, EPSG:4326 (WGS84). AGOL returns 2,000 records per request by default - enable 'Allow >2000 features per request' on the source view or the layer draws only its first 2,000 features.",
-      "sha256": "7ad2306b02e612d1"
-    },
-    {
-      "file": "assets/data/landslide/agol/steep_slopes_over30_wgs84.geojson",
-      "bytes": 21123089,
-      "mb": 21.123,
-      "gzipped": false,
-      "features": 33231,
-      "title": "Steep slope polygons - GeoJSON with original field names",
-      "dataset_id": "",
-      "records": "33231",
-      "notes": "The same 33,231 polygons as GeoJSON in EPSG:4326, with the full field names (slope_mean_deg, slope_sd_deg, slope_max_deg) intact - no renaming needed after upload. No 'crs' member, per RFC 7946.",
-      "sha256": "09b6b65811ef3393"
-    },
-    {
-      "file": "assets/data/landslide/agol/hk_slopes_agol_both_layers.zip",
-      "bytes": 31885261,
-      "mb": 31.885,
-      "gzipped": false,
-      "features": null,
-      "title": "Both slope layers in one GeoPackage - ArcGIS Online pack",
-      "dataset_id": "",
-      "records": "both layers",
-      "notes": "A single GeoPackage containing both layers (steep_slopes_over30 33,231 features, slope_classes 106,874 features), EPSG:4326. Upload once to publish both as separate layers in one hosted item.",
-      "sha256": "0399413188d7f83a"
-    },
-    {
-      "file": "assets/data/landslide/agol/field_mapping.json",
-      "bytes": 1323,
-      "mb": 0.001,
-      "gzipped": false,
-      "features": null,
-      "title": "Field name mapping - shapefile to original",
-      "dataset_id": "",
-      "records": "",
-      "notes": "The shapefile .dbf field names are capped at 10 characters and were renamed on export (slope_mean_deg -> slp_mean, slope_class -> slope_cls, and so on). This maps every one back to its original name.",
-      "sha256": "ea495b4bd0c9d6c8"
-    },
-    {
-      "file": "assets/data/landslide/agol/AGOL_PUBLISH_GUIDE.md",
-      "bytes": 7852,
-      "mb": 0.008,
-      "gzipped": false,
-      "features": null,
-      "title": "ArcGIS Online publishing guide",
-      "dataset_id": "",
-      "records": "",
-      "notes": "Step-by-step recipe for students: download links, the CRS trap, the publishing steps, the field-name restoration table, the 2,000-record limit, styling, and the caveats to state in a write-up.",
-      "sha256": "cd5312034b0e37ff"
-    },
-    {
-      "file": "assets/data/camping/campsite_scores.geojson.gz",
-      "bytes": 4359,
-      "mb": 0.004,
-      "gzipped": true,
-      "features": 41,
-      "title": "Campsite scores for dark skies",
-      "dataset_id": "afcd_rcd_1635133060194_82554",
-      "records": "",
-      "notes": "41 AFCD country-park campsites scored for night-sky darkness (VIIRS DNB, median of 12 nights), access, facilities and open horizon. EPSG:4326, lon/lat.",
-      "sha256": "435888ec3e458d60"
-    },
-    {
-      "file": "assets/data/camping/night_lights_composite.tif",
-      "bytes": 4702184,
-      "mb": 4.702,
-      "gzipped": false,
-      "features": null,
-      "title": "VIIRS night lights over Hong Kong (12-night median)",
-      "dataset_id": "",
-      "records": "1807 x 2600",
-      "notes": "VIIRS Day/Night Band NOAA-21 from NASA GIBS, median of 12 nights 27 Oct - 7 Nov 2026. 8-bit display render, not calibrated radiance. EPSG:4326.",
-      "sha256": "b57cdacd0d5f7772"
-    },
-    {
-      "file": "assets/data/camping/campsite_scores.csv",
-      "bytes": 8973,
-      "mb": 0.009,
-      "gzipped": false,
-      "features": 41,
-      "title": "Campsite score table",
-      "dataset_id": "",
-      "records": "",
-      "notes": "All factors, the weighted score, and the single-night rank-shift robustness figure.",
-      "sha256": "ee84bd7a18efddfb"
-    },
-    {
-      "file": "assets/data/camping/campsite_scores_summary.json",
-      "bytes": 1790,
-      "mb": 0.002,
-      "gzipped": false,
-      "features": null,
-      "title": "Run statistics and robustness checks",
-      "dataset_id": "",
-      "records": "",
-      "notes": "Run statistics: night-lights range, top 10, rank shift vs a single night.",
-      "sha256": "973abf2066a7689e"
-    },
-    {
-      "file": "assets/maps/camping-sites/HK_camping_sites_dark_sky_map.png",
-      "bytes": 731618,
-      "mb": 0.732,
-      "gzipped": false,
-      "features": null,
-      "title": "Light pollution and country-park campsites",
-      "dataset_id": "",
-      "records": "",
-      "notes": "Two panels: VIIRS night lights over Hong Kong with all 41 campsites marked, and the 20 best campsites broken down by factor.",
-      "sha256": "1f14780120bd1966"
-    },
-    {
-      "name": "HK campsites ranked for dark skies — full methodology",
-      "file": "notes/hk-camping-dark-sky — METHODOLOGY.md",
-      "description": "Full method write-up for the campsite dark-sky study: the four GIBS traps, the four land-mask attempts that failed, scoring, results, limitations",
-      "format": "markdown",
-      "bytes": 14496,
-      "mb": 0.014,
-      "sha256": "270f19e394755d98"
-    },
-    {
-      "file": "assets/data/fishing-light/permitted_bright_light_fishing_areas.geojson.gz",
-      "description": "Areas in Hong Kong waters where bright-light fishing is permitted",
-      "source": "Marine Department via CSDI Portal",
-      "type": "vector",
-      "bytes": 922198,
-      "sha256": "5a97973d4c058527",
-      "mb": 0.922,
-      "features": 16
-    },
-    {
-      "file": "assets/data/fishing-light/fishing_operation_distribution.geojson.gz",
-      "description": "Distribution of fishing operations of local vessels by grid and vessel class",
-      "source": "AFCD via CSDI Portal",
-      "type": "vector",
-      "bytes": 825491,
-      "sha256": "4b989452446c7fa8",
-      "mb": 0.825,
-      "features": 356
-    },
-    {
-      "file": "assets/data/fishing-light/fishing_light_monthly.csv",
-      "description": "Monthly median excess of single-night bright cells in the permitted deep water, and the number of active nights per month",
-      "source": "derived",
-      "type": "table",
-      "bytes": 226,
-      "sha256": "ce53426ebb0ee4ab",
-      "mb": 0.0,
-      "records": 12
-    },
-    {
-      "file": "assets/data/fishing-light/nightly_measurements.csv.gz",
-      "description": "Per-night night-lights measurements 2012-2026: the bright-cell rate in the permitted deep water and in the control deep water, the within-night contrast, and the moon phase. Corrected analysis - deep water only, the LNG terminal and the Ma Liu Shui cable excluded",
-      "source": "NASA GIBS",
-      "type": "table",
-      "bytes": 8627,
-      "sha256": "34186af3ce843906",
-      "mb": 0.009,
-      "records": 693
-    },
-    {
-      "file": "notes/hk-fishing-light-seasonal — NOTES.md",
-      "description": "The study note, corrected: the fishing-light signal is episodic and clusters in the May-August moratorium window",
-      "source": "derived",
-      "type": "note",
-      "bytes": 19926,
-      "sha256": "4caf65539c33b530",
-      "mb": 0.02
-    },
-    {
-      "file": "assets/data/fishing-light/fishing_light_seasonal_CORRECTED.json",
-      "description": "Corrected fishing-light results: seasonal effect with a year-block confidence interval, vessel validation, per-area breakdown, active-night list and the full robustness sweep",
-      "source": "derived",
-      "type": "table",
-      "bytes": 13241,
-      "sha256": "70f51882a499d867",
-      "mb": 0.013,
-      "records": null
-    },
-    {
-      "file": "assets/data/fishing-light/fishing_light_active_nights.csv",
-      "description": "The 20 nights in 2012-2026 that carried the fishing-light signal, with the excess bright-cell count against the control water",
-      "source": "derived",
-      "type": "table",
-      "bytes": 406,
-      "sha256": "baa2837b32a39a2b",
-      "mb": 0.0,
-      "records": 20
-    },
-    {
-      "file": "assets/maps/fishing-light/HK_fishing_light_seasonal_map_CORRECTED.png",
-      "description": "The corrected four-panel figure: permitted areas and excluded structures, the active nights, the monthly profile and the headline statistics",
-      "source": "derived",
-      "type": "map",
-      "bytes": 367808,
-      "sha256": "561baf17bd963753",
-      "mb": 0.368
-    },
-    {
-      "file": "assets/data/flood/dsd_flood_prone_areas.geojson.gz",
-      "description": "The 267 official Hong Kong flood-prone locations from the Drainage Services Department's three lists (226 prone to blockage, 15 with drainage improvement works in progress, 26 coastal low-lying or windy residential areas), EPSG:4326",
-      "source": "Drainage Services Department",
-      "type": "vector",
-      "bytes": 10287,
-      "sha256": "0f25abb27795fce0",
-      "mb": 0.01,
-      "features": 267
-    },
-    {
-      "file": "assets/data/flood/flood_prone_areas_mechanism.geojson.gz",
-      "description": "The same 267 locations with the flood mechanism derived from the drainage network, the coastline and the 5 m terrain model: local drainage/blockage (185), channel backflow (48), coastal/tidal (32), low-lying ponding (2). Carries the distance and elevation evidence behind each classification, EPSG:4326",
-      "source": "derived from DSD, WSD, CEDD and LandsD",
-      "type": "vector",
-      "bytes": 17090,
-      "sha256": "715f1b8bf95d845f",
-      "mb": 0.017,
-      "features": 267
-    },
-    {
-      "file": "assets/data/flood/flood_prone_areas_mechanism.csv",
-      "description": "The derived mechanism table: one row per location with its mechanism, confidence, elevation, distance to the coast, to a major channel, to the nearest inlet, to the catchment edge, and the evidence sentence",
-      "source": "derived",
-      "type": "table",
-      "bytes": 67208,
-      "sha256": "38600bd7d8c6e3d3",
-      "mb": 0.067,
-      "records": 267
-    },
-    {
-      "file": "assets/maps/flood/HK_flood_mechanism_map.png",
-      "description": "The 267 flood-prone locations coloured by derived mechanism over the drainage network and coastline, with the mechanism counts and the cross-tab against DSD's own grouping",
-      "source": "derived",
-      "type": "map",
-      "bytes": 333787,
-      "sha256": "0ed44c08f5f46ad4",
-      "mb": 0.334
-    },
-    {
-      "file": "notes/hk-flood-prone-areas — NOTES.md",
-      "description": "The flood-prone-areas study note: the data recipe, the official lists, the derived mechanism method and its validation, the recommended index methodology, the assumptions and the validation block",
-      "source": "derived",
-      "type": "note",
-      "bytes": 19798,
-      "sha256": "7116935120b82705",
-      "mb": 0.02
-    },
-    {
-      "file": "assets/data/fishing-light/nightly_measurements.csv",
-      "description": "The same per-night table as plain CSV, for spreadsheet use",
-      "source": "NASA GIBS",
-      "type": "table",
-      "bytes": 35790,
-      "sha256": "a8787876e5bab1fd",
-      "mb": 0.036,
-      "records": 693
-    }
-  ],
-  "scripts": [
-    {
-      "file": "scripts/camping/fetch_nights.py",
-      "bytes": 9190,
-      "sha256": "0f01fb9491d91a75",
-      "description": "Fetch and validate the VIIRS night-lights nights. Rejects blank (all-zero) rasters by CONTENT, not by HTTP status, because GIBS returns 200 with an empty raster for unserved dates."
-    },
-    {
-      "file": "scripts/camping/score_campsites.py",
-      "bytes": 15663,
-      "sha256": "b3c5dc9f206403c6",
-      "description": "Score the 41 campsites on darkness, access, facilities and horizon. Asserts every factor is populated, no score is NaN, and that the access term yields more than 20 distinct values."
-    },
-    {
-      "file": "scripts/camping/make_camping_map.py",
-      "bytes": 22326,
-      "sha256": "70b80091f9c03277",
-      "description": "Build the two-panel figure. Checks text overlap and off-canvas text BEFORE saving, then verifies the rendered pixels over the bright city, the dark country and the dark sea each match the source raster value at that location."
-    },
-    {
-      "file": "scripts/camping/export_to_repo.py",
-      "bytes": 7710,
-      "sha256": "279f6351ab067325",
-      "description": "Copy the outputs into the repo layout and verify each shipped file."
-    },
-    {
-      "file": "scripts/camping/update_manifest_camping.py",
-      "bytes": 4040,
-      "sha256": "25f7cb1a5f48e299",
-      "description": "Extend this manifest with the camping entries and verify every entry against the file on disk."
-    },
-    {
-      "file": "scripts/camping/fetch_coastline_osm.py",
-      "bytes": 6403,
-      "sha256": "9cdb21c7c016101b",
-      "description": "Fetch the OSM coastline via /map, with adaptive bbox splitting on HTTP 400 and backoff on HTTP 429. The coastline is an orientation overlay only - it is NOT used as a land mask."
-    },
-    {
-      "file": "scripts/camping/merge_coast_fragments.py",
-      "bytes": 4698,
-      "sha256": "04d3400dce0e34aa",
-      "description": "Merge the bbox-clipped coastline fragments into complete ways. Merging by way id instead of node sequence keeps only the last fragment of any way crossing a box boundary, which guts the coastline."
-    },
-    {
-      "file": "scripts/camping/land_mask_flood.py",
-      "bytes": 7187,
-      "sha256": "f7195ee8e4ff4098",
-      "description": "Flood-fill the land from the sea over a rasterised coastline. Kept for the record: it fails where the coastline is not closed, which is why the shipped map applies no land mask at all."
-    },
-    {
-      "file": "scripts/camping/update_manifest_scripts.py",
-      "bytes": 4459,
-      "sha256": "a620f1d607991aa4",
-      "description": "Record the build scripts in this manifest and verify each one against the file on disk."
-    },
-    {
-      "file": "scripts/camping/verify_fresh_checkout.py",
-      "bytes": 3623,
-      "sha256": "3dc7ed8797f8e7d9",
-      "description": "Download the published script and its two inputs into a fresh temporary directory and run the build there with only the environment variables set. Proves the repo copy works off the author's machine, which is the thing a student actually needs."
-    },
-    {
-      "file": "scripts/fishing-light/fetch_seasonal.py",
-      "description": "Downloads the 693 nightly VIIRS rasters from NASA GIBS",
-      "source": "derived",
-      "type": "script",
-      "bytes": 18376,
-      "sha256": "977cea8ad5067db2",
-      "mb": 0.018
-    },
-    {
-      "file": "scripts/fishing-light/definitive_analysis.py",
-      "description": "The main corrected analysis: land mask, distance control, structure exclusion, within-night contrast, seasonal double difference, vessel validation and the per-area breakdown",
-      "source": "derived",
-      "type": "script",
-      "bytes": 12749,
-      "sha256": "54d3387b4d8f8407",
-      "mb": 0.013
-    },
-    {
-      "file": "scripts/fishing-light/final_summary.py",
-      "description": "The active-night list and the spatial description of the largest night",
-      "source": "derived",
-      "type": "script",
-      "bytes": 8555,
-      "sha256": "5d3203487005d9d6",
-      "mb": 0.009
-    },
-    {
-      "file": "scripts/fishing-light/robustness.py",
-      "description": "Leave-one-year-out, leave-one-night-out and threshold sensitivity",
-      "source": "derived",
-      "type": "script",
-      "bytes": 8347,
-      "sha256": "cbe608f64c37c322",
-      "mb": 0.008
-    },
-    {
-      "file": "scripts/fishing-light/check_2023_break.py",
-      "description": "Tests whether the GIBS product changed around 2023",
-      "source": "derived",
-      "type": "script",
-      "bytes": 5579,
-      "sha256": "7f8ad79cbe260ba9",
-      "mb": 0.006
-    },
-    {
-      "file": "scripts/fishing-light/persistence_test.py",
-      "description": "Separates fixed structures from moving boats by nights-per-cell",
-      "source": "derived",
-      "type": "script",
-      "bytes": 5213,
-      "sha256": "2d0a7add89ea48ba",
-      "mb": 0.005
-    },
-    {
-      "file": "scripts/fishing-light/moon_phase_test.py",
-      "description": "The dark-moon test on the transient bright cells",
-      "source": "derived",
-      "type": "script",
-      "bytes": 7228,
-      "sha256": "d89d5496372d0a1d",
-      "mb": 0.007
-    },
-    {
-      "file": "scripts/fishing-light/make_corrected_map.py",
-      "description": "Builds the corrected four-panel figure",
-      "source": "derived",
-      "type": "script",
-      "bytes": 14257,
-      "sha256": "4877812cfea79ceb",
-      "mb": 0.014
-    },
-    {
-      "file": "scripts/fishing-light/gate_corrected_map.py",
-      "description": "The figure gate: text overlap, off-canvas and pixel probes",
-      "source": "derived",
-      "type": "script",
-      "bytes": 6243,
-      "sha256": "a6d39285f0fefde0",
-      "mb": 0.006
-    },
-    {
-      "file": "scripts/flood/derive_mechanism_v2.py",
-      "description": "Derives the flood mechanism for all 267 locations from the coastline, the 5 m DTM, the drainage network and the catchments",
-      "source": "derived",
-      "type": "script",
-      "bytes": 14506,
-      "sha256": "9504cd62eb365abb",
-      "mb": 0.014
-    },
-    {
-      "file": "scripts/flood/make_mechanism_map.py",
-      "description": "Builds the flood-mechanism figure",
-      "source": "derived",
-      "type": "script",
-      "bytes": 10268,
-      "sha256": "4176f3b67d9218e8",
-      "mb": 0.01
-    },
-    {
-      "file": "scripts/flood/gate_mechanism_map.py",
-      "description": "The figure gate: text overlap, off-canvas and pixel probes",
-      "source": "derived",
-      "type": "script",
-      "bytes": 3904,
-      "sha256": "2c5ab4f4c6383a49",
-      "mb": 0.004
-    },
-    {
-      "file": "scripts/flood/fetch_support.sh",
-      "description": "Fetches the supporting DSD, WSD and CEDD layers with pagination and asserted final counts",
-      "source": "derived",
-      "type": "script",
-      "bytes": 2602,
-      "sha256": "f2ac601add13d725",
-      "mb": 0.003
-    },
-    {
-      "file": "scripts/flood/verify_against_pdf.py",
-      "description": "Cross-checks the 226 scraped blockage titles against DSD's own published PDF",
-      "source": "derived",
-      "type": "script",
-      "bytes": 2540,
-      "sha256": "bc9740ead3111f80",
-      "mb": 0.003
-    },
-    {
-      "file": "scripts/flood/make_overview_map.py",
-      "description": "Builds the flood-prone-areas overview map",
-      "source": "derived",
-      "type": "script",
-      "bytes": 8352,
-      "sha256": "ab8e61862e7cfc2c",
-      "mb": 0.008
-    },
-    {
-      "file": "scripts/fishing-light/variance_and_averaging.py",
-      "description": "The variance decomposition: how much of the night-to-night swing is nuisance, and a comparison of four ways to average it",
-      "source": "derived",
-      "type": "script",
-      "bytes": 9824,
-      "sha256": "58e7603de9eb27eb",
-      "mb": 0.01
-    },
-    {
-      "file": "scripts/refresh_manifest_scripts.py",
-      "bytes": 2075,
-      "sha256": "dd08e5f040409e44",
-      "description": "Refresh the scripts section of MANIFEST.json after a cross-cutting code change: updates bytes and sha256 for every script entry, and checks that the files section holds no code"
-    }
-  ]
+ "generated": "2026-11-09",
+ "repository": "davidtwmak-maker/NPLGIS",
+ "note": "Every layer shipped in assets/data plus the Festival Walk 3D app data. Features counted from the file itself. Floor plate heights are schematic (5.5 m storey, 2x vertical exaggeration). The G floor is set to Tat Chee Avenue (\u9054\u4e4b\u8def) at the junction where it meets the mall - 33.0 m measured from Esri WorldElevation3D Terrain3D - and the podium is a schematic foundation mass, not measured architectural heights. | 2026-11-05: added HK Steep Slopes >30 deg - 33,231 polygons of ground steeper than 30 degrees (113.29 km2 = 10.09% of land), the five-class slope raster at 20 m, the maximum-slope raster, and the two-panel map. Slope is the MAXIMUM gradient within each 20 m cell, not the mean: 22,700 recorded incidents sit in cells whose mean slope is under 30 degrees but whose max is over it, so a mean threshold would erase a fifth of the evidence. Area reconciliation error 0.0 m2, 0 invalid geometries. ",
+ "sources": [
+  {
+   "name": "3D Pedestrian Network",
+   "id": "landsd_rcd_1637222018065_52265",
+   "provider": "Lands Department via CSDI Portal",
+   "url": "https://portal.csdi.gov.hk/server/rest/services/common/landsd_rcd_1637222018065_52265/FeatureServer"
+  },
+  {
+   "name": "LiDAR DTM 2020",
+   "id": "cedd_rcd_1629267205233_87895",
+   "provider": "CEDD via CSDI Portal",
+   "url": "https://portal.csdi.gov.hk/server/rest/services/common/cedd_rcd_1629267205233_87895/FeatureServer"
+  },
+  {
+   "name": "Volleyball courts \u2014 live vacancy",
+   "id": "sp_volleyball",
+   "provider": "LCSD SmartPLAY open data",
+   "url": "https://data.smartplay.lcsd.gov.hk/rest/cms/api/v1/publ/contents/open-data/volleyball/file"
+  },
+  {
+   "name": "Sports centre usage",
+   "id": "lcsd_rcd_1670389615666_788",
+   "provider": "LCSD via CSDI Portal"
+  },
+  {
+   "name": "MTR lines and stations",
+   "id": "",
+   "provider": "MTR Corporation",
+   "url": "https://opendata.mtr.com.hk/data/mtr_lines_and_stations.csv"
+  },
+  {
+   "name": "Historical maps",
+   "id": "",
+   "provider": "Lands Department GeoInfo Map"
+  },
+  {
+   "name": "Shoreline",
+   "id": "Shoreline_view",
+   "provider": "Esri China (HK), derived from LandsD"
+  },
+  {
+   "name": "Location of Landslide Incidents",
+   "id": "cedd_rcd_1640249280153_17521",
+   "provider": "CEDD via CSDI Portal",
+   "url": "https://portal.csdi.gov.hk/server/rest/services/common/cedd_rcd_1640249280153_17521/FeatureServer"
+  },
+  {
+   "name": "Enhanced Natural Terrain Landslide Inventory (ENTLI)",
+   "id": "cedd_rcd_1636520697377_96152",
+   "provider": "CEDD via CSDI Portal",
+   "url": "https://portal.csdi.gov.hk/server/rest/services/common/cedd_rcd_1636520697377_96152/FeatureServer"
+  },
+  {
+   "name": "Digital Terrain Model 5 m",
+   "id": "",
+   "provider": "Lands Department",
+   "url": "https://www.landsd.gov.hk/landsd_psi_data/SMO/data/Whole_HK_DTM_5m.zip"
+  },
+  {
+   "name": "GEO Raingauge Data (daily rainfall)",
+   "id": "cedd_rcd_1636517963140_47030",
+   "provider": "CEDD via CSDI Portal",
+   "url": "https://portal.csdi.gov.hk/server/rest/services/common/cedd_rcd_1636517963140_47030/FeatureServer"
+  },
+  {
+   "name": "Geological Map (1:100,000)",
+   "id": "cedd_rcd_1636520962284_7237",
+   "provider": "CEDD via CSDI Portal",
+   "url": "https://portal.csdi.gov.hk/server/rest/services/common/cedd_rcd_1636520962284_7237/FeatureServer"
+  },
+  {
+   "name": "Geological Map (1:20,000)",
+   "id": "cedd_rcd_1636520885302_41109",
+   "provider": "CEDD via CSDI Portal",
+   "url": "https://portal.csdi.gov.hk/server/rest/services/common/cedd_rcd_1636520885302_41109/FeatureServer"
+  },
+  {
+   "name": "ESA WorldCover 2021 (10 m)",
+   "id": "ESA_WorldCover_10m_2021_v200_N21E111/N21E114",
+   "provider": "European Space Agency",
+   "url": "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_N21E111_Map.tif"
+  },
+  {
+   "name": "Location of campsites in country parks",
+   "id": "afcd_rcd_1635133060194_82554",
+   "provider": "AFCD via CSDI Portal",
+   "url": "https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1635133060194_82554/FeatureServer"
+  },
+  {
+   "name": "Country parks",
+   "id": "afcd_rcd_1635129924112_81508",
+   "provider": "AFCD via CSDI Portal",
+   "url": "https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1635129924112_81508/FeatureServer"
+  },
+  {
+   "name": "Visitor centres in country parks",
+   "id": "afcd_rcd_1635133243757_2529",
+   "provider": "AFCD via CSDI Portal",
+   "url": "https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1635133243757_2529/FeatureServer"
+  },
+  {
+   "name": "Facilities in country parks",
+   "id": "afcd_rcd_1635136427551_29173",
+   "provider": "AFCD via CSDI Portal",
+   "url": "https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1635136427551_29173/FeatureServer"
+  },
+  {
+   "name": "Trails in country parks",
+   "id": "afcd_rcd_1665568199103_4360",
+   "provider": "AFCD via CSDI Portal",
+   "url": "https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1665568199103_4360/FeatureServer"
+  },
+  {
+   "name": "VIIRS Day/Night Band (NOAA-21), NASA GIBS",
+   "id": "VIIRS_NOAA21_GapFilled_BRDF_Corrected",
+   "provider": "NASA Global Imagery Browse Services",
+   "url": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi"
+  },
+  {
+   "name": "VIIRS Day/Night Band (NOAA-21), NASA GIBS",
+   "id": "VIIRS_NOAA21_GapFilled_BRDF_Corrected",
+   "provider": "NASA Global Imagery Browse Services",
+   "url": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi"
+  },
+  {
+   "name": "Areas where bright-light fishing is permitted in Hong Kong waters",
+   "id": "mardep_rcd_1730952503222_38811",
+   "provider": "Marine Department via CSDI Portal",
+   "url": "https://portal.csdi.gov.hk/server/rest/services/common/mardep_rcd_1730952503222_38811/FeatureServer"
+  },
+  {
+   "name": "Distribution of fishing operation in Hong Kong waters",
+   "id": "afcd_rcd_1697167244880_33192",
+   "provider": "AFCD via CSDI Portal",
+   "url": "https://portal.csdi.gov.hk/server/rest/services/common/afcd_rcd_1697167244880_33192/FeatureServer"
+  },
+  {
+   "name": "VIIRS Day/Night Band (SNPP), gap-filled BRDF-corrected, NASA GIBS",
+   "id": "VIIRS_SNPP_GapFilled_BRDF_Corrected_DayNightBand_Radiance",
+   "provider": "NASA Global Imagery Browse Services",
+   "url": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi"
+  },
+  {
+   "name": "VIIRS Day/Night Band (SNPP), gap-filled BRDF-corrected, NASA GIBS",
+   "id": "VIIRS_SNPP_GapFilled_BRDF_Corrected_DayNightBand_Radiance",
+   "provider": "NASA Global Imagery Browse Services",
+   "url": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi"
+  },
+  {
+   "name": "VIIRS Day/Night Band (SNPP), gap-filled BRDF-corrected, NASA GIBS",
+   "id": "VIIRS_SNPP_GapFilled_BRDF_Corrected_DayNightBand_Radiance",
+   "provider": "NASA Global Imagery Browse Services",
+   "url": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi"
+  },
+  {
+   "name": "VIIRS Day/Night Band (SNPP), gap-filled BRDF-corrected, NASA GIBS",
+   "id": "VIIRS_SNPP_GapFilled_BRDF_Corrected_DayNightBand_Radiance",
+   "provider": "NASA Global Imagery Browse Services",
+   "url": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi"
+  },
+  {
+   "name": "Drainage channels",
+   "id": "dsd_rcd_1629267205231_66675",
+   "provider": "DSD via CSDI Portal",
+   "url": "https://portal.csdi.gov.hk/server/rest/services/common/dsd_rcd_1629267205231_66675/FeatureServer"
+  },
+  {
+   "name": "Engineered channels",
+   "id": "dsd_rcd_1742963120722_16615",
+   "provider": "DSD via CSDI Portal",
+   "url": "https://portal.csdi.gov.hk/server/rest/services/common/dsd_rcd_1742963120722_16615/FeatureServer"
+  },
+  {
+   "name": "Stormwater inlets",
+   "id": "dsd_rcd_1629267205231_69065",
+   "provider": "DSD via CSDI Portal",
+   "url": "https://portal.csdi.gov.hk/server/rest/services/common/dsd_rcd_1629267205231_69065/FeatureServer"
+  },
+  {
+   "name": "Catchment and subcatchment areas",
+   "id": "wsd_rcd_1629267205232_5923",
+   "provider": "WSD via CSDI Portal",
+   "url": "https://portal.csdi.gov.hk/server/rest/services/common/wsd_rcd_1629267205232_5923/FeatureServer"
+  },
+  {
+   "name": "Whole Hong Kong Digital Terrain Model 5 m",
+   "id": "landsd_Whole_HK_DTM_5m",
+   "provider": "Lands and Survey Department",
+   "url": "https://www.landsd.gov.hk/landsd_psi_data/SMO/data/Whole_HK_DTM_5m.zip"
+  },
+  {
+   "name": "VIIRS Day/Night Band (SNPP), gap-filled BRDF-corrected, NASA GIBS",
+   "id": "VIIRS_SNPP_GapFilled_BRDF_Corrected_DayNightBand_Radiance",
+   "provider": "NASA Global Imagery Browse Services",
+   "url": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi"
+  },
+  {
+   "name": "VIIRS Day/Night Band (SNPP), gap-filled BRDF-corrected, NASA GIBS",
+   "id": "VIIRS_SNPP_GapFilled_BRDF_Corrected_DayNightBand_Radiance",
+   "provider": "NASA Global Imagery Browse Services",
+   "url": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi"
+  },
+  {
+   "name": "VIIRS Day/Night Band (SNPP), gap-filled BRDF-corrected, NASA GIBS",
+   "id": "VIIRS_SNPP_GapFilled_BRDF_Corrected_DayNightBand_Radiance",
+   "provider": "NASA Global Imagery Browse Services",
+   "url": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi"
+  },
+  {
+   "name": "VIIRS Day/Night Band (NOAA-21), NASA GIBS",
+   "id": "VIIRS_NOAA21_GapFilled_BRDF_Corrected",
+   "provider": "NASA Global Imagery Browse Services",
+   "url": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi"
+  },
+  {
+   "name": "VIIRS Day/Night Band (SNPP), gap-filled BRDF-corrected, NASA GIBS",
+   "id": "VIIRS_SNPP_GapFilled_BRDF_Corrected_DayNightBand_Radiance",
+   "provider": "NASA Global Imagery Browse Services",
+   "url": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi"
+  },
+  {
+   "name": "VIIRS Day/Night Band (NOAA-21), NASA GIBS",
+   "id": "VIIRS_NOAA21_GapFilled_BRDF_Corrected",
+   "provider": "NASA Global Imagery Browse Services",
+   "url": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi"
+  },
+  {
+   "name": "VIIRS Day/Night Band (SNPP), gap-filled BRDF-corrected, NASA GIBS",
+   "id": "VIIRS_SNPP_GapFilled_BRDF_Corrected_DayNightBand_Radiance",
+   "provider": "NASA Global Imagery Browse Services",
+   "url": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi"
+  },
+  {
+   "name": "VIIRS Day/Night Band (NOAA-21), NASA GIBS",
+   "id": "VIIRS_NOAA21_GapFilled_BRDF_Corrected",
+   "provider": "NASA Global Imagery Browse Services",
+   "url": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi"
+  }
+ ],
+ "files": [
+  {
+   "file": "apps/festival-walk-3d/data/buildings_3d.geojson",
+   "bytes": 22587,
+   "mb": 0.022,
+   "gzipped": false,
+   "features": 8,
+   "title": "Festival Walk mall floor plates (3D)",
+   "dataset_id": "landsd_rcd_1637222018065_52265",
+   "records": "",
+   "notes": "7 translucent floor plates (MTR..2/F) plus a translucent podium. Each floor has its own footprint derived from that floor's route network buffered 14 m; the podium is the union of all floor footprints, extruded from -6 m up to the G floor (33.0 m) so the building is founded on the hillside. The G floor is set to Tat Chee Avenue at the mall junction - 33.0 m from Esri WorldElevation3D Terrain3D. Terrain under the footprint runs 18.9-35.2 m. Storey height 5.5 m is schematic; display heights are stretched 2x.",
+   "sha256": "383cfa6d17aa8973"
+  },
+  {
+   "file": "apps/festival-walk-3d/data/floor_labels.json",
+   "bytes": 1327,
+   "mb": 0.001,
+   "gzipped": false,
+   "features": null,
+   "title": "Festival Walk floor label anchors",
+   "dataset_id": "landsd_rcd_1637222018065_52265",
+   "records": "",
+   "notes": "Per-floor label anchor, taken from that floor's own route centroid.",
+   "sha256": "38fc75b89d912e6a"
+  },
+  {
+   "file": "assets/data/festival-walk/festival_walk_3d_pedestrian.geojson",
+   "bytes": 84797,
+   "mb": 0.081,
+   "gzipped": false,
+   "features": 163,
+   "title": "",
+   "dataset_id": "",
+   "records": "",
+   "notes": "",
+   "sha256": "b955add4dae38727"
+  },
+  {
+   "file": "assets/data/festival-walk/kc_pedestrian.geojson.gz",
+   "bytes": 9635088,
+   "mb": 9.189,
+   "gzipped": true,
+   "features": 111238,
+   "title": "Kowloon Tong pedestrian network",
+   "dataset_id": "landsd_rcd_1637222018065_52265",
+   "records": "111,238",
+   "notes": "District extract",
+   "sha256": "5d9564339cf2c1c4"
+  },
+  {
+   "file": "assets/data/festival-walk/kc_population.geojson.gz",
+   "bytes": 11467371,
+   "mb": 10.936,
+   "gzipped": true,
+   "features": 211,
+   "title": "Kowloon Tong population",
+   "dataset_id": "2021 Population Census",
+   "records": "211",
+   "notes": "District polygon population",
+   "sha256": "e3efb1453a64a800"
+  },
+  {
+   "file": "assets/data/festival-walk/ped_network_kowloontong.geojson.gz",
+   "bytes": 5576757,
+   "mb": 5.318,
+   "gzipped": true,
+   "features": 111238,
+   "title": "Kowloon Tong pedestrian network (relief render input)",
+   "dataset_id": "landsd_rcd_1637222018065_52265",
+   "records": "111,238",
+   "notes": "Used by render_festival_walk_relief2.py",
+   "sha256": "b8d6d36d30255ee2"
+  },
+  {
+   "file": "assets/data/mtr/MTRMap.js",
+   "bytes": 52824,
+   "mb": 0.05,
+   "gzipped": false,
+   "features": null,
+   "title": "",
+   "dataset_id": "",
+   "records": "",
+   "notes": "",
+   "sha256": "59d4eb5f5a73c132"
+  },
+  {
+   "file": "assets/data/mtr/fare_savers.geojson",
+   "bytes": 14741,
+   "mb": 0.014,
+   "gzipped": false,
+   "features": 41,
+   "title": "",
+   "dataset_id": "",
+   "records": "",
+   "notes": "",
+   "sha256": "fe7870702274bd6d"
+  },
+  {
+   "file": "assets/data/mtr/fare_savers_geocoded.csv",
+   "bytes": 3513,
+   "mb": 0.003,
+   "gzipped": false,
+   "features": null,
+   "title": "",
+   "dataset_id": "",
+   "records": "",
+   "notes": "",
+   "sha256": "7c93af59c0248372"
+  },
+  {
+   "file": "assets/data/mtr/fare_savers_routes.geojson",
+   "bytes": 4051,
+   "mb": 0.004,
+   "gzipped": false,
+   "features": 10,
+   "title": "",
+   "dataset_id": "",
+   "records": "",
+   "notes": "",
+   "sha256": "47e49003438dc465"
+  },
+  {
+   "file": "assets/data/mtr/fare_savers_stations.geojson",
+   "bytes": 12365,
+   "mb": 0.012,
+   "gzipped": false,
+   "features": 98,
+   "title": "",
+   "dataset_id": "",
+   "records": "",
+   "notes": "",
+   "sha256": "d916cd82a6bf8267"
+  },
+  {
+   "file": "assets/data/mtr/kc_smtpu_suggestions.csv",
+   "bytes": 61411,
+   "mb": 0.059,
+   "gzipped": false,
+   "features": null,
+   "title": "",
+   "dataset_id": "",
+   "records": "",
+   "notes": "",
+   "sha256": "6a284d176620df83"
+  },
+  {
+   "file": "assets/data/mtr/kc_smtpus.geojson",
+   "bytes": 3011698,
+   "mb": 2.872,
+   "gzipped": false,
+   "features": 1100,
+   "title": "",
+   "dataset_id": "",
+   "records": "",
+   "notes": "",
+   "sha256": "a7a1c158cacc592c"
+  },
+  {
+   "file": "assets/data/mtr/kc_suggestions_named.csv",
+   "bytes": 2371,
+   "mb": 0.002,
+   "gzipped": false,
+   "features": null,
+   "title": "",
+   "dataset_id": "",
+   "records": "",
+   "notes": "",
+   "sha256": "946eb96c09b0e9d5"
+  },
+  {
+   "file": "assets/data/mtr/kc_tpus.geojson",
+   "bytes": 1821518,
+   "mb": 1.737,
+   "gzipped": false,
+   "features": 66,
+   "title": "",
+   "dataset_id": "",
+   "records": "",
+   "notes": "",
+   "sha256": "13a3a43997387803"
+  },
+  {
+   "file": "assets/data/mtr/mtrStationsCoord.json",
+   "bytes": 9183,
+   "mb": 0.009,
+   "gzipped": false,
+   "features": null,
+   "title": "",
+   "dataset_id": "",
+   "records": "",
+   "notes": "",
+   "sha256": "d43f9dc664e50fc3"
+  },
+  {
+   "file": "assets/data/mtr/mtr_lines_and_stations.csv",
+   "bytes": 14161,
+   "mb": 0.014,
+   "gzipped": false,
+   "features": null,
+   "title": "",
+   "dataset_id": "",
+   "records": "",
+   "notes": "",
+   "sha256": "e0e781152e2e6c5f"
+  },
+  {
+   "file": "assets/data/pedestrian/covered_indoor_or_unclassified.geojson.gz",
+   "bytes": 4147911,
+   "mb": 3.956,
+   "gzipped": true,
+   "features": 84935,
+   "title": "3D Pedestrian Network \u2014 indoor + unclassified",
+   "dataset_id": "landsd_rcd_1637222018065_52265",
+   "records": "84,935",
+   "notes": "Everything not exposed/covered outdoor",
+   "sha256": "ec41f6f6f4fcd892"
+  },
+  {
+   "file": "assets/data/pedestrian/covered_outdoor_paths.geojson.gz",
+   "bytes": 2748555,
+   "mb": 2.621,
+   "gzipped": true,
+   "features": 54341,
+   "title": "3D Pedestrian Network \u2014 covered paths",
+   "dataset_id": "landsd_rcd_1637222018065_52265",
+   "records": "54,341",
+   "notes": "Location=1 AND WeatherProof=1",
+   "sha256": "fcc5bc45e4a61af3"
+  },
+  {
+   "file": "assets/data/pedestrian/covered_paths_pt_connected.geojson.gz",
+   "bytes": 3012066,
+   "mb": 2.873,
+   "gzipped": true,
+   "features": 54341,
+   "title": "3D Pedestrian Network \u2014 covered + PT connection",
+   "dataset_id": "landsd_rcd_1637222018065_52265",
+   "records": "54,341",
+   "notes": "Includes ai_ derived fields",
+   "sha256": "3a39356ff89cad52"
+  },
+  {
+   "file": "assets/data/pedestrian/exposed_outdoor_paths.geojson.gz",
+   "bytes": 29585816,
+   "mb": 28.215,
+   "gzipped": true,
+   "features": 380957,
+   "title": "3D Pedestrian Network \u2014 exposed paths",
+   "dataset_id": "landsd_rcd_1637222018065_52265",
+   "records": "380,957",
+   "notes": "Location=1 AND WeatherProof=2",
+   "sha256": "61d5f53cabeb6e04"
+  },
+  {
+   "file": "assets/data/pedestrian/pedestrian_network_hk.geojson.gz",
+   "bytes": 33670178,
+   "mb": 32.11,
+   "gzipped": true,
+   "features": 465892,
+   "title": "3D Pedestrian Network \u2014 full network",
+   "dataset_id": "landsd_rcd_1637222018065_52265",
+   "records": "465,892",
+   "notes": "Full network, all attributes",
+   "sha256": "0d7383e1302a1290"
+  },
+  {
+   "file": "assets/data/volleyball/districts.geojson",
+   "bytes": 469817,
+   "mb": 0.448,
+   "gzipped": false,
+   "features": 18,
+   "title": "",
+   "dataset_id": "",
+   "records": "",
+   "notes": "",
+   "sha256": "855dfd43814219a1"
+  },
+  {
+   "file": "assets/data/volleyball/free_outdoor_courts.geojson",
+   "bytes": 63804,
+   "mb": 0.061,
+   "gzipped": false,
+   "features": 65,
+   "title": "",
+   "dataset_id": "",
+   "records": "",
+   "notes": "",
+   "sha256": "50e5a0e89a08a81d"
+  },
+  {
+   "file": "assets/data/volleyball/hk_territory.geojson",
+   "bytes": 10277,
+   "mb": 0.01,
+   "gzipped": false,
+   "features": 1,
+   "title": "",
+   "dataset_id": "",
+   "records": "",
+   "notes": "",
+   "sha256": "c552366c6c81e1e7"
+  },
+  {
+   "file": "assets/data/volleyball/sessions.csv",
+   "bytes": 3419499,
+   "mb": 3.261,
+   "gzipped": false,
+   "features": null,
+   "title": "",
+   "dataset_id": "",
+   "records": "",
+   "notes": "",
+   "sha256": "22fa9481ee24b5a8"
+  },
+  {
+   "file": "assets/data/volleyball/sessions.geojson",
+   "bytes": 12406426,
+   "mb": 11.832,
+   "gzipped": false,
+   "features": 13152,
+   "title": "",
+   "dataset_id": "",
+   "records": "",
+   "notes": "",
+   "sha256": "99c5153e2929f487"
+  },
+  {
+   "file": "assets/data/volleyball/shoreline.geojson.gz",
+   "bytes": 6532911,
+   "mb": 6.23,
+   "gzipped": true,
+   "features": 9031,
+   "title": "Esri China (HK) Shoreline",
+   "dataset_id": "Esri China / iB1000 from LandsD",
+   "records": "9,031",
+   "notes": "Polylines, not a filled polygon",
+   "sha256": "8811d8e5d6a58892"
+  },
+  {
+   "file": "assets/data/volleyball/usage_by_venue.geojson",
+   "bytes": 55165,
+   "mb": 0.053,
+   "gzipped": false,
+   "features": 100,
+   "title": "",
+   "dataset_id": "",
+   "records": "",
+   "notes": "",
+   "sha256": "7b8bbe50ab5dc0b3"
+  },
+  {
+   "file": "assets/data/volleyball/venues.csv",
+   "bytes": 63437,
+   "mb": 0.06,
+   "gzipped": false,
+   "features": null,
+   "title": "",
+   "dataset_id": "",
+   "records": "",
+   "notes": "",
+   "sha256": "ba2b1c6793f6d56c"
+  },
+  {
+   "file": "assets/data/volleyball/venues.geojson",
+   "bytes": 169525,
+   "mb": 0.162,
+   "gzipped": false,
+   "features": 101,
+   "title": "",
+   "dataset_id": "",
+   "records": "",
+   "notes": "",
+   "sha256": "27d6dda59313fa2b"
+  },
+  {
+   "file": "assets/data/walk/network_segments.geojson",
+   "bytes": 11789373,
+   "mb": 11.243,
+   "gzipped": false,
+   "features": 67337,
+   "title": "",
+   "dataset_id": "",
+   "records": "",
+   "notes": "",
+   "sha256": "08eea3ac7088ed51"
+  },
+  {
+   "file": "assets/data/walk/openrice_5min.jsonl",
+   "bytes": 51252,
+   "mb": 0.049,
+   "gzipped": false,
+   "features": null,
+   "title": "",
+   "dataset_id": "",
+   "records": "",
+   "notes": "",
+   "sha256": "30fc3f49ca70ed83"
+  },
+  {
+   "file": "assets/data/walk/openrice_cards.jsonl",
+   "bytes": 3771,
+   "mb": 0.004,
+   "gzipped": false,
+   "features": null,
+   "title": "",
+   "dataset_id": "",
+   "records": "",
+   "notes": "",
+   "sha256": "7f462305f8e64006"
+  },
+  {
+   "file": "assets/data/walk/restaurants_15min.csv",
+   "bytes": 134883,
+   "mb": 0.129,
+   "gzipped": false,
+   "features": null,
+   "title": "",
+   "dataset_id": "",
+   "records": "",
+   "notes": "",
+   "sha256": "c5a05aa4d5efa35b"
+  },
+  {
+   "file": "assets/data/walk/restaurants_5min.csv",
+   "bytes": 21422,
+   "mb": 0.02,
+   "gzipped": false,
+   "features": null,
+   "title": "",
+   "dataset_id": "",
+   "records": "",
+   "notes": "",
+   "sha256": "cdaa88443ec01856"
+  },
+  {
+   "file": "assets/data/walk/restaurants_5min_ratings.csv",
+   "bytes": 20737,
+   "mb": 0.02,
+   "gzipped": false,
+   "features": null,
+   "title": "",
+   "dataset_id": "",
+   "records": "",
+   "notes": "",
+   "sha256": "7dcb4144b8634460"
+  },
+  {
+   "file": "assets/data/walk/restaurants_bbox.geojson",
+   "bytes": 1547902,
+   "mb": 1.476,
+   "gzipped": false,
+   "features": 2654,
+   "title": "",
+   "dataset_id": "",
+   "records": "",
+   "notes": "",
+   "sha256": "c39b2fddcd3441a5"
+  },
+  {
+   "file": "apps/festival-walk-3d/data/festival_walk_vertical_3d.geojson",
+   "title": "Festival Walk vertical circulation, 3D (lifts / escalators / stairs / ramps)",
+   "dataset_id": "landsd_rcd_1637222018065_52265",
+   "gzipped": false,
+   "records": "",
+   "notes": "29 genuine floor-to-floor connectors, separated from the 48 flat site surfaces using the CSDI FeatureType domain and Gradient field. Each connector's two floors are resolved by matching its ends against the published floor networks (a connector's ends land at 0.00 m from the floor it serves). Carries floor_from, floor_to, mode (link / shaft / incline) and rise_m. The app draws each connector with a different z on each vertex, so lifts are vertical shafts and escalators slope between floors.",
+   "bytes": 10096,
+   "mb": 0.01,
+   "sha256": "fd2888e91a9504b8",
+   "features": 29
+  },
+  {
+   "file": "apps/festival-walk-3d/data/festival_walk_site_surface.geojson",
+   "title": "Festival Walk flat site surfaces (podium decks, traffic islands, crossings, footways)",
+   "dataset_id": "landsd_rcd_1637222018065_52265",
+   "gzipped": false,
+   "records": "",
+   "notes": "48 flat surfaces from the CSDI routes that have no floor id and are NOT vertical circulation. They are outdoor podium decks, traffic islands, crossings and footways, which belong on the terrain rather than inside the building. Kept separate so they are not drawn as a flat mesh through the mall.",
+   "bytes": 14795,
+   "mb": 0.014,
+   "sha256": "f98fd251f2b11df0",
+   "features": 48
+  },
+  {
+   "file": "apps/festival-walk-3d/data/festival_walk_vertical.geojson",
+   "bytes": 69811,
+   "mb": 0.067,
+   "gzipped": false,
+   "features": 77,
+   "title": "Festival Walk raw FloorID-less route extract (superseded)",
+   "dataset_id": "landsd_rcd_1637222018065_52265",
+   "records": "",
+   "notes": "Raw CSDI routes for Festival Walk that carry no FloorID -- 77 features. SUPERSEDED for the 3D app by festival_walk_vertical_3d.geojson (29 genuine connectors) and festival_walk_site_surface.geojson (48 flat surfaces); kept as the unmodified source extract.",
+   "sha256": "a315aeacedcfdd62"
+  },
+  {
+   "file": "worksheets/README.md",
+   "bytes": 3245,
+   "mb": 0.003,
+   "gzipped": false,
+   "features": null,
+   "title": "README",
+   "dataset_id": "",
+   "records": "",
+   "notes": "Student worksheet - task sheet built from a real GIS project, with the method, the check numbers, the data traps and the limitations to declare. All live figures re-verified against the source service on 2026-10-26.",
+   "sha256": "ec45505420f03cba"
+  },
+  {
+   "file": "worksheets/Student Worksheet \u2014 15-Minute Walk Catchment.md",
+   "bytes": 10253,
+   "mb": 0.01,
+   "gzipped": false,
+   "features": null,
+   "title": "Student Worksheet \u2014 15-Minute Walk Catchment",
+   "dataset_id": "",
+   "records": "",
+   "notes": "Student worksheet - task sheet built from a real GIS project, with the method, the check numbers, the data traps and the limitations to declare. All live figures re-verified against the source service on 2026-10-26.",
+   "sha256": "213e77fbd9a4af0e"
+  },
+  {
+   "file": "worksheets/Student Worksheet \u2014 3D Pedestrian Network and Covered Walkways.md",
+   "bytes": 10650,
+   "mb": 0.01,
+   "gzipped": false,
+   "features": null,
+   "title": "Student Worksheet \u2014 3D Pedestrian Network and Covered Walkways",
+   "dataset_id": "",
+   "records": "",
+   "notes": "Student worksheet - task sheet built from a real GIS project, with the method, the check numbers, the data traps and the limitations to declare. All live figures re-verified against the source service on 2026-10-26.",
+   "sha256": "78fc9970fa9af497"
+  },
+  {
+   "file": "worksheets/Student Worksheet \u2014 Building Heights in 3D.md",
+   "bytes": 10539,
+   "mb": 0.01,
+   "gzipped": false,
+   "features": null,
+   "title": "Student Worksheet \u2014 Building Heights in 3D",
+   "dataset_id": "",
+   "records": "",
+   "notes": "Student worksheet - task sheet built from a real GIS project, with the method, the check numbers, the data traps and the limitations to declare. All live figures re-verified against the source service on 2026-10-26.",
+   "sha256": "a09d5a9ed9bb2104"
+  },
+  {
+   "file": "worksheets/Student Worksheet \u2014 Festival Walk 3D Mall Model.md",
+   "bytes": 14218,
+   "mb": 0.014,
+   "gzipped": false,
+   "features": null,
+   "title": "Student Worksheet \u2014 Festival Walk 3D Mall Model",
+   "dataset_id": "",
+   "records": "",
+   "notes": "Student worksheet - task sheet built from a real GIS project, with the method, the check numbers, the data traps and the limitations to declare. All live figures re-verified against the source service on 2026-10-26.",
+   "sha256": "23725750799034d5"
+  },
+  {
+   "file": "worksheets/Student Worksheet \u2014 MTR Fare Saver Map.md",
+   "bytes": 10813,
+   "mb": 0.01,
+   "gzipped": false,
+   "features": null,
+   "title": "Student Worksheet \u2014 MTR Fare Saver Map",
+   "dataset_id": "",
+   "records": "",
+   "notes": "Student worksheet - task sheet built from a real GIS project, with the method, the check numbers, the data traps and the limitations to declare. All live figures re-verified against the source service on 2026-10-26.",
+   "sha256": "5997e9e20a660a6f"
+  },
+  {
+   "file": "worksheets/Student Worksheet \u2014 Volleyball Courts Booking Data.md",
+   "bytes": 12763,
+   "mb": 0.012,
+   "gzipped": false,
+   "features": null,
+   "title": "Student Worksheet \u2014 Volleyball Courts Booking Data",
+   "dataset_id": "",
+   "records": "",
+   "notes": "Student worksheet - task sheet built from a real GIS project, with the method, the check numbers, the data traps and the limitations to declare. All live figures re-verified against the source service on 2026-10-26.",
+   "sha256": "8c2d68cbc95fd0c4"
+  },
+  {
+   "file": "worksheets/Student Worksheets \u2014 GIS Projects.md",
+   "bytes": 5513,
+   "mb": 0.005,
+   "gzipped": false,
+   "features": null,
+   "title": "Student Worksheets \u2014 GIS Projects",
+   "dataset_id": "",
+   "records": "",
+   "notes": "Student worksheet - task sheet built from a real GIS project, with the method, the check numbers, the data traps and the limitations to declare. All live figures re-verified against the source service on 2026-10-26.",
+   "sha256": "e86cd3a61a2c5dae"
+  },
+  {
+   "file": "assets/data/landslide/susceptibility_cells.geojson.gz",
+   "bytes": 994488,
+   "mb": 0.948,
+   "gzipped": true,
+   "features": 29614,
+   "title": "Landslide susceptibility cells (200 m polygons)",
+   "dataset_id": "",
+   "records": "29614",
+   "notes": "One polygon per 200 m cell with the XGBoost susceptibility score, class and the key attributes (slope, elevation, weathering class). EPSG:2326 (HK1980). 5-fold spatial blocked CV, ROC-AUC 0.882.",
+   "sha256": "a1d5631df1e51384"
+  },
+  {
+   "file": "assets/data/landslide/landslide_records.geojson.gz",
+   "bytes": 2587934,
+   "mb": 2.468,
+   "gzipped": true,
+   "features": 124020,
+   "title": "Recorded landslide points",
+   "dataset_id": "",
+   "records": "124020",
+   "notes": "CEDD Location of Landslide Incidents (10,854) + ENTLI historical crowns (113,166, 1924-2023). EPSG:2326 (HK1980).",
+   "sha256": "7dc5171183ee6bcb"
+  },
+  {
+   "file": "assets/data/landslide/landslide_susceptibility.tif",
+   "bytes": 114214,
+   "mb": 0.109,
+   "gzipped": false,
+   "features": null,
+   "title": "Landslide susceptibility raster (model score)",
+   "dataset_id": "",
+   "records": "",
+   "notes": "240 x 318 at 200 m, float32, nodata -9999, EPSG:2326, with source and model tags.",
+   "sha256": "ce7a9428f5ea9757"
+  },
+  {
+   "file": "assets/maps/landslide-susceptibility/landslide_susceptibility_map.png",
+   "bytes": 1219277,
+   "mb": 1.163,
+   "gzipped": false,
+   "features": null,
+   "title": "Landslide susceptibility of Hong Kong - finalised map",
+   "dataset_id": "",
+   "records": "",
+   "notes": "XGBoost on 200 m cells, terrain + land cover + weathering-susceptibility predictors, 5-fold spatial blocked CV (5 km blocks), ROC-AUC 0.882. Five equal-area quintiles of the model score.",
+   "sha256": "c9eaf250a19b2607"
+  },
+  {
+   "file": "apps/landslide-susceptibility/data/susceptibility_grid.json",
+   "bytes": 440550,
+   "mb": 0.42,
+   "gzipped": false,
+   "features": null,
+   "title": "Susceptibility score grid (browser data)",
+   "dataset_id": "",
+   "records": "",
+   "notes": "76,320 cell scores in a flat array plus class statistics and the fitted HK1980<->WGS84 affine transform (max residual 0.48 mm over 64 km).",
+   "sha256": "2563e583bf2d646d"
+  },
+  {
+   "file": "apps/landslide-susceptibility/data/susceptibility_surface.png",
+   "bytes": 42007,
+   "mb": 0.04,
+   "gzipped": false,
+   "features": null,
+   "title": "Susceptibility class surface (browser overlay)",
+   "dataset_id": "",
+   "records": "",
+   "notes": "Transparent PNG of the five susceptibility classes, 4 px per cell, georeferenced to the grid bounds.",
+   "sha256": "b4201c1077ea56f5"
+  },
+  {
+   "file": "apps/landslide-susceptibility/data/landslide_points.png",
+   "bytes": 25005,
+   "mb": 0.024,
+   "gzipped": false,
+   "features": null,
+   "title": "Recorded landslide points overlay (browser)",
+   "dataset_id": "",
+   "records": "",
+   "notes": "All 124,020 recorded landslide points baked into a transparent PNG on the same pixel grid as the class surface.",
+   "sha256": "ff97426416851588"
+  },
+  {
+   "file": "assets/data/landslide/steep_slopes_over30.geojson.gz",
+   "bytes": 1484916,
+   "mb": 1.485,
+   "gzipped": true,
+   "features": 33231,
+   "title": "Steep slope polygons - ground steeper than 30 degrees",
+   "dataset_id": "",
+   "records": "33231",
+   "notes": "33,231 polygons of ground exceeding a 30 degree gradient, 113.29 km2 = 10.09% of Hong Kong's land area (1,122.26 km2). Slope is the MAXIMUM gradient within each 20 m cell (Horn's method) from the LandsD 5 m DTM, because 22,700 recorded incidents sit in cells whose mean slope is under 30 degrees but whose max is over it. 8-connectivity, so corner-touching steep cells merge into one hillside. Area reconciliation error 0.0 m2, 0 invalid geometries. EPSG:2326 (HK1980).",
+   "sha256": "dca8396206ccf45d"
+  },
+  {
+   "file": "assets/data/landslide/slope_classes_20m.tif",
+   "bytes": 529318,
+   "mb": 0.529,
+   "gzipped": false,
+   "features": null,
+   "title": "Slope class raster (20 m)",
+   "dataset_id": "",
+   "records": "",
+   "notes": "Five classes: 1 = 0-15 deg, 2 = 15-30, 3 = 30-45, 4 = 45-60, 5 = 60+. 3187 x 2400 at 20 m, EPSG:2326 (HK1980). Class areas: 0-15 = 543.43 km2 (48.42% of land), 15-30 = 465.53 km2 (41.48%), 30-45 = 97.95 km2 (8.73%), 45-60 = 13.61 km2 (1.21%), 60+ = 1.73 km2 (0.15%).",
+   "sha256": "f31da6b0f924473c"
+  },
+  {
+   "file": "assets/data/landslide/slope_max_20m.tif",
+   "bytes": 3174387,
+   "mb": 3.174,
+   "gzipped": false,
+   "features": null,
+   "title": "Maximum slope raster (20 m)",
+   "dataset_id": "",
+   "records": "",
+   "notes": "Maximum gradient within each 20 m cell, degrees, from the LandsD 5 m DTM (Horn's method). 3187 x 2400 at 20 m, float32, EPSG:2326 (HK1980), nodata -9999.",
+   "sha256": "3cb9b9907bd1bc33"
+  },
+  {
+   "file": "assets/maps/landslide-susceptibility/steep_slopes_over30_map.png",
+   "bytes": 2186322,
+   "mb": 2.186,
+   "gzipped": false,
+   "features": null,
+   "title": "Steep slopes of Hong Kong - two-panel map",
+   "dataset_id": "",
+   "records": "",
+   "notes": "Panel A: five slope classes with 40,000 of the 124,020 recorded landslide incidents overprinted. Panel B: the >30 degree polygons alone over the gentler land, with the six largest regions labelled by area. Scale bar, north arrow and source line. Text overlap and off-canvas checks both pass at zero; a pixel probe confirms all five classes are rendered.",
+   "sha256": "247bf71afe93c07d"
+  },
+  {
+   "file": "assets/data/landslide/agol/steep_slopes_over30.zip",
+   "bytes": 4508635,
+   "mb": 4.509,
+   "gzipped": false,
+   "features": 33231,
+   "title": "Steep slope polygons - ArcGIS Online pack",
+   "dataset_id": "",
+   "records": "33231",
+   "notes": "Zipped shapefile of the 33,231 >30 degree polygons, EPSG:4326 (WGS84), with .shp/.shx/.dbf/.prj/.cpg in the zip root. This is the recommended upload: it carries its own .prj and the field names are documented in field_mapping.json (DBF names are capped at 10 characters).",
+   "sha256": "2f8908ab89fd1e65"
+  },
+  {
+   "file": "assets/data/landslide/agol/slope_classes.zip",
+   "bytes": 23894135,
+   "mb": 23.894,
+   "gzipped": false,
+   "features": 106874,
+   "title": "Slope class polygons - ArcGIS Online pack",
+   "dataset_id": "",
+   "records": "106874",
+   "notes": "Zipped shapefile of the 106,874 five-class slope polygons, EPSG:4326 (WGS84). AGOL returns 2,000 records per request by default - enable 'Allow >2000 features per request' on the source view or the layer draws only its first 2,000 features.",
+   "sha256": "7ad2306b02e612d1"
+  },
+  {
+   "file": "assets/data/landslide/agol/steep_slopes_over30_wgs84.geojson",
+   "bytes": 21123089,
+   "mb": 21.123,
+   "gzipped": false,
+   "features": 33231,
+   "title": "Steep slope polygons - GeoJSON with original field names",
+   "dataset_id": "",
+   "records": "33231",
+   "notes": "The same 33,231 polygons as GeoJSON in EPSG:4326, with the full field names (slope_mean_deg, slope_sd_deg, slope_max_deg) intact - no renaming needed after upload. No 'crs' member, per RFC 7946.",
+   "sha256": "09b6b65811ef3393"
+  },
+  {
+   "file": "assets/data/landslide/agol/hk_slopes_agol_both_layers.zip",
+   "bytes": 31885261,
+   "mb": 31.885,
+   "gzipped": false,
+   "features": null,
+   "title": "Both slope layers in one GeoPackage - ArcGIS Online pack",
+   "dataset_id": "",
+   "records": "both layers",
+   "notes": "A single GeoPackage containing both layers (steep_slopes_over30 33,231 features, slope_classes 106,874 features), EPSG:4326. Upload once to publish both as separate layers in one hosted item.",
+   "sha256": "0399413188d7f83a"
+  },
+  {
+   "file": "assets/data/landslide/agol/field_mapping.json",
+   "bytes": 1323,
+   "mb": 0.001,
+   "gzipped": false,
+   "features": null,
+   "title": "Field name mapping - shapefile to original",
+   "dataset_id": "",
+   "records": "",
+   "notes": "The shapefile .dbf field names are capped at 10 characters and were renamed on export (slope_mean_deg -> slp_mean, slope_class -> slope_cls, and so on). This maps every one back to its original name.",
+   "sha256": "ea495b4bd0c9d6c8"
+  },
+  {
+   "file": "assets/data/landslide/agol/AGOL_PUBLISH_GUIDE.md",
+   "bytes": 7852,
+   "mb": 0.008,
+   "gzipped": false,
+   "features": null,
+   "title": "ArcGIS Online publishing guide",
+   "dataset_id": "",
+   "records": "",
+   "notes": "Step-by-step recipe for students: download links, the CRS trap, the publishing steps, the field-name restoration table, the 2,000-record limit, styling, and the caveats to state in a write-up.",
+   "sha256": "cd5312034b0e37ff"
+  },
+  {
+   "file": "assets/data/camping/campsite_scores.geojson.gz",
+   "bytes": 4359,
+   "mb": 0.004,
+   "gzipped": true,
+   "features": 41,
+   "title": "Campsite scores for dark skies",
+   "dataset_id": "afcd_rcd_1635133060194_82554",
+   "records": "",
+   "notes": "41 AFCD country-park campsites scored for night-sky darkness (VIIRS DNB, median of 12 nights), access, facilities and open horizon. EPSG:4326, lon/lat.",
+   "sha256": "435888ec3e458d60"
+  },
+  {
+   "file": "assets/data/camping/night_lights_composite.tif",
+   "bytes": 4702184,
+   "mb": 4.702,
+   "gzipped": false,
+   "features": null,
+   "title": "VIIRS night lights over Hong Kong (12-night median)",
+   "dataset_id": "",
+   "records": "1807 x 2600",
+   "notes": "VIIRS Day/Night Band NOAA-21 from NASA GIBS, median of 12 nights 27 Oct - 7 Nov 2026. 8-bit display render, not calibrated radiance. EPSG:4326.",
+   "sha256": "b57cdacd0d5f7772"
+  },
+  {
+   "file": "assets/data/camping/campsite_scores.csv",
+   "bytes": 8973,
+   "mb": 0.009,
+   "gzipped": false,
+   "features": 41,
+   "title": "Campsite score table",
+   "dataset_id": "",
+   "records": "",
+   "notes": "All factors, the weighted score, and the single-night rank-shift robustness figure.",
+   "sha256": "ee84bd7a18efddfb"
+  },
+  {
+   "file": "assets/data/camping/campsite_scores_summary.json",
+   "bytes": 1790,
+   "mb": 0.002,
+   "gzipped": false,
+   "features": null,
+   "title": "Run statistics and robustness checks",
+   "dataset_id": "",
+   "records": "",
+   "notes": "Run statistics: night-lights range, top 10, rank shift vs a single night.",
+   "sha256": "973abf2066a7689e"
+  },
+  {
+   "file": "assets/maps/camping-sites/HK_camping_sites_dark_sky_map.png",
+   "bytes": 731618,
+   "mb": 0.732,
+   "gzipped": false,
+   "features": null,
+   "title": "Light pollution and country-park campsites",
+   "dataset_id": "",
+   "records": "",
+   "notes": "Two panels: VIIRS night lights over Hong Kong with all 41 campsites marked, and the 20 best campsites broken down by factor.",
+   "sha256": "1f14780120bd1966"
+  },
+  {
+   "name": "HK campsites ranked for dark skies \u2014 full methodology",
+   "file": "notes/hk-camping-dark-sky \u2014 METHODOLOGY.md",
+   "description": "Full method write-up for the campsite dark-sky study: the four GIBS traps, the four land-mask attempts that failed, scoring, results, limitations",
+   "format": "markdown",
+   "bytes": 14496,
+   "mb": 0.014,
+   "sha256": "270f19e394755d98"
+  },
+  {
+   "file": "assets/data/fishing-light/permitted_bright_light_fishing_areas.geojson.gz",
+   "description": "Areas in Hong Kong waters where bright-light fishing is permitted",
+   "source": "Marine Department via CSDI Portal",
+   "type": "vector",
+   "bytes": 922198,
+   "sha256": "5a97973d4c058527",
+   "mb": 0.922,
+   "features": 16
+  },
+  {
+   "file": "assets/data/fishing-light/fishing_operation_distribution.geojson.gz",
+   "description": "Distribution of fishing operations of local vessels by grid and vessel class",
+   "source": "AFCD via CSDI Portal",
+   "type": "vector",
+   "bytes": 825491,
+   "sha256": "4b989452446c7fa8",
+   "mb": 0.825,
+   "features": 356
+  },
+  {
+   "file": "assets/data/fishing-light/fishing_light_monthly.csv",
+   "description": "Monthly median excess of single-night bright cells in the permitted deep water, and the number of active nights per month",
+   "source": "derived",
+   "type": "table",
+   "bytes": 226,
+   "sha256": "ce53426ebb0ee4ab",
+   "mb": 0.0,
+   "records": 12
+  },
+  {
+   "file": "assets/data/fishing-light/nightly_measurements.csv.gz",
+   "description": "Per-night night-lights measurements 2012-2026: the bright-cell rate in the permitted deep water and in the control deep water, the within-night contrast, and the moon phase. Corrected analysis - deep water only, the LNG terminal and the Ma Liu Shui cable excluded",
+   "source": "NASA GIBS",
+   "type": "table",
+   "bytes": 8627,
+   "sha256": "34186af3ce843906",
+   "mb": 0.009,
+   "records": 693
+  },
+  {
+   "file": "notes/hk-fishing-light-seasonal \u2014 NOTES.md",
+   "description": "The study note, corrected: the fishing-light signal is episodic and clusters in the May-August moratorium window",
+   "source": "derived",
+   "type": "note",
+   "bytes": 19926,
+   "sha256": "2f2ae6936cbce448",
+   "mb": 0.02
+  },
+  {
+   "file": "assets/data/fishing-light/fishing_light_seasonal_CORRECTED.json",
+   "description": "Corrected fishing-light results: seasonal effect with a year-block confidence interval, vessel validation, per-area breakdown, active-night list and the full robustness sweep",
+   "source": "derived",
+   "type": "table",
+   "bytes": 13241,
+   "sha256": "70f51882a499d867",
+   "mb": 0.013,
+   "records": null
+  },
+  {
+   "file": "assets/data/fishing-light/fishing_light_active_nights.csv",
+   "description": "The 20 nights in 2012-2026 that carried the fishing-light signal, with the excess bright-cell count against the control water",
+   "source": "derived",
+   "type": "table",
+   "bytes": 406,
+   "sha256": "baa2837b32a39a2b",
+   "mb": 0.0,
+   "records": 20
+  },
+  {
+   "file": "assets/maps/fishing-light/HK_fishing_light_seasonal_map_CORRECTED.png",
+   "description": "The corrected four-panel figure: permitted areas and excluded structures, the active nights, the monthly profile and the headline statistics",
+   "source": "derived",
+   "type": "map",
+   "bytes": 367808,
+   "sha256": "561baf17bd963753",
+   "mb": 0.368
+  },
+  {
+   "file": "assets/data/flood/dsd_flood_prone_areas.geojson.gz",
+   "description": "The 267 official Hong Kong flood-prone locations from the Drainage Services Department's three lists (226 prone to blockage, 15 with drainage improvement works in progress, 26 coastal low-lying or windy residential areas), EPSG:4326",
+   "source": "Drainage Services Department",
+   "type": "vector",
+   "bytes": 10287,
+   "sha256": "0f25abb27795fce0",
+   "mb": 0.01,
+   "features": 267
+  },
+  {
+   "file": "assets/data/flood/flood_prone_areas_mechanism.geojson.gz",
+   "description": "The same 267 locations with the flood mechanism derived from the drainage network, the coastline and the 5 m terrain model: local drainage/blockage (185), channel backflow (48), coastal/tidal (32), low-lying ponding (2). Carries the distance and elevation evidence behind each classification, EPSG:4326",
+   "source": "derived from DSD, WSD, CEDD and LandsD",
+   "type": "vector",
+   "bytes": 17090,
+   "sha256": "715f1b8bf95d845f",
+   "mb": 0.017,
+   "features": 267
+  },
+  {
+   "file": "assets/data/flood/flood_prone_areas_mechanism.csv",
+   "description": "The derived mechanism table: one row per location with its mechanism, confidence, elevation, distance to the coast, to a major channel, to the nearest inlet, to the catchment edge, and the evidence sentence",
+   "source": "derived",
+   "type": "table",
+   "bytes": 67208,
+   "sha256": "38600bd7d8c6e3d3",
+   "mb": 0.067,
+   "records": 267
+  },
+  {
+   "file": "assets/maps/flood/HK_flood_mechanism_map.png",
+   "description": "The 267 flood-prone locations coloured by derived mechanism over the drainage network and coastline, with the mechanism counts and the cross-tab against DSD's own grouping",
+   "source": "derived",
+   "type": "map",
+   "bytes": 333787,
+   "sha256": "0ed44c08f5f46ad4",
+   "mb": 0.334
+  },
+  {
+   "file": "notes/hk-flood-prone-areas \u2014 NOTES.md",
+   "description": "The flood-prone-areas study note: the data recipe, the official lists, the derived mechanism method and its validation, the recommended index methodology, the assumptions and the validation block",
+   "source": "derived",
+   "type": "note",
+   "bytes": 19798,
+   "sha256": "7116935120b82705",
+   "mb": 0.02
+  },
+  {
+   "file": "assets/data/fishing-light/nightly_measurements.csv",
+   "description": "The same per-night table as plain CSV, for spreadsheet use",
+   "source": "NASA GIBS",
+   "type": "table",
+   "bytes": 35790,
+   "sha256": "a8787876e5bab1fd",
+   "mb": 0.036,
+   "records": 693
+  }
+ ],
+ "scripts": [
+  {
+   "file": "scripts/camping/fetch_nights.py",
+   "bytes": 9190,
+   "sha256": "0f01fb9491d91a75",
+   "description": "Fetch and validate the VIIRS night-lights nights. Rejects blank (all-zero) rasters by CONTENT, not by HTTP status, because GIBS returns 200 with an empty raster for unserved dates."
+  },
+  {
+   "file": "scripts/camping/score_campsites.py",
+   "bytes": 15663,
+   "sha256": "b3c5dc9f206403c6",
+   "description": "Score the 41 campsites on darkness, access, facilities and horizon. Asserts every factor is populated, no score is NaN, and that the access term yields more than 20 distinct values."
+  },
+  {
+   "file": "scripts/camping/make_camping_map.py",
+   "bytes": 22326,
+   "sha256": "70b80091f9c03277",
+   "description": "Build the two-panel figure. Checks text overlap and off-canvas text BEFORE saving, then verifies the rendered pixels over the bright city, the dark country and the dark sea each match the source raster value at that location."
+  },
+  {
+   "file": "scripts/camping/export_to_repo.py",
+   "bytes": 8239,
+   "sha256": "7f0f939313d5873b",
+   "description": "Copy the outputs into the repo layout and verify each shipped file."
+  },
+  {
+   "file": "scripts/camping/update_manifest_camping.py",
+   "bytes": 4569,
+   "sha256": "6040d9ae821b7a88",
+   "description": "Extend this manifest with the camping entries and verify every entry against the file on disk."
+  },
+  {
+   "file": "scripts/camping/fetch_coastline_osm.py",
+   "bytes": 6403,
+   "sha256": "9cdb21c7c016101b",
+   "description": "Fetch the OSM coastline via /map, with adaptive bbox splitting on HTTP 400 and backoff on HTTP 429. The coastline is an orientation overlay only - it is NOT used as a land mask."
+  },
+  {
+   "file": "scripts/camping/merge_coast_fragments.py",
+   "bytes": 4698,
+   "sha256": "04d3400dce0e34aa",
+   "description": "Merge the bbox-clipped coastline fragments into complete ways. Merging by way id instead of node sequence keeps only the last fragment of any way crossing a box boundary, which guts the coastline."
+  },
+  {
+   "file": "scripts/camping/land_mask_flood.py",
+   "bytes": 7187,
+   "sha256": "f7195ee8e4ff4098",
+   "description": "Flood-fill the land from the sea over a rasterised coastline. Kept for the record: it fails where the coastline is not closed, which is why the shipped map applies no land mask at all."
+  },
+  {
+   "file": "scripts/camping/update_manifest_scripts.py",
+   "bytes": 4988,
+   "sha256": "5917715858972dba",
+   "description": "Record the build scripts in this manifest and verify each one against the file on disk."
+  },
+  {
+   "file": "scripts/camping/verify_fresh_checkout.py",
+   "bytes": 3623,
+   "sha256": "3dc7ed8797f8e7d9",
+   "description": "Download the published script and its two inputs into a fresh temporary directory and run the build there with only the environment variables set. Proves the repo copy works off the author's machine, which is the thing a student actually needs."
+  },
+  {
+   "file": "scripts/fishing-light/fetch_seasonal.py",
+   "description": "Downloads the 693 nightly VIIRS rasters from NASA GIBS",
+   "source": "derived",
+   "type": "script",
+   "bytes": 18376,
+   "sha256": "977cea8ad5067db2",
+   "mb": 0.018
+  },
+  {
+   "file": "scripts/fishing-light/definitive_analysis.py",
+   "description": "The main corrected analysis: land mask, distance control, structure exclusion, within-night contrast, seasonal double difference, vessel validation and the per-area breakdown",
+   "source": "derived",
+   "type": "script",
+   "bytes": 12749,
+   "sha256": "54d3387b4d8f8407",
+   "mb": 0.013
+  },
+  {
+   "file": "scripts/fishing-light/final_summary.py",
+   "description": "The active-night list and the spatial description of the largest night",
+   "source": "derived",
+   "type": "script",
+   "bytes": 8555,
+   "sha256": "5d3203487005d9d6",
+   "mb": 0.009
+  },
+  {
+   "file": "scripts/fishing-light/robustness.py",
+   "description": "Leave-one-year-out, leave-one-night-out and threshold sensitivity",
+   "source": "derived",
+   "type": "script",
+   "bytes": 8347,
+   "sha256": "cbe608f64c37c322",
+   "mb": 0.008
+  },
+  {
+   "file": "scripts/fishing-light/check_2023_break.py",
+   "description": "Tests whether the GIBS product changed around 2023",
+   "source": "derived",
+   "type": "script",
+   "bytes": 5579,
+   "sha256": "7f8ad79cbe260ba9",
+   "mb": 0.006
+  },
+  {
+   "file": "scripts/fishing-light/persistence_test.py",
+   "description": "Separates fixed structures from moving boats by nights-per-cell",
+   "source": "derived",
+   "type": "script",
+   "bytes": 5213,
+   "sha256": "2d0a7add89ea48ba",
+   "mb": 0.005
+  },
+  {
+   "file": "scripts/fishing-light/moon_phase_test.py",
+   "description": "The dark-moon test on the transient bright cells",
+   "source": "derived",
+   "type": "script",
+   "bytes": 7228,
+   "sha256": "d89d5496372d0a1d",
+   "mb": 0.007
+  },
+  {
+   "file": "scripts/fishing-light/make_corrected_map.py",
+   "description": "Builds the corrected four-panel figure",
+   "source": "derived",
+   "type": "script",
+   "bytes": 14257,
+   "sha256": "4877812cfea79ceb",
+   "mb": 0.014
+  },
+  {
+   "file": "scripts/fishing-light/gate_corrected_map.py",
+   "description": "The figure gate: text overlap, off-canvas and pixel probes",
+   "source": "derived",
+   "type": "script",
+   "bytes": 6243,
+   "sha256": "a6d39285f0fefde0",
+   "mb": 0.006
+  },
+  {
+   "file": "scripts/flood/derive_mechanism_v2.py",
+   "description": "Derives the flood mechanism for all 267 locations from the coastline, the 5 m DTM, the drainage network and the catchments",
+   "source": "derived",
+   "type": "script",
+   "bytes": 14506,
+   "sha256": "9504cd62eb365abb",
+   "mb": 0.015
+  },
+  {
+   "file": "scripts/flood/make_mechanism_map.py",
+   "description": "Builds the flood-mechanism figure",
+   "source": "derived",
+   "type": "script",
+   "bytes": 10268,
+   "sha256": "4176f3b67d9218e8",
+   "mb": 0.01
+  },
+  {
+   "file": "scripts/flood/gate_mechanism_map.py",
+   "description": "The figure gate: text overlap, off-canvas and pixel probes",
+   "source": "derived",
+   "type": "script",
+   "bytes": 3904,
+   "sha256": "2c5ab4f4c6383a49",
+   "mb": 0.004
+  },
+  {
+   "file": "scripts/flood/fetch_support.sh",
+   "description": "Fetches the supporting DSD, WSD and CEDD layers with pagination and asserted final counts",
+   "source": "derived",
+   "type": "script",
+   "bytes": 2602,
+   "sha256": "f2ac601add13d725",
+   "mb": 0.003
+  },
+  {
+   "file": "scripts/flood/verify_against_pdf.py",
+   "description": "Cross-checks the 226 scraped blockage titles against DSD's own published PDF",
+   "source": "derived",
+   "type": "script",
+   "bytes": 2540,
+   "sha256": "bc9740ead3111f80",
+   "mb": 0.003
+  },
+  {
+   "file": "scripts/flood/make_overview_map.py",
+   "description": "Builds the flood-prone-areas overview map",
+   "source": "derived",
+   "type": "script",
+   "bytes": 8352,
+   "sha256": "ab8e61862e7cfc2c",
+   "mb": 0.008
+  },
+  {
+   "file": "scripts/fishing-light/variance_and_averaging.py",
+   "description": "The variance decomposition: how much of the night-to-night swing is nuisance, and a comparison of four ways to average it",
+   "source": "derived",
+   "type": "script",
+   "bytes": 9824,
+   "sha256": "58e7603de9eb27eb",
+   "mb": 0.01
+  },
+  {
+   "file": "scripts/refresh_manifest_scripts.py",
+   "bytes": 2604,
+   "sha256": "9130c8b1ce8a3381",
+   "description": "Refresh the scripts section of MANIFEST.json after a cross-cutting code change: updates bytes and sha256 for every script entry, and checks that the files section holds no code"
+  }
+ ]
 }
