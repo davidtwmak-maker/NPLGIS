@@ -74,15 +74,16 @@
           <article class="card">
             <h3>Fishing lights and the stargazing season</h3>
             <p>
-              Fifteen years of VIIRS night-time satellite data over the 16 areas where
-              bright-light fishing is permitted in Hong Kong waters. The fishing areas
-              brighten from June and peak in September, so the darkest skies in the
-              east and south come in March and April — not during the summer
-              fishing moratorium, which moves the fleets in rather than away.
+              Fifteen years of VIIRS night-time satellite data (693 nights, 2012–2026)
+              over the 16 areas where bright-light fishing is permitted in Hong Kong
+              waters. The signal is <strong>episodic, not a monthly curve</strong>:
+              only about two nights a year carry a fleet, and 13 of the 20 such nights
+              fell in the May–August moratorium window. February, March, November and
+              December had none in fifteen years.
             </p>
             <p class="meta">
               VIIRS DNB (SNPP, 693 nights, 2012–2026) · Marine Department permitted
-              areas · AFCD fishing-operation grids
+              areas · AFCD fishing-operation grids · corrected 2026-11-09
             </p>
             <p><a href="#maps">See the map ↓</a></p>
           </article>
@@ -141,11 +142,11 @@
         <p class="section-lede">All rendered output, full resolution.</p>
         <div class="map-grid">
           <figure>
-            <a href="./assets/maps/fishing-light/HK_fishing_light_seasonal_map.png">
-              <img src="./assets/maps/fishing-light/HK_fishing_light_seasonal_map.png"
-                   alt="Three panels on fishing lights in Hong Kong: a difference map of night-sky brightness between May-August and September-April with the 16 permitted bright-light fishing areas outlined, a map of the absolute night-lights level, and a line chart of the monthly fishing-light signal with the lowest point in April and the highest in September" loading="lazy" />
+            <a href="./assets/maps/fishing-light/HK_fishing_light_seasonal_map_CORRECTED.png">
+              <img src="./assets/maps/fishing-light/HK_fishing_light_seasonal_map_CORRECTED.png"
+                   alt="Four panels on fishing lights in Hong Kong: a map of the 16 permitted bright-light fishing areas with numbered markers for excluded fixed structures, a horizontal bar chart of the nights that carried the fishing-light signal, a monthly chart of the median excess bright cells, and a panel of headline statistics" loading="lazy" />
             </a>
-            <figcaption><strong>Fishing lights and the stargazing season</strong> — 15 years of VIIRS night lights, 693 nights</figcaption>
+            <figcaption><strong>Fishing lights and the stargazing season</strong> — 15 years of VIIRS night lights, 693 nights <em>(corrected analysis)</em></figcaption>
           </figure>
           <figure>
             <a href="./assets/maps/camping-sites/HK_camping_sites_dark_sky_map.png">
@@ -236,19 +237,19 @@
                 <td>Distribution of fishing operations of local vessels by grid and vessel class. AFCD, EPSG:4326</td>
               </tr>
               <tr>
-                <td><code>assets/data/fishing-light/night_lights_may_aug.tif</code></td>
-                <td>1200 × 840</td>
-                <td>Mean VIIRS night-lights value over May–Aug, 2012–2026. NASA GIBS, EPSG:4326</td>
+                <td><code>assets/data/fishing-light/fishing_light_seasonal_CORRECTED.json</code></td>
+                <td>693 nights</td>
+                <td>Corrected results: seasonal effect with a year-block CI, vessel validation, per-area breakdown and the active-night list. Supersedes the first version of this study</td>
               </tr>
               <tr>
-                <td><code>assets/data/fishing-light/night_lights_change_may_minus_sep.tif</code></td>
-                <td>1200 × 840</td>
-                <td>May–Aug minus Sep–Apr change per cell, the difference map behind the seasonal finding</td>
+                <td><code>assets/data/fishing-light/fishing_light_active_nights.csv</code></td>
+                <td>20</td>
+                <td>The nights that carried the fishing-light signal, with the excess bright-cell count against the control water</td>
               </tr>
               <tr>
                 <td><code>assets/data/fishing-light/fishing_light_monthly.csv</code></td>
                 <td>12</td>
-                <td>Monthly fishing-light signal for Hong Kong — the recommendation table</td>
+                <td>Monthly median excess of single-night bright cells in the permitted deep water, and the number of active nights per month</td>
               </tr>
               <tr>
                 <td><code>assets/data/fishing-light/nightly_measurements.csv.gz</code></td>

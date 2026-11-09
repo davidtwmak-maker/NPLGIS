@@ -1,0 +1,565 @@
+{
+  "title": "Fishing lights and the Hong Kong stargazing season (CORRECTED)",
+  "supersedes": "the first version published 2026-11-09, which used a broken land mask and an uncontrolled comparison",
+  "method": "deep water >=3 km from land; LNG terminal and Ma Liu Shui cable excluded; within-night contrast vs control deep water; May-Aug minus Sep-Apr; year-block bootstrap",
+  "n_nights": 693,
+  "headline": {
+    "seasonal_excess_pp": 0.3121599884682158,
+    "ci_pp": [
+      0.0893928331173274,
+      0.6156257612992599
+    ],
+    "p": 0.001,
+    "years_positive": 10,
+    "n_years": 15,
+    "leave_2018_out_pp": null,
+    "n_active_nights": 20,
+    "n_active_in_moratorium": 13,
+    "months_with_active_night": [
+      1,
+      4,
+      5,
+      6,
+      7,
+      9,
+      10
+    ],
+    "per_year": {
+      "2012": -0.005624403748655971,
+      "2013": 0.2458029283412206,
+      "2014": 0.2060160953834798,
+      "2015": 0.21869518671999982,
+      "2016": 0.06384968128327927,
+      "2017": -0.31763595207763773,
+      "2018": 2.0815457579330947,
+      "2019": 0.5160355923651421,
+      "2020": 0.36397152774909564,
+      "2021": 0.4361892862090754,
+      "2022": -0.018424643076263958,
+      "2023": 0.33266292236742523,
+      "2024": 0.6653870385971388,
+      "2025": -0.027867772315898626,
+      "2026": -0.07820341870725842
+    }
+  },
+  "vessel_validation": {
+    "permitted_cells": 11397,
+    "permitted_lit_once": 5122,
+    "permitted_lit_once_pct": 44.94165131174871,
+    "control_lit_once_pct": 49.278093470949784,
+    "moon_median_permitted": 33.44545310784939,
+    "moon_median_control": 55.49376576193269,
+    "moon_median_all_nights": 51.13420109622242,
+    "permitted_by_month": {
+      "1": 302,
+      "2": 6,
+      "4": 570,
+      "5": 1301,
+      "6": 163,
+      "7": 2400,
+      "8": 42,
+      "9": 201,
+      "10": 128,
+      "12": 9
+    },
+    "control_by_month": {
+      "1": 1254,
+      "2": 72,
+      "3": 2385,
+      "4": 1681,
+      "5": 6002,
+      "6": 1733,
+      "7": 2078,
+      "8": 336,
+      "9": 240,
+      "10": 262,
+      "11": 391,
+      "12": 563
+    },
+    "may_aug_share_permitted": 0.7625927372120266,
+    "may_aug_share_control": 0.5971053715361534
+  },
+  "monthly_median_pp": {
+    "1": -0.13278700402980878,
+    "2": -0.12294202477139367,
+    "3": -0.30010185574096604,
+    "4": 0.013659095324369925,
+    "5": 0.12409100620318898,
+    "6": 0.004179723746013266,
+    "7": 0.6409332619871907,
+    "8": -0.054782324979172285,
+    "9": -0.030771141146863967,
+    "10": -0.13915066692291092,
+    "11": -0.20469982824998287,
+    "12": -0.2862197063562653
+  },
+  "per_area": [
+    {
+      "name": "The Soko Islands and West Lamma Channel",
+      "n": 6945,
+      "mean": 0.3162902287221901,
+      "ci": [
+        -0.02874209855581215,
+        0.7739371453957241
+      ],
+      "p": 0.082,
+      "years": 15,
+      "pos": 11
+    },
+    {
+      "name": "Mirs Bay, Tolo Harbour and Port Shelter",
+      "n": 9597,
+      "mean": 0.3091710837517573,
+      "ci": [
+        0.1345517547950589,
+        0.5329156490162995
+      ],
+      "p": 0.0,
+      "years": 15,
+      "pos": 13
+    }
+  ],
+  "active_nights": [
+    {
+      "date": "2018-05-21",
+      "month": 5,
+      "moon_pct": 33.44545310784939,
+      "excess": 809,
+      "perm_vessel": 809,
+      "ctrl_vessel": 0,
+      "perm_all_bright": 2077
+    },
+    {
+      "date": "2018-07-21",
+      "month": 7,
+      "moon_pct": 53.74953836818178,
+      "excess": 484,
+      "perm_vessel": 484,
+      "ctrl_vessel": 0,
+      "perm_all_bright": 2029
+    },
+    {
+      "date": "2024-07-05",
+      "month": 7,
+      "moon_pct": 2.6197212365028086,
+      "excess": 460,
+      "perm_vessel": 964,
+      "ctrl_vessel": 504,
+      "perm_all_bright": 1687
+    },
+    {
+      "date": "2021-04-21",
+      "month": 4,
+      "moon_pct": 63.78484986001249,
+      "excess": 251,
+      "perm_vessel": 251,
+      "ctrl_vessel": 0,
+      "perm_all_bright": 316
+    },
+    {
+      "date": "2020-07-28",
+      "month": 7,
+      "moon_pct": 50.93678605684773,
+      "excess": 231,
+      "perm_vessel": 231,
+      "ctrl_vessel": 0,
+      "perm_all_bright": 231
+    },
+    {
+      "date": "2025-05-21",
+      "month": 5,
+      "moon_pct": 39.254293810351335,
+      "excess": 231,
+      "perm_vessel": 231,
+      "ctrl_vessel": 0,
+      "perm_all_bright": 231
+    },
+    {
+      "date": "2017-01-05",
+      "month": 1,
+      "moon_pct": 43.9928875553439,
+      "excess": 182,
+      "perm_vessel": 182,
+      "ctrl_vessel": 0,
+      "perm_all_bright": 1220
+    },
+    {
+      "date": "2012-04-21",
+      "month": 4,
+      "moon_pct": 0.18941377511895174,
+      "excess": 156,
+      "perm_vessel": 156,
+      "ctrl_vessel": 0,
+      "perm_all_bright": 156
+    },
+    {
+      "date": "2017-01-21",
+      "month": 1,
+      "moon_pct": 42.91029738258542,
+      "excess": 120,
+      "perm_vessel": 120,
+      "ctrl_vessel": 0,
+      "perm_all_bright": 629
+    },
+    {
+      "date": "2019-06-05",
+      "month": 6,
+      "moon_pct": 4.02594504142208,
+      "excess": 117,
+      "perm_vessel": 117,
+      "ctrl_vessel": 0,
+      "perm_all_bright": 843
+    },
+    {
+      "date": "2018-05-28",
+      "month": 5,
+      "moon_pct": 95.67735788131746,
+      "excess": 112,
+      "perm_vessel": 112,
+      "ctrl_vessel": 0,
+      "perm_all_bright": 280
+    },
+    {
+      "date": "2023-07-05",
+      "month": 7,
+      "moon_pct": 97.11556548840507,
+      "excess": 106,
+      "perm_vessel": 258,
+      "ctrl_vessel": 152,
+      "perm_all_bright": 1291
+    },
+    {
+      "date": "2019-07-28",
+      "month": 7,
+      "moon_pct": 18.358406252021148,
+      "excess": 87,
+      "perm_vessel": 87,
+      "ctrl_vessel": 0,
+      "perm_all_bright": 783
+    },
+    {
+      "date": "2016-10-05",
+      "month": 10,
+      "moon_pct": 12.581585554109049,
+      "excess": 64,
+      "perm_vessel": 64,
+      "ctrl_vessel": 0,
+      "perm_all_bright": 254
+    },
+    {
+      "date": "2019-10-21",
+      "month": 10,
+      "moon_pct": 53.946410139597276,
+      "excess": 64,
+      "perm_vessel": 64,
+      "ctrl_vessel": 0,
+      "perm_all_bright": 64
+    },
+    {
+      "date": "2020-07-13",
+      "month": 7,
+      "moon_pct": 51.55980612703721,
+      "excess": 63,
+      "perm_vessel": 63,
+      "ctrl_vessel": 0,
+      "perm_all_bright": 63
+    },
+    {
+      "date": "2025-09-13",
+      "month": 9,
+      "moon_pct": 71.64627404966808,
+      "excess": 52,
+      "perm_vessel": 164,
+      "ctrl_vessel": 112,
+      "perm_all_bright": 548
+    },
+    {
+      "date": "2021-05-21",
+      "month": 5,
+      "moon_pct": 68.50844038746395,
+      "excess": 49,
+      "perm_vessel": 49,
+      "ctrl_vessel": 0,
+      "perm_all_bright": 247
+    },
+    {
+      "date": "2024-06-21",
+      "month": 6,
+      "moon_pct": 99.34282586128835,
+      "excess": 46,
+      "perm_vessel": 46,
+      "ctrl_vessel": 0,
+      "perm_all_bright": 109
+    },
+    {
+      "date": "2020-05-05",
+      "month": 5,
+      "moon_pct": 91.9575685461772,
+      "excess": 24,
+      "perm_vessel": 24,
+      "ctrl_vessel": 0,
+      "perm_all_bright": 31
+    }
+  ],
+  "robustness": {
+    "leave_one_year_out": {
+      "2012": {
+        "estimate_pp": 0.33485887362656375,
+        "ci_pp": [
+          0.10058011555127143,
+          0.6684328329568656
+        ],
+        "p": 0.0025
+      },
+      "2013": {
+        "estimate_pp": 0.31689977847728684,
+        "ci_pp": [
+          0.07973059656998051,
+          0.6581095342972597
+        ],
+        "p": 0.0045
+      },
+      "2014": {
+        "estimate_pp": 0.31974169511712547,
+        "ci_pp": [
+          0.08214301496464957,
+          0.6591888090555142
+        ],
+        "p": 0.0035
+      },
+      "2015": {
+        "estimate_pp": 0.3188360457359455,
+        "ci_pp": [
+          0.08123736558346957,
+          0.6591888090555142
+        ],
+        "p": 0.004
+      },
+      "2016": {
+        "estimate_pp": 0.3298964389814255,
+        "ci_pp": [
+          0.09253186319102588,
+          0.6669732712584729
+        ],
+        "p": 0.003
+      },
+      "2017": {
+        "estimate_pp": 0.3571454127929196,
+        "ci_pp": [
+          0.14013484154721423,
+          0.6814231027630702
+        ],
+        "p": 0.0
+      },
+      "2018": {
+        "estimate_pp": 0.18577529064929585,
+        "ci_pp": [
+          0.04947824308117868,
+          0.3197073765700876
+        ],
+        "p": 0.0085
+      },
+      "2019": {
+        "estimate_pp": 0.29759744533272103,
+        "ci_pp": [
+          0.0644391263111882,
+          0.6106426387197159
+        ],
+        "p": 0.0065
+      },
+      "2020": {
+        "estimate_pp": 0.3084591642338672,
+        "ci_pp": [
+          0.07120168088347102,
+          0.6191365176929079
+        ],
+        "p": 0.005
+      },
+      "2021": {
+        "estimate_pp": 0.30330075291529723,
+        "ci_pp": [
+          0.06871068896732963,
+          0.6162321831822771
+        ],
+        "p": 0.0055
+      },
+      "2022": {
+        "estimate_pp": 0.3357731764356786,
+        "ci_pp": [
+          0.09896292205793307,
+          0.6510671618858785
+        ],
+        "p": 0.002
+      },
+      "2023": {
+        "estimate_pp": 0.3106954931897008,
+        "ci_pp": [
+          0.0767454713721184,
+          0.6356028850870296
+        ],
+        "p": 0.0045
+      },
+      "2024": {
+        "estimate_pp": 0.2869294848875784,
+        "ci_pp": [
+          0.06263731173314632,
+          0.6038287472397627
+        ],
+        "p": 0.006
+      },
+      "2025": {
+        "estimate_pp": 0.3364476856670811,
+        "ci_pp": [
+          0.10209343660403843,
+          0.6549632854084606
+        ],
+        "p": 0.001
+      },
+      "2026": {
+        "estimate_pp": 0.34004308898074964,
+        "ci_pp": [
+          0.10730603744806926,
+          0.6595896556836722
+        ],
+        "p": 0.001
+      }
+    },
+    "leave_one_night_out": [
+      {
+        "n_dropped": 1,
+        "estimate_pp": 0.2667639560792246,
+        "ci_pp": [
+          0.08773621591215307,
+          0.47929213424015044
+        ],
+        "p": 0.001,
+        "years_positive": 10,
+        "n_years": 15
+      },
+      {
+        "n_dropped": 3,
+        "estimate_pp": 0.16987000729567614,
+        "ci_pp": [
+          0.04446408563924554,
+          0.2989564017232343
+        ],
+        "p": 0.0075,
+        "years_positive": 9,
+        "n_years": 15
+      },
+      {
+        "n_dropped": 5,
+        "estimate_pp": 0.1524001042568549,
+        "ci_pp": [
+          0.03734532855471937,
+          0.27843161446481945
+        ],
+        "p": 0.0065,
+        "years_positive": 8,
+        "n_years": 15
+      },
+      {
+        "n_dropped": 10,
+        "estimate_pp": 0.11831634146973957,
+        "ci_pp": [
+          0.020612730064558347,
+          0.22756110939702814
+        ],
+        "p": 0.0175,
+        "years_positive": 8,
+        "n_years": 15
+      }
+    ],
+    "threshold_sensitivity": [
+      {
+        "threshold": 80,
+        "estimate_pp": 0.4713958157427584,
+        "ci_pp": [
+          -0.1093465221275175,
+          1.0602873517275067
+        ],
+        "p": 0.1135,
+        "years_positive": 11,
+        "n_years": 15
+      },
+      {
+        "threshold": 100,
+        "estimate_pp": 0.3317545639270195,
+        "ci_pp": [
+          -0.14466307307599593,
+          0.8663572431300793
+        ],
+        "p": 0.182,
+        "years_positive": 8,
+        "n_years": 15
+      },
+      {
+        "threshold": 120,
+        "estimate_pp": 0.4314348649266175,
+        "ci_pp": [
+          0.10276221374106531,
+          0.8566362509224478
+        ],
+        "p": 0.0025,
+        "years_positive": 10,
+        "n_years": 15
+      },
+      {
+        "threshold": 140,
+        "estimate_pp": 0.3121599884682158,
+        "ci_pp": [
+          0.0893928331173274,
+          0.6156257612992599
+        ],
+        "p": 0.001,
+        "years_positive": 10,
+        "n_years": 15
+      },
+      {
+        "threshold": 160,
+        "estimate_pp": 0.21863658053992016,
+        "ci_pp": [
+          0.021265051960046605,
+          0.4963744623610706
+        ],
+        "p": 0.0195,
+        "years_positive": 11,
+        "n_years": 15
+      },
+      {
+        "threshold": 180,
+        "estimate_pp": 0.14899899629302288,
+        "ci_pp": [
+          0.0011562454422297727,
+          0.3550708025763193
+        ],
+        "p": 0.048,
+        "years_positive": 10,
+        "n_years": 15
+      }
+    ],
+    "median_monthly_relative_to_april": {
+      "1": -0.1574679775941087,
+      "2": -0.06345724470210348,
+      "3": -0.0853930823769047,
+      "4": 0.0,
+      "5": 0.00235026832230013,
+      "6": -0.03760429315680207,
+      "7": 0.011751341611500645,
+      "8": -0.07050804966900387,
+      "9": -0.19507227075091071,
+      "10": -0.20878216929766147,
+      "11": -0.2201417995221121,
+      "12": -0.17470327862430962
+    }
+  },
+  "limitations": [
+    "GIBS serves an 8-bit display render, not calibrated radiance",
+    "the 750 m native product is upsampled to ~63 m",
+    "GIBS duplicates one night in 8 server-side (2 of 693 nights)",
+    "satellite overpasses are ~13:30 local, not a full-night observation",
+    "vessels are assumed to stay inside the permitted areas",
+    "a change in mainland vessel routing would produce the same signature",
+    "20 active nights is a small sample"
+  ]
+}

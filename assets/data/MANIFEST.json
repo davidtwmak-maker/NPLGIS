@@ -149,6 +149,18 @@
    "id": "VIIRS_SNPP_GapFilled_BRDF_Corrected_DayNightBand_Radiance",
    "provider": "NASA Global Imagery Browse Services",
    "url": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi"
+  },
+  {
+   "name": "VIIRS Day/Night Band (SNPP), gap-filled BRDF-corrected, NASA GIBS",
+   "id": "VIIRS_SNPP_GapFilled_BRDF_Corrected_DayNightBand_Radiance",
+   "provider": "NASA Global Imagery Browse Services",
+   "url": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi"
+  },
+  {
+   "name": "VIIRS Day/Night Band (SNPP), gap-filled BRDF-corrected, NASA GIBS",
+   "id": "VIIRS_SNPP_GapFilled_BRDF_Corrected_DayNightBand_Radiance",
+   "provider": "NASA Global Imagery Browse Services",
+   "url": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi"
   }
  ],
  "files": [
@@ -1015,99 +1027,81 @@
   },
   {
    "file": "assets/data/fishing-light/permitted_bright_light_fishing_areas.geojson.gz",
-   "description": "The 16 areas in Hong Kong waters where bright-light fishing is permitted",
-   "bytes": 922198,
-   "mb": 0.922,
-   "sha256": "5a97973d4c058527",
-   "features": 16,
+   "description": "Areas in Hong Kong waters where bright-light fishing is permitted",
    "source": "Marine Department via CSDI Portal",
-   "format": "GeoJSON (gzip)"
+   "type": "vector",
+   "bytes": 922198,
+   "sha256": "5a97973d4c058527",
+   "mb": 0.922,
+   "features": 16
   },
   {
    "file": "assets/data/fishing-light/fishing_operation_distribution.geojson.gz",
-   "description": "Distribution of fishing operations of local vessels in HK waters, by grid and vessel class",
-   "bytes": 825491,
-   "mb": 0.825,
-   "sha256": "4b989452446c7fa8",
-   "features": 356,
+   "description": "Distribution of fishing operations of local vessels by grid and vessel class",
    "source": "AFCD via CSDI Portal",
-   "format": "GeoJSON (gzip)"
-  },
-  {
-   "file": "assets/data/fishing-light/night_lights_may_aug.tif",
-   "description": "Mean VIIRS night-lights value over the May-Aug window, 2012-2026",
-   "bytes": 603433,
-   "mb": 0.603,
-   "sha256": "d431e1ddb4f75ecf",
-   "source": "NASA GIBS VIIRS Day/Night Band (SNPP)",
-   "format": "GeoTIFF"
-  },
-  {
-   "file": "assets/data/fishing-light/night_lights_sep_apr.tif",
-   "description": "Mean VIIRS night-lights value over the Sep-Apr window, 2012-2026",
-   "bytes": 603392,
-   "mb": 0.603,
-   "sha256": "54644d0fc57762a3",
-   "source": "NASA GIBS VIIRS Day/Night Band (SNPP)",
-   "format": "GeoTIFF"
-  },
-  {
-   "file": "assets/data/fishing-light/night_lights_change_may_minus_sep.tif",
-   "description": "May-Aug minus Sep-Apr night-lights change, per cell",
-   "bytes": 675748,
-   "mb": 0.676,
-   "sha256": "9c569be6a0866b4f",
-   "source": "NASA GIBS VIIRS Day/Night Band (SNPP)",
-   "format": "GeoTIFF"
-  },
-  {
-   "file": "assets/data/fishing-light/permitted_areas_seasonal_change.geojson.gz",
-   "description": "Each permitted bright-light area with its seasonal change in night-sky brightness",
-   "bytes": 748,
-   "mb": 0.001,
-   "sha256": "64542f1bed70f223",
-   "features": 14,
-   "format": "GeoJSON (gzip)"
+   "type": "vector",
+   "bytes": 825491,
+   "sha256": "4b989452446c7fa8",
+   "mb": 0.825,
+   "features": 356
   },
   {
    "file": "assets/data/fishing-light/fishing_light_monthly.csv",
-   "description": "Monthly fishing-light signal for Hong Kong, 2012-2026 (the recommendation table)",
-   "bytes": 475,
+   "description": "Monthly median excess of single-night bright cells in the permitted deep water, and the number of active nights per month",
+   "source": "derived",
+   "type": "table",
+   "bytes": 226,
+   "sha256": "ce53426ebb0ee4ab",
    "mb": 0.0,
-   "sha256": "6d9ec2585214d92b",
-   "format": "CSV"
-  },
-  {
-   "file": "assets/data/fishing-light/fishing_light_seasonal.json",
-   "description": "Every result number from the study, machine-readable",
-   "bytes": 6266,
-   "mb": 0.006,
-   "sha256": "291ecc964f8d3fa1",
-   "format": "JSON"
+   "records": 12
   },
   {
    "file": "assets/data/fishing-light/nightly_measurements.csv.gz",
-   "description": "Per-night night-lights measurements for all 693 usable nights, 2012-2026",
+   "description": "Per-night night-lights measurements 2012-2026 with moon phase and the open-sea control",
+   "source": "NASA GIBS",
+   "type": "table",
    "bytes": 11675,
-   "mb": 0.012,
    "sha256": "b667b11f50c31c68",
-   "format": "CSV (gzip)"
-  },
-  {
-   "file": "assets/maps/fishing-light/HK_fishing_light_seasonal_map.png",
-   "description": "Figure: fishing lights and the Hong Kong stargazing season",
-   "bytes": 531050,
-   "mb": 0.531,
-   "sha256": "44418424430901db",
-   "format": "PNG"
+   "mb": 0.012,
+   "records": 693
   },
   {
    "file": "notes/hk-fishing-light-seasonal \u2014 NOTES.md",
-   "description": "The full study write-up: method, results, confounder checks and limitations",
-   "bytes": 12978,
+   "description": "The study note, corrected: the fishing-light signal is episodic and clusters in the May-August moratorium window",
+   "source": "derived",
+   "type": "note",
+   "bytes": 14439,
+   "sha256": "ce78b39a6481b831",
+   "mb": 0.014
+  },
+  {
+   "file": "assets/data/fishing-light/fishing_light_seasonal_CORRECTED.json",
+   "description": "Corrected fishing-light results: seasonal effect with a year-block confidence interval, vessel validation, per-area breakdown, active-night list and the full robustness sweep",
+   "source": "derived",
+   "type": "table",
+   "bytes": 13241,
+   "sha256": "70f51882a499d867",
    "mb": 0.013,
-   "sha256": "23f1742b008efecb",
-   "format": "Markdown"
+   "records": null
+  },
+  {
+   "file": "assets/data/fishing-light/fishing_light_active_nights.csv",
+   "description": "The 20 nights in 2012-2026 that carried the fishing-light signal, with the excess bright-cell count against the control water",
+   "source": "derived",
+   "type": "table",
+   "bytes": 406,
+   "sha256": "baa2837b32a39a2b",
+   "mb": 0.0,
+   "records": 20
+  },
+  {
+   "file": "assets/maps/fishing-light/HK_fishing_light_seasonal_map_CORRECTED.png",
+   "description": "The corrected four-panel figure: permitted areas and excluded structures, the active nights, the monthly profile and the headline statistics",
+   "source": "derived",
+   "type": "map",
+   "bytes": 367808,
+   "sha256": "561baf17bd963753",
+   "mb": 0.368
   }
  ],
  "scripts": [
@@ -1173,27 +1167,84 @@
   },
   {
    "file": "scripts/fishing-light/fetch_seasonal.py",
-   "description": "Build script: fetch_seasonal.py",
+   "description": "Downloads the 693 nightly VIIRS rasters from NASA GIBS",
+   "source": "derived",
+   "type": "script",
    "bytes": 16863,
-   "mb": 0.017,
    "sha256": "35caf183e13d469f",
-   "format": "Python"
+   "mb": 0.017
   },
   {
-   "file": "scripts/fishing-light/analyse_fishing_light.py",
-   "description": "Build script: analyse_fishing_light.py",
-   "bytes": 12837,
-   "mb": 0.013,
-   "sha256": "7b66b00b2b5120c5",
-   "format": "Python"
+   "file": "scripts/fishing-light/definitive_analysis.py",
+   "description": "The main corrected analysis: land mask, distance control, structure exclusion, within-night contrast, seasonal double difference, vessel validation and the per-area breakdown",
+   "source": "derived",
+   "type": "script",
+   "bytes": 12671,
+   "sha256": "6c39f801864e2cc1",
+   "mb": 0.013
   },
   {
-   "file": "scripts/fishing-light/make_fishing_light_map.py",
-   "description": "Build script: make_fishing_light_map.py",
-   "bytes": 11475,
-   "mb": 0.011,
-   "sha256": "2cd8aaf377064e09",
-   "format": "Python"
+   "file": "scripts/fishing-light/final_summary.py",
+   "description": "The active-night list and the spatial description of the largest night",
+   "source": "derived",
+   "type": "script",
+   "bytes": 8477,
+   "sha256": "a8e62597db654704",
+   "mb": 0.008
+  },
+  {
+   "file": "scripts/fishing-light/robustness.py",
+   "description": "Leave-one-year-out, leave-one-night-out and threshold sensitivity",
+   "source": "derived",
+   "type": "script",
+   "bytes": 8269,
+   "sha256": "34cf3d52ebfe4087",
+   "mb": 0.008
+  },
+  {
+   "file": "scripts/fishing-light/check_2023_break.py",
+   "description": "Tests whether the GIBS product changed around 2023",
+   "source": "derived",
+   "type": "script",
+   "bytes": 5501,
+   "sha256": "ad0a86c94474d035",
+   "mb": 0.006
+  },
+  {
+   "file": "scripts/fishing-light/persistence_test.py",
+   "description": "Separates fixed structures from moving boats by nights-per-cell",
+   "source": "derived",
+   "type": "script",
+   "bytes": 5135,
+   "sha256": "25e34646f35d5ed6",
+   "mb": 0.005
+  },
+  {
+   "file": "scripts/fishing-light/moon_phase_test.py",
+   "description": "The dark-moon test on the transient bright cells",
+   "source": "derived",
+   "type": "script",
+   "bytes": 7150,
+   "sha256": "bf9cad6d301bc01b",
+   "mb": 0.007
+  },
+  {
+   "file": "scripts/fishing-light/make_corrected_map.py",
+   "description": "Builds the corrected four-panel figure",
+   "source": "derived",
+   "type": "script",
+   "bytes": 14179,
+   "sha256": "4318ea2e033439ff",
+   "mb": 0.014
+  },
+  {
+   "file": "scripts/fishing-light/gate_corrected_map.py",
+   "description": "The figure gate: text overlap, off-canvas and pixel probes",
+   "source": "derived",
+   "type": "script",
+   "bytes": 6208,
+   "sha256": "2d7a5ed5c4310a42",
+   "mb": 0.006
   }
  ]
 }
