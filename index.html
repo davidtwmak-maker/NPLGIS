@@ -72,6 +72,26 @@
           </article>
 
           <article class="card">
+            <h3>Flash flood and storm surge: the two non-blockage mechanisms</h3>
+            <p>
+              Each of the 267 flood-prone locations scored for
+              <strong>flash flood</strong> (rainfall, terrain, drainage
+              capacity) and <strong>storm surge</strong> (elevation,
+              distance to the sea, wave climate, the 26 CEDD coastal-hazard
+              areas, nearby pumping stations), on eleven factors from
+              twenty-one named datasets. 215 are flash-flood dominated and
+              52 storm-surge dominated — but among the 26 coastal areas
+              <strong>19 flip to storm surge</strong>, and they sit a median
+              15 m from the sea at 5 m elevation.
+            </p>
+            <p class="meta">
+              GEO raingauge (1,126,191 rows, 1984–2026) · CEDD wave data
+              (376,191 hourly rows) · HKO tides · DSD drainage network ·
+              WSD catchments · LandsD DTM 5 m · CEDD Coastal Hazards Study
+            </p>
+            <p><a href="#maps">See the map →</a></p>
+          </article>
+          <article class="card">
             <h3>Flood-prone areas and the mechanism behind each</h3>
             <p>
               All 267 official Hong Kong flood-prone locations from the Drainage
@@ -172,6 +192,14 @@
                    alt="Map of Hong Kong with the 267 official flood-prone locations coloured by their derived flood mechanism — local drainage and blockage, channel backflow, coastal and tidal, or low-lying ponding — over the drainage network, with a bar chart of the mechanism counts and a stacked bar chart cross-tabulating the derived mechanism against DSD's own three lists" loading="lazy" />
             </a>
             <figcaption><strong>Flood-prone areas by derived mechanism</strong> — 267 DSD locations classified from the coastline, the 5 m DTM and the drainage network</figcaption>
+          </figure>
+          <figure>
+            <a href="./assets/maps/flood-causes/HK_flood_causes_map.png">
+              <img src="./assets/maps/flood-causes/HK_flood_causes_map.png"
+                   alt="Map of Hong Kong with the 267 official flood-prone locations coloured by their flash-flood exposure score and by their storm-surge exposure score, with a comparison table of the mean scores for each of DSD's three lists and a small map of which hazard dominates at each location"
+                   loading="lazy" />
+            </a>
+            <figcaption><strong>Causes of flooding: flash flood and storm surge</strong> — the same 267 locations scored on eleven factors, with the comparison against DSD's three lists</figcaption>
           </figure>
           <figure>
             <a href="./assets/maps/camping-sites/HK_camping_sites_dark_sky_map.png">
@@ -290,6 +318,16 @@
                 <td><code>assets/data/flood/flood_prone_areas_mechanism.geojson.gz</code></td>
                 <td>267</td>
                 <td>The same locations with the flood mechanism derived from the coastline, the 5 m terrain model, the drainage network and the catchments, with the evidence for each classification. EPSG:4326</td>
+              </tr>
+              <tr>
+                <td><code>assets/data/flood-causes/flood_hazard_factors.geojson.gz</code></td>
+                <td>267</td>
+                <td>The 267 flood-prone locations with the flash-flood and storm-surge exposure scores and every factor behind them: daily rainfall extreme at the nearest GEO gauge, elevation, slope, inlet count, distance to a channel and an outfall, distance to the sea, wave climate, tide station, the 26 CEDD coastal-hazard areas and the nearby pumping stations. Relative indices, not probabilities. EPSG:4326</td>
+              </tr>
+              <tr>
+                <td><code>assets/data/flood-causes/flood_hazard_factors.csv</code></td>
+                <td>267</td>
+                <td>The flash-flood and storm-surge factor table: every factor value, both scores and the dominant hazard for each location</td>
               </tr>
               <tr>
                 <td><code>assets/data/flood/flood_prone_areas_mechanism.csv</code></td>

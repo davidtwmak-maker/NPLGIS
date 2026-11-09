@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-05",
+ "generated": "2026-11-09",
  "repository": "davidtwmak-maker/NPLGIS",
  "note": "Every layer shipped in assets/data plus the Festival Walk 3D app data. Features counted from the file itself. Floor plate heights are schematic (5.5 m storey, 2x vertical exaggeration). The G floor is set to Tat Chee Avenue (達之路) at the junction where it meets the mall - 33.0 m measured from Esri WorldElevation3D Terrain3D - and the podium is a schematic foundation mass, not measured architectural heights. | 2026-11-05: added HK Steep Slopes >30 deg - 33,231 polygons of ground steeper than 30 degrees (113.29 km2 = 10.09% of land), the five-class slope raster at 20 m, the maximum-slope raster, and the two-panel map. Slope is the MAXIMUM gradient within each 20 m cell, not the mean: 22,700 recorded incidents sit in cells whose mean slope is under 30 degrees but whose max is over it, so a mean threshold would erase a fifth of the evidence. Area reconciliation error 0.0 m2, 0 invalid geometries. ",
  "sources": [
@@ -1238,6 +1238,53 @@
    "sha256": "a8787876e5bab1fd",
    "mb": 0.036,
    "records": 693
+  },
+  {
+   "file": "assets/data/flood-causes/flood_hazard_factors.geojson.gz",
+   "description": "The 267 flood-prone locations with the flash-flood and storm-surge exposure scores and every factor behind them: daily rainfall extreme at the nearest GEO gauge, elevation, slope, inlet count, distance to a channel and to an outfall, distance to the sea, wave climate, tide station, the 26 CEDD coastal-hazard areas and the nearby pumping stations, plus the dominant hazard. Scores are relative indices, not probabilities. EPSG:4326",
+   "source": "derived from DSD, CEDD, GEO, HKO, WSD, Marine Dept and LandsD",
+   "type": "vector",
+   "features": 267,
+   "bytes": 28566,
+   "sha256": "ad0c56c4800a6836",
+   "mb": 0.0286
+  },
+  {
+   "file": "assets/data/flood-causes/flood_hazard_factors.csv",
+   "description": "The flash-flood and storm-surge factor table: one row per location with every factor value, the two scores and the dominant hazard",
+   "source": "derived",
+   "type": "table",
+   "records": 267,
+   "bytes": 84832,
+   "sha256": "325791c605037905",
+   "mb": 0.0848
+  },
+  {
+   "file": "assets/data/flood-causes/factor_summary.json",
+   "description": "The summary of the flood-causes scoring: the score ranges, the dominant-hazard counts and the cross-tab against DSD's own three lists",
+   "source": "derived",
+   "type": "table",
+   "bytes": 884,
+   "sha256": "0247a91d187c8277",
+   "mb": 0.0009
+  },
+  {
+   "file": "assets/maps/flood-causes/HK_flood_causes_map.png",
+   "description": "Flash flood and storm surge at the 267 flood-prone areas: panel A the flash-flood score, panel B the storm-surge score, panel C the comparison table and the dominant hazard at each location",
+   "source": "derived",
+   "type": "map",
+   "bytes": 537933,
+   "sha256": "65413bd08b97f8ff",
+   "mb": 0.5379
+  },
+  {
+   "file": "notes/flood-causes — NOTES.md",
+   "description": "The flood-causes method note: the eleven flash-flood and storm-surge factors with their weights, the twenty-one source datasets with their CSDI IDs and counts, the results, the twelve data traps and the build gate",
+   "source": "derived",
+   "type": "note",
+   "bytes": 8846,
+   "sha256": "9df9dd3fad4a2f22",
+   "mb": 0.0088
   }
  ],
  "scripts": [
@@ -1471,6 +1518,69 @@
    "bytes": 8160,
    "sha256": "c1e0d639a63d779a",
    "description": "Reprojects the three landslide GeoJSON layers to EPSG:4326 and removes the crs member, cross-checked against the independently produced WGS 84 sibling and by an area reconciliation in EPSG:2326"
+  },
+  {
+   "file": "scripts/flood/fetch_flood_causes.py",
+   "description": "Fetches the 21 layers behind the flash-flood and storm-surge factors from the CSDI FeatureServers, paginated at 3,000 features per request",
+   "source": "derived",
+   "type": "script",
+   "bytes": 13200,
+   "sha256": "f1d75987cf8c22e2",
+   "mb": 0.0132
+  },
+  {
+   "file": "scripts/flood/fetch_rain_full.py",
+   "description": "Fetches the COMPLETE GEO raingauge daily record (1984-2026, 1,126,191 rows). The main fetch takes only 2020-onward to keep the download small, but that subset hides the territory's rainfall record",
+   "source": "derived",
+   "type": "script",
+   "bytes": 4157,
+   "sha256": "ba5cf0237dfe3a9f",
+   "mb": 0.0042
+  },
+  {
+   "file": "scripts/flood/merge_rain_locations.py",
+   "description": "Joins the complete rainfall record with the gauge coordinates: the full file has no geometry and its attributes sit under 'attributes', not 'properties'",
+   "source": "derived",
+   "type": "script",
+   "bytes": 3267,
+   "sha256": "de4d059df3a50ff8",
+   "mb": 0.0033
+  },
+  {
+   "file": "scripts/flood/derive_terrain_factors.py",
+   "description": "Horn 3x3 slope and D8 flow accumulation from the LandsD 5 m DTM, and the per-location terrain factors",
+   "source": "derived",
+   "type": "script",
+   "bytes": 9971,
+   "sha256": "5fc0f705c12332a1",
+   "mb": 0.01
+  },
+  {
+   "file": "scripts/flood/derive_flood_factors.py",
+   "description": "Scores the 267 locations on the six flash-flood and five storm-surge factors, with the weights stated in the method note",
+   "source": "derived",
+   "type": "script",
+   "bytes": 26321,
+   "sha256": "644f1e44b30d938f",
+   "mb": 0.0263
+  },
+  {
+   "file": "scripts/flood/make_flood_causes_map.py",
+   "description": "Builds the three-panel flood-causes figure",
+   "source": "derived",
+   "type": "script",
+   "bytes": 15867,
+   "sha256": "42f69317d9f90d60",
+   "mb": 0.0159
+  },
+  {
+   "file": "scripts/flood/gate_flood_causes_map.py",
+   "description": "The figure gate: text overlap, off-canvas text, marker-under-text, pixel probes on the saved PNG, and the panel C table checked against the source layer",
+   "source": "derived",
+   "type": "script",
+   "bytes": 11130,
+   "sha256": "f42465834ea36aaa",
+   "mb": 0.0111
   }
  ]
 }

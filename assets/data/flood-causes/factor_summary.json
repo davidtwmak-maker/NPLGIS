@@ -1,0 +1,47 @@
+{
+ "generated": "2026-11-09",
+ "flood_prone_areas": 267,
+ "flash_flood_score": {
+  "min": 0.2665,
+  "median": 0.4916,
+  "max": 0.6493
+ },
+ "storm_surge_score": {
+  "min": 0.0952,
+  "median": 0.35,
+  "max": 0.7977
+ },
+ "dominant_hazard_counts": {
+  "flash_flood": 215,
+  "storm_surge": 52
+ },
+ "by_dsd_list": {
+  "Coastal Low-lying or Windy Residential Areas": {
+   "n": 26,
+   "mean_flash_flood": 0.5439,
+   "mean_storm_surge": 0.6022,
+   "dominant": {
+    "storm_surge": 19,
+    "flash_flood": 7
+   }
+  },
+  "Drainage Improvement Works In Progress": {
+   "n": 15,
+   "mean_flash_flood": 0.4623,
+   "mean_storm_surge": 0.3685,
+   "dominant": {
+    "storm_surge": 4,
+    "flash_flood": 11
+   }
+  },
+  "Locations Prone to Blockage": {
+   "n": 226,
+   "mean_flash_flood": 0.4706,
+   "mean_storm_surge": 0.3427,
+   "dominant": {
+    "flash_flood": 197,
+    "storm_surge": 29
+   }
+  }
+ }
+}
