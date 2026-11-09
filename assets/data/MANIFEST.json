@@ -191,6 +191,12 @@
    "id": "landsd_Whole_HK_DTM_5m",
    "provider": "Lands and Survey Department",
    "url": "https://www.landsd.gov.hk/landsd_psi_data/SMO/data/Whole_HK_DTM_5m.zip"
+  },
+  {
+   "name": "VIIRS Day/Night Band (SNPP), gap-filled BRDF-corrected, NASA GIBS",
+   "id": "VIIRS_SNPP_GapFilled_BRDF_Corrected_DayNightBand_Radiance",
+   "provider": "NASA Global Imagery Browse Services",
+   "url": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi"
   }
  ],
  "files": [
@@ -1087,12 +1093,12 @@
   },
   {
    "file": "assets/data/fishing-light/nightly_measurements.csv.gz",
-   "description": "Per-night night-lights measurements 2012-2026 with moon phase and the open-sea control",
+   "description": "Per-night night-lights measurements 2012-2026: the bright-cell rate in the permitted deep water and in the control deep water, the within-night contrast, and the moon phase. Corrected analysis - deep water only, the LNG terminal and the Ma Liu Shui cable excluded",
    "source": "NASA GIBS",
    "type": "table",
-   "bytes": 11675,
-   "sha256": "b667b11f50c31c68",
-   "mb": 0.012,
+   "bytes": 8627,
+   "sha256": "34186af3ce843906",
+   "mb": 0.009,
    "records": 693
   },
   {
@@ -1100,9 +1106,9 @@
    "description": "The study note, corrected: the fishing-light signal is episodic and clusters in the May-August moratorium window",
    "source": "derived",
    "type": "note",
-   "bytes": 14439,
-   "sha256": "ce78b39a6481b831",
-   "mb": 0.014
+   "bytes": 18960,
+   "sha256": "d773f43d90dbe6f4",
+   "mb": 0.019
   },
   {
    "file": "assets/data/fishing-light/fishing_light_seasonal_CORRECTED.json",
@@ -1180,6 +1186,16 @@
    "bytes": 19798,
    "sha256": "7116935120b82705",
    "mb": 0.02
+  },
+  {
+   "file": "assets/data/fishing-light/nightly_measurements.csv",
+   "description": "The same per-night table as plain CSV, for spreadsheet use",
+   "source": "NASA GIBS",
+   "type": "table",
+   "bytes": 35790,
+   "sha256": "a8787876e5bab1fd",
+   "mb": 0.036,
+   "records": 693
   }
  ],
  "scripts": [
@@ -1377,6 +1393,15 @@
    "bytes": 8352,
    "sha256": "ab8e61862e7cfc2c",
    "mb": 0.008
+  },
+  {
+   "file": "scripts/fishing-light/variance_and_averaging.py",
+   "description": "The variance decomposition: how much of the night-to-night swing is nuisance, and a comparison of four ways to average it",
+   "source": "derived",
+   "type": "script",
+   "bytes": 9720,
+   "sha256": "426321de2a73e4e8",
+   "mb": 0.01
   }
  ]
 }

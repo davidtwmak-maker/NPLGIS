@@ -27,19 +27,24 @@ That creates a practical question for anyone planning a night outdoors in Hong K
 | Nights analysed | **693** (2012–2026) |
 | Nights that carried the signal | **20** — about 2 per year |
 | Of those 20, in May–August | **13** (65%) |
-| Months with any active night | January, April, May, June, July, September, October |
-| Months with **no** active night in 15 years | **February, March, November, December** |
+| Months with any active night | January (2), April (2), May (5), June (2), July (6), September (1), October (2) |
+| Months with **no** active night in 15 years | **February, March, August, November, December** |
 
 The seasonal effect is real but small and intermittent:
 
 | Statistic | Value |
 |---|---|
 | Seasonal excess of bright deep-water cells inside the permitted areas (May–Aug minus Sep–Apr) | **+0.31 percentage points** |
-| Year-block 95% confidence interval | **[+0.09, +0.62]**, p = 0.001 |
+| Year-block bootstrap 95% confidence interval | **[+0.09, +0.62]** |
+| Bootstrap p-value (resampling years) | 0.001 |
+| **Exact Wilcoxon signed-rank on the 15 per-year values** | **p < 0.0001** |
+| **Exact sign test (10 years positive, 5 negative)** | **p = 0.30** |
 | Years showing the effect | 10 of 15 |
-| Leave-one-year-out (smallest case, dropping 2018) | **+0.19 pp**, CI [+0.05, +0.32], p = 0.009 |
+| Leave-one-year-out (smallest case, dropping 2018) | **+0.19 pp**, CI [+0.05, +0.32], bootstrap p = 0.009 |
 | Leave-one-night-out (dropping the 10 most extreme nights) | **+0.12 pp**, CI [+0.02, +0.23], p = 0.018 |
 | Threshold sensitivity, 120 / 140 / 160 / 180 DN | +0.43 / +0.31 / +0.22 / +0.15 pp, p = 0.003 / 0.001 / 0.020 / 0.048 |
+
+**Read the two p-values together.** The Wilcoxon signed-rank test (p < 0.0001) asks whether the positive years tend to be *larger* than the negative years — and they are, because 2018 alone is +2.08 pp. The sign test (p = 0.30) asks only whether *more* years are positive than negative — and 10 of 15 is not enough to be significant on its own. So the effect is **real and driven by a handful of large years, not by a consistent majority of years**. Dropping 2018 leaves +0.19 pp, still positive in 9 of 14 years, still significant by the Wilcoxon test but not by the sign test. That is the honest picture, and it is why the practical advice in §6 is about *nights*, not months.
 
 **Where the estimate is weaker, and why.** At a *lower* brightness threshold (80 or 100 DN) the effect is no longer significant (p = 0.11 and 0.18). The reason is visible in the per-year numbers: 2018 alone contributes **+2.08 pp** against roughly +0.2 to +0.5 in every other year. At low thresholds, faint diffuse glow — haze, bioluminescence, low cloud lit from below — is counted along with vessels, and it swamps the contrast. The 140 DN threshold used throughout was chosen *before* the robustness sweep, on the independent ground that at that level 97% of bright deep-water cells persist across many nights and are therefore structures rather than boats (§4). The honest reading is: **the fishing-vessel signal is real and survives every check at 120 DN and above, and its magnitude is uncertain by roughly a factor of two.**
 
@@ -99,18 +104,55 @@ Only two of the 16 permitted areas produced a detectable signal in deep water:
 
 Mirs Bay carries roughly 46% of all fishing effort inside the permitted areas (≈28,400 vessels in the AFCD fishing-operation grids) and is the strongest. **North Lantau, East Lantau, South Lantau, Tseung Kwan O, Deep Bay and Castle Peak showed no significant deep-water signal** — most of those areas hug a coastline bright enough to drown any vessel signal.
 
-## 6. Practical advice
+## 6. How to find an average when the light changes every night
+
+This section answers the obvious objection: *the light varies night to night, so how can there be an average pattern?*
+
+**A single night carries almost no information.** Over the 693 nights the bright-cell rate in the permitted deep water ranges from **0.000% to 12.556%**, with a median of **0.000%** and a standard deviation of 1.024 pp. More than half of all nights show *literally nothing*. The night-to-night variance is **1.077 pp²**, and the seasonal signal accounts for only **28%** of it. The other 72% is night-specific: weather, tide, and which boats were out.
+
+So you cannot read the pattern off one image. You have to average in a way that cancels the nuisance.
+
+**Step 1 — never average raw brightness across dates.** The naive monthly mean of the raw permitted brightness reads as a smooth curve with a May peak (0.42 pp) and a July peak (0.88 pp). But the within-month standard deviation is *larger* than the month-to-month spread (e.g. May: 0.42 ± 1.70; July: 0.88 ± 2.46). That curve is noise dressed as a trend. This is precisely the mistake that produced the wrong first version of this study.
+
+**Step 2 — difference within each night.** Subtract the control water from the permitted area *on the same image*. This removes the scene-wide component (haze, cloud, the city glow) because it moves both places together. The naive and the differenced curves disagree in shape, which is itself the diagnostic that nuisance was driving the first one.
+
+**Step 3 — compare seasons, not dates.** May–Aug minus Sep–Apr, computed within each night, then averaged across the 15 years. This is a seasonal double difference: it cancels any smooth drift that affects both windows.
+
+**Step 4 — resample years for the uncertainty.** Nights within a year share weather and fleets; pixels share the same atmosphere. A pixel bootstrap over 207,000 pixels gave [+0.44, +0.49] for a statistic whose honest year-block interval is [−0.29, +1.14].
+
+**Step 5 — report the active nights, not a smooth curve.** The monthly **median** of the within-night contrast is ≈0 in every single month, while the monthly **mean** ranges from −0.30 to +0.64. The mean and the median disagreeing is the tell: the mean is being moved by a handful of extreme nights. Plotting the mean makes the fishing signal look like a smooth seasonal wave; it is not.
+
+| Month | mean contrast (pp) | median (pp) | active nights |
+|---|---|---|---|
+| Jan | −0.13 | −0.18 | 2 |
+| Feb | −0.12 | −0.09 | 0 |
+| Mar | −0.30 | −0.11 | 0 |
+| Apr | +0.01 | −0.02 | 2 |
+| May | +0.12 | −0.02 | 5 |
+| Jun | +0.00 | −0.06 | 2 |
+| Jul | **+0.64** | −0.01 | 6 |
+| Aug | −0.06 | −0.10 | 0 |
+| Sep | −0.03 | −0.22 | 1 |
+| Oct | −0.14 | −0.23 | 2 |
+| Nov | −0.21 | −0.24 | 0 |
+| Dec | −0.29 | −0.20 | 0 |
+
+**Step 6 — validate against known places and structures.** A lit LNG terminal and a lit power cable will otherwise be counted as boats; both are lit on 5+ nights and must be excluded before any statistic is computed.
+
+The script that produces this table: `scripts/fishing-light/variance_and_averaging.py`.
+
+## 7. Practical advice
 
 The corrected reading of the data:
 
 - **Do not plan around the month.** On a typical night the fishing areas are as dark as the rest of the water. The month tells you very little.
 - **Plan around the night.** Only about 2 nights a year carry a big fleet. If you pick a date at random, the probability of hitting one is low.
 - **The risk window is May–August**, when 13 of the 20 active nights fell, and the fleets are concentrated in HK waters by the moratorium.
-- **February, March, November and December had no active night in 15 years** — the safest months on this evidence.
+- **February, March, August, November and December had no active night in 15 years** — the safest months on this evidence. (Note that August sits in the middle of the moratorium window and still shows nothing: the fleets concentrate on a handful of dates in May–July, not throughout the closure.)
 - **The worst places are the west and east ends** of the permitted area — Soko Islands / West Lamma Channel, and Mirs Bay / Tolo Harbour / Port Shelter. The central and southern parts of the permitted area showed nothing.
 - **Use a dark moon.** Vessels are only visible when the sky is dark, so the same fleet matters far more on a moonless night.
 
-## 7. Why the first version was wrong
+## 8. Why the first version was wrong
 
 The first version of this study was published on 2026-11-09 with the conclusion "the fishing areas are darkest in March–April and peak in September", and a monthly table running April −1.48 to September +1.52. That was wrong, for three separate reasons, all of which were caught when the study was re-examined against the screenshot the user supplied.
 
@@ -122,9 +164,9 @@ The first version of this study was published on 2026-11-09 with the conclusion 
 
 There was also a fourth problem, found during the re-check: the original "bright-pixel enrichment of 1.17×, p < 0.0001" was computed over pixels without any distance control, and the effect it measured did not survive the corrections.
 
-**Nothing in this note rests on the original analysis.** The scripts are listed in §9.
+**Nothing in this note rests on the original analysis.** The scripts are listed in §10.
 
-## 8. Method
+## 9. Method
 
 **Data**
 - NASA GIBS, layer `VIIRS_SNPP_GapFilled_BRDF_Corrected_DayNightBand_Radiance` — 693 nights, 2012–2026, at 22.15–22.60°N, 113.72–114.45°E. This is the only VIIRS layer serving continuously from 2012; the `At_Sensor_Radiance` layers used in the camping study begin in March 2024.
@@ -152,7 +194,7 @@ There was also a fourth problem, found during the re-check: the original "bright
 - A change in mainland vessel routing coinciding with the same season would produce the same signature. The data cannot separate the two.
 - 20 active nights is a small sample. The seasonal estimate is real but its magnitude carries wide uncertainty.
 
-## 9. Files and reproducibility
+## 10. Files and reproducibility
 
 Local: `/Users/davidhermes/GIS Data/HK Night Lights/`
 
@@ -165,14 +207,15 @@ Local: `/Users/davidhermes/GIS Data/HK Night Lights/`
 | `check_2023_break.py` | Tests whether the product changed around 2023 |
 | `persistence_test.py` | Fixed structure vs moving boat (nights per cell) |
 | `moon_phase_test.py` | Dark-moon test on the transient cells |
+| `variance_and_averaging.py` | The variance decomposition and the four averaging methods compared |
 | `make_corrected_map.py` | The figure |
 | `gate_corrected_map.py` | The figure gate: text overlap, off-canvas, pixel probes |
 
-Outputs: `DEFINITIVE_results.json`, `active_nights.json`, `robust_monthly.json`, `map_data.json`.
+Outputs: `DEFINITIVE_results.json`, `active_nights.json`, `robust_monthly.json`, `robustness.json`, `map_data.json`, `nightly_measurements_CORRECTED.csv`.
 
-Shipped with this note: `HK_fishing_light_seasonal_map_CORRECTED.png`, `fishing_light_seasonal_CORRECTED.json`, `fishing_light_active_nights.csv`.
+Shipped with this note: `HK_fishing_light_seasonal_map_CORRECTED.png`, `fishing_light_seasonal_CORRECTED.json`, `fishing_light_active_nights.csv`, `fishing_light_monthly.csv`, `nightly_measurements.csv.gz`.
 
-## 10. Sources
+## 11. Sources
 
 - NASA GIBS / NASA Black Marble — VIIRS day/night band, Suomi NPP
 - Hong Kong Marine Department — areas where bright-light fishing is permitted

@@ -59,8 +59,13 @@ FISHING_LIGHT = [
      "Distribution of fishing operations of local vessels by grid and vessel class",
      "AFCD via CSDI Portal", "vector"),
     ("assets/data/fishing-light/nightly_measurements.csv.gz",
-     "Per-night night-lights measurements 2012-2026 with moon phase and the "
-     "open-sea control", "NASA GIBS", "table"),
+     "Per-night night-lights measurements 2012-2026: the bright-cell rate in "
+     "the permitted deep water and in the control deep water, the within-night "
+     "contrast, and the moon phase. Corrected analysis - deep water only, the "
+     "LNG terminal and the Ma Liu Shui cable excluded", "NASA GIBS", "table"),
+    ("assets/data/fishing-light/nightly_measurements.csv",
+     "The same per-night table as plain CSV, for spreadsheet use",
+     "NASA GIBS", "table"),
     ("assets/data/fishing-light/fishing_light_seasonal_CORRECTED.json",
      "Corrected fishing-light results: seasonal effect with a year-block "
      "confidence interval, vessel validation, per-area breakdown, active-night "
@@ -101,6 +106,9 @@ SCRIPTS = [
      "Builds the corrected four-panel figure"),
     ("scripts/fishing-light/gate_corrected_map.py",
      "The figure gate: text overlap, off-canvas and pixel probes"),
+    ("scripts/fishing-light/variance_and_averaging.py",
+     "The variance decomposition: how much of the night-to-night swing is "
+     "nuisance, and a comparison of four ways to average it"),
 ]
 
 
