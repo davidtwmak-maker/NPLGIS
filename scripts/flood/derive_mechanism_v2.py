@@ -309,9 +309,9 @@ def main():
                                         if np.isfinite(r["big_channel_width_m"]) else None),
                 "nearest_catchment": r["catchment_name"],
             }})
+    # RFC 7946: a GeoJSON file must NOT carry a crs member. The coordinates
+    # are already lon/lat (EPSG:4326), which is the GeoJSON default.
     gj = {"type": "FeatureCollection",
-          "crs": {"type": "name",
-                  "properties": {"name": "urn:ogc:def:crs:OGC:1.3:CRS84"}},
           "features": feats}
     with open(OUT_GJ, "w") as f:
         json.dump(gj, f, indent=1)
