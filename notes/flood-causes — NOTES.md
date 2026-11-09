@@ -32,11 +32,11 @@ dual threat.
 
 | # | Factor | Measurement | Weight |
 |---|---|---|---:|
-| S1 | Low-lying ground | DTM elevation; score falls linearly from 10 m to 0 m | 0.40 |
-| S2 | Distance to the sea | Distance to the CEDD coastline; score **falls** as the distance grows to 2 km | 0.25 |
-| S3 | Wave exposure | CEDD wave climate HMAX at the nearest station (KYC / WLC), normalised on HK's 10 m design wave | 0.20 |
-| S4 | Tidal range | Local tidal range at the nearest HKO tide station | 0.15 |
-| S5 | Designated coastal area | Distance to the nearest of the **26 CEDD Coastal Hazards Study areas**; score falls from 0 to 1.5 km | — |
+| S1 | Low-lying ground | DTM elevation; score falls linearly from 10 m to 0 m | 0.35 |
+| S2 | Distance to the sea | Distance to the CEDD coastline; score **falls** as the distance grows to 2 km | 0.22 |
+| S3 | Wave exposure | CEDD wave climate HMAX at the nearest station (KYC / WLC), normalised on HK's 10 m design wave | 0.18 |
+| S4 | Tidal range | Mean diurnal range at the nearest HKO tide station, measured from the live HKO high/low tide CSVs (0.99–1.44 m across the 15 stations) | 0.12 |
+| S5 | Designated coastal area | Distance to the nearest of the **26 CEDD Coastal Hazards Study areas**; score falls from 0 to 1.5 km | 0.13 |
 | S6 | Defence assets | DSD pumping stations and inflatable dams within 500 m — a **mitigation** multiplier of up to 30% | — |
 
 Missing factors are handled by **renormalising** the remaining weights,
@@ -50,12 +50,12 @@ so a point with no nearby outfall is not penalised for it.
 
 | DSD list | Areas | Mean flash-flood | Mean storm-surge | Flash flood | Storm surge |
 |---|---:|---:|---:|---:|---:|
-| Locations Prone to Blockage | 226 | 0.47 | 0.34 | 197 | 29 |
-| Drainage Improvement Works In Progress | 15 | 0.46 | 0.37 | 11 | 4 |
-| Coastal Low-lying or Windy Residential Areas | 26 | 0.54 | **0.60** | 7 | **19** |
-| **All** | **267** | — | — | **215** | **52** |
+| Locations Prone to Blockage | 226 | 0.47 | 0.33 | 205 | 21 |
+| Drainage Improvement Works In Progress | 15 | 0.46 | 0.36 | 14 | 1 |
+| Coastal Low-lying or Windy Residential Areas | 26 | 0.54 | **0.56** | 11 | **15** |
+| **All** | **267** | — | — | **230** | **37** |
 
-Flash flood 0.27–0.65 (median 0.49); storm surge 0.10–0.80 (median 0.35).
+Flash flood 0.27–0.65 (median 0.49); storm surge 0.10–0.77 (median 0.33).
 These are **relative indices, not probabilities**.
 
 **The three lists are three different flooding problems.** The blockage
@@ -64,6 +64,12 @@ coastal list is storm-surge dominated, sits a median 16 m from the sea at
 a median elevation of 5 m, and still carries a *higher* mean
 flash-flood score than the blockage list — low flat ground ponds rain as
 well as taking seawater.
+
+**The tidal range is measured, not assumed.** The HKO tide CSVs are read
+directly: the mean high water minus the mean low water over the year at
+each of the 15 stations. Tsim Bei Tsui has the largest range (1.44 m) and
+Tai Miu Wan the smallest (0.99 m) — the geography you would expect for
+Hong Kong's harbour approach against its outer coast.
 
 ---
 
@@ -132,7 +138,13 @@ NODATA −9999, **six-line header** — `np.loadtxt` needs `skiprows=6`).
     `"Drainage Improvement Works In Progress"` — matching a remembered
     phrase returns zero rows and silently drops a table row.
 11. **The CSDI designated-area layer holds ONE polygon, not 26.**
-12. **Check the sign of every factor against a place you know.** Three
+12. **The HKO tide CSVs have no high/low marker column.** The tides are
+    listed in time order, two of each per day, so taking "every other
+    row" starts on a low and yields a **negative** tidal range. Separate
+    them with the local-extremum test instead — a tide at least as high
+    as both neighbours is a high water. That gives 627 HW / 626 LW at
+    Cheung Chau and a 1.08 m range.
+13. **Check the sign of every factor against a place you know.** Three
     were wrong at first (distance to the sea rose with distance; the inlet
     count rose with count; wave exposure applied territory-wide) and the
     results still looked plausible. The tell is the top-scoring place
@@ -145,6 +157,7 @@ NODATA −9999, **six-line header** — `np.loadtxt` needs `skiprows=6`).
 ```
 HK Flood Causes/
 ├── fetch_flood_causes.py      21 layers, paginated
+├── fetch_tide_range.py        the tidal range at each HKO tide station
 ├── fetch_rain_full.py         the complete 1,126,191-row rain record
 ├── merge_rain_locations.py    full record + gauge coordinates -> one file
 ├── derive_terrain_factors.py  Horn slope + D8 flow accumulation

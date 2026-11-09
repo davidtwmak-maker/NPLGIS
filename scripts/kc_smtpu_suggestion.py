@@ -73,7 +73,9 @@ def query(layer, params):
 
 def esri_to_geojson_feature(feat):
     geom = feat.get("geometry") or {}
-    attrs = feat.get("attributes") or {}
+    # the cached pedestrian file may be the raw ESRI payload ("attributes")
+    # or the converted RFC 7946 GeoJSON ("properties")
+    attrs = feat.get("properties") or feat.get("attributes") or {}
     rings = geom.get("rings") or []
     if not rings:
         return {"type": "Feature", "properties": attrs, "geometry": None}

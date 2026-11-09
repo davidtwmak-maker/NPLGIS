@@ -31,8 +31,10 @@ STORM SURGE
   S2  distance to the sea how close the sea can get
   S3  wave exposure       CEDD wave climate (HM0, HMAX, peak period) and
                            the south/south-east exposure CEDD identifies
-  S4  astronomical tide   the local tidal range at the nearest HKO tide
-                           station - a bigger range means a bigger push
+  S4  astronomical tide   the local tidal RANGE at the nearest HKO tide
+                           station, measured from the live HKO high/low
+                           tide CSVs (0.99-1.44 m across the 15 stations)
+                           - a bigger range means a bigger push
   S5  tidal barrier       the CEDD Coastal Hazards Study 26 areas, the
                            official designation of surge-vulnerable places
   S6  defence assets      DSD stormwater pumping stations and inflatable
@@ -51,6 +53,10 @@ DATA NOTES (all verified live on 2026-11-09)
   whole catchments. The area of a section is the right quantity for
   "how much drainage catchment drains here", but it must not be described
   as the size of the river's catchment.
+* The HKO high/low tide CSVs have NO high/low marker column - the tides
+  are listed in time order, two of each per day. They must be separated
+  by the local-extremum test, not by taking every other row (which starts
+  on a low and yields a NEGATIVE tidal range).
 * The DTM ASCII grid stores the northern edge first.
 
 Outputs (out/):
@@ -72,9 +78,7 @@ RAW = os.path.join(HERE, "raw")
 OUT = os.path.join(HERE, "out")
 os.makedirs(OUT, exist_ok=True)
 
-GIS_DATA = os.environ.get("GIS_DATA_DIR", "/Users/davidhermes/GIS Data")
-FLOOD_PRONE = os.path.join(GIS_DATA, "HK Flood Prone Areas")
-FLOOD = os.path.join(FLOOD_PRONE, "flood_mechanism.geojson")
+FLOOD = "/Users/davidhermes/GIS Data/HK Flood Prone Areas/flood_mechanism.geojson"
 
 # The HK record 24-hour rainfall: 956.0 mm at Tai Mo Shan, 21-22 July 1994
 # (GEO Report No. 314, Table 10.1 "Maximum Rainfall Records for Hong Kong").
@@ -330,15 +334,41 @@ def build():
             wave_pts.append((st, d["lon"], d["lat"], d))
 
     # ---------------------------------------------------- S4 tide stations
+    # The tide station gives the local TIDAL RANGE, which is what decides
+    # how hard the water is pushed at the flood tide. The ranges come from
+    # fetch_tide_range.py, which reads the live HKO high/low tide CSVs.
+    #
+    # Use the HKO layer (15 stations, with geometry and the CSV urls) rather
+    # than the Marine Dept layer (5 stations) - the 5-station layer would
+    # give 10 of the 15 measured ranges no station to attach to.
     tide_pts = []
-    if tide:
-        for ft in tide["features"]:
+    for src in (pred_tide, tide):
+        if not src:
+            continue
+        for ft in src["features"]:
             p = ft["properties"]
             c = coords(ft.get("geometry"))
-            if c:
-                tide_pts.append((p.get("TIDE_STATION_EN"), c[0], c[1]))
+            nm = p.get("TideStation_en") or p.get("TIDE_STATION_EN")
+            if c and nm:
+                tide_pts.append((nm, c[0], c[1]))
+    # keep the first occurrence of each station name
+    seen_t = set()
+    tide_pts = [t for t in tide_pts
+                if not (t[0] in seen_t or seen_t.add(t[0]))]
     tide_pt_list = [(n, lo, la) for n, lo, la in tide_pts]
-    print(f"=== S4. {len(tide_pts)} tide stations ===")
+
+    # tidal range per station, and the station's coordinates from the SAME
+    # source, so a range is always attached to the right place
+    tide_ranges = {}
+    tide_rng_path = os.path.join(OUT, "tide_ranges.json")
+    if os.path.exists(tide_rng_path):
+        tide_ranges = json.load(open(tide_rng_path))
+    print(f"=== S4. {len(tide_pts)} tide stations, "
+          f"{len(tide_ranges)} with a measured tidal range ===")
+    if tide_ranges:
+        rr = sorted(v["tidal_range_m"] for v in tide_ranges.values())
+        print(f"    tidal range {rr[0]:.2f} - {rr[-1]:.2f} m "
+              f"(median {rr[len(rr)//2]:.2f} m)")
 
     # ---------------------------------------------------- S5 designated area
     # The 26 CEDD Coastal Hazards Study areas.
@@ -351,7 +381,8 @@ def build():
     # Using the single CSDI polygon made every point in the territory
     # score as if it were near Tung Chung.
     desig_pts = []
-    coastal_src = os.path.join(FLOOD_PRONE, "dsd_coastal.geojson")
+    coastal_src = os.path.join(
+        "/Users/davidhermes/GIS Data/HK Flood Prone Areas", "dsd_coastal.geojson")
     if os.path.exists(coastal_src):
         cg = json.load(open(coastal_src))
         for ft in cg["features"]:
@@ -472,6 +503,20 @@ def build():
         ss_prox = (max(0.0, min(1.0, 1.0 - dc / 2.0))
                    if dc is not None else None)
         nt = nearest(tide_pt_list, lon, lat)
+        # S4: the tidal RANGE at the nearest tide station, normalised on the
+        # measured range across all 15 stations. A bigger range means a
+        # bigger push of water at the flood tide.
+        tide_range_m = None
+        tide_score = None
+        if nt:
+            tr = tide_ranges.get(nt[0])
+            if tr:
+                tide_range_m = tr["tidal_range_m"]
+                allr = [v["tidal_range_m"] for v in tide_ranges.values()]
+                lo_r, hi_r = min(allr), max(allr)
+                tide_score = (max(0.0, min(1.0, (tide_range_m - lo_r)
+                                            / (hi_r - lo_r)))
+                             if hi_r > lo_r else 0.5)
         wave_exposure = None
         wave_station = None
         if wave_pts:
@@ -490,11 +535,13 @@ def build():
         pump_mitigation = min(1.0, n_pump / 2.0)
         n_shelter = count_within(shelter_pts, lon, lat, 1.0)
 
-        ss_parts = [(ss_low, 0.40), (ss_prox, 0.25)]
+        ss_parts = [(ss_low, 0.35), (ss_prox, 0.22)]
         if wave_exposure is not None:
-            ss_parts.append((wave_exposure, 0.20))
+            ss_parts.append((wave_exposure, 0.18))
         if desig_score is not None:
-            ss_parts.append((desig_score, 0.15))
+            ss_parts.append((desig_score, 0.13))
+        if tide_score is not None:
+            ss_parts.append((tide_score, 0.12))
         av = [(v, w) for v, w in ss_parts if v is not None]
         ws = sum(w for _, w in av)
         ss_raw = (sum(v * w for v, w in av) / ws) if ws else None
@@ -534,6 +581,8 @@ def build():
             "ss_wave_max_hmax_m": round(wave_by_station[wave_station]["max_hmax"], 2) if wave_station else None,
             "ss_wave_score": round(wave_exposure, 4) if wave_exposure is not None else None,
             "ss_nearest_tide_station": nt[0] if nt else None,
+            "ss_tide_range_m": tide_range_m,
+            "ss_tide_score": round(tide_score, 4) if tide_score is not None else None,
             "ss_tide_distance_km": round(nt[1], 2) if nt else None,
             "ss_cedd_designated": desig[0] if desig and desig[1] <= 1.5 else None,
             "ss_cedd_designated_km": round(desig[1], 3) if desig else None,

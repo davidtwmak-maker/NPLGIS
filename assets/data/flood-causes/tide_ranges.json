@@ -1,0 +1,137 @@
+{
+ "Cheung Chau": {
+  "mean_high_m": 1.963,
+  "mean_low_m": 0.882,
+  "tidal_range_m": 1.081,
+  "n_high": 627,
+  "n_low": 626,
+  "source_url": "https://data.weather.gov.hk/weatherAPI/hko_data/csdi/dataset/HLT_CCH_2026.csv",
+  "year": 2026
+ },
+ "Chek Lap Kok (E)": {
+  "mean_high_m": 2.07,
+  "mean_low_m": 0.847,
+  "tidal_range_m": 1.222,
+  "n_high": 652,
+  "n_low": 651,
+  "source_url": "https://data.weather.gov.hk/weatherAPI/hko_data/csdi/dataset/HLT_CLK_2026.csv",
+  "year": 2026
+ },
+ "Chi Ma Wan": {
+  "mean_high_m": 1.894,
+  "mean_low_m": 0.831,
+  "tidal_range_m": 1.063,
+  "n_high": 636,
+  "n_low": 635,
+  "source_url": "https://data.weather.gov.hk/weatherAPI/hko_data/csdi/dataset/HLT_CMW_2026.csv",
+  "year": 2026
+ },
+ "Kwai Chung": {
+  "mean_high_m": 1.993,
+  "mean_low_m": 0.896,
+  "tidal_range_m": 1.096,
+  "n_high": 633,
+  "n_low": 632,
+  "source_url": "https://data.weather.gov.hk/weatherAPI/hko_data/csdi/dataset/HLT_KCT_2026.csv",
+  "year": 2026
+ },
+ "Ko Lau Wan": {
+  "mean_high_m": 1.896,
+  "mean_low_m": 0.897,
+  "tidal_range_m": 1.0,
+  "n_high": 649,
+  "n_low": 648,
+  "source_url": "https://data.weather.gov.hk/weatherAPI/hko_data/csdi/dataset/HLT_KLW_2026.csv",
+  "year": 2026
+ },
+ "Lok On Pai": {
+  "mean_high_m": 1.926,
+  "mean_low_m": 0.714,
+  "tidal_range_m": 1.212,
+  "n_high": 642,
+  "n_low": 641,
+  "source_url": "https://data.weather.gov.hk/weatherAPI/hko_data/csdi/dataset/HLT_LOP_2026.csv",
+  "year": 2026
+ },
+ "Ma Wan": {
+  "mean_high_m": 2.003,
+  "mean_low_m": 0.879,
+  "tidal_range_m": 1.124,
+  "n_high": 636,
+  "n_low": 635,
+  "source_url": "https://data.weather.gov.hk/weatherAPI/hko_data/csdi/dataset/HLT_MWC_2026.csv",
+  "year": 2026
+ },
+ "Quarry Bay": {
+  "mean_high_m": 1.945,
+  "mean_low_m": 0.913,
+  "tidal_range_m": 1.032,
+  "n_high": 629,
+  "n_low": 628,
+  "source_url": "https://data.weather.gov.hk/weatherAPI/hko_data/csdi/dataset/HLT_QUB_2026.csv",
+  "year": 2026
+ },
+ "Shek Pik": {
+  "mean_high_m": 2.0,
+  "mean_low_m": 0.847,
+  "tidal_range_m": 1.153,
+  "n_high": 630,
+  "n_low": 629,
+  "source_url": "https://data.weather.gov.hk/weatherAPI/hko_data/csdi/dataset/HLT_SPW_2026.csv",
+  "year": 2026
+ },
+ "Tai O": {
+  "mean_high_m": 2.064,
+  "mean_low_m": 0.816,
+  "tidal_range_m": 1.248,
+  "n_high": 651,
+  "n_low": 650,
+  "source_url": "https://data.weather.gov.hk/weatherAPI/hko_data/csdi/dataset/HLT_TAO_2026.csv",
+  "year": 2026
+ },
+ "Tsim Bei Tsui": {
+  "mean_high_m": 2.192,
+  "mean_low_m": 0.751,
+  "tidal_range_m": 1.442,
+  "n_high": 685,
+  "n_low": 684,
+  "source_url": "https://data.weather.gov.hk/weatherAPI/hko_data/csdi/dataset/HLT_TBT_2026.csv",
+  "year": 2026
+ },
+ "Tai Miu Wan": {
+  "mean_high_m": 1.893,
+  "mean_low_m": 0.901,
+  "tidal_range_m": 0.992,
+  "n_high": 627,
+  "n_low": 626,
+  "source_url": "https://data.weather.gov.hk/weatherAPI/hko_data/csdi/dataset/HLT_TMW_2026.csv",
+  "year": 2026
+ },
+ "Tai Po Kau": {
+  "mean_high_m": 1.979,
+  "mean_low_m": 0.913,
+  "tidal_range_m": 1.066,
+  "n_high": 659,
+  "n_low": 658,
+  "source_url": "https://data.weather.gov.hk/weatherAPI/hko_data/csdi/dataset/HLT_TPK_2026.csv",
+  "year": 2026
+ },
+ "Waglan Island": {
+  "mean_high_m": 1.958,
+  "mean_low_m": 0.949,
+  "tidal_range_m": 1.009,
+  "n_high": 618,
+  "n_low": 617,
+  "source_url": "https://data.weather.gov.hk/weatherAPI/hko_data/csdi/dataset/HLT_WAG_2026.csv",
+  "year": 2026
+ },
+ "Po Toi": {
+  "mean_high_m": 1.958,
+  "mean_low_m": 0.949,
+  "tidal_range_m": 1.009,
+  "n_high": 618,
+  "n_low": 617,
+  "source_url": "https://data.weather.gov.hk/weatherAPI/hko_data/csdi/dataset/HLT_PT1_2026.csv",
+  "year": 2026
+ }
+}

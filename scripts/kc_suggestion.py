@@ -320,6 +320,8 @@ def main():
             lines = [coords]  # single LineString
         else:
             lines = coords  # MultiLineString
+        # the cached file may be the converted RFC 7946 GeoJSON (coordinates)
+        # or the raw ESRI payload (paths) - both are handled above
         for line in lines:
             xs = [c[0] for c in line]; ys = [c[1] for c in line]
             ax.plot(xs, ys, color="#b9c3a0", lw=0.3, alpha=0.7, zorder=1)

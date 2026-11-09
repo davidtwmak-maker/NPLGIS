@@ -280,15 +280,16 @@
   },
   {
    "file": "assets/data/festival-walk/kc_pedestrian.geojson.gz",
-   "bytes": 9635088,
-   "mb": 9.189,
+   "bytes": 9175465,
+   "mb": 8.75,
    "gzipped": true,
    "features": 111238,
    "title": "Kowloon Tong pedestrian network",
    "dataset_id": "landsd_rcd_1637222018065_52265",
    "records": "111,238",
-   "notes": "District extract",
-   "sha256": "5d9564339cf2c1c4"
+   "notes": "3D Pedestrian Network over the Kowloon City bbox, 111,238 features. Converted to RFC 7946: the ArcGIS 'geojson' output format serves 'attributes' and ESRI 'paths', so every feature got 'type': 'Feature', 'attributes' became 'properties', and the paths became GeoJSON LineStrings.",
+   "sha256": "0c3bb32bb7687485",
+   "modified": "2026-11-09"
   },
   {
    "file": "assets/data/festival-walk/kc_population.geojson.gz",
@@ -1245,9 +1246,10 @@
    "source": "derived from DSD, CEDD, GEO, HKO, WSD, Marine Dept and LandsD",
    "type": "vector",
    "features": 267,
-   "bytes": 28566,
-   "sha256": "ad0c56c4800a6836",
-   "mb": 0.0286
+   "bytes": 29073,
+   "sha256": "7338b3dd73434a47",
+   "mb": 0.028,
+   "modified": "2026-11-09"
   },
   {
    "file": "assets/data/flood-causes/flood_hazard_factors.csv",
@@ -1273,18 +1275,33 @@
    "description": "Flash flood and storm surge at the 267 flood-prone areas: panel A the flash-flood score, panel B the storm-surge score, panel C the comparison table and the dominant hazard at each location",
    "source": "derived",
    "type": "map",
-   "bytes": 537933,
-   "sha256": "65413bd08b97f8ff",
-   "mb": 0.5379
+   "bytes": 537580,
+   "sha256": "3592701afed94d61",
+   "mb": 0.513,
+   "modified": "2026-11-09"
   },
   {
    "file": "notes/flood-causes — NOTES.md",
    "description": "The flood-causes method note: the eleven flash-flood and storm-surge factors with their weights, the twenty-one source datasets with their CSDI IDs and counts, the results, the twelve data traps and the build gate",
    "source": "derived",
    "type": "note",
-   "bytes": 8846,
-   "sha256": "9df9dd3fad4a2f22",
-   "mb": 0.0088
+   "bytes": 9755,
+   "sha256": "d8879859e96dab40",
+   "mb": 0.0088,
+   "modified": "2026-11-09"
+  },
+  {
+   "file": "assets/data/flood-causes/tide_ranges.json",
+   "bytes": 3581,
+   "mb": 0.003,
+   "gzipped": false,
+   "features": 15,
+   "title": "Tidal range at each HKO tide station",
+   "dataset_id": "hko_cas_tide",
+   "records": "15 stations",
+   "notes": "Mean diurnal tidal range (mean HW minus mean LW) at each of the 15 HKO tide stations, read from the live HKO high/low tide CSVs for 2026. The tides are listed in time order with no high/low marker column, so they are separated by the local-extremum test. Range 0.99-1.44 m.",
+   "sha256": "b4fba7a7039a12b5",
+   "modified": "2026-11-09"
   }
  ],
  "scripts": [
@@ -1560,8 +1577,8 @@
    "description": "Scores the 267 locations on the six flash-flood and five storm-surge factors, with the weights stated in the method note",
    "source": "derived",
    "type": "script",
-   "bytes": 26321,
-   "sha256": "644f1e44b30d938f",
+   "bytes": 28864,
+   "sha256": "c4f61213f48c275a",
    "mb": 0.0263
   },
   {
@@ -1581,6 +1598,18 @@
    "bytes": 11130,
    "sha256": "f42465834ea36aaa",
    "mb": 0.0111
+  },
+  {
+   "file": "scripts/flood/fetch_tide_range.py",
+   "bytes": 4688,
+   "sha256": "2b08e46b5bb5346c",
+   "description": "Fetch the mean diurnal tidal range at each HKO tide station from the live high/low tide CSVs. The CSVs have no high/low marker column, so the tides are separated by the local-extremum test."
+  },
+  {
+   "file": "scripts/festival-walk/convert_pedestrian_to_geojson.py",
+   "bytes": 4229,
+   "sha256": "531e3320b326f0a3",
+   "description": "Convert the cached 3D Pedestrian Network from the ArcGIS 'geojson' output format to RFC 7946 GeoJSON: 'attributes' -> 'properties', ESRI 'paths' -> LineString/MultiLineString, and 'type': 'Feature' added to every feature. The ArcGIS service calls its own output format 'geojson' but it is not GeoJSON."
   }
  ]
 }
