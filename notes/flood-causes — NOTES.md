@@ -60,7 +60,7 @@ These are **relative indices, not probabilities**.
 
 **The three lists are three different flooding problems.** The blockage
 list is flash-flood dominated and sits a median 671 m from the sea; the
-coastal list is storm-surge dominated, sits a median 15 m from the sea at
+coastal list is storm-surge dominated, sits a median 16 m from the sea at
 a median elevation of 5 m, and still carries a *higher* mean
 flash-flood score than the blockage list — low flat ground ponds rain as
 well as taking seawater.
