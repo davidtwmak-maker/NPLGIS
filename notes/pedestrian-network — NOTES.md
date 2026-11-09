@@ -14,6 +14,7 @@
 ## Files
 | File | Records | What it is |
 |---|---|---|
+| `kc_pedestrian.geojson.gz` | 111,238 | The 3D Pedestrian Network over the Kowloon City bbox. **Converted to RFC 7946** — the ArcGIS service calls its own output format `geojson` but serves ESRI features (`attributes`, `paths`, no `type` on the feature), so it was rewritten: `attributes` → `properties`, ESRI `paths` → GeoJSON `LineString`, and `"type": "Feature"` added to every feature |
 | `pedestrian_network_hk.geojson` | 465,892 | Full network, all attributes selected |
 | `exposed_outdoor_paths.geojson` | 380,957 | **THE TARGET:** `Location=1 (Outdoor)` AND `WeatherProof=2 (NonCovered)` — paths exposed to sunshine & rainfall |
 | `covered_indoor_or_unclassified.geojson` | 84,935 | Everything else (covered outdoor 54,341 + indoor 25,784 + outdoor unclassified 4,810 …) |
@@ -108,3 +109,8 @@ ArcGIS Pro → Add Data → From URL → paste the FeatureServer/0 URL, then def
 ## Student worksheet
 
 [[Student Worksheet — 3D Pedestrian Network and Covered Walkways]]
+
+
+## Traps
+
+- **The ArcGIS service's `f=geojson` is not GeoJSON.** The 3D Pedestrian Network returns ESRI features (`attributes`, `paths`, no `type` on the feature). Convert before publishing.
