@@ -19,8 +19,9 @@ import json
 import os
 from collections import defaultdict
 
-CACHE = "/Users/davidhermes/GIS Data/HK Camping Sites/_osm_box_cache"
-OUT = "/Users/davidhermes/GIS Data/HK Camping Sites/_coast_ways.json"
+GIS_DATA = os.environ.get("GIS_DATA_DIR", "/Users/davidhermes/GIS Data")
+CACHE = f"{GIS_DATA}/HK Camping Sites/_osm_box_cache"
+OUT = f"{GIS_DATA}/HK Camping Sites/_coast_ways.json"
 # Bounding box of the study area
 LON0, LON1 = 113.74, 114.48
 LAT0, LAT1 = 22.10, 22.58

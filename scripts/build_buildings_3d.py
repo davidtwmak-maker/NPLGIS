@@ -23,6 +23,7 @@ import sys
 from shapely.geometry import MultiLineString, LineString, Point as ShPoint, shape
 from shapely.ops import unary_union
 
+GIS_DATA = os.environ.get("GIS_DATA_DIR", "/Users/davidhermes/GIS Data")
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 DATA = os.path.join(ROOT, "apps", "festival-walk-3d", "data")
@@ -32,7 +33,7 @@ GROUND_M = 58.0
 
 # Mall footprint (GeoInfo LSD B1K_Bldg, BuildingID 1108222840 / 又一城).
 MALL_GEOJSON = os.path.join(
-    "/Users/davidhermes/GIS Data/GeoInfo Map/raw/rgeo_highlight_d00/004_B1K_Bldg.geojson.gz")
+    f"{GIS_DATA}/GeoInfo Map/raw/rgeo_highlight_d00/004_B1K_Bldg.geojson.gz")
 
 # floors: (id, zh, en, height_m, colour, has_routes)
 FLOORS = [

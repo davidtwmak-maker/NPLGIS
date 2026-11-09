@@ -19,12 +19,14 @@ Writes:
   apps/landslide-susceptibility/data/susceptibility_grid.json    (scores + cuts + stats)
   apps/landslide-susceptibility/data/landslide_points.geojson.gz (browser points)
 """
+import os
 import os, csv, json, gzip, shutil
 import numpy as np
 from pyproj import Transformer
 from PIL import Image
 
-BASE = "/Users/davidhermes/GIS Data/HK Landslide Susceptibility"
+GIS_DATA = os.environ.get("GIS_DATA_DIR", "/Users/davidhermes/GIS Data")
+BASE = f"{GIS_DATA}/HK Landslide Susceptibility"
 REPO = "/Users/davidhermes/.hermes/cache/scratch/NPLGIS"
 APPDIR = os.path.join(REPO, "apps", "landslide-susceptibility")
 DATADIR = os.path.join(APPDIR, "data")

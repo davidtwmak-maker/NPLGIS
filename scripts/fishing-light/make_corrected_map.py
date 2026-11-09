@@ -23,6 +23,7 @@ import numpy as np
 import rasterio
 import geopandas as gpd
 import matplotlib
+GIS_DATA = os.environ.get("GIS_DATA_DIR", "/Users/davidhermes/GIS Data")
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
@@ -30,9 +31,9 @@ from rasterio.features import rasterize
 from rasterio.transform import from_origin
 from scipy import ndimage
 
-ROOT = "/Users/davidhermes/GIS Data/HK Night Lights"
+ROOT = os.environ.get("GIS_DATA_DIR", f"{GIS_DATA}") + "/HK Night Lights"
 RAW = f"{ROOT}/raw_seasonal"
-CSDI = "/Users/davidhermes/GIS Data/hk-spatial/data"
+CSDI = f"{GIS_DATA}/hk-spatial/data"
 COAST = "/tmp/_coast_ways_full.json"
 OUT = f"{ROOT}/HK_fishing_light_seasonal_map_CORRECTED.png"
 

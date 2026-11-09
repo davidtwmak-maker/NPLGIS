@@ -20,6 +20,7 @@ import sys
 import numpy as np
 import geopandas as gpd
 import matplotlib
+GIS_DATA = os.environ.get("GIS_DATA_DIR", "/Users/davidhermes/GIS Data")
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.patches import Patch
@@ -27,9 +28,9 @@ from matplotlib.lines import Line2D
 from shapely.geometry import shape, LineString
 from shapely.ops import unary_union
 
-ROOT = "/Users/davidhermes/GIS Data/HK Flood Prone Areas"
+ROOT = os.environ.get("GIS_DATA_DIR", f"{GIS_DATA}") + "/HK Flood Prone Areas"
 SUP = f"{ROOT}/support"
-CEDD = ("/Users/davidhermes/GIS Data/hk-spatial/data/"
+CEDD = (f"{GIS_DATA}/hk-spatial/data/"
         "cedd_rcd_1636520962284_7237.geojson")
 OUT = f"{ROOT}/flood_mechanism_map.png"
 DATA = f"{ROOT}/flood_mechanism.geojson"

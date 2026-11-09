@@ -37,10 +37,11 @@ import rasterio
 from rasterio.features import rasterize
 from rasterio.transform import rowcol
 
-OUT = "/Users/davidhermes/GIS Data/HK Camping Sites"
+GIS_DATA = os.environ.get("GIS_DATA_DIR", "/Users/davidhermes/GIS Data")
+OUT = f"{GIS_DATA}/HK Camping Sites"
 DST = f"{OUT}/hk_land_boundary.geojson"
 WYS = f"{OUT}/_coast_ways.json"
-N_COMP = "/Users/davidhermes/GIS Data/HK Night Lights/raw/night_composite_median.tif"
+N_COMP = f"{GIS_DATA}/HK Night Lights/raw/night_composite_median.tif"
 
 LAND_PTS = [("Mong Kok", 114.170, 22.319), ("Ngong Ping", 113.920, 22.255),
             ("Sai Kung", 114.271, 22.381), ("Tai O", 113.930, 22.250),

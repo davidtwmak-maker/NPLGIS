@@ -19,6 +19,7 @@ import sys
 import tempfile
 import urllib.request
 
+GIS_DATA = os.environ.get("GIS_DATA_DIR", "/Users/davidhermes/GIS Data")
 REPO = "davidtwmak-maker/NPLGIS"
 B = f"https://raw.githubusercontent.com/{REPO}/main/"
 PY = "/Users/davidhermes/.hermes/cache/scratch/ls-venv/bin/python"

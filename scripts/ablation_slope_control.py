@@ -5,13 +5,15 @@ Area-normalised incident rate by weathering class WITHIN slope bands, computed
 over the whole grid (not the sampled training set), plus a test of whether an
 explicit interaction term wx_felsic x slope adds anything to the model.
 """
+import os
 import os, csv, collections
 import numpy as np
 from sklearn.model_selection import GroupKFold
 from sklearn.metrics import roc_auc_score
 from xgboost import XGBClassifier
 
-BASE = "/Users/davidhermes/GIS Data/HK Landslide Susceptibility"
+GIS_DATA = os.environ.get("GIS_DATA_DIR", "/Users/davidhermes/GIS Data")
+BASE = f"{GIS_DATA}/HK Landslide Susceptibility"
 WORK = os.path.join(BASE, "work")
 
 tz = np.load(os.path.join(WORK, "terrain_200m.npz"))

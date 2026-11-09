@@ -14,7 +14,8 @@ import os
 import numpy as np
 from scipy import ndimage
 
-BASE = "/Users/davidhermes/GIS Data/HK Landslide Susceptibility"
+GIS_DATA = os.environ.get("GIS_DATA_DIR", "/Users/davidhermes/GIS Data")
+BASE = f"{GIS_DATA}/HK Landslide Susceptibility"
 d = np.load(f"{BASE}/work/terrain_20m.npz")
 valid = d["valid"]
 CELL = 20.0

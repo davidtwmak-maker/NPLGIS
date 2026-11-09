@@ -21,7 +21,8 @@ import time
 import urllib.request
 import xml.etree.ElementTree as ET
 
-OUT = "/Users/davidhermes/GIS Data/HK Camping Sites"
+GIS_DATA = os.environ.get("GIS_DATA_DIR", "/Users/davidhermes/GIS Data")
+OUT = f"{GIS_DATA}/HK Camping Sites"
 DST = f"{OUT}/hk_land_boundary.geojson"
 CACHE = f"{OUT}/_osm_box_cache"
 UA = "HermesGIS/1.0 (Hong Kong camping/light-pollution study; educational)"

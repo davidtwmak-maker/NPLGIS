@@ -22,9 +22,10 @@ from rasterio.features import rasterize
 from rasterio.transform import from_origin
 from scipy import ndimage
 
-ROOT = "/Users/davidhermes/GIS Data/HK Night Lights"
+GIS_DATA = os.environ.get("GIS_DATA_DIR", "/Users/davidhermes/GIS Data")
+ROOT = os.environ.get("GIS_DATA_DIR", f"{GIS_DATA}") + "/HK Night Lights"
 RAW = f"{ROOT}/raw_seasonal"
-CSDI = "/Users/davidhermes/GIS Data/hk-spatial/data"
+CSDI = f"{GIS_DATA}/hk-spatial/data"
 COAST = "/tmp/_coast_ways_full.json"
 
 W, H = 1200, 840

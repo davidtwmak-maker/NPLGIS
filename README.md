@@ -420,6 +420,23 @@ python3 scripts/render_festival_walk_relief2.py
 `pillow`. The 3D scene itself needs no build step — it is plain HTML + JS loading
 ArcGIS from the CDN.
 
+### The analysis scripts need an input data directory
+
+The night-lights and flood analyses work on downloaded source data that is far
+too large to keep in the repo (697 nightly GeoTIFFs, a 302 MB elevation grid).
+Those scripts read it from one directory, set by the `HK_DATA_ROOT`
+environment variable:
+
+```bash
+export HK_DATA_ROOT="/path/to/your/data/dir"
+python3 scripts/fishing-light/definitive_analysis.py
+python3 scripts/flood/derive_mechanism_v2.py
+```
+
+If the variable is not set they fall back to the original location on the
+author's machine, so the scripts still run for the author without any change.
+Each project's note in `notes/` lists the inputs its scripts expect.
+
 ---
 
 ## Student worksheets

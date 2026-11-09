@@ -16,9 +16,10 @@ import sys
 import numpy as np
 from PIL import Image
 
-BUILD = "/Users/davidhermes/GIS Data/HK Flood Prone Areas/make_mechanism_map.py"
-PNG = "/Users/davidhermes/GIS Data/HK Flood Prone Areas/flood_mechanism_map.png"
-DATA = "/Users/davidhermes/GIS Data/HK Flood Prone Areas/flood_mechanism.geojson"
+GIS_DATA = os.environ.get("GIS_DATA_DIR", "/Users/davidhermes/GIS Data")
+BUILD = f"{GIS_DATA}/HK Flood Prone Areas/make_mechanism_map.py"
+PNG = f"{GIS_DATA}/HK Flood Prone Areas/flood_mechanism_map.png"
+DATA = f"{GIS_DATA}/HK Flood Prone Areas/flood_mechanism.geojson"
 
 COLORS = {
     "local_drainage_blockage": (0x5a, 0xa9, 0xe6),

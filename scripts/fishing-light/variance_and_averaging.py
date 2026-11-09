@@ -40,13 +40,15 @@ nuisance, and how much is the fishing signal.
 """
 import csv
 import json
+import os
 import math
 import os
 import random
 import statistics
 from collections import defaultdict
 
-R = "/Users/davidhermes/GIS Data/HK Night Lights"
+GIS_DATA = os.environ.get("GIS_DATA_DIR", "/Users/davidhermes/GIS Data")
+R = os.environ.get("GIS_DATA_DIR", f"{GIS_DATA}") + "/HK Night Lights"
 CSV = f"{R}/nightly_measurements_CORRECTED.csv"
 MOR = {5, 6, 7, 8}
 RNG = random.Random(12345)

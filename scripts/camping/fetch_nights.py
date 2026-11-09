@@ -26,9 +26,10 @@ import urllib.request
 import numpy as np
 import rasterio
 
+GIS_DATA = os.environ.get("GIS_DATA_DIR", "/Users/davidhermes/GIS Data")
 BASE = "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi"
 LAYER = "VIIRS_NOAA21_GapFilled_BRDF_Corrected_DayNightBand_Radiance"
-RAW = "/Users/davidhermes/GIS Data/HK Night Lights/raw"
+RAW = f"{GIS_DATA}/HK Night Lights/raw"
 BBOX = "22.15,113.72,22.60,114.45"
 W, H = 2600, 1807
 

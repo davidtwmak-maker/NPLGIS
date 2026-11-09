@@ -6,6 +6,7 @@ Three questions:
   2. Does it add anything ON TOP of the terrain + land-cover model?
   3. Is it confounded with slope? (HK granite terrain IS the steep terrain)
 """
+import os
 import os, csv, json
 import numpy as np
 from sklearn.model_selection import GroupKFold
@@ -16,8 +17,9 @@ from sklearn.impute import SimpleImputer
 from sklearn.metrics import roc_auc_score
 from xgboost import XGBClassifier
 
-WORK = "/Users/davidhermes/GIS Data/HK Landslide Susceptibility/work"
-OUT = "/Users/davidhermes/GIS Data/HK Landslide Susceptibility/out"
+GIS_DATA = os.environ.get("GIS_DATA_DIR", "/Users/davidhermes/GIS Data")
+WORK = f"{GIS_DATA}/HK Landslide Susceptibility/work"
+OUT = f"{GIS_DATA}/HK Landslide Susceptibility/out"
 
 TERRAIN = ["slope_max", "slope_p90", "slope", "relief", "curv", "rough",
            "twi", "spi", "elev"]

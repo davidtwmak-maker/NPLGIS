@@ -41,9 +41,10 @@ from scipy.spatial import cKDTree
 from shapely.ops import unary_union, linemerge
 import pyproj
 
-ROOT = "/Users/davidhermes/GIS Data/HK Flood Prone Areas"
+GIS_DATA = os.environ.get("GIS_DATA_DIR", "/Users/davidhermes/GIS Data")
+ROOT = os.environ.get("GIS_DATA_DIR", f"{GIS_DATA}") + "/HK Flood Prone Areas"
 SUP = f"{ROOT}/support"
-COAST = "/Users/davidhermes/GIS Data/HK Night Lights/_coast_ways_full.json"
+COAST = f"{GIS_DATA}/HK Night Lights/_coast_ways_full.json"
 DTM = "/Users/davidhermes/.hermes/cache/scratch/Whole_HK_DTM_5m.asc"
 OUT_GJ = f"{ROOT}/flood_mechanism.geojson"
 OUT_CSV = f"{ROOT}/flood_mechanism.csv"
@@ -111,7 +112,7 @@ def main():
     #     1,506 km and the distance-to-sea is contaminated by riverbanks.
     # The CEDD coastline dissolves to 1,098 km2 against HK's real ~1,106 km2
     # (largest polygon 793 km2 = the main island + Lantau + New Territories).
-    CEDD = ("/Users/davidhermes/GIS Data/hk-spatial/data/"
+    CEDD = (f"{GIS_DATA}/hk-spatial/data/"
             "cedd_rcd_1636520962284_7237.geojson")
     from shapely.ops import unary_union
     cg = gpd.read_file(CEDD)

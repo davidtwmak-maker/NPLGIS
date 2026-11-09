@@ -14,9 +14,10 @@ import json
 import os
 import subprocess
 
+GIS_DATA = os.environ.get("GIS_DATA_DIR", "/Users/davidhermes/GIS Data")
 REPO = "/Users/davidhermes/nplgis"
 MANIFEST = f"{REPO}/assets/data/MANIFEST.json"
-NEW = "/Users/davidhermes/GIS Data/HK Camping Sites/_manifest_entries.json"
+NEW = f"{GIS_DATA}/HK Camping Sites/_manifest_entries.json"
 
 
 def sha16(path):

@@ -11,25 +11,27 @@ Runs on the RENDERER (matplotlib), not on the PNG alone:
 
 Exits non-zero on any violation.
 """
+import os
 import json
 import math
 import sys
 
 import numpy as np
 import matplotlib
+GIS_DATA = os.environ.get("GIS_DATA_DIR", "/Users/davidhermes/GIS Data")
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_agg import FigureCanvasAgg
 from PIL import Image
 
-BUILD = "/Users/davidhermes/GIS Data/HK Night Lights/make_corrected_map.py"
-PNG = "/Users/davidhermes/GIS Data/HK Night Lights/HK_fishing_light_seasonal_map_CORRECTED.png"
+BUILD = f"{GIS_DATA}/HK Night Lights/make_corrected_map.py"
+PNG = f"{GIS_DATA}/HK Night Lights/HK_fishing_light_seasonal_map_CORRECTED.png"
 
 import runpy
 
 ns = runpy.run_path(BUILD, run_name="__not_main__")
 fig = ns["main"]()
-data = json.load(open("/Users/davidhermes/GIS Data/HK Night Lights/map_data.json"))
+data = json.load(open(f"{GIS_DATA}/HK Night Lights/map_data.json"))
 
 problems = []
 

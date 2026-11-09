@@ -8,9 +8,11 @@ Inputs (built by prep_terrain.py / train_model.py):
   out/susceptibility_grid.csv per-cell probability
   raw/incidents.csv, raw/entli_crown.csv  landslide records
 """
+import os
 import os, csv
 import numpy as np
 import matplotlib
+GIS_DATA = os.environ.get("GIS_DATA_DIR", "/Users/davidhermes/GIS Data")
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib import font_manager
@@ -22,7 +24,7 @@ matplotlib.rcParams["font.family"] = ["Times New Roman", "STIX Two Text"]
 matplotlib.rcParams["text.parse_math"] = False
 matplotlib.rcParams["axes.unicode_minus"] = False
 
-BASE = "/Users/davidhermes/GIS Data/HK Landslide Susceptibility"
+BASE = f"{GIS_DATA}/HK Landslide Susceptibility"
 OUT = os.path.join(BASE, "out", "landslide_susceptibility_map.png")
 
 # ------------------------------------------------------------------ data

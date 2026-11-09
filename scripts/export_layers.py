@@ -10,10 +10,12 @@ Two outputs:
 Both are written with the feature count asserted, because a silently
 truncated GeoJSON is the classic failure here.
 """
+import os
 import os, csv, json
 import numpy as np
 
-BASE = "/Users/davidhermes/GIS Data/HK Landslide Susceptibility"
+GIS_DATA = os.environ.get("GIS_DATA_DIR", "/Users/davidhermes/GIS Data")
+BASE = f"{GIS_DATA}/HK Landslide Susceptibility"
 WORK = os.path.join(BASE, "work")
 OUT = os.path.join(BASE, "out")
 

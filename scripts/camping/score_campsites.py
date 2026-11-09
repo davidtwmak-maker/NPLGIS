@@ -58,11 +58,12 @@ import pandas as pd
 import rasterio
 from rasterio.transform import rowcol
 
+GIS_DATA = os.environ.get("GIS_DATA_DIR", "/Users/davidhermes/GIS Data")
 # Paths can be overridden from the environment so that the copy in the
 # NPLGIS repo runs on another machine:
 #   GIS_DATA_DIR       root holding hk-spatial/data, HK Night Lights, ...
 #   CAMPING_DATA_DIR   where the outputs are written
-BASE = os.environ.get("GIS_DATA_DIR", "/Users/davidhermes/GIS Data")
+BASE = os.environ.get("GIS_DATA_DIR", f"{GIS_DATA}")
 CSDI = f"{BASE}/hk-spatial/data"
 NL = os.environ.get("NIGHTLIGHTS_DIR", f"{BASE}/HK Night Lights")
 OUT = os.environ.get("CAMPING_DATA_DIR", f"{BASE}/HK Camping Sites")

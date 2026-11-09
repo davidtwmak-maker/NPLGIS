@@ -21,6 +21,7 @@ import json
 import os
 
 import matplotlib
+GIS_DATA = os.environ.get("GIS_DATA_DIR", "/Users/davidhermes/GIS Data")
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
@@ -34,7 +35,7 @@ from rasterio.transform import rowcol
 # NPLGIS repo runs on another machine:
 #   CAMPING_DATA_DIR   where campsite_scores.csv lives
 #   NIGHTLIGHTS_DIR    where raw/night_composite_median.tif lives
-BASE = os.environ.get("GIS_DATA_DIR", "/Users/davidhermes/GIS Data")
+BASE = os.environ.get("GIS_DATA_DIR", f"{GIS_DATA}")
 OUT = os.environ.get("CAMPING_DATA_DIR", f"{BASE}/HK Camping Sites")
 NL = os.environ.get("NIGHTLIGHTS_DIR", f"{BASE}/HK Night Lights")
 N_COMP = f"{NL}/raw/night_composite_median.tif"

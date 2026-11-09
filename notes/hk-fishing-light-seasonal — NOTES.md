@@ -198,6 +198,26 @@ There was also a fourth problem, found during the re-check: the original "bright
 
 Local: `/Users/davidhermes/GIS Data/HK Night Lights/`
 
+**Running the scripts from a fresh checkout.** The shipped scripts read their
+input data from one directory. That directory is now configurable, so the
+scripts work on a machine that is not the one they were written on:
+
+```bash
+export HK_DATA_ROOT="/path/to/your/data/dir"
+python scripts/fishing-light/definitive_analysis.py
+```
+
+Without the variable they fall back to the original path, so nothing breaks
+for the author. The scripts expect the 693 GeoTIFFs in `raw_seasonal/` and
+the two input JSON files; `fetch_seasonal.py` downloads the rasters and
+`definitive_analysis.py` does the analysis.
+
+**A note on `fetch_seasonal.py`.** It prints a monthly table of raw
+brightness differences. That table is the *superseded* first version of this
+study — it measures the city glow on the shore, not fishing vessels, because
+the permitted polygons overlap the coast. The script now prints a banner
+saying so. The published result comes from `definitive_analysis.py`.
+
 | Script | What it does |
 |---|---|
 | `fetch_seasonal.py` | Downloads the 693 nightly rasters from GIBS |

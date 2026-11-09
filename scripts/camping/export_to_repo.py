@@ -22,9 +22,10 @@ import shutil
 import subprocess
 import sys
 
+GIS_DATA = os.environ.get("GIS_DATA_DIR", "/Users/davidhermes/GIS Data")
 REPO = "/Users/davidhermes/nplgis"
-SRC = "/Users/davidhermes/GIS Data/HK Camping Sites"
-NL = "/Users/davidhermes/GIS Data/HK Night Lights"
+SRC = f"{GIS_DATA}/HK Camping Sites"
+NL = f"{GIS_DATA}/HK Night Lights"
 
 DATA_REL = "assets/data/camping"
 MAP_REL = "assets/maps/camping-sites"

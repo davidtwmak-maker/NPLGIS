@@ -48,13 +48,15 @@ Superficial deposits (colluvium, talus, alluvium) are taken from the 1:20k
 Superficial_geology layer where mapped, because colluvium IS pre-weathered and
 pre-failed material and is the strongest single weathering signal available.
 """
+import os
 import os, json, collections
 import numpy as np
 import geopandas as gpd
 from rasterio.features import rasterize
 from affine import Affine
 
-BASE = "/Users/davidhermes/GIS Data/HK Landslide Susceptibility"
+GIS_DATA = os.environ.get("GIS_DATA_DIR", "/Users/davidhermes/GIS Data")
+BASE = f"{GIS_DATA}/HK Landslide Susceptibility"
 RAW = os.path.join(BASE, "raw")
 WORK = os.path.join(BASE, "work")
 

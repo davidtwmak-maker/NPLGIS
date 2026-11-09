@@ -59,6 +59,7 @@ import rasterio
 from rasterio.features import rasterize
 from rasterio.transform import from_origin
 
+GIS_DATA = os.environ.get("GIS_DATA_DIR", "/Users/davidhermes/GIS Data")
 OUT = os.path.dirname(os.path.abspath(__file__))
 RAW = os.path.join(OUT, "raw_seasonal")
 os.makedirs(RAW, exist_ok=True)
@@ -68,7 +69,7 @@ GIBS = "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi"
 BBOX_S, BBOX_W, BBOX_N, BBOX_E = 22.15, 113.72, 22.60, 114.45
 WIDTH, HEIGHT = 1200, 840
 
-CSDI = "/Users/davidhermes/GIS Data/hk-spatial/data"
+CSDI = f"{GIS_DATA}/hk-spatial/data"
 PERMITTED = f"{CSDI}/mardep_rcd_1730952503222_38811.geojson"
 
 SNPP = "VIIRS_SNPP_GapFilled_BRDF_Corrected_DayNightBand_Radiance"
@@ -391,7 +392,31 @@ def main():
     with open(os.path.join(OUT, "seasonal_summary.json"), "w") as f:
         json.dump(summary, f, indent=1)
 
-    # ---- the headline test -----------------------------------------
+    # ---- NOTICE -----------------------------------------------------
+    # The numbers printed below are the RAW brightness difference between
+    # the permitted polygons and the control water, over ALL cells in the
+    # polygons - including the land they overlap. They are NOT the result.
+    #
+    # This was the first version of the study, and it was WITHDRAWN on
+    # 2026-11-09. It measured the city glow on the shore, not fishing
+    # vessels: the polygons overlap the coast, so "permitted" was mostly
+    # measuring Hong Kong's own lights, and the apparent monthly curve was
+    # the seasonal drift of that glow.
+    #
+    # The published result comes from `definitive_analysis.py`, which
+    # restricts to DEEP WATER only (>3 km from land), excludes the fixed
+    # bright structures (the LNG terminal and the Ma Liu Shui power cable),
+    # and counts only transient single-night cells. Run that script, not
+    # this table.
+    print("\n" + "!" * 74)
+    print("! SUPERSEDED OUTPUT - the table below is NOT the published result.")
+    print("! These are raw brightness differences over ALL cells in the permitted")
+    print("! polygons, including the land they overlap, so they measure the city")
+    print("! glow on the shore rather than fishing vessels. The published result")
+    print("! is produced by definitive_analysis.py. See the note's section 8.")
+    print("!" * 74)
+
+    # ---- the headline test (SUPERSEDED - see the notice above) -------
     mor = [r["excess"] for r in rows if r["month"] in MORATORIUM_MONTHS]
     non = [r["excess"] for r in rows if r["month"] not in MORATORIUM_MONTHS]
     print(f"\nMORATORIUM (May-Aug) excess: mean {statistics.mean(mor):+.3f} "
@@ -407,7 +432,7 @@ def main():
     non_r = [r["permitted_mean"] / r["control_mean"] for r in rows
              if r["month"] not in MORATORIUM_MONTHS and r["control_mean"] > 0]
     print(f"ratio  mor {statistics.mean(mor_r):.2f}x  non {statistics.mean(non_r):.2f}x")
-    print("\nOK")
+    print("\nOK (fetch complete; the analysis above is superseded)")
 
 
 if __name__ == "__main__":
