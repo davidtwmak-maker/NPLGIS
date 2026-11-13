@@ -111,6 +111,7 @@ def main():
     all_ways = []
     all_nodes = {}
     ntiles = 0
+    failed_tiles = []
     for i in range(NX):
         for j in range(NY):
             a = LON0 + (LON1 - LON0) * i / NX
@@ -120,7 +121,13 @@ def main():
             print(f"  tile {i},{j}: bbox {a:.3f},{c:.3f},{b:.3f},{d:.3f}", flush=True)
             chunks = fetch_tile_split((a, c, b, d))
             if not chunks:
-                print("    SKIPPED", flush=True)
+                # The split recursion gives up after 4 levels. A tile that
+                # ends here is MISSING, not empty, and the coastline would
+                # have a hole in it - so this must be loud, not a quiet
+                # skip. The run is only sound if every tile succeeded.
+                print("    *** FAILED - this tile is missing from the "
+                      "coastline ***", flush=True)
+                failed_tiles.append((i, j))
                 continue
             ntiles += 1
             for xml in chunks:
@@ -135,6 +142,14 @@ def main():
     print()
     print(f"{ntiles} tiles fetched, {len(all_ways)} coastline way references, "
           f"{len(all_nodes)} nodes")
+    if failed_tiles:
+        # A failed tile leaves a HOLE in the coastline, and a hole in the
+        # coastline leaks the land mask. Stop here rather than write a
+        # coastline file that looks complete.
+        raise SystemExit(
+            f"{len(failed_tiles)} of {NX * NY} tiles FAILED and are missing "
+            f"from the coastline: {failed_tiles}. The cached tiles are kept, "
+            f"so re-run this script to fetch only what is missing.")
     if not all_ways:
         raise SystemExit("no coastline ways found - the fetch failed")
 
