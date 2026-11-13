@@ -60,6 +60,12 @@ from rasterio.features import rasterize
 from scipy import ndimage
 from shapely.geometry import Polygon, shape
 from shapely.ops import unary_union
+import tempfile
+
+SCRATCH = os.environ.get("HERMES_SCRATCH",
+                       os.path.join(tempfile.gettempdir(),
+                                    "hermes-scratch"))
+os.makedirs(SCRATCH, exist_ok=True)
 
 warnings.filterwarnings("ignore")
 

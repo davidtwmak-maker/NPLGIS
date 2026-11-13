@@ -177,6 +177,7 @@ alone would call land.
 | Script | What it does |
 |---|---|
 | `fetch_osm_coastline_api.py` | Fetches the OSM data for the territory from the OSM API, in tiles, caching each tile on disk |
+| `fetch_boundary_ways.py` | Fetches the OSM boundary ways the tiles miss |
 | `assemble_osm_coastline.py` | Turns the cached tiles into one coastline file and reports the chain count |
 | `build_land_mask_osm_hk.py` | Builds `hk_land_mask.npy` from the OSM boundary + the DTM, and verifies it against named places |
 | `build_lowland_deliverables.py` | Writes the GeoTIFF, the GeoJSON files and the CSV |
@@ -186,7 +187,38 @@ Order: `fetch_osm_coastline_api.py` → `assemble_osm_coastline.py` →
 `build_land_mask_osm_hk.py` → `build_lowland_deliverables.py` →
 `make_lowland_map.py`.
 
-To rebuild from scratch, put `Whole_HK_DTM_5m.tif` at
-`/Volumes/Extreme Pro/Download/HK DTM 5m/Whole_HK_DTM_5m.tif` and run the
-scripts in order with a Python that has numpy, scipy, rasterio, shapely,
-pyproj and matplotlib.
+To rebuild from scratch, you need the 5 m DTM and a Python with the
+geospatial stack:
+
+```
+pip install numpy scipy rasterio shapely pyproj matplotlib Pillow
+```
+
+Then point the scripts at the DTM and run them in order:
+
+```
+export HK_DTM_TIF=/path/to/Whole_HK_DTM_5m.tif
+python3 fetch_osm_coastline_api.py    # caches the OSM tiles
+python3 fetch_boundary_ways.py        # the boundary ways the tiles miss
+python3 assemble_osm_coastline.py     # one coastline file
+python3 build_land_mask_osm_hk.py     # the land mask + its verification
+python3 build_lowland_deliverables.py # the GeoTIFF, GeoJSON and CSV
+python3 make_lowland_map.py           # the map + the label checks
+```
+
+`fetch_boundary_ways.py` is not optional. The tiled fetch covers the sea,
+but the ways that run along the Shenzhen land border are not in the tiles,
+and without them the boundary does not close and the mask comes out at
+559 km² instead of 1,116 km². Fetch them with
+`/way/<id>/full` - the bulk endpoint `/ways?ways=...` returns the ways with
+only `<nd ref>` and no node coordinates, so the geometry cannot be resolved
+from it.
+
+`HK_DTM_TIF` wins; if it is unset the scripts look in
+`$GIS_DATA_DIR/HK Landslide Susceptibility/raw/`, then
+`$GIS_DATA_DIR/HK Flood Causes/raw/`, then the SSD copy at
+`/Volumes/Extreme Pro/Download/HK DTM 5m/Whole_HK_DTM_5m.tif`.
+
+The OSM fetch takes a while: the API rate-limits hard (HTTP 429) and the
+grid is 48 tiles. The tiles are cached on disk, so a rerun resumes rather
+than starting over.

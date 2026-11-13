@@ -1365,15 +1365,15 @@
   },
   {
    "file": "notes/lowland-under5m — NOTES.md",
-   "bytes": 9969,
-   "mb": 0.01,
+   "bytes": 11328,
+   "mb": 0.011,
    "gzipped": false,
    "features": null,
    "title": "Low-lying land under 5 m - method note",
    "dataset_id": "",
    "records": "",
    "notes": "The method note: why the DTM's sea-as-0 m coding makes a land mask essential, the six land boundaries that were tested and how each one fails, the OSM Hong Kong boundary that was used, the acceptance test against Hong Kong's true land area and against 48 named places, the ArcGIS Pro instructions, and the known limits.",
-   "sha256": "6e9181a7fb9087a1"
+   "sha256": "5140d47ccfb57496"
   }
  ],
  "scripts": [
@@ -1709,8 +1709,8 @@
   },
   {
    "file": "scripts/lowland/build_land_mask_osm_hk.py",
-   "bytes": 19644,
-   "sha256": "7ce9e87f61132e77",
+   "bytes": 19854,
+   "sha256": "bcfb4ea648498b1f",
    "description": "Build the Hong Kong land mask from the OSM boundary relations 20044132 and 913110 chained with the Guangdong-Hong Kong border ways and the coastline ways, intersected with the DTM's positive elevation, then verify it against named land and water places and against Hong Kong's true land area."
   },
   {
@@ -1730,6 +1730,12 @@
    "bytes": 5279,
    "sha256": "b203ff8f901a4710",
    "description": "Package the deliverables for delivery: copy them to disk, build a ZIP under the 50 MB limit, then extract it and re-read every file."
+  },
+  {
+   "file": "scripts/lowland/fetch_boundary_ways.py",
+   "bytes": 8678,
+   "sha256": "9811ebc6242beb44",
+   "description": "Fetch the OSM Hong Kong boundary's member ways BY ID, so the land mask can be rebuilt from a fresh clone. The tiled coastline fetch does not carry the ways that run along the Shenzhen land border. Use /way/<id>/full, NOT /ways?ways=... - the bulk endpoint returns the ways with only <nd ref> and no node coordinates, so the geometry cannot be resolved from it. The fetched files keep the node coordinates."
   }
  ]
 }
