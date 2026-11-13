@@ -264,6 +264,13 @@
             </a>
             <figcaption><strong>MTR fare savers</strong> — 41 malls mapped to their station</figcaption>
           </figure>
+          <figure>
+            <a href="./assets/maps/lowland/HK_lowland_under5m_map.png">
+              <img src="./assets/maps/lowland/HK_lowland_under5m_map.png"
+                   alt="Map of Hong Kong showing the land below 5 metres above sea level in blue over the 5 metre terrain model, with the ten largest low-lying patches numbered and named — Yuen Long, the northern New Territories coast, Tolo Harbour, Tai O on Lantau, the south Lantau coast, Kwai Chung, the Tuen Mun coast, Lok Ma Chau and Ma On Shan" loading="lazy" />
+            </a>
+            <figcaption><strong>Land below 5 metres</strong> — 60.6 km², 5.4% of Hong Kong's land, mapped from the 5 m DTM</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -313,6 +320,26 @@
                 <td><code>assets/data/flood/dsd_flood_prone_areas.geojson.gz</code></td>
                 <td>267</td>
                 <td>The official Hong Kong flood-prone locations from DSD's three lists: 226 prone to blockage, 15 with drainage improvement works in progress, 26 coastal low-lying or windy residential areas. EPSG:4326</td>
+              </tr>
+              <tr>
+                <td><code>assets/data/lowland/hk_lowland_under5m.geojson.gz</code></td>
+                <td>106</td>
+                <td>The land of Hong Kong below 5 metres above the Hong Kong Principal Datum &mdash; 60.58 km&sup2;, 5.43% of the land &mdash; as 106 contiguous patches, each with its area, centre point and mean, minimum and maximum elevation. Built from the 5 m LandsD DTM with a land mask, because the DTM codes the sea as 0 m. EPSG:4326</td>
+              </tr>
+              <tr>
+                <td><code>assets/data/lowland/hk_lowland_under5m_all_patches.geojson.gz</code></td>
+                <td>9,060</td>
+                <td>Every contiguous patch of low-lying land, including the slivers under 0.05 km&sup2; that the cleaned layer drops. EPSG:4326</td>
+              </tr>
+              <tr>
+                <td><code>assets/data/lowland/hk_lowland_under5m.tif</code></td>
+                <td>2,423,036</td>
+                <td>The same area as a binary raster on the 5 m grid, 1 = land below 5 m, 0 = everything else. 12,751 &times; 9,601 at 5 m, EPSG:2326 (HK1980)</td>
+              </tr>
+              <tr>
+                <td><code>assets/data/lowland/hk_lowland_under5m_patches.csv</code></td>
+                <td>106</td>
+                <td>One row per low-lying patch: area in km&sup2; and hectares, the centre point in lon/lat, and the mean, minimum and maximum elevation within the patch</td>
               </tr>
               <tr>
                 <td><code>assets/data/flood/flood_prone_areas_mechanism.geojson.gz</code></td>

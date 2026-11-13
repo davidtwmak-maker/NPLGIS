@@ -1,7 +1,7 @@
 {
- "generated": "2026-11-09",
+ "generated": "2026-11-13",
  "repository": "davidtwmak-maker/NPLGIS",
- "note": "Every layer shipped in assets/data plus the Festival Walk 3D app data. Features counted from the file itself. Floor plate heights are schematic (5.5 m storey, 2x vertical exaggeration). The G floor is set to Tat Chee Avenue (達之路) at the junction where it meets the mall - 33.0 m measured from Esri WorldElevation3D Terrain3D - and the podium is a schematic foundation mass, not measured architectural heights. | 2026-11-05: added HK Steep Slopes >30 deg - 33,231 polygons of ground steeper than 30 degrees (113.29 km2 = 10.09% of land), the five-class slope raster at 20 m, the maximum-slope raster, and the two-panel map. Slope is the MAXIMUM gradient within each 20 m cell, not the mean: 22,700 recorded incidents sit in cells whose mean slope is under 30 degrees but whose max is over it, so a mean threshold would erase a fifth of the evidence. Area reconciliation error 0.0 m2, 0 invalid geometries. ",
+ "note": "Every layer shipped in assets/data plus the Festival Walk 3D app data. Features counted from the file itself. Floor plate heights are schematic (5.5 m storey, 2x vertical exaggeration). The G floor is set to Tat Chee Avenue (達之路) at the junction where it meets the mall - 33.0 m measured from Esri WorldElevation3D Terrain3D - and the podium is a schematic foundation mass, not measured architectural heights. | 2026-11-05: added HK Steep Slopes >30 deg - 33,231 polygons of ground steeper than 30 degrees (113.29 km2 = 10.09% of land), the five-class slope raster at 20 m, the maximum-slope raster, and the two-panel map. Slope is the MAXIMUM gradient within each 20 m cell, not the mean: 22,700 recorded incidents sit in cells whose mean slope is under 30 degrees but whose max is over it, so a mean threshold would erase a fifth of the evidence. Area reconciliation error 0.0 m2, 0 invalid geometries.  | 2026-11-13: added HK Low-Lying Land under 5 m - the land in Hong Kong below 5 m above the Principal Datum, 60.58 km2 = 5.43% of the land, as 106 cleaned patches, all 9,060 patches, a binary 5 m raster and the map. The source DTM codes the sea as 0 m, so the land mask is essential; it is built from the OSM Hong Kong boundary relation 20044132 AND the DTM's positive elevation, and gives 1,116.0 km2 of land against a true 1,106 km2. ",
  "sources": [
   {
    "name": "3D Pedestrian Network",
@@ -1302,6 +1302,78 @@
    "notes": "Mean diurnal tidal range (mean HW minus mean LW) at each of the 15 HKO tide stations, read from the live HKO high/low tide CSVs for 2026. The tides are listed in time order with no high/low marker column, so they are separated by the local-extremum test. Range 0.99-1.44 m.",
    "sha256": "b4fba7a7039a12b5",
    "modified": "2026-11-09"
+  },
+  {
+   "file": "assets/data/lowland/hk_lowland_under5m.geojson.gz",
+   "bytes": 3458357,
+   "mb": 3.458,
+   "gzipped": true,
+   "features": 106,
+   "title": "Hong Kong land below 5 m elevation",
+   "dataset_id": "",
+   "records": "106",
+   "notes": "The 106 contiguous patches of Hong Kong whose ground level is below 5 m above the Hong Kong Principal Datum, 60.58 km2 = 5.43% of the land. Patches under 0.05 km2 are dropped for readability (they hold 10.68 km2 between them and are in the all-patches layer). Each feature carries its area in km2 and hectares, its centre point in lon/lat, and the mean, minimum and maximum elevation within the patch. EPSG:4326 (GeoJSON is always lon/lat, RFC 7946); the areas are measured in EPSG:2326 (HK1980) and the reprojection changes them by 0.000000 km2. The sea is coded 0 m in the source DTM, so the land mask is essential - without it the query returns the whole ocean.",
+   "sha256": "d1f4b412fa28311f"
+  },
+  {
+   "file": "assets/data/lowland/hk_lowland_under5m_all_patches.geojson.gz",
+   "bytes": 6648593,
+   "mb": 6.649,
+   "gzipped": true,
+   "features": 9060,
+   "title": "Hong Kong land below 5 m elevation - every patch",
+   "dataset_id": "",
+   "records": "9060",
+   "notes": "All 9,060 contiguous patches of low-lying land, including the slivers under 0.05 km2 that the cleaned layer drops. The two layers together hold the same 60.58 km2. EPSG:4326 (RFC 7946).",
+   "sha256": "4227a50f0bb5e3c7"
+  },
+  {
+   "file": "assets/data/lowland/hk_lowland_under5m.tif",
+   "bytes": 534037,
+   "mb": 0.534,
+   "gzipped": false,
+   "features": null,
+   "title": "Low-lying land raster (5 m)",
+   "dataset_id": "",
+   "records": "",
+   "notes": "Binary raster on the 5 m DTM grid, 12751 x 9601 at 5 m, EPSG:2326 (HK1980): 1 = land below 5 m, 0 = everything else. 2,423,036 cells = 60.58 km2. Deflate-compressed GeoTIFF.",
+   "sha256": "d4567a62f3ef7a5b"
+  },
+  {
+   "file": "assets/data/lowland/hk_lowland_under5m_patches.csv",
+   "bytes": 5046,
+   "mb": 0.005,
+   "gzipped": false,
+   "features": null,
+   "title": "Low-lying land patch table",
+   "dataset_id": "",
+   "records": "106 patches",
+   "notes": "One row per kept patch: id, area in km2 and hectares, the centre point in lon/lat, and the mean, minimum and maximum elevation within the patch.",
+   "sha256": "ca8b2be1cacfe6e5"
+  },
+  {
+   "file": "assets/maps/lowland/HK_lowland_under5m_map.png",
+   "bytes": 239517,
+   "mb": 0.24,
+   "gzipped": false,
+   "features": null,
+   "title": "Hong Kong land below 5 m - the low-lying land map",
+   "dataset_id": "",
+   "records": "",
+   "notes": "The land below 5 m in blue over the 5 m terrain model, with the ten largest patches numbered and named, a key, a scale bar, a north arrow and a source line. The text-overlap and off-canvas checks both pass at zero. Victoria Harbour and Tolo Harbour read as sea, as they must.",
+   "sha256": "fe7db4162cc158d5"
+  },
+  {
+   "file": "notes/lowland-under5m — NOTES.md",
+   "bytes": 9969,
+   "mb": 0.01,
+   "gzipped": false,
+   "features": null,
+   "title": "Low-lying land under 5 m - method note",
+   "dataset_id": "",
+   "records": "",
+   "notes": "The method note: why the DTM's sea-as-0 m coding makes a land mask essential, the six land boundaries that were tested and how each one fails, the OSM Hong Kong boundary that was used, the acceptance test against Hong Kong's true land area and against 48 named places, the ArcGIS Pro instructions, and the known limits.",
+   "sha256": "6e9181a7fb9087a1"
   }
  ],
  "scripts": [
@@ -1610,6 +1682,54 @@
    "bytes": 4229,
    "sha256": "531e3320b326f0a3",
    "description": "Convert the cached 3D Pedestrian Network from the ArcGIS 'geojson' output format to RFC 7946 GeoJSON: 'attributes' -> 'properties', ESRI 'paths' -> LineString/MultiLineString, and 'type': 'Feature' added to every feature. The ArcGIS service calls its own output format 'geojson' but it is not GeoJSON."
+  },
+  {
+   "file": "scripts/publish_lowland.py",
+   "bytes": 9608,
+   "sha256": "9ad3fdd488d6608b",
+   "description": "Publish the low-lying land layer into the repo: reproject the EPSG:2326 polygons to lon/lat AT THE SHIPPING BOUNDARY, write them gzipped, copy the raster, the table, the map and the note, then read every shipped file back and assert the feature counts, the absence of a crs member and that the coordinates are lon/lat. The area is measured in EPSG:2326 before and after the reprojection and must agree."
+  },
+  {
+   "file": "scripts/update_manifest_lowland.py",
+   "bytes": 9565,
+   "sha256": "55a906bc42a994a5",
+   "description": "Add the low-lying land entries to the MANIFEST, reading the feature counts and sha256 FROM THE SHIPPED FILES, extending the manifest in place and then re-reading every entry to confirm it still matches disk."
+  },
+  {
+   "file": "scripts/lowland/fetch_osm_coastline_api.py",
+   "bytes": 6188,
+   "sha256": "66b9839f947e81c6",
+   "description": "Fetch the OpenStreetMap data for the Hong Kong territory from the OSM API, in a tiled grid, caching every tile on disk. Overpass was unavailable, so this uses api/0.6/map directly, splitting a bbox that returns 400 and backing off on the 429 rate limit."
+  },
+  {
+   "file": "scripts/lowland/assemble_osm_coastline.py",
+   "bytes": 3263,
+   "sha256": "44b19929ce46c8bd",
+   "description": "Turn the cached OSM tiles into one coastline file and report how the ways chain into rings."
+  },
+  {
+   "file": "scripts/lowland/build_land_mask_osm_hk.py",
+   "bytes": 19644,
+   "sha256": "7ce9e87f61132e77",
+   "description": "Build the Hong Kong land mask from the OSM boundary relations 20044132 and 913110 chained with the Guangdong-Hong Kong border ways and the coastline ways, intersected with the DTM's positive elevation, then verify it against named land and water places and against Hong Kong's true land area."
+  },
+  {
+   "file": "scripts/lowland/build_lowland_deliverables.py",
+   "bytes": 8582,
+   "sha256": "ebad477052d0eaee",
+   "description": "Write the low-lying land deliverables: the binary GeoTIFF, the cleaned and the all-patches GeoJSON, and the patch table."
+  },
+  {
+   "file": "scripts/lowland/make_lowland_map.py",
+   "bytes": 11157,
+   "sha256": "bac8971c9df771c3",
+   "description": "Draw the low-lying land map and check the text overlap and the off-canvas text BEFORE saving."
+  },
+  {
+   "file": "scripts/lowland/package_lowland.py",
+   "bytes": 5279,
+   "sha256": "b203ff8f901a4710",
+   "description": "Package the deliverables for delivery: copy them to disk, build a ZIP under the 50 MB limit, then extract it and re-read every file."
   }
  ]
 }
