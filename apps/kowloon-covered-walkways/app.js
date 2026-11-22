@@ -310,6 +310,30 @@
   };
   north.addTo(map);
 
+  // ------------------------------------------- layers panel: collapse on phones
+  // On narrow screens the legend would sit on top of the zoom buttons, so it
+  // starts closed and the "Layers" summary is a single tappable row.
+  var ctlDetails = document.getElementById("ctl-details");
+  var ctlTouched = false;   // set only by a real tap, not by our own code
+  var ctlSyncing = false;
+  function syncCtl() {
+    if (!ctlDetails) return;
+    var wantOpen = window.innerWidth >= 560;
+    if (ctlTouched) return;         // the user has made their own choice
+    if (ctlDetails.open === wantOpen) return;
+    ctlSyncing = true;
+    ctlDetails.open = wantOpen;
+    // the toggle event is queued, so clear the flag after it has fired
+    setTimeout(function () { ctlSyncing = false; }, 0);
+  }
+  if (ctlDetails) {
+    ctlDetails.addEventListener("toggle", function () {
+      if (!ctlSyncing) ctlTouched = true;
+    });
+    syncCtl();
+    window.addEventListener("resize", syncCtl);
+  }
+
   // ------------------------------------------------- keyboard: Escape clears
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") clearSelection();

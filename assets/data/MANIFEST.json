@@ -1462,6 +1462,28 @@
    "dataset_id": "",
    "records": "5 feature classes",
    "notes": "Unzip, then Add Data to Map in ArcGIS Pro - a .gdb is a folder, not a file. Schools_RouteMetrics (103), Route_Candidates (16,269), Routes_To_School (206), Covered_Paths (14,761), Stops_PTI (1,778)"
+  },
+  {
+   "file": "apps/kowloon-covered-walkways/index.html",
+   "bytes": 10086,
+   "mb": 0.01,
+   "gzipped": false,
+   "features": "",
+   "title": "Interactive Leaflet map page - covered walkways to school, Kowloon Peninsula",
+   "dataset_id": "",
+   "records": "",
+   "notes": "Mobile-safe: the layers panel is a <details> element that starts collapsed under 560 px so it never covers the zoom buttons."
+  },
+  {
+   "file": "apps/kowloon-covered-walkways/app.js",
+   "bytes": 13729,
+   "mb": 0.013,
+   "gzipped": false,
+   "features": "",
+   "title": "Map application logic for the covered walkways map (Leaflet 1.9, no build step)",
+   "dataset_id": "",
+   "records": "",
+   "notes": "Clicking a school dot draws its most-sheltered route (solid) and nearest-stop route (dashed)."
   }
  ],
  "scripts": [
