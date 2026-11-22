@@ -103,6 +103,79 @@ was prompted by a reader questioning the route distances.
    mattered in the web map, where joining routes back by name drew the
    *wrong campus's* route.
 
+## Scenario — worst case: walking from the nearest MTR station
+
+The stop-to-school analysis above assumes the buses run. This is the
+opposite bound: **bus and minibus service is out, or the roads are too
+congested to travel on, so the student walks the whole way from the
+station.**
+
+The origin is the **MTR station exit**, not the station centroid — students
+enter and leave through exits. All 375 exits in the study area (29 stations)
+are snapped to the pedestrian network, a shortest path is solved from each to
+the school, and the shortest wins.
+
+| Check | Value |
+|---|---:|
+| Schools with a walkable route to an MTR exit | **103 of 103** |
+| Median walk | **492 m** |
+| p90 walk | **1,013 m** |
+| Longest walk | **1,667 m** (Po Leung Kuk Choi Kai Yau, from Lai Chi Kok) |
+| Median longest uncovered stretch | **335 m** |
+| Median walking time in rain | **8 min** (6 min on the flat) |
+| Schools needing over 15 min | **20** |
+| Schools with no covered stretch at all | **34** |
+| Median exit-to-network snap | 4.3 m (max 48.5 m) |
+
+Walking time uses **Tobler's hiking function**, applied per edge —
+`v = 6 · exp(−3.5 · |slope + 0.05|)` km/h — plus a **20 % rain penalty**.
+Tobler slows the walk on descents as well as climbs, which a single
+route-wide speed factor cannot do.
+
+**A note on the covered share.** The MTR walk's median covered share is
+0.03, against 0.41 for the "most-sheltered route" above. That is not a
+contradiction: the most-sheltered route was *selected* to maximise covered
+share, so its cover share is biased upward by the selection. The MTR walk is
+a fixed nearest-exit choice, so it is an unbiased sample of what students
+actually walk. Against the fair baseline in this project — the nearest-stop
+route, also not selected for coverage — the MTR walk is *better* sheltered
+(11.5 % pooled vs 4.8 %). The network-wide baseline for the study area is
+23 % sheltered.
+
+Ten stations serve 81 of the 103 schools, so station-level resilience is the
+lever: To Kwa Wan 15, Shek Kip Mei 12, Kowloon Tong 9, Mong Kok East 8,
+Prince Edward 8, Yau Ma Tei 8.
+
+### Five more bugs, of the same family
+
+All five produced plausible output and no error. Each was caught by checking
+the exported geometry against the stored number, or by a reader questioning
+a distance.
+
+5. **Parallel edges were summed again.** The same `coo_matrix` trap as bug 1,
+   reintroduced when this scenario was built as a separate script. The
+   cheapest segment per node pair is now chosen *before* the matrix is
+   assembled.
+6. **Edge orientation was decided by comparing coordinates.** Nodes are snapped
+   by rounding to 1e-6 degrees, so two entries for the same node can differ in
+   the seventh decimal, and an exact coordinate test wrongly reversed an
+   edge. A wrongly reversed edge makes the drawn line jump back where it came
+   from. Fixed by deciding orientation from **node IDs**.
+7. **The path was traced in the wrong order.** `pred` points toward the
+   source, so walking it from the exit gives exit→school order. The code
+   built the geometry in the reverse of that and then reversed it again, and
+   the drawn line came out roughly twice the walked length.
+8. **The export zipped two lists of different length.** The metrics list
+   skips schools with no reachable exit, so zipping it against the school
+   list misaligned every record after the first skip.
+9. **Snapping to a disconnected elevated concourse node.** Some exits snapped
+   ~17 km away, to a node on the wrong side of a flyover. Fixed by rejecting
+   snaps beyond 120 m and by selecting the exit on **network** distance.
+
+**Standing test:** every exported route's length, recomputed in EPSG:2326,
+must equal its stored walk distance. It now holds for all 103 walks to
+within **0.15 m**, and the same check caught bugs 3 and 7.
+
 ## Files
 
 | File | Records | What it is |
@@ -114,6 +187,9 @@ was prompted by a reader questioning the route distances.
 | `assets/data/kowloon-covered-walkways/Schools_RouteMetrics.csv` | 103 | The same school metrics as a flat table |
 | `assets/data/kowloon-covered-walkways/Kowloon_Covered_Walkways.gdb.zip` | 5 feature classes | Esri File Geodatabase, **EPSG:2326 (HK 1980 Grid)** — opens natively in ArcGIS Pro |
 | `assets/maps/kowloon-covered-walkways/kowloon_peninsula_covered_routes.png` | — | The two-panel figure |
+| `assets/data/kowloon-covered-walkways/mtr_walk_schools.json` | 103 | The worst-case walk from the nearest MTR exit, per school |
+| `assets/data/kowloon-covered-walkways/mtr_walk_routes.geojson` | 103 | Those 103 walks as lines |
+| `scripts/mtr_walk_schools.py` | — | Computes the worst-case MTR walk |
 
 **Derived fields** (all `ai_`-prefixed, per the CSDI Awards disclosure rule;
 every other field is authoritative and unmodified): `ai_covered_ratio`,
@@ -134,6 +210,13 @@ every other field is authoritative and unmodified): `ai_covered_ratio`,
 - **A14** Distance metric: **Hong Kong 1980 Grid (EPSG:2326)**. Every reported
   distance — route length, snap distance, detour factor, the 30 m shelter test
   — is measured in the projected CRS, not in degrees.
+- **A15** Worst-case scenario: the walk starts at the **MTR station exit**,
+  chosen by **network** distance, not by proximity to a station centroid.
+  Exits more than 120 m from the pedestrian network are unusable.
+- **A16** Walking time uses **Tobler's hiking function** per edge plus a
+  **20 % rain penalty**. The rain penalty is a judgement, not a measurement:
+  test 10 % and 30 % — the ordering of schools is robust, the exact minutes
+  are not.
 
 ## Limits
 

@@ -1472,7 +1472,7 @@
     },
     {
       "file": "apps/kowloon-covered-walkways/index.html",
-      "bytes": 10395,
+      "bytes": 10610,
       "mb": 0.01,
       "gzipped": false,
       "features": "",
@@ -1480,7 +1480,7 @@
       "dataset_id": "",
       "records": "",
       "notes": "Mobile-safe: the layers panel is a <details> element that starts collapsed under 560 px so it never covers the zoom buttons.",
-      "sha256": "60f7415528ed3a5d"
+      "sha256": "dc0fa44c372915c2"
     },
     {
       "file": "apps/kowloon-covered-walkways/app.js",
