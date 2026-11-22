@@ -42,6 +42,7 @@ import time
 from collections import defaultdict
 
 import numpy as np
+import shapely
 from scipy.sparse import coo_matrix
 from scipy.sparse.csgraph import dijkstra
 from shapely.geometry import shape, Point
@@ -121,12 +122,50 @@ from collections import Counter
 log("  classes: " + str(Counter(c for _, c, _ in segs)))
 
 # ------------------------------------------------------- graph construction
+# Distance measurement
+# ------------------
+# The graph cost must be a real ground distance.  The earlier version scaled
+# a shapely DEGREE length by one constant (M_PER_DEG_LAT), which is wrong for
+# east-west movement: at this latitude one degree of longitude is ~102,980 m
+# but one degree of latitude is ~110,540 m, so every east-west segment was
+# inflated by 7.3%.  Worse, the degree length itself was a plain Euclidean
+# distance in degrees, which mixes the two axes.
+#
+# The fix: project to Hong Kong 1980 Grid (EPSG:2326) — the same CRS the
+# rest of the NPL GIS work uses and the same one the ArcGIS deliverable is
+# published in — and take the length there.  This is exact for a study area
+# this small (< 10 km across), and it removes the approximation entirely.
+TO_HK = Transformer.from_crs("EPSG:4326", "EPSG:2326", always_xy=True)
+
+
+def to_hk(coords):
+    """lon/lat array -> HK 1980 Grid x/y array."""
+    x, y = TO_HK.transform(coords[:, 0], coords[:, 1])
+    return np.column_stack([x, y])
+
+
+def hk_length(geom):
+    """True length of a lon/lat geometry in metres, via EPSG:2326."""
+    if geom.geom_type == "MultiLineString":
+        return sum(hk_length(g) for g in geom.geoms)
+    c = np.asarray(geom.coords, dtype=float)
+    if len(c) < 2:
+        return 0.0
+    return float(np.linalg.norm(np.diff(to_hk(c), axis=0), axis=1).sum())
+
+
+# The equirectangular constants are kept ONLY for the 30 m shelter test and
+# the 800 m candidate search, where the error is centimetres.  Everything
+# that becomes a REPORTED number (route length, snap distance, detour
+# factor) is measured in HK 1980 Grid.
 M_PER_DEG_LAT = 110540.0
 M_PER_DEG_LON = 111320.0 * math.cos(math.radians(LAT0))
 
 
 def xy(lon, lat):
-    return lon * M_PER_DEG_LON, lat * M_PER_DEG_LAT
+    """lon/lat -> HK 1980 Grid x/y (metres)."""
+    x, y = TO_HK.transform(lon, lat)
+    return float(x), float(y)
 
 
 node_id = {}
@@ -150,7 +189,7 @@ for geom, cls, props in segs:
     v = nid(cs[-1][0], cs[-1][1])
     if u == v:
         continue
-    length = geom.length * M_PER_DEG_LAT          # equirectangular, metres
+    length = hk_length(geom)                    # true metres, EPSG:2326
     if length <= 0:
         continue
     edges.append((u, v, length, cls, geom))
@@ -217,19 +256,31 @@ shel_tree = STRtree(shel_geoms) if shel_geoms else None
 # A buffer distance in shapely is in COORDINATE UNITS.  The geometry here is
 # lon/lat, so buffer(30.0) would mean 30 DEGREES - 3,300 km - and every stop
 # would appear to touch every path.  The 30 m radius must be converted first.
+#
+# This is now done properly: the stop and the sheltered paths are projected
+# to HK 1980 Grid and the buffer is a true 30 m in metres.  The previous
+# degree approximation also stretched the buffer by ~7% east-west, which
+# mattered at the margin (a path 31 m away in x but 29 m away overall).
 SHELTER_R_M = 30.0
-SHELTER_R_DEG = SHELTER_R_M / M_PER_DEG_LAT     # latitude degrees ~= metres
+
+shel_hk = shapely.transform(
+    np.array(shel_geoms, dtype=object),
+    lambda c: to_hk(c),
+    include_z=False) if shel_geoms else []
+shel_tree_hk = STRtree(shel_hk) if len(shel_hk) else None
 
 for pt in pti:
     pg = pt["geom"]
-    buf = pg.buffer(SHELTER_R_DEG)
+    # project the stop to HK 1980 Grid and buffer 30 m there
+    px, py = xy(pt["lon"], pt["lat"])
+    buf = Point(px, py).buffer(SHELTER_R_M)
     # STRtree.query returns INDEXES, not geometries — and a bbox query can
     # still miss a path that only touches the buffer edge, so the candidates
     # are re-tested with a real intersects() before counting.
-    idx = shel_tree.query(buf) if shel_tree is not None else []
+    idx = shel_tree_hk.query(buf) if shel_tree_hk is not None else []
     hit = False
     for i in idx:
-        if shel_geoms[int(i)].intersects(buf):
+        if shel_hk[int(i)].intersects(buf):
             hit = True
             break
     pt["ai_sheltered_within_30m"] = hit
@@ -246,12 +297,38 @@ for ft in sch:
     p = ft["properties"]
     schools.append({"name": p.get("NameEN"), "name_tc": p.get("NameTC"),
                     "district": p.get("DistrictEN"), "type": p.get("DatasetEN"),
+                    # Six schools in the study area share a NAME with another
+                    # (two Rudolf Steiner campuses, two LAI CHACK sites, two
+                    # BEACON records).  Name alone is therefore NOT a usable
+                    # key for joining routes back to a school — it silently
+                    # merges three distinct campuses into one.
+                    #
+                    # OBJECTID alone is not enough either: the EDB schools
+                    # arrive as FIVE separate datasets (aided, private, DSS,
+                    # government, caput) and each restarts its own OBJECTID
+                    # counter, so "S33" is three different schools.
+                    # dataset_id + OBJECTID is unique across the merge.
+                    "sid": p.get("OBJECTID"),
+                    "dataset_id": p.get("dataset_id"),
+                    "address": p.get("AddressEN"),
                     "lon": g.x, "lat": g.y, "geom": g})
 log(f"schools in study area: {len(schools)}")
 
+# A stable, unique key per school record.
+_k = Counter()
+for s in schools:
+    _k[(s["dataset_id"], s["sid"])] += 1
+for s in schools:
+    s["school_id"] = f"{s['dataset_id']}-{s['sid']}"
+assert max(_k.values()) == 1, "school key is not unique"
+log(f"school key (dataset_id + OBJECTID) unique: {len(set(s['school_id'] for s in schools))} of {len(schools)}")
+
 # nearest graph node for each school
-sx = np.array([s["lon"] for s in schools]) * M_PER_DEG_LON
-sy = np.array([s["lat"] for s in schools]) * M_PER_DEG_LAT
+# node_xy and the school point are both in HK 1980 Grid, so this is a plain
+# Euclidean distance in metres.
+sxy = np.array([xy(s["lon"], s["lat"]) for s in schools])
+sx = sxy[:, 0]
+sy = sxy[:, 1]
 nx = np.array([p[0] for p in node_xy])
 ny = np.array([p[1] for p in node_xy])
 d2 = (sx[:, None] - nx[None, :]) ** 2 + (sy[:, None] - ny[None, :]) ** 2
@@ -277,8 +354,8 @@ for si, s in enumerate(schools):
 
     cands = []
     for pt in pti:
-        dxy = math.hypot((pt["lon"] - s["lon"]) * M_PER_DEG_LON,
-                         (pt["lat"] - s["lat"]) * M_PER_DEG_LAT)
+        px, py = xy(pt["lon"], pt["lat"])
+        dxy = math.hypot(px - sxy[si][0], py - sxy[si][1])
         if dxy <= PTI_SEARCH_M:
             cands.append((dxy, pt))
     cands.sort(key=lambda t: t[0])
@@ -287,9 +364,9 @@ for si, s in enumerate(schools):
     best_cov = None
     per_pti = []
     for dxy, pt in cands:
-        # snap the PTI to its nearest graph node
-        j = int(np.argmin((nx - pt["lon"] * M_PER_DEG_LON) ** 2
-                           + (ny - pt["lat"] * M_PER_DEG_LAT) ** 2))
+        # snap the PTI to its nearest graph node (both in HK 1980 Grid)
+        pxx, pyy = xy(pt["lon"], pt["lat"])
+        j = int(np.argmin((nx - pxx) ** 2 + (ny - pyy) ** 2))
         if not np.isfinite(dist[j]):
             per_pti.append({"kind": pt["kind"], "name": pt["name"],
                             "ai_direct_m": round(dxy, 1), "ai_route_m": None,
@@ -384,7 +461,8 @@ for si, s in enumerate(schools):
         "type": "Feature",
         "geometry": json.loads(json.dumps(rg.__geo_interface__)) if rg is not None else None,
         "properties": {
-            "school": s["name"], "district": s["district"], "school_type": s["type"],
+            "school": s["name"], "school_id": s["school_id"],
+            "district": s["district"], "school_type": s["type"],
             "ai_route_kind": "shortest",
             "pti_kind": best["kind"], "pti_name": best["name"],
             "ai_route_m": best["ai_route_m"], "ai_covered_ratio": best["ai_covered_ratio"],
@@ -402,7 +480,8 @@ for si, s in enumerate(schools):
                 "type": "Feature",
                 "geometry": json.loads(json.dumps(cg.__geo_interface__)),
                 "properties": {
-                    "school": s["name"], "district": s["district"],
+                    "school": s["name"], "school_id": s["school_id"],
+                    "district": s["district"],
                     "school_type": s["type"], "ai_route_kind": "best_covered",
                     "pti_kind": best_cov["kind"], "pti_name": best_cov["name"],
                     "ai_route_m": best_cov["ai_route_m"],

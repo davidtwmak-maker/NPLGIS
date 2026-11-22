@@ -185,6 +185,30 @@ axB.scatter([r["lon"] for r in routed], [r["lat"] for r in routed], s=15,
 
 # label the worst schools (longest uncovered stretch on their best route)
 
+def wrap_name(name, width=26):
+    """Wrap a school name on word boundaries.
+
+    Slicing a name to fit produced "RHENISH CHURCH PANG HOK-KO M" with no
+    hint that text was missing.  Wrapping keeps every word whole, and the
+    label is never wider than `width` characters.
+    """
+    words = str(name).split()
+    if not words:
+        return ""
+    lines, cur = [], ""
+    for w in words:
+        cand = w if not cur else cur + " " + w
+        if len(cand) <= width:
+            cur = cand
+        else:
+            if cur:
+                lines.append(cur)
+            cur = w
+    if cur:
+        lines.append(cur)
+    return "\n".join(lines)
+
+
 # ------------------------------------------------------------------ key
 key_rows = [
     ("Covered pedestrian path (sheltered from sun and rain)", "line", "#1F6FB2", "s"),
@@ -208,13 +232,24 @@ leg = axA.legend(handles=handles,
 leg.get_title().set_fontsize(7.2)
 leg.get_title().set_fontweight("bold")
 
-# panel B needs its own key: the black dot is a school, and the lines are routes
+# panel B needs its own key: the black dot is a school, and the lines are
+# routes.  The line swatch uses the colour ramp's MIDDLE colour only as a
+# placeholder — the ramp itself is explained by the colour bar, so the key
+# says so explicitly rather than implying one fixed colour.
 axB.legend(handles=[
-    Line2D([], [], color="#777777", lw=2.0, label="Walking route from a stop to the school"),
+    Line2D([], [], color="#BBBBBB", lw=2.0,
+           label="Walking route from a stop to the school"),
     Line2D([], [], color="#1A1A1A", marker="o", ls="none", ms=5.0, label="Secondary school"),
 ], loc="upper left", fontsize=6.2, frameon=True, framealpha=0.95,
     edgecolor="#666666", borderpad=0.7, labelspacing=0.55, handlelength=1.9,
     title="Key").get_title().set_fontsize(7.2)
+
+# Say in words, inside the key, what the colour means — otherwise the key
+# shows a grey line while the map shows red-to-green.
+axB.text(0.015, 0.905, "Route colour = share of the\nroute that is covered\n(see the bar below)",
+         transform=axB.transAxes, fontsize=5.6, color="#333333",
+         ha="left", va="top", zorder=18, linespacing=1.35,
+         bbox=dict(fc="white", ec="#BBBBBB", alpha=0.93, pad=1.8))
 
 # colour bar for covered ratio on panel B
 sm = plt.cm.ScalarMappable(cmap=cmap, norm=norm)
@@ -314,7 +349,16 @@ worst = sorted([r for r in schools if r.get("ai_routable")],
                 key=lambda r: -r["ai_best_cov_longest_exposed_m"])[:8]
 for r in worst:
     x, y = r["lon"], r["lat"]
-    txt = f"{r['name'][:28]}\n{r['ai_best_cov_longest_exposed_m']:.0f} m uncovered"
+    # "XXX m uncovered" reads as a contradiction next to a colour ramp that
+    # already says how much of the route is covered.  Name the number
+    # precisely: it is the LONGEST single uncovered stretch, not the total.
+    #
+    # The name is WRAPPED, not sliced: a hard cut at 28 characters produced
+    # "RHENISH CHURCH PANG HOK-KO M" with no indication that more text was
+    # missing.  Wrapping keeps every word whole.
+    txt = (f"{wrap_name(r['name'], 26)}\n"
+           f"longest gap {r['ai_best_cov_longest_exposed_m']:.0f} m\n"
+           f"{r['ai_best_cov_ratio']*100:.0f}% covered")
     placed_ok = False
     for dx, dy in OFFSETS:
         cand = (x + dx, y + dy)

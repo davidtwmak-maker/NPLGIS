@@ -1,5 +1,10 @@
 /* Kowloon Covered Walkways to School — interactive map.
-   Leaflet 1.9, no build step. Data in ./data (plain GeoJSON + JSON). */
+   Leaflet 1.9, no build step. Data in ./data (plain GeoJSON + JSON).
+
+   Clicking a school dot highlights ITS routes: the shortest route from the
+   nearest stop and the most-sheltered route from any stop, plus the stop
+   markers each route starts from.  Everything else on the map fades. */
+
 (function () {
   "use strict";
 
@@ -39,17 +44,31 @@
       Math.round(a[2] + (b[2] - a[2]) * t) + ")";
   }
 
-  var gCov = L.layerGroup().addTo(map);
-  var gRoute = L.layerGroup().addTo(map);
-  var gStop = L.layerGroup().addTo(map);
-  var gSchool = L.layerGroup().addTo(map);
-
-  var info = document.getElementById("info");
-  var summary = [];
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+    });
+  }
 
   function fmt(n) { return Math.round(n).toLocaleString("en-GB"); }
 
-  // ---- covered paths
+  // ------------------------------------------------------------- layer groups
+  var gCov = L.layerGroup().addTo(map);      // the sheltered network
+  var gRoute = L.layerGroup().addTo(map);    // every route (dimmed by default)
+  var gStop = L.layerGroup().addTo(map);      // the 1,778 stops
+  var gSchool = L.layerGroup().addTo(map);    // the 103 schools
+  var gFocus = L.layerGroup();               // the SELECTED school's routes
+  var gFocusStop = L.layerGroup();           // the stops that route starts at
+  var gFocusSchool = L.layerGroup();         // the selected school, enlarged
+
+  var info = document.getElementById("info");
+  var summary = [];
+  var routesById = {};       // school_id -> {shortest:..., best_covered:...}
+  var schoolById = {};
+  var stopMarkerByKey = {};
+  var selectedId = null;
+
+  // --------------------------------------------------------------- covered paths
   fetch("./data/covered_paths.geojson").then(function (r) { return r.json(); }).then(function (d) {
     var latlngs = d.features.map(function (f) {
       return f.geometry.coordinates.map(function (c) { return [c[1], c[0]]; });
@@ -61,36 +80,37 @@
       " Covered paths (" + fmt(d.features.length) + ")";
   });
 
-  // ---- routes
+  // --------------------------------------------------------------------- routes
   fetch("./data/routes.geojson").then(function (r) { return r.json(); }).then(function (d) {
-    var bySchool = {};
     d.features.forEach(function (f) {
       var p = f.properties;
-      var key = p.school + "|" + (p.ai_route_kind || "");
-      var prev = bySchool[key];
-      // keep the best-covered copy of each route kind
-      if (!prev || (p.ai_covered_ratio || 0) > (prev.properties.ai_covered_ratio || 0)) {
-        bySchool[key] = f;
-      }
-    });
-    Object.keys(bySchool).forEach(function (k) {
-      var f = bySchool[k], p = f.properties;
+      var id = p.school_id;
+      if (!id) return;
+      if (!routesById[id]) routesById[id] = {};
+      routesById[id][p.ai_route_kind] = f;
+
       var latlngs = f.geometry.coordinates.map(function (c) { return [c[1], c[0]]; });
-      L.polyline(latlngs, {
+      var kind = p.ai_route_kind;
+      var isBest = kind === "best_covered";
+      var line = L.polyline(latlngs, {
         color: covColor(p.ai_covered_ratio),
-        weight: 2.2, opacity: 0.9
-      }).bindPopup(
+        weight: isBest ? 2.6 : 1.6,
+        opacity: isBest ? 0.95 : 0.55,
+        dashArray: isBest ? null : "5,4"
+      }).addTo(gRoute);
+
+      line.bindPopup(
         "<b>" + esc(p.school) + "</b><br>" +
+        "<b>" + (isBest ? "Most-sheltered route" : "Nearest-stop route") + "</b><br>" +
         "Route " + fmt(p.ai_route_m) + " m &middot; covered " +
         (p.ai_covered_ratio).toFixed(2) + "<br>" +
         "Longest uncovered stretch <b>" + fmt(p.ai_longest_exposed_m) + " m</b><br>" +
-        "From " + esc(p.ai_route_kind === "best_covered" ? "best stop" : "nearest stop") +
-        ": " + esc(p.pti_kind) + " " + esc(p.pti_name)
-      ).addTo(gRoute);
+        "From " + esc(p.pti_kind) + " " + esc(p.pti_name)
+      );
     });
   });
 
-  // ---- stops
+  // ---------------------------------------------------------------------- stops
   fetch("./data/stops.geojson").then(function (r) { return r.json(); }).then(function (d) {
     var style = {
       mtr: { c: "#C0392B", s: "s", r: 3.2 },
@@ -105,54 +125,136 @@
       });
       m.bindPopup("<b>" + esc(p.ai_name) + "</b><br>" +
         p.ai_kind + (p.ai_exit_name ? " &middot; " + esc(p.ai_exit_name) : "") +
-        "<br>Covered path within 30 m: <b>" + (p.ai_sheltered_30m ? "yes" : "no") + "</b>");
+        "<br>Covered path within 30 m: <b>" + (p.ai_sheltered_within_30m ? "yes" : "no") + "</b>");
       m.addTo(gStop);
+      stopMarkerByKey[p.ai_kind + "|" + p.ai_name] = m;
     });
   });
 
-  // ---- schools
+  // -------------------------------------------------------------------- schools
   fetch("./data/schools.geojson").then(function (r) { return r.json(); }).then(function (d) {
     d.features.forEach(function (f) {
       var p = f.properties;
+      schoolById[p.school_id] = p;
       var m = L.circleMarker([p.lat, p.lon], {
         radius: 5, color: "#ffffff", weight: 1.1,
         fillColor: covColor(p.ai_best_cov_ratio), fillOpacity: 0.98
       });
       m.bindPopup("<b>" + esc(p.name) + "</b><br>" +
         esc(p.district) + " &middot; " + esc(p.type) + "<br>" +
-        "Best route " + fmt(p.ai_best_cov_route_m) + " m, covered " +
+        "Most-sheltered route " + fmt(p.ai_best_cov_route_m) + " m, covered " +
         p.ai_best_cov_ratio.toFixed(2) + "<br>" +
         "Longest uncovered stretch <b>" + fmt(p.ai_best_cov_longest_exposed_m) + " m</b>");
-      m.on("click", function () { showInfo(p); });
+      m.on("click", function () {
+        selectSchool(p.school_id);
+        m.openPopup();
+      });
       m.addTo(gSchool);
     });
   });
 
-  function esc(s) {
-    return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) {
-      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+  // ------------------------------------------------- select a school and show it
+  function selectSchool(id) {
+    var p = schoolById[id];
+    if (!p) return;
+    selectedId = id;
+
+    gFocus.clearLayers();
+    gFocusStop.clearLayers();
+    gFocusSchool.clearLayers();
+
+    var rts = routesById[id] || {};
+    var order = ["shortest", "best_covered"];
+    var bounds = [];
+
+    order.forEach(function (kind) {
+      var f = rts[kind];
+      if (!f) return;
+      var q = f.properties;
+      var isBest = kind === "best_covered";
+      var latlngs = f.geometry.coordinates.map(function (c) { return [c[1], c[0]]; });
+      var line = L.polyline(latlngs, {
+        color: covColor(q.ai_covered_ratio),
+        weight: isBest ? 5 : 3.4,
+        opacity: 1,
+        dashArray: isBest ? null : "9,7",
+        lineCap: "round", lineJoin: "round"
+      }).addTo(gFocus);
+      line.bindTooltip(
+        (isBest ? "Most-sheltered: " : "Nearest-stop: ") +
+        fmt(q.ai_route_m) + " m, " + Math.round(q.ai_covered_ratio * 100) + "% covered",
+        { sticky: true }
+      );
+      latlngs.forEach(function (ll) { bounds.push(ll); });
+
+      // the stop this route starts from
+      var mk = stopMarkerByKey[q.pti_kind + "|" + q.pti_name];
+      if (mk) {
+        var ll = mk.getLatLng();
+        L.circleMarker(ll, {
+          radius: 8, color: "#111111", weight: 2,
+          fillColor: covColor(q.ai_covered_ratio), fillOpacity: 1
+        }).bindPopup(
+          "<b>" + esc(q.pti_name) + "</b><br>" + esc(q.pti_kind) +
+          "<br>Start of the " + (isBest ? "most-sheltered" : "nearest-stop") +
+          " route to " + esc(p.name)
+        ).addTo(gFocusStop);
+        L.polyline([ll, ll], { opacity: 0 }).addTo(gFocusStop);
+        bounds.push(ll);
+      }
     });
+
+    // the school itself, enlarged
+    L.circleMarker([p.lat, p.lon], {
+      radius: 10, color: "#111111", weight: 2.5,
+      fillColor: covColor(p.ai_best_cov_ratio), fillOpacity: 1
+    }).addTo(gFocusSchool);
+
+    gFocus.addTo(map);
+    gFocusStop.addTo(map);
+    gFocusSchool.addTo(map);
+
+    if (bounds.length) {
+      map.fitBounds(L.latLngBounds(bounds).pad(0.12), { animate: true });
+    }
+    showInfo(p);
+  }
+
+  function clearSelection() {
+    selectedId = null;
+    gFocus.clearLayers();
+    gFocusStop.clearLayers();
+    gFocusSchool.clearLayers();
+    map.removeLayer(gFocus);
+    map.removeLayer(gFocusStop);
+    map.removeLayer(gFocusSchool);
+    info.hidden = true;
   }
 
   function showInfo(p) {
     var rows = [
       ["District", esc(p.district)],
       ["Type", esc(p.type)],
-      ["Best stop", esc(p.ai_best_cov_kind) + " " + esc(p.ai_best_cov_pti)],
-      ["Best route", fmt(p.ai_best_cov_route_m) + " m"],
+      ["Most-sheltered stop", esc(p.ai_best_cov_kind) + " " + esc(p.ai_best_cov_pti)],
+      ["Most-sheltered route", fmt(p.ai_best_cov_route_m) + " m"],
       ["Covered share", p.ai_best_cov_ratio.toFixed(2)],
-      ["Longest gap", fmt(p.ai_best_cov_longest_exposed_m) + " m"],
+      ["Longest uncovered gap", fmt(p.ai_best_cov_longest_exposed_m) + " m"],
       ["Nearest-stop route", fmt(p.ai_route_m) + " m"],
       ["Candidate stops", fmt(p.ai_n_pti_candidates)]
     ];
-    info.innerHTML = '<div class="ih">' + esc(p.name) + "</div>" +
+    info.innerHTML = '<span class="iclose" id="info-close" title="Clear selection">×</span>' +
+      '<div class="ih">' + esc(p.name) + "</div>" +
       rows.map(function (r) {
         return '<div class="ir"><span class="ik">' + r[0] + '</span><span class="iv">' + r[1] + "</span></div>";
-      }).join("");
+      }).join("") +
+      '<div class="ihint">Both routes are now drawn on the map: the solid line is the ' +
+      'most-sheltered walk, the dashed line the route from the nearest stop. ' +
+      'The ringed markers are the stops each route starts from.</div>';
     info.hidden = false;
+    document.getElementById("info-close").addEventListener("click", clearSelection);
   }
 
-  // ---- tables
+  // ------------------------------------------------------------------- tables
   fetch("./data/school_summary.json").then(function (r) { return r.json(); }).then(function (d) {
     summary = d;
     var worst = d.slice().sort(function (a, b) { return b.best_gap_m - a.best_gap_m; }).slice(0, 8);
@@ -162,7 +264,7 @@
 
     function rows(list) {
       return list.map(function (s) {
-        return '<tr data-n="' + esc(s.name) + '">' +
+        return '<tr data-id="' + esc(s.school_id) + '">' +
           "<td>" + esc(s.name) + "</td>" +
           '<td class="num">' + fmt(s.best_route_m) + "</td>" +
           '<td class="num">' + s.best_cov.toFixed(2) + "</td>" +
@@ -174,21 +276,13 @@
 
     Array.prototype.forEach.call(document.querySelectorAll("tbody tr"), function (tr) {
       tr.addEventListener("click", function () {
-        var s = summary.filter(function (x) { return x.name === tr.getAttribute("data-n"); })[0];
-        if (!s) return;
-        map.setView([s.lat, s.lon], 16);
-        showInfo({
-          name: s.name, district: s.district, type: s.type,
-          ai_best_cov_kind: s.best_kind, ai_best_cov_pti: s.best_pti,
-          ai_best_cov_route_m: s.best_route_m, ai_best_cov_ratio: s.best_cov,
-          ai_best_cov_longest_exposed_m: s.best_gap_m, ai_route_m: s.short_route_m,
-          ai_n_pti_candidates: s.n_cand
-        });
+        var id = tr.getAttribute("data-id");
+        selectSchool(id);
       });
     });
   });
 
-  // ---- layer toggles
+  // -------------------------------------------------------------- layer toggles
   function bind(id, layer) {
     document.getElementById(id).addEventListener("change", function (e) {
       if (e.target.checked) map.addLayer(layer); else map.removeLayer(layer);
@@ -199,10 +293,10 @@
   bind("ly-stop", gStop);
   bind("ly-school", gSchool);
 
-  // scale bar (metric, bottom-left)
+  // ---------------------------------------------------------------- scale bar
   L.control.scale({ metric: true, imperial: false, position: "bottomleft" }).addTo(map);
 
-  // north arrow
+  // ---------------------------------------------------------------- north arrow
   var north = L.control({ position: "topleft" });
   north.onAdd = function () {
     var d = L.DomUtil.create("div", "leaflet-control");
@@ -215,4 +309,9 @@
     return d;
   };
   north.addTo(map);
+
+  // ------------------------------------------------- keyboard: Escape clears
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") clearSelection();
+  });
 })();

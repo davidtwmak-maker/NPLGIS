@@ -56,6 +56,8 @@
              padding: 9px 11px; font-size: 0.76rem; box-shadow: 0 8px 22px rgba(0,0,0,.45); }
       .ctl label { display: flex; align-items: center; gap: 7px; padding: 0.13rem 0; cursor: pointer; }
       .ctl input { accent-color: var(--teal); margin: 0; }
+      .ctl-hint { margin: 0.45rem 0 0; padding-top: 0.4rem; border-top: 1px solid var(--line);
+                  color: var(--fg-dim); font-size: 0.68rem; line-height: 1.4; max-width: 210px; }
       #info { position: absolute; bottom: 22px; right: 12px; z-index: 500; width: 300px;
               background: var(--bg-raised); border: 1px solid var(--line); border-radius: 10px;
               padding: 10px 12px; font-size: 0.76rem; box-shadow: 0 8px 22px rgba(0,0,0,.45); }
@@ -64,6 +66,11 @@
       #info .ir { display: flex; gap: 8px; padding: 1.5px 0; }
       #info .ik { flex: 0 0 46%; color: var(--fg-dim); text-transform: uppercase; font-size: 0.66rem; }
       #info .iv { flex: 1; }
+      #info .ihint { margin-top: 7px; padding-top: 6px; border-top: 1px solid var(--line);
+                     color: var(--fg-dim); font-size: 0.7rem; line-height: 1.45; }
+      #info .iclose { position: absolute; top: 6px; right: 8px; cursor: pointer;
+                      color: var(--fg-faint); font-size: 0.9rem; line-height: 1; padding: 2px 4px; }
+      #info .iclose:hover { color: var(--fg); }
       .leaflet-popup-content { margin: 9px 11px; font-size: 0.78rem; line-height: 1.45; }
       .leaflet-popup-content b { color: var(--teal); }
     </style>
@@ -76,6 +83,7 @@
       <label><input type="checkbox" id="ly-route" checked /> <span class="swatch" style="border:none;background:linear-gradient(90deg,#d73027,#fee08b,#1a9850)"></span> Routes to school</label>
       <label><input type="checkbox" id="ly-stop" checked /> <span class="swatch" style="border:none;background:#C0392B"></span> Stops</label>
       <label><input type="checkbox" id="ly-school" checked /> <span class="swatch" style="border:none;background:#1A1A1A"></span> Schools</label>
+      <p class="ctl-hint">Click a school dot to draw its routes.</p>
     </div>
 
     <div id="info" hidden></div>
@@ -108,13 +116,15 @@
             <ul class="legend">
               <li><span class="ln" style="border-color:#1F6FB2"></span> Covered pedestrian path</li>
               <li><span class="ln" style="border-color:#d73027"></span> Route, coloured by covered share</li>
+              <li><span class="ln" style="border-color:#666;border-top-style:dashed"></span> Nearest-stop route (dashed)</li>
+              <li><span class="ln" style="border-color:#1a9850;border-top-width:5px"></span> Most-sheltered route (bold)</li>
               <li><span class="sq" style="background:#C0392B"></span> MTR station exit</li>
               <li><span class="sq" style="background:#E08A1E"></span> Bus stop</li>
               <li><span class="sq" style="background:#6B4E9E"></span> Green minibus stop</li>
               <li><span class="dot" style="background:#1A1A1A"></span> Secondary school</li>
             </ul>
             <p class="foot" style="margin-top:.7rem">
-              <b>62 of 103</b> schools cannot avoid a walk of 200 m or more with no cover.
+              <b>57 of 103</b> schools cannot avoid a walk of 200 m or more with no cover.
               Only <b>2</b> have a completely covered walk.
             </p>
           </div>

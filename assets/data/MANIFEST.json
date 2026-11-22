@@ -1,7 +1,7 @@
 {
  "generated": "2026-11-22",
  "repository": "davidtwmak-maker/NPLGIS",
- "note": "Every layer shipped in assets/data plus the Festival Walk 3D app data. Features counted from the file itself. Floor plate heights are schematic (5.5 m storey, 2x vertical exaggeration). The G floor is set to Tat Chee Avenue (達之路) at the junction where it meets the mall - 33.0 m measured from Esri WorldElevation3D Terrain3D - and the podium is a schematic foundation mass, not measured architectural heights. | 2026-11-05: added HK Steep Slopes >30 deg - 33,231 polygons of ground steeper than 30 degrees (113.29 km2 = 10.09% of land), the five-class slope raster at 20 m, the maximum-slope raster, and the two-panel map. Slope is the MAXIMUM gradient within each 20 m cell, not the mean: 22,700 recorded incidents sit in cells whose mean slope is under 30 degrees but whose max is over it, so a mean threshold would erase a fifth of the evidence. Area reconciliation error 0.0 m2, 0 invalid geometries.  | 2026-11-13: added HK Low-Lying Land under 5 m - the land in Hong Kong below 5 m above the Principal Datum, 60.58 km2 = 5.43% of the land, as 106 cleaned patches, all 9,060 patches, a binary 5 m raster and the map. The source DTM codes the sea as 0 m, so the land mask is essential; it is built from the OSM Hong Kong boundary relation 20044132 AND the DTM's positive elevation, and gives 1,116.0 km2 of land against a true 1,106 km2.  | 2026-11-22: added Kowloon Covered Walkways to School - the 103 secondary schools on the Kowloon Peninsula with the shelter on the walking route from a bus, minibus or MTR stop, measured on the 3D Pedestrian Network by shortest path (not straight line). Ships the two-panel map, an interactive Leaflet app, the route and shelter layers, and an Esri File Geodatabase in EPSG:2326 (HK 1980 Grid) for ArcGIS Pro. 62 of 103 schools have a >200 m uncovered stretch on their best route; only 2 have a fully covered walk.",
+ "note": "Every layer shipped in assets/data plus the Festival Walk 3D app data. Features counted from the file itself. Floor plate heights are schematic (5.5 m storey, 2x vertical exaggeration). The G floor is set to Tat Chee Avenue (達之路) at the junction where it meets the mall - 33.0 m measured from Esri WorldElevation3D Terrain3D - and the podium is a schematic foundation mass, not measured architectural heights. | 2026-11-05: added HK Steep Slopes >30 deg - 33,231 polygons of ground steeper than 30 degrees (113.29 km2 = 10.09% of land), the five-class slope raster at 20 m, the maximum-slope raster, and the two-panel map. Slope is the MAXIMUM gradient within each 20 m cell, not the mean: 22,700 recorded incidents sit in cells whose mean slope is under 30 degrees but whose max is over it, so a mean threshold would erase a fifth of the evidence. Area reconciliation error 0.0 m2, 0 invalid geometries.  | 2026-11-13: added HK Low-Lying Land under 5 m - the land in Hong Kong below 5 m above the Principal Datum, 60.58 km2 = 5.43% of the land, as 106 cleaned patches, all 9,060 patches, a binary 5 m raster and the map. The source DTM codes the sea as 0 m, so the land mask is essential; it is built from the OSM Hong Kong boundary relation 20044132 AND the DTM's positive elevation, and gives 1,116.0 km2 of land against a true 1,106 km2.  | 2026-11-22: added Kowloon Covered Walkways to School - the 103 secondary schools on the Kowloon Peninsula with the shelter on the walking route from a bus, minibus or MTR stop, measured on the 3D Pedestrian Network by shortest path (not straight line). Ships the two-panel map, an interactive Leaflet app (click a school dot to draw its routes), the route and shelter layers, and an Esri File Geodatabase in EPSG:2326 (HK 1980 Grid) for ArcGIS Pro. 57 of 103 schools have a >200 m uncovered stretch on their best route; only 2 have a fully covered walk. All distances measured in EPSG:2326.",
  "sources": [
   {
    "name": "3D Pedestrian Network",
@@ -1399,8 +1399,8 @@
   },
   {
    "file": "assets/data/kowloon-covered-walkways/peninsula_routes_schools.json",
-   "bytes": 127180,
-   "mb": 0.121,
+   "bytes": 5350259,
+   "mb": 5.102,
    "gzipped": false,
    "features": 103,
    "title": "Secondary schools with every exposure metric: covered share, route length, longest uncovered stretch, and the per-stop-type summary",
@@ -1410,8 +1410,8 @@
   },
   {
    "file": "assets/data/kowloon-covered-walkways/peninsula_route_geometry.geojson.gz",
-   "bytes": 191817,
-   "mb": 0.183,
+   "bytes": 192521,
+   "mb": 0.184,
    "gzipped": true,
    "features": 206,
    "title": "The routes: shortest and best-covered per school, solved on the pedestrian network",
@@ -1443,8 +1443,8 @@
   },
   {
    "file": "assets/data/kowloon-covered-walkways/Schools_RouteMetrics.csv",
-   "bytes": 30157,
-   "mb": 0.029,
+   "bytes": 24778,
+   "mb": 0.024,
    "gzipped": false,
    "features": 103,
    "title": "The same school metrics as a flat table",
@@ -1454,14 +1454,14 @@
   },
   {
    "file": "assets/data/kowloon-covered-walkways/Kowloon_Covered_Walkways.gdb.zip",
-   "bytes": 1470570,
-   "mb": 1.402,
+   "bytes": 1188720,
+   "mb": 1.134,
    "gzipped": false,
    "features": "",
    "title": "Esri File Geodatabase, EPSG:2326 (Hong Kong 1980 Grid): Schools_RouteMetrics, Route_Candidates, Routes_To_School, Covered_Paths, Stops_PTI",
    "dataset_id": "",
    "records": "5 feature classes",
-   "notes": "Unzip, then Add Data to Map in ArcGIS Pro - a .gdb is a folder, not a file"
+   "notes": "Unzip, then Add Data to Map in ArcGIS Pro - a .gdb is a folder, not a file. Schools_RouteMetrics (103), Route_Candidates (16,269), Routes_To_School (206), Covered_Paths (14,761), Stops_PTI (1,778)"
   }
  ],
  "scripts": [
@@ -1842,6 +1842,12 @@
    "bytes": 8760,
    "sha256": "c12b8db5a312239d",
    "description": "Converts the analysis outputs into an Esri File Geodatabase (EPSG:2326) for ArcGIS Pro, flattening the nested JSON into separate feature classes."
+  },
+  {
+   "file": "scripts/build_kowloon_webmap.py",
+   "bytes": 10589,
+   "sha256": "f4ae49c3ca6a9046",
+   "description": "Builds the Leaflet app data, the published site data and the Esri File Geodatabase (EPSG:2326) from the analysis outputs. Flattens the nested per-stop JSON into its own feature class and keys everything on dataset_id + OBJECTID, because six schools share a name."
   }
  ]
 }

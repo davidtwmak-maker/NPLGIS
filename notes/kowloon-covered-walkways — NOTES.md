@@ -45,16 +45,16 @@ Two routes are reported per school: the **shortest** (nearest stop) and the
 | Secondary schools in the study area | **103** |
 | Stops (MTR exits / bus / green minibus) | **1,778** = 326 / 716 / 736 |
 | Schools routed | **103 of 103** |
-| Median route length | **795 m** |
-| Median longest uncovered stretch | **249 m** |
-| Schools with a > 200 m uncovered stretch | **62** |
+| Median route length | **768 m** |
+| Median longest uncovered stretch | **238 m** |
+| Schools with a > 200 m uncovered stretch | **57** |
 | Schools with a > 500 m uncovered stretch | **15** |
 | Schools with a fully covered walk | **2** |
-| Detour factor (route ÷ straight line) | median **1.21**, max **3.92** |
+| Detour factor (route ÷ straight line) | median **1.16**, max **3.88** |
 
 **Only two schools have a completely covered walk** — Ying Wa College and
-California School. The median school still has a single unbroken 249 m
-stretch in the open; at the worst schools that stretch exceeds a kilometre.
+California School. The median school still has a single unbroken 238 m
+stretch in the open; at the worst schools that stretch approaches 900 m.
 
 The stop itself is a second, separate exposure — the share of stops with a
 covered path within 30 m:
@@ -62,15 +62,17 @@ covered path within 30 m:
 | Stop type | Sheltered | Share |
 |---|---:|---:|
 | MTR station exits | 222 of 326 | **68 %** |
-| Bus stops | 383 of 716 | **53 %** |
-| Green minibus stops | 355 of 736 | **48 %** |
+| Bus stops | 393 of 716 | **55 %** |
+| Green minibus stops | 368 of 736 | **50 %** |
 
 An MTR exit is the best shelter in the system; a green minibus stop — the one
 that serves what the bus does not — is the worst.
 
-## Two bugs found and fixed
+## Four bugs found and fixed
 
-Both produced plausible-looking output and no error.
+All four produced plausible-looking output and no error. Bugs 3 and 4 were
+found by checking the outputs against the data rather than trusting them; bug 3
+was prompted by a reader questioning the route distances.
 
 1. **Duplicate edges were summed, not minimised.** `coo_matrix` *adds*
    duplicate `(u,v)` entries, so parallel segments between the same two nodes
@@ -82,7 +84,24 @@ Both produced plausible-looking output and no error.
 2. **A 30 m buffer was 30 degrees.** Shapely measures in coordinate units,
    so `point.buffer(30.0)` on lon/lat geometry is a 3,300 km radius — and
    every one of the 1,778 stops came back 100 % sheltered. Fixed by
-   converting the radius to degrees first.
+   projecting to EPSG:2326 and buffering in metres.
+3. **Every distance used the wrong scale for east–west movement.** The graph
+   cost was `geom.length * M_PER_DEG_LAT` — a length in *degrees* multiplied
+   by the metres-per-degree-latitude constant. One degree of longitude here is
+   102,980 m but one degree of latitude is 110,540 m, so every east–west
+   segment was inflated by 7.3 %. The symptom was subtle: route lengths
+   looked plausible, but the drawn geometry was consistently ~3.5 % shorter
+   than the number reported beside it. An explicit round-trip check —
+   recomputing every exported route's length in EPSG:2326 and comparing it
+   with the stored `ai_route_m` — found 152 of 206 routes disagreeing. After
+   the fix all 206 agree to within 2 m.
+4. **Six schools share a name, and the schools come from five datasets that
+   each restart their own OBJECTID counter.** Neither name nor OBJECTID is
+   therefore a usable key: keying on the name merged three Rudolf Steiner
+   campuses into one, and keying on OBJECTID collided across datasets. The
+   analysis is keyed on `dataset_id + OBJECTID`, unique across all 103. This
+   mattered in the web map, where joining routes back by name drew the
+   *wrong campus's* route.
 
 ## Files
 
@@ -112,8 +131,9 @@ every other field is authoritative and unmodified): `ai_covered_ratio`,
   longer. The shortest route is reported too.
 - **A12** Candidate stops = within **800 m straight-line** of the school.
 - **A13** School → network snap: nearest graph node, accepted within 150 m.
-- **A14** Distance metric: equirectangular at 22.32° N (111.32 km/° lon,
-  110.54 km/° lat).
+- **A14** Distance metric: **Hong Kong 1980 Grid (EPSG:2326)**. Every reported
+  distance — route length, snap distance, detour factor, the 30 m shelter test
+  — is measured in the projected CRS, not in degrees.
 
 ## Limits
 
