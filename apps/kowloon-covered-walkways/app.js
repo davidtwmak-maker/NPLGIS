@@ -57,6 +57,7 @@
   var gRoute = L.layerGroup().addTo(map);    // every route (dimmed by default)
   var gStop = L.layerGroup().addTo(map);      // the 1,778 stops
   var gSchool = L.layerGroup().addTo(map);    // the 103 schools
+  var gMtrWalk = L.layerGroup().addTo(map);  // the walk from the nearest MTR exit
   var gFocus = L.layerGroup();               // the SELECTED school's routes
   var gFocusStop = L.layerGroup();           // the stops that route starts at
   var gFocusSchool = L.layerGroup();         // the selected school, enlarged
@@ -65,6 +66,7 @@
   var summary = [];
   var routesById = {};       // school_id -> {shortest:..., best_covered:...}
   var schoolById = {};
+  var mtrWalkById = {};       // school_id -> the MTR walk metrics
   var stopMarkerByKey = {};
   var selectedId = null;
 
@@ -153,6 +155,30 @@
     });
   });
 
+  // ------------------------------------------- walk from the nearest MTR exit
+  // Worst case: bus and minibus service unavailable, so the student walks
+  // the whole way from the station.
+  fetch("./data/mtr_walks.geojson").then(function (r) { return r.json(); }).then(function (d) {
+    d.features.forEach(function (f) {
+      var p = f.properties;
+      p._coords = f.geometry.coordinates;
+      mtrWalkById[p.school_id] = p;
+      var latlngs = f.geometry.coordinates.map(function (c) { return [c[1], c[0]]; });
+      L.polyline(latlngs, {
+        color: "#7A2E8E",
+        weight: 2.0,
+        opacity: 0.75,
+        dashArray: "7,4"
+      }).bindPopup(
+        "<b>" + esc(p.name) + "</b><br>" +
+        "Walk from <b>" + esc(p.station) + "</b> " + esc(p.exit) + "<br>" +
+        "Walk " + fmt(p.walk_m) + " m &middot; about " + fmt(p.walk_minutes) + " min<br>" +
+        "Longest uncovered stretch <b>" + fmt(p.longest_exposed_m) + " m</b><br>" +
+        "Covered " + (p.covered_ratio * 100).toFixed(0) + "%"
+      ).addTo(gMtrWalk);
+    });
+  });
+
   // ------------------------------------------------- select a school and show it
   function selectSchool(id) {
     var p = schoolById[id];
@@ -204,6 +230,21 @@
       }
     });
 
+    // the worst-case walk from the nearest MTR exit
+    var mw = mtrWalkById[id];
+    if (mw) {
+      var mll = mw._coords.map(function (c) { return [c[1], c[0]]; });
+      L.polyline(mll, {
+        color: "#7A2E8E", weight: 4.2, opacity: 1,
+        dashArray: "10,6", lineCap: "round", lineJoin: "round"
+      }).bindTooltip(
+        "Walk from " + mw.station + " " + mw.exit + ": " +
+        fmt(mw.walk_m) + " m, " + fmt(mw.walk_minutes) + " min",
+        { sticky: true }
+      ).addTo(gFocus);
+      mll.forEach(function (ll) { bounds.push(ll); });
+    }
+
     // the school itself, enlarged
     L.circleMarker([p.lat, p.lon], {
       radius: 10, color: "#111111", weight: 2.5,
@@ -242,6 +283,12 @@
       ["Nearest-stop route", fmt(p.ai_route_m) + " m"],
       ["Candidate stops", fmt(p.ai_n_pti_candidates)]
     ];
+    var mw = mtrWalkById[p.school_id];
+    if (mw) {
+      rows.push(["MTR exit", esc(mw.station) + " " + esc(mw.exit)]);
+      rows.push(["Walk from MTR", fmt(mw.walk_m) + " m (" + fmt(mw.walk_minutes) + " min)"]);
+      rows.push(["MTR-walk gap", fmt(mw.longest_exposed_m) + " m"]);
+    }
     info.innerHTML = '<span class="iclose" id="info-close" title="Clear selection">×</span>' +
       '<div class="ih">' + esc(p.name) + "</div>" +
       rows.map(function (r) {
@@ -292,6 +339,7 @@
   bind("ly-route", gRoute);
   bind("ly-stop", gStop);
   bind("ly-school", gSchool);
+  bind("ly-mtr", gMtrWalk);
 
   // ---------------------------------------------------------------- scale bar
   L.control.scale({ metric: true, imperial: false, position: "bottomleft" }).addTo(map);
