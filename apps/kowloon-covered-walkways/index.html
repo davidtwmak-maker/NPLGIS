@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="How covered is the walk from a bus, minibus or MTR stop to each secondary school on the Kowloon Peninsula? Routes solved on the LandsD 3D Pedestrian Network." />
+    <title>Covered Walkways to School — Kowloon Peninsula</title>
+    <link rel="icon" type="image/png" href="../../favicon.png" />
+    <link rel="stylesheet" href="../../assets/style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <style>
+      html, body { height: 100%; }
+      body { margin: 0; display: flex; flex-direction: column; }
+      #map {
+        flex: 1 1 auto; min-height: 0; width: 100%;
+        background: #dce9f2; border-bottom: 1px solid var(--line);
+      }
+      #panel {
+        flex: 0 0 auto; background: var(--bg-raised);
+        padding: 0.85rem 1.1rem 1rem; max-height: 42vh; overflow: auto;
+      }
+      #panel .inner { max-width: 1240px; margin: 0 auto; }
+      #panel h1 { font-size: 1.02rem; margin: 0 0 0.2rem; }
+      #panel h1 span { color: var(--teal); }
+      #panel .sub { color: var(--fg-dim); font-size: 0.8rem; margin: 0 0 0.7rem; }
+      #panel .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; }
+      #panel h2 {
+        font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.07em;
+        color: var(--fg-faint); margin: 0 0 0.4rem; font-weight: 600;
+      }
+      table { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
+      th { text-align: left; font-weight: 600; color: var(--fg-dim); font-size: 0.7rem;
+           text-transform: uppercase; letter-spacing: 0.04em; padding: 0 0.4rem 0.3rem 0;
+           border-bottom: 1px solid var(--line); cursor: pointer; }
+      th:hover { color: var(--teal); }
+      td { padding: 0.28rem 0.4rem 0.28rem 0; border-bottom: 1px solid var(--line); }
+      td.num { text-align: right; font-variant-numeric: tabular-nums; }
+      tbody tr { cursor: pointer; }
+      tbody tr:hover { background: rgba(120,160,220,.08); }
+      .swatch { display: inline-block; width: 0.85rem; height: 0.85rem; border-radius: 2px;
+                border: 1px solid rgba(255,255,255,0.25); vertical-align: -1px; margin-right: 0.4rem; }
+      .legend { list-style: none; padding: 0; margin: 0; font-size: 0.78rem; }
+      .legend li { padding: 0.15rem 0; }
+      .legend .dot { display: inline-block; width: 0.7rem; height: 0.7rem; border-radius: 50%;
+                     border: 1px solid rgba(255,255,255,.3); margin-right: 0.45rem; vertical-align: -1px; }
+      .legend .sq { display: inline-block; width: 0.7rem; height: 0.7rem; border-radius: 1px;
+                    border: 1px solid rgba(255,255,255,.3); margin-right: 0.45rem; vertical-align: -1px; }
+      .legend .ln { display: inline-block; width: 1.1rem; height: 0; border-top: 3px solid;
+                    margin-right: 0.45rem; vertical-align: 0.25rem; }
+      .foot { color: var(--fg-dim); font-size: 0.72rem; line-height: 1.55; margin-top: 0.8rem;
+              padding-top: 0.6rem; border-top: 1px solid var(--line); }
+      .foot a { color: var(--teal); }
+      .ctl { position: absolute; top: 12px; left: 12px; z-index: 500;
+             background: var(--bg-raised); border: 1px solid var(--line); border-radius: 10px;
+             padding: 9px 11px; font-size: 0.76rem; box-shadow: 0 8px 22px rgba(0,0,0,.45); }
+      .ctl label { display: flex; align-items: center; gap: 7px; padding: 0.13rem 0; cursor: pointer; }
+      .ctl input { accent-color: var(--teal); margin: 0; }
+      #info { position: absolute; bottom: 22px; right: 12px; z-index: 500; width: 300px;
+              background: var(--bg-raised); border: 1px solid var(--line); border-radius: 10px;
+              padding: 10px 12px; font-size: 0.76rem; box-shadow: 0 8px 22px rgba(0,0,0,.45); }
+      #info[hidden] { display: none; }
+      #info .ih { font-weight: 650; margin-bottom: 5px; line-height: 1.3; }
+      #info .ir { display: flex; gap: 8px; padding: 1.5px 0; }
+      #info .ik { flex: 0 0 46%; color: var(--fg-dim); text-transform: uppercase; font-size: 0.66rem; }
+      #info .iv { flex: 1; }
+      .leaflet-popup-content { margin: 9px 11px; font-size: 0.78rem; line-height: 1.45; }
+      .leaflet-popup-content b { color: var(--teal); }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <div class="ctl" id="ctl">
+      <label><input type="checkbox" id="ly-cov" checked /> <span class="swatch" style="border:none;background:#1F6FB2"></span> Covered paths</label>
+      <label><input type="checkbox" id="ly-route" checked /> <span class="swatch" style="border:none;background:linear-gradient(90deg,#d73027,#fee08b,#1a9850)"></span> Routes to school</label>
+      <label><input type="checkbox" id="ly-stop" checked /> <span class="swatch" style="border:none;background:#C0392B"></span> Stops</label>
+      <label><input type="checkbox" id="ly-school" checked /> <span class="swatch" style="border:none;background:#1A1A1A"></span> Schools</label>
+    </div>
+
+    <div id="info" hidden></div>
+
+    <div id="panel">
+      <div class="inner">
+        <h1>Covered Walkways to School — <span>Kowloon Peninsula</span></h1>
+        <p class="sub">
+          How much of the walk from a public transport stop to each secondary school is under cover?
+          Routes are shortest paths on the LandsD 3D Pedestrian Network — not straight lines.
+          Sham Shui Po · Kowloon City · Yau Tsim Mong, 103 schools.
+        </p>
+        <div class="cols">
+          <div>
+            <h2>Worst schools — longest uncovered stretch</h2>
+            <table id="tbl-worst">
+              <thead><tr><th>School</th><th class="num">Route</th><th class="num">Covered</th><th class="num">Gap</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div>
+            <h2>Best schools — most sheltered route</h2>
+            <table id="tbl-best">
+              <thead><tr><th>School</th><th class="num">Route</th><th class="num">Covered</th><th class="num">Gap</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div>
+            <h2>Key</h2>
+            <ul class="legend">
+              <li><span class="ln" style="border-color:#1F6FB2"></span> Covered pedestrian path</li>
+              <li><span class="ln" style="border-color:#d73027"></span> Route, coloured by covered share</li>
+              <li><span class="sq" style="background:#C0392B"></span> MTR station exit</li>
+              <li><span class="sq" style="background:#E08A1E"></span> Bus stop</li>
+              <li><span class="sq" style="background:#6B4E9E"></span> Green minibus stop</li>
+              <li><span class="dot" style="background:#1A1A1A"></span> Secondary school</li>
+            </ul>
+            <p class="foot" style="margin-top:.7rem">
+              <b>62 of 103</b> schools cannot avoid a walk of 200 m or more with no cover.
+              Only <b>2</b> have a completely covered walk.
+            </p>
+          </div>
+        </div>
+        <p class="foot">
+          Data: LandsD 3D Pedestrian Network (CSDI <code>landsd_rcd_1637222018065_52265</code>, <code>WeatherProof</code> + <code>Location</code> fields) ·
+          MTR 3D Indoor Map entry points · Transport Department bus stops and green minibus stops ·
+          EDB secondary schools (5 datasets) · Census 2021 District Council boundaries.
+          A path is <i>covered</i> where <code>WeatherProof = 1</code> or <code>Location = 2</code> (indoor);
+          <code>WeatherProof = 3</code> (unclassified) is counted as not covered.
+          Method and assumptions: <a href="../../notes/kowloon-covered-walkways — NOTES.md">method note</a> ·
+          <a href="https://github.com/davidtwmak-maker/NPLGIS">repository</a>
+        </p>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="./app.js"></script>
+  </body>
+</html>

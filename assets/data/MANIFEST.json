@@ -1,7 +1,7 @@
 {
- "generated": "2026-11-13",
+ "generated": "2026-11-22",
  "repository": "davidtwmak-maker/NPLGIS",
- "note": "Every layer shipped in assets/data plus the Festival Walk 3D app data. Features counted from the file itself. Floor plate heights are schematic (5.5 m storey, 2x vertical exaggeration). The G floor is set to Tat Chee Avenue (達之路) at the junction where it meets the mall - 33.0 m measured from Esri WorldElevation3D Terrain3D - and the podium is a schematic foundation mass, not measured architectural heights. | 2026-11-05: added HK Steep Slopes >30 deg - 33,231 polygons of ground steeper than 30 degrees (113.29 km2 = 10.09% of land), the five-class slope raster at 20 m, the maximum-slope raster, and the two-panel map. Slope is the MAXIMUM gradient within each 20 m cell, not the mean: 22,700 recorded incidents sit in cells whose mean slope is under 30 degrees but whose max is over it, so a mean threshold would erase a fifth of the evidence. Area reconciliation error 0.0 m2, 0 invalid geometries.  | 2026-11-13: added HK Low-Lying Land under 5 m - the land in Hong Kong below 5 m above the Principal Datum, 60.58 km2 = 5.43% of the land, as 106 cleaned patches, all 9,060 patches, a binary 5 m raster and the map. The source DTM codes the sea as 0 m, so the land mask is essential; it is built from the OSM Hong Kong boundary relation 20044132 AND the DTM's positive elevation, and gives 1,116.0 km2 of land against a true 1,106 km2. ",
+ "note": "Every layer shipped in assets/data plus the Festival Walk 3D app data. Features counted from the file itself. Floor plate heights are schematic (5.5 m storey, 2x vertical exaggeration). The G floor is set to Tat Chee Avenue (達之路) at the junction where it meets the mall - 33.0 m measured from Esri WorldElevation3D Terrain3D - and the podium is a schematic foundation mass, not measured architectural heights. | 2026-11-05: added HK Steep Slopes >30 deg - 33,231 polygons of ground steeper than 30 degrees (113.29 km2 = 10.09% of land), the five-class slope raster at 20 m, the maximum-slope raster, and the two-panel map. Slope is the MAXIMUM gradient within each 20 m cell, not the mean: 22,700 recorded incidents sit in cells whose mean slope is under 30 degrees but whose max is over it, so a mean threshold would erase a fifth of the evidence. Area reconciliation error 0.0 m2, 0 invalid geometries.  | 2026-11-13: added HK Low-Lying Land under 5 m - the land in Hong Kong below 5 m above the Principal Datum, 60.58 km2 = 5.43% of the land, as 106 cleaned patches, all 9,060 patches, a binary 5 m raster and the map. The source DTM codes the sea as 0 m, so the land mask is essential; it is built from the OSM Hong Kong boundary relation 20044132 AND the DTM's positive elevation, and gives 1,116.0 km2 of land against a true 1,106 km2.  | 2026-11-22: added Kowloon Covered Walkways to School - the 103 secondary schools on the Kowloon Peninsula with the shelter on the walking route from a bus, minibus or MTR stop, measured on the 3D Pedestrian Network by shortest path (not straight line). Ships the two-panel map, an interactive Leaflet app, the route and shelter layers, and an Esri File Geodatabase in EPSG:2326 (HK 1980 Grid) for ArcGIS Pro. 62 of 103 schools have a >200 m uncovered stretch on their best route; only 2 have a fully covered walk.",
  "sources": [
   {
    "name": "3D Pedestrian Network",
@@ -239,6 +239,17 @@
    "id": "VIIRS_NOAA21_GapFilled_BRDF_Corrected",
    "provider": "NASA Global Imagery Browse Services",
    "url": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi"
+  },
+  {
+   "name": "Green minibus stops",
+   "id": "td_rcd_1638874728005_80512",
+   "provider": "Transport Department via CSDI Portal",
+   "url": "https://portal.csdi.gov.hk/server/rest/services/common/td_rcd_1638874728005_80512/FeatureServer"
+  },
+  {
+   "name": "Secondary schools (EDB, 5 datasets)",
+   "id": "edb_rcd_1629267205213_53323 + 92681 + 87907 + 94310 + 23500",
+   "provider": "Education Bureau via CSDI Portal"
   }
  ],
  "files": [
@@ -1374,6 +1385,83 @@
    "records": "",
    "notes": "The method note: why the DTM's sea-as-0 m coding makes a land mask essential, the six land boundaries that were tested and how each one fails, the OSM Hong Kong boundary that was used, the acceptance test against Hong Kong's true land area and against 48 named places, the ArcGIS Pro instructions, and the known limits.",
    "sha256": "5140d47ccfb57496"
+  },
+  {
+   "file": "assets/maps/kowloon-covered-walkways/kowloon_peninsula_covered_routes.png",
+   "bytes": 544970,
+   "mb": 0.52,
+   "gzipped": false,
+   "features": "",
+   "title": "Two-panel map of the Kowloon Peninsula: covered pedestrian pathways with the 1,778 stops and 103 secondary schools, and the best-sheltered walking route to each school coloured by covered share",
+   "dataset_id": "landsd_rcd_1637222018065_52265",
+   "records": "",
+   "notes": ""
+  },
+  {
+   "file": "assets/data/kowloon-covered-walkways/peninsula_routes_schools.json",
+   "bytes": 127180,
+   "mb": 0.121,
+   "gzipped": false,
+   "features": 103,
+   "title": "Secondary schools with every exposure metric: covered share, route length, longest uncovered stretch, and the per-stop-type summary",
+   "dataset_id": "edb_rcd_1629267205213_53323",
+   "records": "103",
+   "notes": "All ai_ fields are derived by this project; every other field is authoritative"
+  },
+  {
+   "file": "assets/data/kowloon-covered-walkways/peninsula_route_geometry.geojson.gz",
+   "bytes": 191817,
+   "mb": 0.183,
+   "gzipped": true,
+   "features": 206,
+   "title": "The routes: shortest and best-covered per school, solved on the pedestrian network",
+   "dataset_id": "landsd_rcd_1637222018065_52265",
+   "records": "206",
+   "notes": "EPSG:4326"
+  },
+  {
+   "file": "assets/data/kowloon-covered-walkways/peninsula_covered_paths.geojson.gz",
+   "bytes": 521424,
+   "mb": 0.497,
+   "gzipped": true,
+   "features": 14761,
+   "title": "The sheltered network in the study area (173.9 km) with street names",
+   "dataset_id": "landsd_rcd_1637222018065_52265",
+   "records": "14,761",
+   "notes": "EPSG:4326"
+  },
+  {
+   "file": "assets/data/kowloon-covered-walkways/peninsula_pti.geojson.gz",
+   "bytes": 37624,
+   "mb": 0.036,
+   "gzipped": true,
+   "features": 1778,
+   "title": "MTR exits, bus stops and green minibus stops, each flagged for a covered path within 30 m",
+   "dataset_id": "td_rcd_1638874475129_49745",
+   "records": "1,778",
+   "notes": "EPSG:4326"
+  },
+  {
+   "file": "assets/data/kowloon-covered-walkways/Schools_RouteMetrics.csv",
+   "bytes": 30157,
+   "mb": 0.029,
+   "gzipped": false,
+   "features": 103,
+   "title": "The same school metrics as a flat table",
+   "dataset_id": "",
+   "records": "103",
+   "notes": ""
+  },
+  {
+   "file": "assets/data/kowloon-covered-walkways/Kowloon_Covered_Walkways.gdb.zip",
+   "bytes": 1470570,
+   "mb": 1.402,
+   "gzipped": false,
+   "features": "",
+   "title": "Esri File Geodatabase, EPSG:2326 (Hong Kong 1980 Grid): Schools_RouteMetrics, Route_Candidates, Routes_To_School, Covered_Paths, Stops_PTI",
+   "dataset_id": "",
+   "records": "5 feature classes",
+   "notes": "Unzip, then Add Data to Map in ArcGIS Pro - a .gdb is a folder, not a file"
   }
  ],
  "scripts": [
@@ -1736,6 +1824,24 @@
    "bytes": 8678,
    "sha256": "9811ebc6242beb44",
    "description": "Fetch the OSM Hong Kong boundary's member ways BY ID, so the land mask can be rebuilt from a fresh clone. The tiled coastline fetch does not carry the ways that run along the Shenzhen land border. Use /way/<id>/full, NOT /ways?ways=... - the bulk endpoint returns the ways with only <nd ref> and no node coordinates, so the geometry cannot be resolved from it. The fetched files keep the node coordinates."
+  },
+  {
+   "file": "scripts/kowloon_peninsula_routes.py",
+   "bytes": 21276,
+   "sha256": "0920f464097a3457",
+   "description": "Computes the Kowloon covered-walkway analysis: clips the 3D Pedestrian Network to the peninsula, classifies each segment from the source WeatherProof and Location fields, builds a graph (minimum-cost parallel edge, not the sum), solves a shortest path from every school to every candidate stop, and measures the cover on each route."
+  },
+  {
+   "file": "scripts/make_peninsula_figure.py",
+   "bytes": 15948,
+   "sha256": "6d49a547da0b22d6",
+   "description": "Renders the two-panel figure: covered pathways with the stops, and the best-sheltered route to each school coloured by covered share. Times New Roman, Key box, scale bar, north arrow."
+  },
+  {
+   "file": "scripts/build_arcgis_geodatabase.py",
+   "bytes": 8760,
+   "sha256": "c12b8db5a312239d",
+   "description": "Converts the analysis outputs into an Esri File Geodatabase (EPSG:2326) for ArcGIS Pro, flattening the nested JSON into separate feature classes."
   }
  ]
 }

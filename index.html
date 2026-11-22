@@ -15,6 +15,7 @@
       <nav>
         <a href="./apps/festival-walk-3d/">3D Map</a>
         <a href="./apps/landslide-susceptibility/">Landslide Map</a>
+        <a href="./apps/kowloon-covered-walkways/">Covered Walkways</a>
         <a href="./#projects">Projects</a>
         <a href="./#maps">Maps</a>
         <a href="./#data">Data</a>
@@ -69,6 +70,21 @@
               · 5-fold spatial CV, ROC-AUC 0.88
             </p>
             <p><a class="btn btn-primary" href="./apps/landslide-susceptibility/">Open the web map →</a></p>
+          </article>
+
+          <article class="card">
+            <h3>Covered walkways to school <span class="tag tag-live">live</span></h3>
+            <p>
+              How much of the walk from a bus, minibus or MTR stop to each secondary school on
+              the Kowloon Peninsula is under cover? Routes are shortest paths on the pedestrian
+              network — not straight lines — then measured segment by segment. Of 103 schools,
+              <em>62</em> cannot avoid a walk of 200 m or more with no cover, and only
+              <em>two</em> have a completely sheltered walk.
+            </p>
+            <p class="meta">
+              LandsD 3D Pedestrian Network via CSDI · 73,610 segments · 1,778 stops
+            </p>
+            <p><a class="btn btn-primary" href="./apps/kowloon-covered-walkways/">Open the web map →</a></p>
           </article>
 
           <article class="card">
@@ -179,6 +195,13 @@
         <h2>Maps</h2>
         <p class="section-lede">All rendered output, full resolution.</p>
         <div class="map-grid">
+          <figure>
+            <a href="./assets/maps/kowloon-covered-walkways/kowloon_peninsula_covered_routes.png">
+              <img src="./assets/maps/kowloon-covered-walkways/kowloon_peninsula_covered_routes.png"
+                   alt="Two-panel map of the Kowloon Peninsula: covered pedestrian pathways in blue with MTR exits, bus stops, minibus stops and the 103 secondary schools; and the best-sheltered walking route from a stop to each school, coloured red to green by the share of the route under cover" loading="lazy" />
+            </a>
+            <figcaption><strong>Covered walkways to school</strong> — 103 secondary schools on the Kowloon Peninsula, each route solved on the pedestrian network and measured for cover</figcaption>
+          </figure>
           <figure>
             <a href="./assets/maps/fishing-light/HK_fishing_light_seasonal_map_CORRECTED.png">
               <img src="./assets/maps/fishing-light/HK_fishing_light_seasonal_map_CORRECTED.png"
@@ -440,6 +463,36 @@
                 <td><code>assets/data/festival-walk/kc_pedestrian.geojson.gz</code></td>
                 <td>111,238</td>
                 <td>Kowloon Tong pedestrian network</td>
+              </tr>
+              <tr>
+                <td><code>assets/data/kowloon-covered-walkways/peninsula_routes_schools.json</code></td>
+                <td>103</td>
+                <td>Secondary schools on the Kowloon Peninsula with every exposure metric — covered share, route length and the longest uncovered stretch. The <code>ai_</code> fields are derived, not published</td>
+              </tr>
+              <tr>
+                <td><code>assets/data/kowloon-covered-walkways/peninsula_route_geometry.geojson.gz</code></td>
+                <td>206</td>
+                <td>The routes themselves — shortest and best-covered per school, solved on the pedestrian network. EPSG:4326</td>
+              </tr>
+              <tr>
+                <td><code>assets/data/kowloon-covered-walkways/peninsula_covered_paths.geojson.gz</code></td>
+                <td>14,761</td>
+                <td>The sheltered network in the study area (173.9 km), with street names. EPSG:4326</td>
+              </tr>
+              <tr>
+                <td><code>assets/data/kowloon-covered-walkways/peninsula_pti.geojson.gz</code></td>
+                <td>1,778</td>
+                <td>MTR exits, bus stops and green minibus stops, each flagged for whether a covered path lies within 30 m. EPSG:4326</td>
+              </tr>
+              <tr>
+                <td><code>assets/data/kowloon-covered-walkways/Schools_RouteMetrics.csv</code></td>
+                <td>103</td>
+                <td>The same school metrics as a flat table, for pivoting without opening a GIS package</td>
+              </tr>
+              <tr>
+                <td><code>assets/data/kowloon-covered-walkways/Kowloon_Covered_Walkways.gdb.zip</code></td>
+                <td>5 feature classes</td>
+                <td>Esri File Geodatabase, <strong>EPSG:2326 (Hong Kong 1980 Grid)</strong> — opens natively in ArcGIS Pro: <code>Schools_RouteMetrics</code> (103), <code>Route_Candidates</code> (16,387), <code>Routes_To_School</code> (7,796), <code>Covered_Paths</code> (14,761), <code>Stops_PTI</code> (1,778)</td>
               </tr>
             </tbody>
           </table>

@@ -1,0 +1,4922 @@
+[
+ {
+  "name": "MARYKNOLL CONVENT SCHOOL (SECONDARY SECTION)",
+  "name_tc": "瑪利諾修院學校(中學部)",
+  "district": "KOWLOON CITY",
+  "type": "Aided Secondary Schools",
+  "lon": 114.18027166411669,
+  "lat": 22.328195854069847,
+  "ai_routable": true,
+  "ai_snap_m": 44.4,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20017061",
+  "ai_direct_m": 131.5,
+  "ai_route_m": 225.8,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 225.8,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "bus": {
+    "ai_route_m": 228.4,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 228.4,
+    "ai_pti_name": "9145"
+   },
+   "minibus": {
+    "ai_route_m": 225.8,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 225.8,
+    "ai_pti_name": "20017061"
+   }
+  },
+  "ai_best_cov_ratio": 0.238,
+  "ai_best_cov_route_m": 551.3,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "4238",
+  "ai_best_cov_longest_exposed_m": 406.3,
+  "ai_n_pti_candidates": 144,
+  "ai_n_pti_reachable": 144,
+  "ai_best_covered_ratio": 0.238,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "PUI CHING MIDDLE SCHOOL",
+  "name_tc": "香港培正中學",
+  "district": "KOWLOON CITY",
+  "type": "Aided Secondary Schools",
+  "lon": 114.17719465163718,
+  "lat": 22.317612038030504,
+  "ai_routable": true,
+  "ai_snap_m": 24.3,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "9066",
+  "ai_direct_m": 90.7,
+  "ai_route_m": 90.7,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 90.7,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 946.1,
+    "ai_covered_ratio": 0.216,
+    "ai_longest_exposed_m": 264.0,
+    "ai_pti_name": "Mong Kok East Station"
+   },
+   "bus": {
+    "ai_route_m": 90.7,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 90.7,
+    "ai_pti_name": "9066"
+   },
+   "minibus": {
+    "ai_route_m": 178.2,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 178.2,
+    "ai_pti_name": "20000467"
+   }
+  },
+  "ai_best_cov_ratio": 0.303,
+  "ai_best_cov_route_m": 1299.0,
+  "ai_best_cov_kind": "mtr",
+  "ai_best_cov_pti": "Mong Kok East Station",
+  "ai_best_cov_longest_exposed_m": 264.0,
+  "ai_n_pti_candidates": 159,
+  "ai_n_pti_reachable": 159,
+  "ai_best_covered_ratio": 0.303,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "TACK CHING GIRLS' SECONDARY SCHOOL",
+  "name_tc": "德貞女子中學",
+  "district": "SHAM SHUI PO",
+  "type": "Aided Secondary Schools",
+  "lon": 114.14943311641193,
+  "lat": 22.332049633563223,
+  "ai_routable": true,
+  "ai_snap_m": 22.7,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20019868",
+  "ai_direct_m": 58.5,
+  "ai_route_m": 6.0,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 6.0,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 519.9,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 519.9,
+    "ai_pti_name": "Lai Chi Kok Station"
+   },
+   "bus": {
+    "ai_route_m": 91.7,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 91.7,
+    "ai_pti_name": "12886"
+   },
+   "minibus": {
+    "ai_route_m": 6.0,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 6.0,
+    "ai_pti_name": "20019868"
+   }
+  },
+  "ai_best_cov_ratio": 0.6,
+  "ai_best_cov_route_m": 672.1,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "13395",
+  "ai_best_cov_longest_exposed_m": 202.1,
+  "ai_n_pti_candidates": 115,
+  "ai_n_pti_reachable": 115,
+  "ai_best_covered_ratio": 0.6,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "THE HONG KONG SZE YAP COMMERCIAL & INDUSTRIAL ASSOCIATION WONG TAI SHAN MEMORIAL COLLEGE",
+  "name_tc": "香港四邑商工總會黃棣珊紀念中學",
+  "district": "SHAM SHUI PO",
+  "type": "Aided Secondary Schools",
+  "lon": 114.16855544396233,
+  "lat": 22.33466157535696,
+  "ai_routable": true,
+  "ai_snap_m": 41.2,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "13217",
+  "ai_direct_m": 85.1,
+  "ai_route_m": 55.1,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 55.1,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 309.2,
+    "ai_covered_ratio": 0.196,
+    "ai_longest_exposed_m": 179.9,
+    "ai_pti_name": "Shek Kip Mei Station"
+   },
+   "bus": {
+    "ai_route_m": 55.1,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 55.1,
+    "ai_pti_name": "13217"
+   },
+   "minibus": {
+    "ai_route_m": 105.3,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 105.3,
+    "ai_pti_name": "20012013"
+   }
+  },
+  "ai_best_cov_ratio": 0.345,
+  "ai_best_cov_route_m": 1077.4,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "9215",
+  "ai_best_cov_longest_exposed_m": 259.2,
+  "ai_n_pti_candidates": 169,
+  "ai_n_pti_reachable": 169,
+  "ai_best_covered_ratio": 0.345,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "KOWLOON TRUE LIGHT SCHOOL",
+  "name_tc": "九龍真光中學",
+  "district": "KOWLOON CITY",
+  "type": "Aided Secondary Schools",
+  "lon": 114.1755638822843,
+  "lat": 22.33836431764982,
+  "ai_routable": true,
+  "ai_snap_m": 57.6,
+  "ai_pti_kind": "mtr",
+  "ai_pti_name": "Kowloon Tong Station",
+  "ai_direct_m": 137.4,
+  "ai_route_m": 107.1,
+  "ai_covered_ratio": 0.129,
+  "ai_covered_m": 13.9,
+  "ai_longest_exposed_m": 93.2,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 107.1,
+    "ai_covered_ratio": 0.129,
+    "ai_longest_exposed_m": 93.2,
+    "ai_pti_name": "Kowloon Tong Station"
+   },
+   "bus": {
+    "ai_route_m": 309.5,
+    "ai_covered_ratio": 0.646,
+    "ai_longest_exposed_m": 91.1,
+    "ai_pti_name": "7103"
+   },
+   "minibus": {
+    "ai_route_m": 154.1,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 154.1,
+    "ai_pti_name": "20014488"
+   }
+  },
+  "ai_best_cov_ratio": 0.763,
+  "ai_best_cov_route_m": 384.4,
+  "ai_best_cov_kind": "minibus",
+  "ai_best_cov_pti": "20013735",
+  "ai_best_cov_longest_exposed_m": 91.1,
+  "ai_n_pti_candidates": 115,
+  "ai_n_pti_reachable": 115,
+  "ai_best_covered_ratio": 0.763,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "SKH HOLY CARPENTER SECONDARY SCHOOL",
+  "name_tc": "聖公會聖匠中學",
+  "district": "KOWLOON CITY",
+  "type": "Aided Secondary Schools",
+  "lon": 114.18803529444003,
+  "lat": 22.307759264688652,
+  "ai_routable": true,
+  "ai_snap_m": 10.0,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "4177",
+  "ai_direct_m": 82.1,
+  "ai_route_m": 96.4,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 96.4,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 384.3,
+    "ai_covered_ratio": 0.019,
+    "ai_longest_exposed_m": 377.0,
+    "ai_pti_name": "Whampoa Station"
+   },
+   "bus": {
+    "ai_route_m": 96.4,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 96.4,
+    "ai_pti_name": "4177"
+   },
+   "minibus": {
+    "ai_route_m": 116.8,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 116.8,
+    "ai_pti_name": "20000556"
+   }
+  },
+  "ai_best_cov_ratio": 0.471,
+  "ai_best_cov_route_m": 898.6,
+  "ai_best_cov_kind": "minibus",
+  "ai_best_cov_pti": "20017188",
+  "ai_best_cov_longest_exposed_m": 129.9,
+  "ai_n_pti_candidates": 154,
+  "ai_n_pti_reachable": 151,
+  "ai_best_covered_ratio": 0.471,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "HOLY TRINITY COLLEGE",
+  "name_tc": "寶血會上智英文書院",
+  "district": "SHAM SHUI PO",
+  "type": "Aided Secondary Schools",
+  "lon": 114.16845851009451,
+  "lat": 22.332376833969544,
+  "ai_routable": true,
+  "ai_snap_m": 24.9,
+  "ai_pti_kind": "mtr",
+  "ai_pti_name": "Shek Kip Mei Station",
+  "ai_direct_m": 38.4,
+  "ai_route_m": 23.1,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 23.1,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 23.1,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 23.1,
+    "ai_pti_name": "Shek Kip Mei Station"
+   },
+   "bus": {
+    "ai_route_m": 150.8,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 150.8,
+    "ai_pti_name": "9195"
+   },
+   "minibus": {
+    "ai_route_m": 101.3,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 101.3,
+    "ai_pti_name": "20000519"
+   }
+  },
+  "ai_best_cov_ratio": 0.317,
+  "ai_best_cov_route_m": 1157.8,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "9216",
+  "ai_best_cov_longest_exposed_m": 248.9,
+  "ai_n_pti_candidates": 187,
+  "ai_n_pti_reachable": 187,
+  "ai_best_covered_ratio": 0.317,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "NEW ASIA MIDDLE SCHOOL",
+  "name_tc": "新亞中學",
+  "district": "KOWLOON CITY",
+  "type": "Aided Secondary Schools",
+  "lon": 114.1861921858094,
+  "lat": 22.320844721040576,
+  "ai_routable": true,
+  "ai_snap_m": 24.6,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "12919",
+  "ai_direct_m": 125.8,
+  "ai_route_m": 177.4,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 177.4,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 497.4,
+    "ai_covered_ratio": 0.303,
+    "ai_longest_exposed_m": 177.4,
+    "ai_pti_name": "To Kwa Wan Station"
+   },
+   "bus": {
+    "ai_route_m": 177.4,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 177.4,
+    "ai_pti_name": "12919"
+   },
+   "minibus": {
+    "ai_route_m": 187.0,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 187.0,
+    "ai_pti_name": "20010413"
+   }
+  },
+  "ai_best_cov_ratio": 0.502,
+  "ai_best_cov_route_m": 953.9,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "10000101",
+  "ai_best_cov_longest_exposed_m": 177.4,
+  "ai_n_pti_candidates": 200,
+  "ai_n_pti_reachable": 200,
+  "ai_best_covered_ratio": 0.502,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "LUNG KONG WORLD FEDERATION SCHOOL LIMITED LAU WONG FAT SECONDARY SCHOOL",
+  "name_tc": "世界龍岡學校劉皇發中學",
+  "district": "YAU TSIM MONG",
+  "type": "Aided Secondary Schools",
+  "lon": 114.16266418296807,
+  "lat": 22.32572089101525,
+  "ai_routable": true,
+  "ai_snap_m": 22.7,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20017035",
+  "ai_direct_m": 167.2,
+  "ai_route_m": 213.5,
+  "ai_covered_ratio": 0.045,
+  "ai_covered_m": 9.7,
+  "ai_longest_exposed_m": 127.9,
+  "ai_n_exposed_runs": 2,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 699.6,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 699.6,
+    "ai_pti_name": "Prince Edward Station"
+   },
+   "bus": {
+    "ai_route_m": 218.7,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 218.7,
+    "ai_pti_name": "9082"
+   },
+   "minibus": {
+    "ai_route_m": 213.5,
+    "ai_covered_ratio": 0.045,
+    "ai_longest_exposed_m": 127.9,
+    "ai_pti_name": "20017035"
+   }
+  },
+  "ai_best_cov_ratio": 0.41,
+  "ai_best_cov_route_m": 879.0,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "9214",
+  "ai_best_cov_longest_exposed_m": 184.2,
+  "ai_n_pti_candidates": 193,
+  "ai_n_pti_reachable": 193,
+  "ai_best_covered_ratio": 0.41,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "ST. FRANCIS XAVIER'S COLLEGE",
+  "name_tc": "聖芳濟書院",
+  "district": "YAU TSIM MONG",
+  "type": "Aided Secondary Schools",
+  "lon": 114.163285420829,
+  "lat": 22.325431965318092,
+  "ai_routable": true,
+  "ai_snap_m": 7.3,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "9082",
+  "ai_direct_m": 107.3,
+  "ai_route_m": 155.6,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 155.6,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 96.4,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 636.5,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 636.5,
+    "ai_pti_name": "Prince Edward Station"
+   },
+   "bus": {
+    "ai_route_m": 155.6,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 155.6,
+    "ai_pti_name": "9082"
+   },
+   "minibus": {
+    "ai_route_m": 231.1,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 231.1,
+    "ai_pti_name": "20017052"
+   }
+  },
+  "ai_best_cov_ratio": 0.541,
+  "ai_best_cov_route_m": 832.4,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "9214",
+  "ai_best_cov_longest_exposed_m": 137.3,
+  "ai_n_pti_candidates": 192,
+  "ai_n_pti_reachable": 192,
+  "ai_best_covered_ratio": 0.541,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "ELCHK LUTHERAN SECONDARY SCHOOL",
+  "name_tc": "基督教香港信義會信義中學",
+  "district": "YAU TSIM MONG",
+  "type": "Aided Secondary Schools",
+  "lon": 114.1720992325895,
+  "lat": 22.313168914787408,
+  "ai_routable": true,
+  "ai_snap_m": 47.3,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20013205",
+  "ai_direct_m": 69.8,
+  "ai_route_m": 22.3,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 22.3,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 93.8,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 93.8,
+    "ai_pti_name": "Yau Ma Tei Station"
+   },
+   "bus": {
+    "ai_route_m": 205.9,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 205.9,
+    "ai_pti_name": "4233"
+   },
+   "minibus": {
+    "ai_route_m": 22.3,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 22.3,
+    "ai_pti_name": "20013205"
+   }
+  },
+  "ai_best_cov_ratio": 0.367,
+  "ai_best_cov_route_m": 581.2,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "4048",
+  "ai_best_cov_longest_exposed_m": 226.4,
+  "ai_n_pti_candidates": 178,
+  "ai_n_pti_reachable": 178,
+  "ai_best_covered_ratio": 0.367,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "SHUN TAK FRATERNAL ASSOCIATION SEAWARD WOO COLLEGE",
+  "name_tc": "順德聯誼總會胡兆熾中學",
+  "district": "KOWLOON CITY",
+  "type": "Aided Secondary Schools",
+  "lon": 114.1824165912004,
+  "lat": 22.32250652400226,
+  "ai_routable": true,
+  "ai_snap_m": 15.3,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "7031",
+  "ai_direct_m": 83.5,
+  "ai_route_m": 180.3,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 180.3,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 980.8,
+    "ai_covered_ratio": 0.029,
+    "ai_longest_exposed_m": 909.0,
+    "ai_pti_name": "To Kwa Wan Station"
+   },
+   "bus": {
+    "ai_route_m": 180.3,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 180.3,
+    "ai_pti_name": "7031"
+   },
+   "minibus": {
+    "ai_route_m": 286.3,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 286.3,
+    "ai_pti_name": "20014783"
+   }
+  },
+  "ai_best_cov_ratio": 0.147,
+  "ai_best_cov_route_m": 1033.7,
+  "ai_best_cov_kind": "minibus",
+  "ai_best_cov_pti": "20006055",
+  "ai_best_cov_longest_exposed_m": 679.1,
+  "ai_n_pti_candidates": 174,
+  "ai_n_pti_reachable": 174,
+  "ai_best_covered_ratio": 0.147,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "TANG KING PO SCHOOL",
+  "name_tc": "鄧鏡波學校",
+  "district": "KOWLOON CITY",
+  "type": "Aided Secondary Schools",
+  "lon": 114.18469742692683,
+  "lat": 22.320411331992393,
+  "ai_routable": true,
+  "ai_snap_m": 57.9,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20010450",
+  "ai_direct_m": 73.9,
+  "ai_route_m": 101.7,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 101.7,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 460.0,
+    "ai_covered_ratio": 0.062,
+    "ai_longest_exposed_m": 388.3,
+    "ai_pti_name": "To Kwa Wan Station"
+   },
+   "bus": {
+    "ai_route_m": 239.9,
+    "ai_covered_ratio": 0.137,
+    "ai_longest_exposed_m": 165.8,
+    "ai_pti_name": "9069"
+   },
+   "minibus": {
+    "ai_route_m": 101.7,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 101.7,
+    "ai_pti_name": "20010450"
+   }
+  },
+  "ai_best_cov_ratio": 0.326,
+  "ai_best_cov_route_m": 992.3,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "4167",
+  "ai_best_cov_longest_exposed_m": 212.4,
+  "ai_n_pti_candidates": 183,
+  "ai_n_pti_reachable": 183,
+  "ai_best_covered_ratio": 0.326,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "THE CHURCH OF CHRIST IN CHINA MING KEI COLLEGE",
+  "name_tc": "中華基督教會銘基書院",
+  "district": "YAU TSIM MONG",
+  "type": "Aided Secondary Schools",
+  "lon": 114.16413046150213,
+  "lat": 22.318966130462535,
+  "ai_routable": true,
+  "ai_snap_m": 19.4,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20012406",
+  "ai_direct_m": 34.4,
+  "ai_route_m": 119.1,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 119.1,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 434.7,
+    "ai_covered_ratio": 0.11,
+    "ai_longest_exposed_m": 352.5,
+    "ai_pti_name": "Olympic Station"
+   },
+   "bus": {
+    "ai_route_m": 119.1,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 119.1,
+    "ai_pti_name": "12556"
+   },
+   "minibus": {
+    "ai_route_m": 119.1,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 119.1,
+    "ai_pti_name": "20012406"
+   }
+  },
+  "ai_best_cov_ratio": 0.531,
+  "ai_best_cov_route_m": 203.2,
+  "ai_best_cov_kind": "minibus",
+  "ai_best_cov_pti": "20012410",
+  "ai_best_cov_longest_exposed_m": 34.6,
+  "ai_n_pti_candidates": 218,
+  "ai_n_pti_reachable": 218,
+  "ai_best_covered_ratio": 0.531,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "LA SALLE COLLEGE",
+  "name_tc": "喇沙書院",
+  "district": "KOWLOON CITY",
+  "type": "Aided Secondary Schools",
+  "lon": 114.18231978371735,
+  "lat": 22.329008550234974,
+  "ai_routable": true,
+  "ai_snap_m": 29.8,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20014163",
+  "ai_direct_m": 38.1,
+  "ai_route_m": 6.1,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 6.1,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 1101.4,
+    "ai_covered_ratio": 0.145,
+    "ai_longest_exposed_m": 738.2,
+    "ai_pti_name": "Sung Wong Toi Station"
+   },
+   "bus": {
+    "ai_route_m": 194.6,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 194.6,
+    "ai_pti_name": "9142"
+   },
+   "minibus": {
+    "ai_route_m": 6.1,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 6.1,
+    "ai_pti_name": "20014163"
+   }
+  },
+  "ai_best_cov_ratio": 0.206,
+  "ai_best_cov_route_m": 637.1,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "4238",
+  "ai_best_cov_longest_exposed_m": 492.1,
+  "ai_n_pti_candidates": 153,
+  "ai_n_pti_reachable": 153,
+  "ai_best_covered_ratio": 0.206,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "CONCORDIA LUTHERAN SCHOOL",
+  "name_tc": "路德會協同中學",
+  "district": "SHAM SHUI PO",
+  "type": "Aided Secondary Schools",
+  "lon": 114.1722054180237,
+  "lat": 22.330634082092065,
+  "ai_routable": true,
+  "ai_snap_m": 27.0,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20013729",
+  "ai_direct_m": 51.8,
+  "ai_route_m": 49.7,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 49.7,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 367.8,
+    "ai_covered_ratio": 0.009,
+    "ai_longest_exposed_m": 187.7,
+    "ai_pti_name": "Shek Kip Mei Station"
+   },
+   "bus": {
+    "ai_route_m": 81.8,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 81.8,
+    "ai_pti_name": "9199"
+   },
+   "minibus": {
+    "ai_route_m": 49.7,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 49.7,
+    "ai_pti_name": "20013729"
+   }
+  },
+  "ai_best_cov_ratio": 0.28,
+  "ai_best_cov_route_m": 1021.5,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "7103",
+  "ai_best_cov_longest_exposed_m": 357.6,
+  "ai_n_pti_candidates": 175,
+  "ai_n_pti_reachable": 175,
+  "ai_best_covered_ratio": 0.28,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "TAK NGA SECONDARY SCHOOL",
+  "name_tc": "德雅中學",
+  "district": "SHAM SHUI PO",
+  "type": "Aided Secondary Schools",
+  "lon": 114.17518539390099,
+  "lat": 22.330218732959533,
+  "ai_routable": true,
+  "ai_snap_m": 22.2,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20013731",
+  "ai_direct_m": 25.6,
+  "ai_route_m": 39.6,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 39.6,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 762.0,
+    "ai_covered_ratio": 0.062,
+    "ai_longest_exposed_m": 392.5,
+    "ai_pti_name": "Shek Kip Mei Station"
+   },
+   "bus": {
+    "ai_route_m": 141.6,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 141.6,
+    "ai_pti_name": "7106"
+   },
+   "minibus": {
+    "ai_route_m": 39.6,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 39.6,
+    "ai_pti_name": "20013731"
+   }
+  },
+  "ai_best_cov_ratio": 0.205,
+  "ai_best_cov_route_m": 577.6,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "4225",
+  "ai_best_cov_longest_exposed_m": 282.8,
+  "ai_n_pti_candidates": 160,
+  "ai_n_pti_reachable": 160,
+  "ai_best_covered_ratio": 0.205,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "POOI TO MIDDLE SCHOOL",
+  "name_tc": "香港培道中學",
+  "district": "KOWLOON CITY",
+  "type": "Aided Secondary Schools",
+  "lon": 114.185697774348,
+  "lat": 22.330308804600868,
+  "ai_routable": true,
+  "ai_snap_m": 39.4,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "9147",
+  "ai_direct_m": 156.5,
+  "ai_route_m": 206.5,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 206.5,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 740.7,
+    "ai_covered_ratio": 0.216,
+    "ai_longest_exposed_m": 377.5,
+    "ai_pti_name": "Sung Wong Toi Station"
+   },
+   "bus": {
+    "ai_route_m": 206.5,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 206.5,
+    "ai_pti_name": "9147"
+   },
+   "minibus": {
+    "ai_route_m": 282.1,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 282.1,
+    "ai_pti_name": "20014192"
+   }
+  },
+  "ai_best_cov_ratio": 0.271,
+  "ai_best_cov_route_m": 787.6,
+  "ai_best_cov_kind": "mtr",
+  "ai_best_cov_pti": "Sung Wong Toi Station",
+  "ai_best_cov_longest_exposed_m": 377.5,
+  "ai_n_pti_candidates": 168,
+  "ai_n_pti_reachable": 168,
+  "ai_best_covered_ratio": 0.271,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "NEWMAN CATHOLIC COLLEGE",
+  "name_tc": "天主教新民書院",
+  "district": "YAU TSIM MONG",
+  "type": "Aided Secondary Schools",
+  "lon": 114.1719052086038,
+  "lat": 22.31069452387138,
+  "ai_routable": true,
+  "ai_snap_m": 17.3,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "4020",
+  "ai_direct_m": 103.5,
+  "ai_route_m": 121.5,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 121.5,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 3.8,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 221.7,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 221.7,
+    "ai_pti_name": "Yau Ma Tei Station"
+   },
+   "bus": {
+    "ai_route_m": 121.5,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 121.5,
+    "ai_pti_name": "4020"
+   },
+   "minibus": {
+    "ai_route_m": 271.8,
+    "ai_covered_ratio": 0.117,
+    "ai_longest_exposed_m": 238.0,
+    "ai_pti_name": "20016922"
+   }
+  },
+  "ai_best_cov_ratio": 0.267,
+  "ai_best_cov_route_m": 799.5,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "4048",
+  "ai_best_cov_longest_exposed_m": 444.7,
+  "ai_n_pti_candidates": 171,
+  "ai_n_pti_reachable": 171,
+  "ai_best_covered_ratio": 0.267,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "SHENG KUNG HUI HOLY TRINITY CHURCH SECONDARY SCHOOL",
+  "name_tc": "聖公會聖三一堂中學",
+  "district": "KOWLOON CITY",
+  "type": "Aided Secondary Schools",
+  "lon": 114.17987331379605,
+  "lat": 22.31064038643983,
+  "ai_routable": true,
+  "ai_snap_m": 18.8,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "4256",
+  "ai_direct_m": 75.5,
+  "ai_route_m": 89.0,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 89.0,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 365.0,
+    "ai_covered_ratio": 0.346,
+    "ai_longest_exposed_m": 238.8,
+    "ai_pti_name": "Ho Man Tin Station"
+   },
+   "bus": {
+    "ai_route_m": 89.0,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 89.0,
+    "ai_pti_name": "4256"
+   },
+   "minibus": {
+    "ai_route_m": 184.3,
+    "ai_covered_ratio": 0.122,
+    "ai_longest_exposed_m": 116.3,
+    "ai_pti_name": "20014328"
+   }
+  },
+  "ai_best_cov_ratio": 0.668,
+  "ai_best_cov_route_m": 804.1,
+  "ai_best_cov_kind": "minibus",
+  "ai_best_cov_pti": "20008381",
+  "ai_best_cov_longest_exposed_m": 148.3,
+  "ai_n_pti_candidates": 130,
+  "ai_n_pti_reachable": 127,
+  "ai_best_covered_ratio": 0.668,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "BUDDHIST TAI HUNG COLLEGE",
+  "name_tc": "佛教大雄中學",
+  "district": "SHAM SHUI PO",
+  "type": "Aided Secondary Schools",
+  "lon": 114.158187618083,
+  "lat": 22.34010615042812,
+  "ai_routable": true,
+  "ai_snap_m": 38.2,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "13062",
+  "ai_direct_m": 82.3,
+  "ai_route_m": 89.8,
+  "ai_covered_ratio": 0.383,
+  "ai_covered_m": 34.4,
+  "ai_longest_exposed_m": 55.4,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 726.3,
+    "ai_covered_ratio": 0.289,
+    "ai_longest_exposed_m": 235.7,
+    "ai_pti_name": "Cheung Sha Wan Station"
+   },
+   "bus": {
+    "ai_route_m": 89.8,
+    "ai_covered_ratio": 0.383,
+    "ai_longest_exposed_m": 55.4,
+    "ai_pti_name": "13062"
+   },
+   "minibus": {
+    "ai_route_m": 202.8,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 202.8,
+    "ai_pti_name": "20022474"
+   }
+  },
+  "ai_best_cov_ratio": 0.383,
+  "ai_best_cov_route_m": 89.8,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "13062",
+  "ai_best_cov_longest_exposed_m": 55.4,
+  "ai_n_pti_candidates": 127,
+  "ai_n_pti_reachable": 127,
+  "ai_best_covered_ratio": 0.383,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "SHENG KUNG HUI TSOI KUNG PO SECONDARY SCHOOL",
+  "name_tc": "聖公會蔡功譜中學",
+  "district": "KOWLOON CITY",
+  "type": "Aided Secondary Schools",
+  "lon": 114.1803295757235,
+  "lat": 22.315047310882854,
+  "ai_routable": true,
+  "ai_snap_m": 8.9,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20014335",
+  "ai_direct_m": 33.2,
+  "ai_route_m": 16.1,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 16.1,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 614.6,
+    "ai_covered_ratio": 0.006,
+    "ai_longest_exposed_m": 350.2,
+    "ai_pti_name": "Ho Man Tin Station"
+   },
+   "bus": {
+    "ai_route_m": 69.9,
+    "ai_covered_ratio": 0.032,
+    "ai_longest_exposed_m": 67.7,
+    "ai_pti_name": "10320"
+   },
+   "minibus": {
+    "ai_route_m": 16.1,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 16.1,
+    "ai_pti_name": "20014335"
+   }
+  },
+  "ai_best_cov_ratio": 0.364,
+  "ai_best_cov_route_m": 686.9,
+  "ai_best_cov_kind": "mtr",
+  "ai_best_cov_pti": "Ho Man Tin Station",
+  "ai_best_cov_longest_exposed_m": 324.1,
+  "ai_n_pti_candidates": 160,
+  "ai_n_pti_reachable": 157,
+  "ai_best_covered_ratio": 0.364,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "TUNG WAH GROUP OF HOSPITALS WONG FUT NAM COLLEGE",
+  "name_tc": "東華三院黃笏南中學",
+  "district": "KOWLOON CITY",
+  "type": "Aided Secondary Schools",
+  "lon": 114.18004843541509,
+  "lat": 22.329180192327744,
+  "ai_routable": true,
+  "ai_snap_m": 36.0,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "4225",
+  "ai_direct_m": 142.3,
+  "ai_route_m": 181.5,
+  "ai_covered_ratio": 0.019,
+  "ai_covered_m": 3.5,
+  "ai_longest_exposed_m": 144.0,
+  "ai_n_exposed_runs": 2,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "bus": {
+    "ai_route_m": 181.5,
+    "ai_covered_ratio": 0.019,
+    "ai_longest_exposed_m": 144.0,
+    "ai_pti_name": "4225"
+   },
+   "minibus": {
+    "ai_route_m": 262.8,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 262.8,
+    "ai_pti_name": "20014193"
+   }
+  },
+  "ai_best_cov_ratio": 0.48,
+  "ai_best_cov_route_m": 273.1,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "4238",
+  "ai_best_cov_longest_exposed_m": 128.0,
+  "ai_n_pti_candidates": 140,
+  "ai_n_pti_reachable": 140,
+  "ai_best_covered_ratio": 0.48,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "OUR LADY OF THE ROSARY COLLEGE",
+  "name_tc": "聖母玫瑰書院",
+  "district": "SHAM SHUI PO",
+  "type": "Aided Secondary Schools",
+  "lon": 114.1727003937286,
+  "lat": 22.33295495469488,
+  "ai_routable": true,
+  "ai_snap_m": 30.6,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "9203",
+  "ai_direct_m": 195.6,
+  "ai_route_m": 220.3,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 220.3,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 636.0,
+    "ai_covered_ratio": 0.075,
+    "ai_longest_exposed_m": 266.5,
+    "ai_pti_name": "Shek Kip Mei Station"
+   },
+   "bus": {
+    "ai_route_m": 220.3,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 220.3,
+    "ai_pti_name": "9203"
+   },
+   "minibus": {
+    "ai_route_m": 246.2,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 246.2,
+    "ai_pti_name": "20013743"
+   }
+  },
+  "ai_best_cov_ratio": 0.208,
+  "ai_best_cov_route_m": 1313.9,
+  "ai_best_cov_kind": "mtr",
+  "ai_best_cov_pti": "Kowloon Tong Station",
+  "ai_best_cov_longest_exposed_m": 860.0,
+  "ai_n_pti_candidates": 156,
+  "ai_n_pti_reachable": 156,
+  "ai_best_covered_ratio": 0.208,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "S.K.H. ST. MARY'S CHURCH MOK HING YIU COLLEGE",
+  "name_tc": "聖公會聖馬利亞堂莫慶堯中學",
+  "district": "SHAM SHUI PO",
+  "type": "Aided Secondary Schools",
+  "lon": 114.14786075337787,
+  "lat": 22.331344974901086,
+  "ai_routable": true,
+  "ai_snap_m": 28.8,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20002614",
+  "ai_direct_m": 92.0,
+  "ai_route_m": 112.0,
+  "ai_covered_ratio": 0.407,
+  "ai_covered_m": 45.6,
+  "ai_longest_exposed_m": 66.4,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 751.0,
+    "ai_covered_ratio": 0.053,
+    "ai_longest_exposed_m": 572.3,
+    "ai_pti_name": "Lai Chi Kok Station"
+   },
+   "bus": {
+    "ai_route_m": 123.0,
+    "ai_covered_ratio": 0.284,
+    "ai_longest_exposed_m": 88.1,
+    "ai_pti_name": "12428"
+   },
+   "minibus": {
+    "ai_route_m": 112.0,
+    "ai_covered_ratio": 0.407,
+    "ai_longest_exposed_m": 66.4,
+    "ai_pti_name": "20002614"
+   }
+  },
+  "ai_best_cov_ratio": 0.56,
+  "ai_best_cov_route_m": 728.5,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "13395",
+  "ai_best_cov_longest_exposed_m": 202.1,
+  "ai_n_pti_candidates": 87,
+  "ai_n_pti_reachable": 87,
+  "ai_best_covered_ratio": 0.56,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "CARMEL SECONDARY SCHOOL",
+  "name_tc": "迦密中學",
+  "district": "KOWLOON CITY",
+  "type": "Aided Secondary Schools",
+  "lon": 114.17966949148587,
+  "lat": 22.310161768101047,
+  "ai_routable": true,
+  "ai_snap_m": 21.3,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "4256",
+  "ai_direct_m": 57.7,
+  "ai_route_m": 20.3,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 20.3,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 301.7,
+    "ai_covered_ratio": 0.418,
+    "ai_longest_exposed_m": 175.4,
+    "ai_pti_name": "Ho Man Tin Station"
+   },
+   "bus": {
+    "ai_route_m": 20.3,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 20.3,
+    "ai_pti_name": "4256"
+   },
+   "minibus": {
+    "ai_route_m": 175.4,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 175.4,
+    "ai_pti_name": "20014327"
+   }
+  },
+  "ai_best_cov_ratio": 0.616,
+  "ai_best_cov_route_m": 872.7,
+  "ai_best_cov_kind": "minibus",
+  "ai_best_cov_pti": "20008381",
+  "ai_best_cov_longest_exposed_m": 151.0,
+  "ai_n_pti_candidates": 134,
+  "ai_n_pti_reachable": 131,
+  "ai_best_covered_ratio": 0.616,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "ST. TERESA SECONDARY SCHOOL",
+  "name_tc": "德蘭中學",
+  "district": "KOWLOON CITY",
+  "type": "Aided Secondary Schools",
+  "lon": 114.18059173063837,
+  "lat": 22.318849186426903,
+  "ai_routable": true,
+  "ai_snap_m": 16.7,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "4269",
+  "ai_direct_m": 46.4,
+  "ai_route_m": 47.9,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 47.9,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 1050.4,
+    "ai_covered_ratio": 0.033,
+    "ai_longest_exposed_m": 876.6,
+    "ai_pti_name": "To Kwa Wan Station"
+   },
+   "bus": {
+    "ai_route_m": 47.9,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 47.9,
+    "ai_pti_name": "4269"
+   },
+   "minibus": {
+    "ai_route_m": 103.2,
+    "ai_covered_ratio": 0.317,
+    "ai_longest_exposed_m": 47.9,
+    "ai_pti_name": "20007348"
+   }
+  },
+  "ai_best_cov_ratio": 0.317,
+  "ai_best_cov_route_m": 103.2,
+  "ai_best_cov_kind": "minibus",
+  "ai_best_cov_pti": "20007348",
+  "ai_best_cov_longest_exposed_m": 47.9,
+  "ai_n_pti_candidates": 147,
+  "ai_n_pti_reachable": 147,
+  "ai_best_covered_ratio": 0.317,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "METHODIST COLLEGE",
+  "name_tc": "循道中學",
+  "district": "YAU TSIM MONG",
+  "type": "Aided Secondary Schools",
+  "lon": 114.1719440853634,
+  "lat": 22.309105138574523,
+  "ai_routable": true,
+  "ai_snap_m": 26.1,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "9012",
+  "ai_direct_m": 136.3,
+  "ai_route_m": 118.3,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 118.3,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 466.1,
+    "ai_covered_ratio": 0.06,
+    "ai_longest_exposed_m": 272.6,
+    "ai_pti_name": "Jordan Station"
+   },
+   "bus": {
+    "ai_route_m": 118.3,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 118.3,
+    "ai_pti_name": "9012"
+   },
+   "minibus": {
+    "ai_route_m": 262.5,
+    "ai_covered_ratio": 0.228,
+    "ai_longest_exposed_m": 154.2,
+    "ai_pti_name": "20003011"
+   }
+  },
+  "ai_best_cov_ratio": 0.44,
+  "ai_best_cov_route_m": 733.0,
+  "ai_best_cov_kind": "minibus",
+  "ai_best_cov_pti": "20002671",
+  "ai_best_cov_longest_exposed_m": 187.8,
+  "ai_n_pti_candidates": 181,
+  "ai_n_pti_reachable": 179,
+  "ai_best_covered_ratio": 0.44,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "BISHOP HALL JUBILEE SCHOOL",
+  "name_tc": "何明華會督銀禧中學",
+  "district": "KOWLOON CITY",
+  "type": "Aided Secondary Schools",
+  "lon": 114.18119383754319,
+  "lat": 22.32975812287366,
+  "ai_routable": true,
+  "ai_snap_m": 39.2,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20014193",
+  "ai_direct_m": 48.3,
+  "ai_route_m": 103.2,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 103.2,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "bus": {
+    "ai_route_m": 103.2,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 103.2,
+    "ai_pti_name": "9135"
+   },
+   "minibus": {
+    "ai_route_m": 103.2,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 103.2,
+    "ai_pti_name": "20014193"
+   }
+  },
+  "ai_best_cov_ratio": 0.312,
+  "ai_best_cov_route_m": 419.2,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "4238",
+  "ai_best_cov_longest_exposed_m": 274.2,
+  "ai_n_pti_candidates": 151,
+  "ai_n_pti_reachable": 151,
+  "ai_best_covered_ratio": 0.312,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "PO LEUNG KUK TONG NAI KAN JUNIOR SECONDARY COLLEGE",
+  "name_tc": "保良局唐乃勤初中書院",
+  "district": "SHAM SHUI PO",
+  "type": "Aided Secondary Schools",
+  "lon": 114.14083104852492,
+  "lat": 22.339082769126236,
+  "ai_routable": true,
+  "ai_snap_m": 33.0,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "10000197",
+  "ai_direct_m": 62.7,
+  "ai_route_m": 48.5,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 48.5,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 254.7,
+    "ai_covered_ratio": 0.121,
+    "ai_longest_exposed_m": 142.1,
+    "ai_pti_name": "Mei Foo Station"
+   },
+   "bus": {
+    "ai_route_m": 48.5,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 48.5,
+    "ai_pti_name": "10000197"
+   },
+   "minibus": {
+    "ai_route_m": 57.7,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 57.7,
+    "ai_pti_name": "20003105"
+   }
+  },
+  "ai_best_cov_ratio": 0.289,
+  "ai_best_cov_route_m": 672.7,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "9557",
+  "ai_best_cov_longest_exposed_m": 379.9,
+  "ai_n_pti_candidates": 62,
+  "ai_n_pti_reachable": 62,
+  "ai_best_covered_ratio": 0.289,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "CMA SECONDARY SCHOOL",
+  "name_tc": "廠商會中學",
+  "district": "SHAM SHUI PO",
+  "type": "Aided Secondary Schools",
+  "lon": 114.16950653380744,
+  "lat": 22.33846349334954,
+  "ai_routable": true,
+  "ai_snap_m": 38.2,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "1350",
+  "ai_direct_m": 134.7,
+  "ai_route_m": 123.3,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 123.3,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 815.1,
+    "ai_covered_ratio": 0.009,
+    "ai_longest_exposed_m": 807.6,
+    "ai_pti_name": "Shek Kip Mei Station"
+   },
+   "bus": {
+    "ai_route_m": 123.3,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 123.3,
+    "ai_pti_name": "1350"
+   },
+   "minibus": {
+    "ai_route_m": 355.2,
+    "ai_covered_ratio": 0.025,
+    "ai_longest_exposed_m": 159.8,
+    "ai_pti_name": "20013965"
+   }
+  },
+  "ai_best_cov_ratio": 0.416,
+  "ai_best_cov_route_m": 795.3,
+  "ai_best_cov_kind": "minibus",
+  "ai_best_cov_pti": "20000540",
+  "ai_best_cov_longest_exposed_m": 202.8,
+  "ai_n_pti_candidates": 120,
+  "ai_n_pti_reachable": 120,
+  "ai_best_covered_ratio": 0.416,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "WAH YAN COLLEGE, KOWLOON",
+  "name_tc": "華仁書院(九龍)",
+  "district": "YAU TSIM MONG",
+  "type": "Aided Secondary Schools",
+  "lon": 114.1732250369829,
+  "lat": 22.31464996220372,
+  "ai_routable": true,
+  "ai_snap_m": 40.1,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "4229",
+  "ai_direct_m": 44.7,
+  "ai_route_m": 1.8,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 1.8,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 304.5,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 304.5,
+    "ai_pti_name": "Yau Ma Tei Station"
+   },
+   "bus": {
+    "ai_route_m": 1.8,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 1.8,
+    "ai_pti_name": "4229"
+   },
+   "minibus": {
+    "ai_route_m": 54.9,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 54.9,
+    "ai_pti_name": "20000626"
+   }
+  },
+  "ai_best_cov_ratio": 0.322,
+  "ai_best_cov_route_m": 711.9,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "9054",
+  "ai_best_cov_longest_exposed_m": 226.2,
+  "ai_n_pti_candidates": 211,
+  "ai_n_pti_reachable": 211,
+  "ai_best_covered_ratio": 0.322,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "HOLY FAMILY CANOSSIAN COLLEGE",
+  "name_tc": "嘉諾撒聖家書院",
+  "district": "KOWLOON CITY",
+  "type": "Aided Secondary Schools",
+  "lon": 114.18540681722342,
+  "lat": 22.334309367238763,
+  "ai_routable": true,
+  "ai_snap_m": 26.6,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "9133",
+  "ai_direct_m": 207.7,
+  "ai_route_m": 344.1,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 344.1,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 1218.7,
+    "ai_covered_ratio": 0.131,
+    "ai_longest_exposed_m": 855.5,
+    "ai_pti_name": "Sung Wong Toi Station"
+   },
+   "bus": {
+    "ai_route_m": 344.1,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 344.1,
+    "ai_pti_name": "9133"
+   },
+   "minibus": {
+    "ai_route_m": 459.5,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 459.5,
+    "ai_pti_name": "20014157"
+   }
+  },
+  "ai_best_cov_ratio": 0.131,
+  "ai_best_cov_route_m": 1218.7,
+  "ai_best_cov_kind": "mtr",
+  "ai_best_cov_pti": "Sung Wong Toi Station",
+  "ai_best_cov_longest_exposed_m": 855.5,
+  "ai_n_pti_candidates": 93,
+  "ai_n_pti_reachable": 93,
+  "ai_best_covered_ratio": 0.131,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "HOI PING CHAMBER OF COMMERCE SECONDARY SCHOOL",
+  "name_tc": "旅港開平商會中學",
+  "district": "KOWLOON CITY",
+  "type": "Aided Secondary Schools",
+  "lon": 114.18061116220449,
+  "lat": 22.31958066414295,
+  "ai_routable": true,
+  "ai_snap_m": 12.8,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "12374",
+  "ai_direct_m": 101.8,
+  "ai_route_m": 116.6,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 116.6,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 1017.6,
+    "ai_covered_ratio": 0.028,
+    "ai_longest_exposed_m": 945.8,
+    "ai_pti_name": "To Kwa Wan Station"
+   },
+   "bus": {
+    "ai_route_m": 116.6,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 116.6,
+    "ai_pti_name": "12374"
+   },
+   "minibus": {
+    "ai_route_m": 138.5,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 138.5,
+    "ai_pti_name": "20007536"
+   }
+  },
+  "ai_best_cov_ratio": 0.202,
+  "ai_best_cov_route_m": 839.9,
+  "ai_best_cov_kind": "minibus",
+  "ai_best_cov_pti": "20014782",
+  "ai_best_cov_longest_exposed_m": 626.5,
+  "ai_n_pti_candidates": 146,
+  "ai_n_pti_reachable": 146,
+  "ai_best_covered_ratio": 0.202,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "YU CHUN KEUNG MEMORIAL COLLEGE",
+  "name_tc": "余振強紀念中學",
+  "district": "KOWLOON CITY",
+  "type": "Aided Secondary Schools",
+  "lon": 114.17861171800057,
+  "lat": 22.318632485986875,
+  "ai_routable": true,
+  "ai_snap_m": 35.0,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20000466",
+  "ai_direct_m": 150.9,
+  "ai_route_m": 156.7,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 156.7,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 1140.1,
+    "ai_covered_ratio": 0.179,
+    "ai_longest_exposed_m": 458.0,
+    "ai_pti_name": "Mong Kok East Station"
+   },
+   "bus": {
+    "ai_route_m": 240.8,
+    "ai_covered_ratio": 0.004,
+    "ai_longest_exposed_m": 225.2,
+    "ai_pti_name": "781"
+   },
+   "minibus": {
+    "ai_route_m": 156.7,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 156.7,
+    "ai_pti_name": "20000466"
+   }
+  },
+  "ai_best_cov_ratio": 0.256,
+  "ai_best_cov_route_m": 1257.4,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "10000161",
+  "ai_best_cov_longest_exposed_m": 458.0,
+  "ai_n_pti_candidates": 135,
+  "ai_n_pti_reachable": 135,
+  "ai_best_covered_ratio": 0.256,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "LAI CHACK MIDDLE SCHOOL",
+  "name_tc": "麗澤中學",
+  "district": "YAU TSIM MONG",
+  "type": "Aided Secondary Schools",
+  "lon": 114.16830507538349,
+  "lat": 22.301501214537343,
+  "ai_routable": true,
+  "ai_snap_m": 16.5,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "9000",
+  "ai_direct_m": 20.6,
+  "ai_route_m": 4.7,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 4.7,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 308.8,
+    "ai_covered_ratio": 0.509,
+    "ai_longest_exposed_m": 149.7,
+    "ai_pti_name": "Austin Station"
+   },
+   "bus": {
+    "ai_route_m": 4.7,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 4.7,
+    "ai_pti_name": "9000"
+   },
+   "minibus": {
+    "ai_route_m": 58.9,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 58.9,
+    "ai_pti_name": "20010066"
+   }
+  },
+  "ai_best_cov_ratio": 0.509,
+  "ai_best_cov_route_m": 952.3,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "13310",
+  "ai_best_cov_longest_exposed_m": 215.7,
+  "ai_n_pti_candidates": 178,
+  "ai_n_pti_reachable": 164,
+  "ai_best_covered_ratio": 0.509,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "PO LEUNG KUK VICWOOD K.T. CHONG SIXTH FORM COLLEGE",
+  "name_tc": "保良局莊啓程預科書院",
+  "district": "YAU TSIM MONG",
+  "type": "Aided Secondary Schools",
+  "lon": 114.16370283089958,
+  "lat": 22.325052714971832,
+  "ai_routable": true,
+  "ai_snap_m": 13.7,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "9082",
+  "ai_direct_m": 81.1,
+  "ai_route_m": 108.1,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 108.1,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 47.9,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 620.9,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 620.9,
+    "ai_pti_name": "Prince Edward Station"
+   },
+   "bus": {
+    "ai_route_m": 108.1,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 108.1,
+    "ai_pti_name": "9082"
+   },
+   "minibus": {
+    "ai_route_m": 215.5,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 215.5,
+    "ai_pti_name": "20017052"
+   }
+  },
+  "ai_best_cov_ratio": 0.506,
+  "ai_best_cov_route_m": 889.4,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "9214",
+  "ai_best_cov_longest_exposed_m": 194.3,
+  "ai_n_pti_candidates": 217,
+  "ai_n_pti_reachable": 217,
+  "ai_best_covered_ratio": 0.506,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "TRUE LIGHT GIRLS' COLLEGE",
+  "name_tc": "真光女書院",
+  "district": "YAU TSIM MONG",
+  "type": "Aided Secondary Schools",
+  "lon": 114.17296301005848,
+  "lat": 22.313728834946005,
+  "ai_routable": true,
+  "ai_snap_m": 30.3,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20013204",
+  "ai_direct_m": 99.3,
+  "ai_route_m": 131.2,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 131.2,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 395.2,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 395.2,
+    "ai_pti_name": "Yau Ma Tei Station"
+   },
+   "bus": {
+    "ai_route_m": 193.1,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 193.1,
+    "ai_pti_name": "4229"
+   },
+   "minibus": {
+    "ai_route_m": 131.2,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 131.2,
+    "ai_pti_name": "20013204"
+   }
+  },
+  "ai_best_cov_ratio": 0.278,
+  "ai_best_cov_route_m": 822.9,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "9054",
+  "ai_best_cov_longest_exposed_m": 267.3,
+  "ai_n_pti_candidates": 185,
+  "ai_n_pti_reachable": 185,
+  "ai_best_covered_ratio": 0.278,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "HONG KONG & KOWLOON CHIU CHOW PUBLIC ASSOCIATION SECONDARY SCHOOL",
+  "name_tc": "港九潮州公會中學",
+  "district": "YAU TSIM MONG",
+  "type": "Aided Secondary Schools",
+  "lon": 114.17135156043972,
+  "lat": 22.322027906332597,
+  "ai_routable": true,
+  "ai_snap_m": 8.8,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20012429",
+  "ai_direct_m": 156.1,
+  "ai_route_m": 149.6,
+  "ai_covered_ratio": 0.336,
+  "ai_covered_m": 50.2,
+  "ai_longest_exposed_m": 59.3,
+  "ai_n_exposed_runs": 2,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 257.4,
+    "ai_covered_ratio": 0.85,
+    "ai_longest_exposed_m": 37.4,
+    "ai_pti_name": "Mong Kok East Station"
+   },
+   "bus": {
+    "ai_route_m": 246.4,
+    "ai_covered_ratio": 0.536,
+    "ai_longest_exposed_m": 49.4,
+    "ai_pti_name": "9114"
+   },
+   "minibus": {
+    "ai_route_m": 149.6,
+    "ai_covered_ratio": 0.336,
+    "ai_longest_exposed_m": 59.3,
+    "ai_pti_name": "20012429"
+   }
+  },
+  "ai_best_cov_ratio": 0.87,
+  "ai_best_cov_route_m": 469.7,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "4015",
+  "ai_best_cov_longest_exposed_m": 37.4,
+  "ai_n_pti_candidates": 218,
+  "ai_n_pti_reachable": 218,
+  "ai_best_covered_ratio": 0.87,
+  "ai_worst_covered_ratio": 0.029
+ },
+ {
+  "name": "THE CHURCH OF CHRIST IN CHINA MING YIN COLLEGE",
+  "name_tc": "中華基督教會銘賢書院",
+  "district": "SHAM SHUI PO",
+  "type": "Aided Secondary Schools",
+  "lon": 114.16857502384974,
+  "lat": 22.331844035711715,
+  "ai_routable": true,
+  "ai_snap_m": 18.3,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20000519",
+  "ai_direct_m": 23.5,
+  "ai_route_m": 28.5,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 28.5,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 31.6,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 31.6,
+    "ai_pti_name": "Shek Kip Mei Station"
+   },
+   "bus": {
+    "ai_route_m": 78.0,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 78.0,
+    "ai_pti_name": "9195"
+   },
+   "minibus": {
+    "ai_route_m": 28.5,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 28.5,
+    "ai_pti_name": "20000519"
+   }
+  },
+  "ai_best_cov_ratio": 0.339,
+  "ai_best_cov_route_m": 1084.9,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "9216",
+  "ai_best_cov_longest_exposed_m": 248.9,
+  "ai_n_pti_candidates": 193,
+  "ai_n_pti_reachable": 193,
+  "ai_best_covered_ratio": 0.339,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "WA YING COLLEGE",
+  "name_tc": "華英中學",
+  "district": "KOWLOON CITY",
+  "type": "Aided Secondary Schools",
+  "lon": 114.18263000148049,
+  "lat": 22.319463206771523,
+  "ai_routable": true,
+  "ai_snap_m": 21.0,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20014333",
+  "ai_direct_m": 47.5,
+  "ai_route_m": 62.7,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 62.7,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 802.4,
+    "ai_covered_ratio": 0.004,
+    "ai_longest_exposed_m": 794.5,
+    "ai_pti_name": "To Kwa Wan Station"
+   },
+   "bus": {
+    "ai_route_m": 194.1,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 194.1,
+    "ai_pti_name": "9067"
+   },
+   "minibus": {
+    "ai_route_m": 62.7,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 62.7,
+    "ai_pti_name": "20014333"
+   }
+  },
+  "ai_best_cov_ratio": 0.14,
+  "ai_best_cov_route_m": 1214.1,
+  "ai_best_cov_kind": "minibus",
+  "ai_best_cov_pti": "20014782",
+  "ai_best_cov_longest_exposed_m": 1000.7,
+  "ai_n_pti_candidates": 170,
+  "ai_n_pti_reachable": 170,
+  "ai_best_covered_ratio": 0.14,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "CHAN SUI KI (LA SALLE) COLLEGE",
+  "name_tc": "陳瑞祺(喇沙)書院",
+  "district": "KOWLOON CITY",
+  "type": "Aided Secondary Schools",
+  "lon": 114.18341618531312,
+  "lat": 22.31946317674395,
+  "ai_routable": true,
+  "ai_snap_m": 40.5,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "9067",
+  "ai_direct_m": 120.3,
+  "ai_route_m": 166.7,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 166.7,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 739.7,
+    "ai_covered_ratio": 0.005,
+    "ai_longest_exposed_m": 731.8,
+    "ai_pti_name": "To Kwa Wan Station"
+   },
+   "bus": {
+    "ai_route_m": 166.7,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 166.7,
+    "ai_pti_name": "9067"
+   },
+   "minibus": {
+    "ai_route_m": 170.3,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 170.3,
+    "ai_pti_name": "20006078"
+   }
+  },
+  "ai_best_cov_ratio": 0.202,
+  "ai_best_cov_route_m": 1278.7,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "4181",
+  "ai_best_cov_longest_exposed_m": 690.2,
+  "ai_n_pti_candidates": 178,
+  "ai_n_pti_reachable": 178,
+  "ai_best_covered_ratio": 0.202,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "PENTECOSTAL SCHOOL",
+  "name_tc": "五旬節中學",
+  "district": "KOWLOON CITY",
+  "type": "Aided Secondary Schools",
+  "lon": 114.1812906342819,
+  "lat": 22.32126033723338,
+  "ai_routable": true,
+  "ai_snap_m": 54.9,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "7031",
+  "ai_direct_m": 225.2,
+  "ai_route_m": 269.2,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 269.2,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 1186.4,
+    "ai_covered_ratio": 0.024,
+    "ai_longest_exposed_m": 1114.6,
+    "ai_pti_name": "To Kwa Wan Station"
+   },
+   "bus": {
+    "ai_route_m": 269.2,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 269.2,
+    "ai_pti_name": "7031"
+   },
+   "minibus": {
+    "ai_route_m": 326.9,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 326.9,
+    "ai_pti_name": "20014781"
+   }
+  },
+  "ai_best_cov_ratio": 0.301,
+  "ai_best_cov_route_m": 564.5,
+  "ai_best_cov_kind": "minibus",
+  "ai_best_cov_pti": "20014782",
+  "ai_best_cov_longest_exposed_m": 351.0,
+  "ai_n_pti_candidates": 160,
+  "ai_n_pti_reachable": 160,
+  "ai_best_covered_ratio": 0.301,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "KOWLOON TONG SCHOOL (SECONDARY SECTION)",
+  "name_tc": "九龍塘學校(中學部)",
+  "district": "KOWLOON CITY",
+  "type": "Aided Secondary Schools",
+  "lon": 114.1758454611366,
+  "lat": 22.328728692076112,
+  "ai_routable": true,
+  "ai_snap_m": 64.1,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20017060",
+  "ai_direct_m": 214.9,
+  "ai_route_m": 271.8,
+  "ai_covered_ratio": 0.24,
+  "ai_covered_m": 65.1,
+  "ai_longest_exposed_m": 103.5,
+  "ai_n_exposed_runs": 2,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 817.5,
+    "ai_covered_ratio": 0.407,
+    "ai_longest_exposed_m": 189.2,
+    "ai_pti_name": "Mong Kok East Station"
+   },
+   "bus": {
+    "ai_route_m": 351.5,
+    "ai_covered_ratio": 0.185,
+    "ai_longest_exposed_m": 183.3,
+    "ai_pti_name": "7108"
+   },
+   "minibus": {
+    "ai_route_m": 271.8,
+    "ai_covered_ratio": 0.24,
+    "ai_longest_exposed_m": 103.5,
+    "ai_pti_name": "20017060"
+   }
+  },
+  "ai_best_cov_ratio": 0.612,
+  "ai_best_cov_route_m": 1379.0,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "10000161",
+  "ai_best_cov_longest_exposed_m": 189.2,
+  "ai_n_pti_candidates": 135,
+  "ai_n_pti_reachable": 135,
+  "ai_best_covered_ratio": 0.612,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "TUNG WAH GROUP OF HOSPITALS CHANG MING THIEN COLLEGE",
+  "name_tc": "東華三院張明添中學",
+  "district": "SHAM SHUI PO",
+  "type": "Aided Secondary Schools",
+  "lon": 114.16899203695714,
+  "lat": 22.33865311130965,
+  "ai_routable": true,
+  "ai_snap_m": 29.2,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "9184",
+  "ai_direct_m": 140.0,
+  "ai_route_m": 145.4,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 145.4,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 806.5,
+    "ai_covered_ratio": 0.081,
+    "ai_longest_exposed_m": 436.9,
+    "ai_pti_name": "Shek Kip Mei Station"
+   },
+   "bus": {
+    "ai_route_m": 145.4,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 145.4,
+    "ai_pti_name": "9184"
+   },
+   "minibus": {
+    "ai_route_m": 218.9,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 218.9,
+    "ai_pti_name": "20000752"
+   }
+  },
+  "ai_best_cov_ratio": 0.429,
+  "ai_best_cov_route_m": 1328.7,
+  "ai_best_cov_kind": "mtr",
+  "ai_best_cov_pti": "Kowloon Tong Station",
+  "ai_best_cov_longest_exposed_m": 567.5,
+  "ai_n_pti_candidates": 113,
+  "ai_n_pti_reachable": 113,
+  "ai_best_covered_ratio": 0.429,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "THE Y.W.C.A. HIOE TJO YOENG COLLEGE",
+  "name_tc": "基督教女青年會丘佐榮中學",
+  "district": "KOWLOON CITY",
+  "type": "Aided Secondary Schools",
+  "lon": 114.18310560507085,
+  "lat": 22.319707015106285,
+  "ai_routable": true,
+  "ai_snap_m": 18.6,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20014333",
+  "ai_direct_m": 39.0,
+  "ai_route_m": 45.6,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 45.6,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 785.3,
+    "ai_covered_ratio": 0.004,
+    "ai_longest_exposed_m": 777.4,
+    "ai_pti_name": "To Kwa Wan Station"
+   },
+   "bus": {
+    "ai_route_m": 212.3,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 212.3,
+    "ai_pti_name": "9067"
+   },
+   "minibus": {
+    "ai_route_m": 45.6,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 45.6,
+    "ai_pti_name": "20014333"
+   }
+  },
+  "ai_best_cov_ratio": 0.195,
+  "ai_best_cov_route_m": 1324.4,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "4181",
+  "ai_best_cov_longest_exposed_m": 735.8,
+  "ai_n_pti_candidates": 180,
+  "ai_n_pti_reachable": 180,
+  "ai_best_covered_ratio": 0.195,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "MARYKNOLL FATHERS' SCHOOL",
+  "name_tc": "瑪利諾神父教會學校",
+  "district": "SHAM SHUI PO",
+  "type": "Aided Secondary Schools",
+  "lon": 114.17338956016344,
+  "lat": 22.33393027331068,
+  "ai_routable": true,
+  "ai_snap_m": 42.8,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20013743",
+  "ai_direct_m": 165.8,
+  "ai_route_m": 177.3,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 177.3,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 454.9,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 454.9,
+    "ai_pti_name": "Kowloon Tong Station"
+   },
+   "bus": {
+    "ai_route_m": 260.0,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 260.0,
+    "ai_pti_name": "9207"
+   },
+   "minibus": {
+    "ai_route_m": 177.3,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 177.3,
+    "ai_pti_name": "20013743"
+   }
+  },
+  "ai_best_cov_ratio": 0.275,
+  "ai_best_cov_route_m": 992.6,
+  "ai_best_cov_kind": "mtr",
+  "ai_best_cov_pti": "Kowloon Tong Station",
+  "ai_best_cov_longest_exposed_m": 538.6,
+  "ai_n_pti_candidates": 148,
+  "ai_n_pti_reachable": 148,
+  "ai_best_covered_ratio": 0.275,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "CHEUNG SHA WAN CATHOLIC SECONDARY SCHOOL",
+  "name_tc": "長沙灣天主教英文中學",
+  "district": "SHAM SHUI PO",
+  "type": "Aided Secondary Schools",
+  "lon": 114.15390690531301,
+  "lat": 22.338570404114478,
+  "ai_routable": true,
+  "ai_snap_m": 14.1,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20023065",
+  "ai_direct_m": 115.9,
+  "ai_route_m": 156.8,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 156.8,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 386.8,
+    "ai_covered_ratio": 0.04,
+    "ai_longest_exposed_m": 371.2,
+    "ai_pti_name": "Cheung Sha Wan Station"
+   },
+   "bus": {
+    "ai_route_m": 176.3,
+    "ai_covered_ratio": 0.055,
+    "ai_longest_exposed_m": 146.7,
+    "ai_pti_name": "12757"
+   },
+   "minibus": {
+    "ai_route_m": 156.8,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 156.8,
+    "ai_pti_name": "20023065"
+   }
+  },
+  "ai_best_cov_ratio": 0.67,
+  "ai_best_cov_route_m": 199.8,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "9238",
+  "ai_best_cov_longest_exposed_m": 64.5,
+  "ai_n_pti_candidates": 166,
+  "ai_n_pti_reachable": 166,
+  "ai_best_covered_ratio": 0.67,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "NAM WAH CATHOLIC SECONDARY SCHOOL",
+  "name_tc": "天主教南華中學",
+  "district": "SHAM SHUI PO",
+  "type": "Aided Secondary Schools",
+  "lon": 114.15123702193553,
+  "lat": 22.34063800521006,
+  "ai_routable": true,
+  "ai_snap_m": 16.5,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20022507",
+  "ai_direct_m": 32.5,
+  "ai_route_m": 20.8,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 20.8,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 551.3,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 551.3,
+    "ai_pti_name": "Lai Chi Kok Station"
+   },
+   "bus": {
+    "ai_route_m": 212.6,
+    "ai_covered_ratio": 0.313,
+    "ai_longest_exposed_m": 118.7,
+    "ai_pti_name": "4195"
+   },
+   "minibus": {
+    "ai_route_m": 20.8,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 20.8,
+    "ai_pti_name": "20022507"
+   }
+  },
+  "ai_best_cov_ratio": 0.359,
+  "ai_best_cov_route_m": 958.2,
+  "ai_best_cov_kind": "minibus",
+  "ai_best_cov_pti": "20012347",
+  "ai_best_cov_longest_exposed_m": 269.5,
+  "ai_n_pti_candidates": 125,
+  "ai_n_pti_reachable": 125,
+  "ai_best_covered_ratio": 0.359,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "MUNSANG COLLEGE",
+  "name_tc": "民生書院",
+  "district": "KOWLOON CITY",
+  "type": "Aided Secondary Schools",
+  "lon": 114.18622206980798,
+  "lat": 22.332286472354884,
+  "ai_routable": true,
+  "ai_snap_m": 22.8,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "9131",
+  "ai_direct_m": 136.1,
+  "ai_route_m": 275.0,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 275.0,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 919.1,
+    "ai_covered_ratio": 0.036,
+    "ai_longest_exposed_m": 820.3,
+    "ai_pti_name": "Sung Wong Toi Station"
+   },
+   "bus": {
+    "ai_route_m": 275.0,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 275.0,
+    "ai_pti_name": "9131"
+   },
+   "minibus": {
+    "ai_route_m": 331.1,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 331.1,
+    "ai_pti_name": "20010432"
+   }
+  },
+  "ai_best_cov_ratio": 0.233,
+  "ai_best_cov_route_m": 1153.1,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "4185",
+  "ai_best_cov_longest_exposed_m": 595.6,
+  "ai_n_pti_candidates": 138,
+  "ai_n_pti_reachable": 138,
+  "ai_best_covered_ratio": 0.233,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "NOTRE DAME COLLEGE",
+  "name_tc": "獻主會聖母院書院",
+  "district": "KOWLOON CITY",
+  "type": "Aided Secondary Schools",
+  "lon": 114.18769691174407,
+  "lat": 22.324529108195005,
+  "ai_routable": true,
+  "ai_snap_m": 26.1,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "4145",
+  "ai_direct_m": 73.3,
+  "ai_route_m": 75.7,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 75.7,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 439.6,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 439.6,
+    "ai_pti_name": "Sung Wong Toi Station"
+   },
+   "bus": {
+    "ai_route_m": 75.7,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 75.7,
+    "ai_pti_name": "4145"
+   },
+   "minibus": {
+    "ai_route_m": 153.5,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 153.5,
+    "ai_pti_name": "20015299"
+   }
+  },
+  "ai_best_cov_ratio": 0.442,
+  "ai_best_cov_route_m": 330.3,
+  "ai_best_cov_kind": "minibus",
+  "ai_best_cov_pti": "20021322",
+  "ai_best_cov_longest_exposed_m": 85.1,
+  "ai_n_pti_candidates": 206,
+  "ai_n_pti_reachable": 206,
+  "ai_best_covered_ratio": 0.442,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "RHENISH CHURCH PANG HOK-KO MEMORIAL COLLEGE",
+  "name_tc": "禮賢會彭學高紀念中學",
+  "district": "KOWLOON CITY",
+  "type": "Aided Secondary Schools",
+  "lon": 114.18311596840083,
+  "lat": 22.33438171689417,
+  "ai_routable": true,
+  "ai_snap_m": 33.1,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20014157",
+  "ai_direct_m": 87.6,
+  "ai_route_m": 100.9,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 100.9,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 899.5,
+    "ai_covered_ratio": 0.088,
+    "ai_longest_exposed_m": 706.5,
+    "ai_pti_name": "Kowloon Tong Station"
+   },
+   "bus": {
+    "ai_route_m": 189.6,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 189.6,
+    "ai_pti_name": "9138"
+   },
+   "minibus": {
+    "ai_route_m": 100.9,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 100.9,
+    "ai_pti_name": "20014157"
+   }
+  },
+  "ai_best_cov_ratio": 0.164,
+  "ai_best_cov_route_m": 1064.0,
+  "ai_best_cov_kind": "mtr",
+  "ai_best_cov_pti": "Kowloon Tong Station",
+  "ai_best_cov_longest_exposed_m": 889.1,
+  "ai_n_pti_candidates": 115,
+  "ai_n_pti_reachable": 115,
+  "ai_best_covered_ratio": 0.164,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "THE CHURCH OF CHRIST IN CHINA KEI TO SECONDARY SCHOOL",
+  "name_tc": "中華基督教會基道中學",
+  "district": "KOWLOON CITY",
+  "type": "Aided Secondary Schools",
+  "lon": 114.19039421456847,
+  "lat": 22.313610915968273,
+  "ai_routable": true,
+  "ai_snap_m": 43.1,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20009898",
+  "ai_direct_m": 147.8,
+  "ai_route_m": 242.2,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 242.2,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 424.1,
+    "ai_covered_ratio": 0.259,
+    "ai_longest_exposed_m": 182.1,
+    "ai_pti_name": "To Kwa Wan Station"
+   },
+   "bus": {
+    "ai_route_m": 289.2,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 289.2,
+    "ai_pti_name": "1383"
+   },
+   "minibus": {
+    "ai_route_m": 242.2,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 242.2,
+    "ai_pti_name": "20009898"
+   }
+  },
+  "ai_best_cov_ratio": 0.416,
+  "ai_best_cov_route_m": 753.7,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "13416",
+  "ai_best_cov_longest_exposed_m": 148.3,
+  "ai_n_pti_candidates": 127,
+  "ai_n_pti_reachable": 127,
+  "ai_best_covered_ratio": 0.416,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "ST. MARY'S CANOSSIAN COLLEGE",
+  "name_tc": "嘉諾撒聖瑪利書院",
+  "district": "YAU TSIM MONG",
+  "type": "Aided Secondary Schools",
+  "lon": 114.1761561958088,
+  "lat": 22.303090825011385,
+  "ai_routable": true,
+  "ai_snap_m": 28.4,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20000476",
+  "ai_direct_m": 73.5,
+  "ai_route_m": 45.6,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 45.6,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 543.9,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 543.9,
+    "ai_pti_name": "Jordan Station"
+   },
+   "bus": {
+    "ai_route_m": 205.9,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 205.9,
+    "ai_pti_name": "4174"
+   },
+   "minibus": {
+    "ai_route_m": 45.6,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 45.6,
+    "ai_pti_name": "20000476"
+   }
+  },
+  "ai_best_cov_ratio": 0.582,
+  "ai_best_cov_route_m": 728.1,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "9014",
+  "ai_best_cov_longest_exposed_m": 303.1,
+  "ai_n_pti_candidates": 169,
+  "ai_n_pti_reachable": 165,
+  "ai_best_covered_ratio": 0.582,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "COGNITIO COLLEGE (KOWLOON)",
+  "name_tc": "文理書院(九龍)",
+  "district": "KOWLOON CITY",
+  "type": "Aided Secondary Schools",
+  "lon": 114.20400527487779,
+  "lat": 22.333512625017157,
+  "ai_routable": true,
+  "ai_snap_m": 33.7,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20012109",
+  "ai_direct_m": 161.8,
+  "ai_route_m": 92.4,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 92.4,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 582.0,
+    "ai_covered_ratio": 0.688,
+    "ai_longest_exposed_m": 110.9,
+    "ai_pti_name": "Kai Tak Station"
+   },
+   "bus": {
+    "ai_route_m": 133.1,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 133.1,
+    "ai_pti_name": "13106"
+   },
+   "minibus": {
+    "ai_route_m": 92.4,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 92.4,
+    "ai_pti_name": "20012109"
+   }
+  },
+  "ai_best_cov_ratio": 0.688,
+  "ai_best_cov_route_m": 582.0,
+  "ai_best_cov_kind": "mtr",
+  "ai_best_cov_pti": "Kai Tak Station",
+  "ai_best_cov_longest_exposed_m": 110.9,
+  "ai_n_pti_candidates": 45,
+  "ai_n_pti_reachable": 45,
+  "ai_best_covered_ratio": 0.688,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "LAI CHACK MIDDLE SCHOOL",
+  "name_tc": "麗澤中學",
+  "district": "YAU TSIM MONG",
+  "type": "Aided Secondary Schools",
+  "lon": 114.16903289668772,
+  "lat": 22.302106302272414,
+  "ai_routable": true,
+  "ai_snap_m": 21.6,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "9000",
+  "ai_direct_m": 120.8,
+  "ai_route_m": 193.9,
+  "ai_covered_ratio": 0.066,
+  "ai_covered_m": 12.9,
+  "ai_longest_exposed_m": 142.4,
+  "ai_n_exposed_runs": 2,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 466.9,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 466.9,
+    "ai_pti_name": "Jordan Station"
+   },
+   "bus": {
+    "ai_route_m": 193.9,
+    "ai_covered_ratio": 0.066,
+    "ai_longest_exposed_m": 142.4,
+    "ai_pti_name": "9000"
+   },
+   "minibus": {
+    "ai_route_m": 196.4,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 196.4,
+    "ai_pti_name": "20000479"
+   }
+  },
+  "ai_best_cov_ratio": 0.397,
+  "ai_best_cov_route_m": 1148.6,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "13310",
+  "ai_best_cov_longest_exposed_m": 215.7,
+  "ai_n_pti_candidates": 195,
+  "ai_n_pti_reachable": 182,
+  "ai_best_covered_ratio": 0.397,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "SIR ELLIS KADOORIE SECONDARY SCHOOL (WEST KOWLOON)",
+  "name_tc": "官立嘉道理爵士中學(西九龍)",
+  "district": "YAU TSIM MONG",
+  "type": "Government Secondary Schools",
+  "lon": 114.15548095656463,
+  "lat": 22.322536821622933,
+  "ai_routable": true,
+  "ai_snap_m": 71.0,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20015250",
+  "ai_direct_m": 352.9,
+  "ai_route_m": 399.3,
+  "ai_covered_ratio": 0.066,
+  "ai_covered_m": 26.3,
+  "ai_longest_exposed_m": 292.6,
+  "ai_n_exposed_runs": 2,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 419.2,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 419.2,
+    "ai_pti_name": "Nam Cheong Station"
+   },
+   "bus": {
+    "ai_route_m": 523.4,
+    "ai_covered_ratio": 0.205,
+    "ai_longest_exposed_m": 258.3,
+    "ai_pti_name": "12564"
+   },
+   "minibus": {
+    "ai_route_m": 399.3,
+    "ai_covered_ratio": 0.066,
+    "ai_longest_exposed_m": 292.6,
+    "ai_pti_name": "20015250"
+   }
+  },
+  "ai_best_cov_ratio": 0.593,
+  "ai_best_cov_route_m": 1196.6,
+  "ai_best_cov_kind": "mtr",
+  "ai_best_cov_pti": "Nam Cheong Station",
+  "ai_best_cov_longest_exposed_m": 419.2,
+  "ai_n_pti_candidates": 96,
+  "ai_n_pti_reachable": 96,
+  "ai_best_covered_ratio": 0.593,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "JOCKEY CLUB GOVERNMENT SECONDARY SCHOOL",
+  "name_tc": "賽馬會官立中學",
+  "district": "KOWLOON CITY",
+  "type": "Government Secondary Schools",
+  "lon": 114.18117441047208,
+  "lat": 22.329315624818165,
+  "ai_routable": true,
+  "ai_snap_m": 39.6,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20014193",
+  "ai_direct_m": 96.3,
+  "ai_route_m": 153.4,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 153.4,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "bus": {
+    "ai_route_m": 153.4,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 153.4,
+    "ai_pti_name": "9135"
+   },
+   "minibus": {
+    "ai_route_m": 153.4,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 153.4,
+    "ai_pti_name": "20014193"
+   }
+  },
+  "ai_best_cov_ratio": 0.314,
+  "ai_best_cov_route_m": 417.3,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "4238",
+  "ai_best_cov_longest_exposed_m": 272.3,
+  "ai_n_pti_candidates": 150,
+  "ai_n_pti_reachable": 150,
+  "ai_best_covered_ratio": 0.314,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "HOMANTIN GOVERNMENT SECONDARY SCHOOL",
+  "name_tc": "何文田官立中學",
+  "district": "KOWLOON CITY",
+  "type": "Government Secondary Schools",
+  "lon": 114.18032972567129,
+  "lat": 22.321061687785658,
+  "ai_routable": true,
+  "ai_snap_m": 41.4,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "12374",
+  "ai_direct_m": 189.5,
+  "ai_route_m": 291.2,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 291.2,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 1165.8,
+    "ai_covered_ratio": 0.18,
+    "ai_longest_exposed_m": 316.6,
+    "ai_pti_name": "Mong Kok East Station"
+   },
+   "bus": {
+    "ai_route_m": 291.2,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 291.2,
+    "ai_pti_name": "12374"
+   },
+   "minibus": {
+    "ai_route_m": 313.1,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 313.1,
+    "ai_pti_name": "20007536"
+   }
+  },
+  "ai_best_cov_ratio": 0.262,
+  "ai_best_cov_route_m": 649.2,
+  "ai_best_cov_kind": "minibus",
+  "ai_best_cov_pti": "20014782",
+  "ai_best_cov_longest_exposed_m": 435.8,
+  "ai_n_pti_candidates": 155,
+  "ai_n_pti_reachable": 155,
+  "ai_best_covered_ratio": 0.262,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "QUEEN ELIZABETH SCHOOL",
+  "name_tc": "伊利沙伯中學",
+  "district": "YAU TSIM MONG",
+  "type": "Government Secondary Schools",
+  "lon": 114.17129324835804,
+  "lat": 22.323933358933527,
+  "ai_routable": true,
+  "ai_snap_m": 44.1,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20000719",
+  "ai_direct_m": 61.1,
+  "ai_route_m": 100.6,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 100.6,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 10.7,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 270.9,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 270.9,
+    "ai_pti_name": "Prince Edward Station"
+   },
+   "bus": {
+    "ai_route_m": 122.4,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 122.4,
+    "ai_pti_name": "4033"
+   },
+   "minibus": {
+    "ai_route_m": 100.6,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 100.6,
+    "ai_pti_name": "20000719"
+   }
+  },
+  "ai_best_cov_ratio": 0.742,
+  "ai_best_cov_route_m": 558.6,
+  "ai_best_cov_kind": "mtr",
+  "ai_best_cov_pti": "Mong Kok Station",
+  "ai_best_cov_longest_exposed_m": 144.4,
+  "ai_n_pti_candidates": 214,
+  "ai_n_pti_reachable": 214,
+  "ai_best_covered_ratio": 0.742,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "KOWLOON TECHNICAL SCHOOL",
+  "name_tc": "九龍工業學校",
+  "district": "SHAM SHUI PO",
+  "type": "Government Secondary Schools",
+  "lon": 114.15909123686258,
+  "lat": 22.333541024047655,
+  "ai_routable": true,
+  "ai_snap_m": 25.3,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20016998",
+  "ai_direct_m": 28.0,
+  "ai_route_m": 55.5,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 55.5,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 281.1,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 281.1,
+    "ai_pti_name": "Cheung Sha Wan Station"
+   },
+   "bus": {
+    "ai_route_m": 55.5,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 55.5,
+    "ai_pti_name": "9228"
+   },
+   "minibus": {
+    "ai_route_m": 55.5,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 55.5,
+    "ai_pti_name": "20016998"
+   }
+  },
+  "ai_best_cov_ratio": 0.778,
+  "ai_best_cov_route_m": 285.7,
+  "ai_best_cov_kind": "mtr",
+  "ai_best_cov_pti": "Cheung Sha Wan Station",
+  "ai_best_cov_longest_exposed_m": 63.3,
+  "ai_n_pti_candidates": 216,
+  "ai_n_pti_reachable": 216,
+  "ai_best_covered_ratio": 0.778,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "ARTS & TECHNOLOGY EDUCATION CENTRE",
+  "name_tc": "藝術與科技教育中心",
+  "district": "KOWLOON CITY",
+  "type": "Government Secondary Schools",
+  "lon": 114.18706673402924,
+  "lat": 22.33458018823145,
+  "ai_routable": true,
+  "ai_snap_m": 20.8,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "9133",
+  "ai_direct_m": 109.1,
+  "ai_route_m": 132.3,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 132.3,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 1056.7,
+    "ai_covered_ratio": 0.031,
+    "ai_longest_exposed_m": 957.9,
+    "ai_pti_name": "Sung Wong Toi Station"
+   },
+   "bus": {
+    "ai_route_m": 132.3,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 132.3,
+    "ai_pti_name": "9133"
+   },
+   "minibus": {
+    "ai_route_m": 305.8,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 305.8,
+    "ai_pti_name": "20010425"
+   }
+  },
+  "ai_best_cov_ratio": 0.127,
+  "ai_best_cov_route_m": 1064.2,
+  "ai_best_cov_kind": "minibus",
+  "ai_best_cov_pti": "20022771",
+  "ai_best_cov_longest_exposed_m": 798.1,
+  "ai_n_pti_candidates": 81,
+  "ai_n_pti_reachable": 81,
+  "ai_best_covered_ratio": 0.127,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "DELIA MEMORIAL SCHOOL (GLEE PATH)",
+  "name_tc": "地利亞修女紀念學校(吉利徑)",
+  "district": "SHAM SHUI PO",
+  "type": "Direct Subsidy Scheme Secondary Schools",
+  "lon": 114.1390163771431,
+  "lat": 22.336860834993953,
+  "ai_routable": true,
+  "ai_snap_m": 16.3,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "9258",
+  "ai_direct_m": 112.0,
+  "ai_route_m": 137.4,
+  "ai_covered_ratio": 0.078,
+  "ai_covered_m": 10.7,
+  "ai_longest_exposed_m": 126.7,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 174.9,
+    "ai_covered_ratio": 0.117,
+    "ai_longest_exposed_m": 154.4,
+    "ai_pti_name": "Mei Foo Station"
+   },
+   "bus": {
+    "ai_route_m": 137.4,
+    "ai_covered_ratio": 0.078,
+    "ai_longest_exposed_m": 126.7,
+    "ai_pti_name": "9258"
+   },
+   "minibus": {
+    "ai_route_m": 214.7,
+    "ai_covered_ratio": 0.138,
+    "ai_longest_exposed_m": 153.8,
+    "ai_pti_name": "20014386"
+   }
+  },
+  "ai_best_cov_ratio": 0.572,
+  "ai_best_cov_route_m": 270.4,
+  "ai_best_cov_kind": "mtr",
+  "ai_best_cov_pti": "Mei Foo Station",
+  "ai_best_cov_longest_exposed_m": 115.8,
+  "ai_n_pti_candidates": 49,
+  "ai_n_pti_reachable": 49,
+  "ai_best_covered_ratio": 0.572,
+  "ai_worst_covered_ratio": 0.033
+ },
+ {
+  "name": "ST. MARGARET'S CO-EDUCATIONAL ENGLISH SECONDARY AND PRIMARY SCHOOL",
+  "name_tc": "聖瑪加利男女英文中小學",
+  "district": "SHAM SHUI PO",
+  "type": "Direct Subsidy Scheme Secondary Schools",
+  "lon": 114.15177269620496,
+  "lat": 22.33075863917754,
+  "ai_routable": true,
+  "ai_snap_m": 47.5,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "10358",
+  "ai_direct_m": 85.7,
+  "ai_route_m": 272.8,
+  "ai_covered_ratio": 0.019,
+  "ai_covered_m": 5.3,
+  "ai_longest_exposed_m": 267.5,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 544.7,
+    "ai_covered_ratio": 0.513,
+    "ai_longest_exposed_m": 263.7,
+    "ai_pti_name": "Nam Cheong Station"
+   },
+   "bus": {
+    "ai_route_m": 272.8,
+    "ai_covered_ratio": 0.019,
+    "ai_longest_exposed_m": 267.5,
+    "ai_pti_name": "10358"
+   },
+   "minibus": {
+    "ai_route_m": 456.4,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 456.4,
+    "ai_pti_name": "20019868"
+   }
+  },
+  "ai_best_cov_ratio": 0.627,
+  "ai_best_cov_route_m": 710.7,
+  "ai_best_cov_kind": "mtr",
+  "ai_best_cov_pti": "Nam Cheong Station",
+  "ai_best_cov_longest_exposed_m": 263.7,
+  "ai_n_pti_candidates": 122,
+  "ai_n_pti_reachable": 122,
+  "ai_best_covered_ratio": 0.627,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "PO LEUNG KUK NGAN PO LING COLLEGE",
+  "name_tc": "保良局顏寶鈴書院",
+  "district": "KOWLOON CITY",
+  "type": "Direct Subsidy Scheme Secondary Schools",
+  "lon": 114.18982150163343,
+  "lat": 22.312698872129992,
+  "ai_routable": true,
+  "ai_snap_m": 35.3,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20009898",
+  "ai_direct_m": 38.8,
+  "ai_route_m": 65.3,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 65.3,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 569.2,
+    "ai_covered_ratio": 0.14,
+    "ai_longest_exposed_m": 191.5,
+    "ai_pti_name": "To Kwa Wan Station"
+   },
+   "bus": {
+    "ai_route_m": 112.3,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 112.3,
+    "ai_pti_name": "1383"
+   },
+   "minibus": {
+    "ai_route_m": 65.3,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 65.3,
+    "ai_pti_name": "20009898"
+   }
+  },
+  "ai_best_cov_ratio": 0.443,
+  "ai_best_cov_route_m": 890.0,
+  "ai_best_cov_kind": "mtr",
+  "ai_best_cov_pti": "To Kwa Wan Station",
+  "ai_best_cov_longest_exposed_m": 126.4,
+  "ai_n_pti_candidates": 149,
+  "ai_n_pti_reachable": 146,
+  "ai_best_covered_ratio": 0.443,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "TSUNG TSIN CHRISTIAN ACADEMY",
+  "name_tc": "基督教崇真中學",
+  "district": "SHAM SHUI PO",
+  "type": "Direct Subsidy Scheme Secondary Schools",
+  "lon": 114.15057845287276,
+  "lat": 22.332429107469125,
+  "ai_routable": true,
+  "ai_snap_m": 47.1,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "12929",
+  "ai_direct_m": 158.3,
+  "ai_route_m": 209.0,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 209.0,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 532.7,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 532.7,
+    "ai_pti_name": "Lai Chi Kok Station"
+   },
+   "bus": {
+    "ai_route_m": 209.0,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 209.0,
+    "ai_pti_name": "12929"
+   },
+   "minibus": {
+    "ai_route_m": 215.0,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 215.0,
+    "ai_pti_name": "20019868"
+   }
+  },
+  "ai_best_cov_ratio": 0.483,
+  "ai_best_cov_route_m": 1300.2,
+  "ai_best_cov_kind": "mtr",
+  "ai_best_cov_pti": "Nam Cheong Station",
+  "ai_best_cov_longest_exposed_m": 259.8,
+  "ai_n_pti_candidates": 132,
+  "ai_n_pti_reachable": 132,
+  "ai_best_covered_ratio": 0.483,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "DIOCESAN BOYS' SCHOOL",
+  "name_tc": "拔萃男書院",
+  "district": "KOWLOON CITY",
+  "type": "Direct Subsidy Scheme Secondary Schools",
+  "lon": 114.17417602413111,
+  "lat": 22.32340965756253,
+  "ai_routable": true,
+  "ai_snap_m": 73.8,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20000912",
+  "ai_direct_m": 369.5,
+  "ai_route_m": 498.0,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 498.0,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 788.9,
+    "ai_covered_ratio": 0.193,
+    "ai_longest_exposed_m": 562.1,
+    "ai_pti_name": "Mong Kok East Station"
+   },
+   "bus": {
+    "ai_route_m": 526.7,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 526.7,
+    "ai_pti_name": "7034"
+   },
+   "minibus": {
+    "ai_route_m": 498.0,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 498.0,
+    "ai_pti_name": "20000912"
+   }
+  },
+  "ai_best_cov_ratio": 0.392,
+  "ai_best_cov_route_m": 1354.1,
+  "ai_best_cov_kind": "minibus",
+  "ai_best_cov_pti": "20004126",
+  "ai_best_cov_longest_exposed_m": 562.1,
+  "ai_n_pti_candidates": 196,
+  "ai_n_pti_reachable": 196,
+  "ai_best_covered_ratio": 0.392,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "DELIA MEMORIAL SCHOOL (BROADWAY )",
+  "name_tc": "地利亞修女紀念學校﹝百老匯﹞",
+  "district": "SHAM SHUI PO",
+  "type": "Direct Subsidy Scheme Secondary Schools",
+  "lon": 114.14067663459939,
+  "lat": 22.335578872369823,
+  "ai_routable": true,
+  "ai_snap_m": 14.1,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "4215",
+  "ai_direct_m": 117.0,
+  "ai_route_m": 172.7,
+  "ai_covered_ratio": 0.058,
+  "ai_covered_m": 10.0,
+  "ai_longest_exposed_m": 94.0,
+  "ai_n_exposed_runs": 2,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 194.8,
+    "ai_covered_ratio": 0.229,
+    "ai_longest_exposed_m": 82.6,
+    "ai_pti_name": "Mei Foo Station"
+   },
+   "bus": {
+    "ai_route_m": 172.7,
+    "ai_covered_ratio": 0.058,
+    "ai_longest_exposed_m": 94.0,
+    "ai_pti_name": "4215"
+   },
+   "minibus": {
+    "ai_route_m": 211.3,
+    "ai_covered_ratio": 0.048,
+    "ai_longest_exposed_m": 132.6,
+    "ai_pti_name": "20002211"
+   }
+  },
+  "ai_best_cov_ratio": 0.608,
+  "ai_best_cov_route_m": 513.6,
+  "ai_best_cov_kind": "mtr",
+  "ai_best_cov_pti": "Mei Foo Station",
+  "ai_best_cov_longest_exposed_m": 63.3,
+  "ai_n_pti_candidates": 72,
+  "ai_n_pti_reachable": 72,
+  "ai_best_covered_ratio": 0.608,
+  "ai_worst_covered_ratio": 0.048
+ },
+ {
+  "name": "WAI KIU COLLEGE",
+  "name_tc": "惠僑英文中學",
+  "district": "SHAM SHUI PO",
+  "type": "Direct Subsidy Scheme Secondary Schools",
+  "lon": 114.16674998738179,
+  "lat": 22.333966118612203,
+  "ai_routable": true,
+  "ai_snap_m": 19.5,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20012013",
+  "ai_direct_m": 87.3,
+  "ai_route_m": 122.0,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 122.0,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 294.5,
+    "ai_covered_ratio": 0.012,
+    "ai_longest_exposed_m": 286.6,
+    "ai_pti_name": "Shek Kip Mei Station"
+   },
+   "bus": {
+    "ai_route_m": 146.7,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 146.7,
+    "ai_pti_name": "13027"
+   },
+   "minibus": {
+    "ai_route_m": 122.0,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 122.0,
+    "ai_pti_name": "20012013"
+   }
+  },
+  "ai_best_cov_ratio": 0.411,
+  "ai_best_cov_route_m": 1209.8,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "9212",
+  "ai_best_cov_longest_exposed_m": 158.3,
+  "ai_n_pti_candidates": 175,
+  "ai_n_pti_reachable": 175,
+  "ai_best_covered_ratio": 0.411,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "CHINA HOLINESS COLLEGE",
+  "name_tc": "中聖書院",
+  "district": "SHAM SHUI PO",
+  "type": "Direct Subsidy Scheme Secondary Schools",
+  "lon": 114.16056628013672,
+  "lat": 22.33709922592544,
+  "ai_routable": true,
+  "ai_snap_m": 27.8,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "9250",
+  "ai_direct_m": 86.2,
+  "ai_route_m": 89.6,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 89.6,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 487.3,
+    "ai_covered_ratio": 0.01,
+    "ai_longest_exposed_m": 401.0,
+    "ai_pti_name": "Cheung Sha Wan Station"
+   },
+   "bus": {
+    "ai_route_m": 89.6,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 89.6,
+    "ai_pti_name": "9250"
+   },
+   "minibus": {
+    "ai_route_m": 162.4,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 162.4,
+    "ai_pti_name": "20016996"
+   }
+  },
+  "ai_best_cov_ratio": 0.28,
+  "ai_best_cov_route_m": 1078.5,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "203",
+  "ai_best_cov_longest_exposed_m": 432.6,
+  "ai_n_pti_candidates": 198,
+  "ai_n_pti_reachable": 198,
+  "ai_best_covered_ratio": 0.28,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "HONG KONG INSTITUTE OF CONTEMPORARY CULTURE LEE SHAU KEE SCHOOL OF CREATIVITY",
+  "name_tc": "香港兆基創意書院(李兆基基金會贊助、香港當代文化中心主辦)",
+  "district": "KOWLOON CITY",
+  "type": "Direct Subsidy Scheme Secondary Schools",
+  "lon": 114.18685310734345,
+  "lat": 22.333568776834493,
+  "ai_routable": true,
+  "ai_snap_m": 61.2,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "9133",
+  "ai_direct_m": 44.3,
+  "ai_route_m": 173.5,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 173.5,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 815.4,
+    "ai_covered_ratio": 0.041,
+    "ai_longest_exposed_m": 716.7,
+    "ai_pti_name": "Sung Wong Toi Station"
+   },
+   "bus": {
+    "ai_route_m": 173.5,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 173.5,
+    "ai_pti_name": "9133"
+   },
+   "minibus": {
+    "ai_route_m": 215.5,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 215.5,
+    "ai_pti_name": "20010432"
+   }
+  },
+  "ai_best_cov_ratio": 0.228,
+  "ai_best_cov_route_m": 1022.0,
+  "ai_best_cov_kind": "mtr",
+  "ai_best_cov_pti": "Sung Wong Toi Station",
+  "ai_best_cov_longest_exposed_m": 492.0,
+  "ai_n_pti_candidates": 104,
+  "ai_n_pti_reachable": 104,
+  "ai_best_covered_ratio": 0.228,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "YING WA COLLEGE",
+  "name_tc": "英華書院",
+  "district": "SHAM SHUI PO",
+  "type": "Direct Subsidy Scheme Secondary Schools",
+  "lon": 114.15264650796601,
+  "lat": 22.329575765696447,
+  "ai_routable": true,
+  "ai_snap_m": 27.3,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "12563",
+  "ai_direct_m": 69.8,
+  "ai_route_m": 117.4,
+  "ai_covered_ratio": 0.762,
+  "ai_covered_m": 89.5,
+  "ai_longest_exposed_m": 28.0,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 271.9,
+    "ai_covered_ratio": 1.0,
+    "ai_longest_exposed_m": 0.0,
+    "ai_pti_name": "Nam Cheong Station"
+   },
+   "bus": {
+    "ai_route_m": 117.4,
+    "ai_covered_ratio": 0.762,
+    "ai_longest_exposed_m": 28.0,
+    "ai_pti_name": "12563"
+   },
+   "minibus": {
+    "ai_route_m": 441.4,
+    "ai_covered_ratio": 0.195,
+    "ai_longest_exposed_m": 350.4,
+    "ai_pti_name": "20003008"
+   }
+  },
+  "ai_best_cov_ratio": 1.0,
+  "ai_best_cov_route_m": 339.6,
+  "ai_best_cov_kind": "mtr",
+  "ai_best_cov_pti": "Nam Cheong Station",
+  "ai_best_cov_longest_exposed_m": 0.0,
+  "ai_n_pti_candidates": 110,
+  "ai_n_pti_reachable": 110,
+  "ai_best_covered_ratio": 1.0,
+  "ai_worst_covered_ratio": 0.011
+ },
+ {
+  "name": "HEUNG TO MIDDLE SCHOOL",
+  "name_tc": "香島中學",
+  "district": "SHAM SHUI PO",
+  "type": "Direct Subsidy Scheme Secondary Schools",
+  "lon": 114.17412726146617,
+  "lat": 22.335420332583578,
+  "ai_routable": true,
+  "ai_snap_m": 19.9,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20013734",
+  "ai_direct_m": 133.3,
+  "ai_route_m": 157.2,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 157.2,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 240.3,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 240.3,
+    "ai_pti_name": "Kowloon Tong Station"
+   },
+   "bus": {
+    "ai_route_m": 157.2,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 157.2,
+    "ai_pti_name": "7104"
+   },
+   "minibus": {
+    "ai_route_m": 157.2,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 157.2,
+    "ai_pti_name": "20013734"
+   }
+  },
+  "ai_best_cov_ratio": 0.351,
+  "ai_best_cov_route_m": 778.0,
+  "ai_best_cov_kind": "mtr",
+  "ai_best_cov_pti": "Kowloon Tong Station",
+  "ai_best_cov_longest_exposed_m": 324.0,
+  "ai_n_pti_candidates": 142,
+  "ai_n_pti_reachable": 142,
+  "ai_best_covered_ratio": 0.351,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "KOWLOON SAM YUK SECONDARY SCHOOL",
+  "name_tc": "九龍三育中學",
+  "district": "YAU TSIM MONG",
+  "type": "Direct Subsidy Scheme Secondary Schools",
+  "lon": 114.16955570069486,
+  "lat": 22.326308334927887,
+  "ai_routable": true,
+  "ai_snap_m": 11.1,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20015159",
+  "ai_direct_m": 52.3,
+  "ai_route_m": 44.4,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 44.4,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 270.4,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 270.4,
+    "ai_pti_name": "Prince Edward Station"
+   },
+   "bus": {
+    "ai_route_m": 72.9,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 72.9,
+    "ai_pti_name": "9117"
+   },
+   "minibus": {
+    "ai_route_m": 44.4,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 44.4,
+    "ai_pti_name": "20015159"
+   }
+  },
+  "ai_best_cov_ratio": 0.392,
+  "ai_best_cov_route_m": 707.2,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "209",
+  "ai_best_cov_longest_exposed_m": 207.2,
+  "ai_n_pti_candidates": 210,
+  "ai_n_pti_reachable": 210,
+  "ai_best_covered_ratio": 0.392,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "HEEP YUNN SCHOOL",
+  "name_tc": "協恩中學",
+  "district": "KOWLOON CITY",
+  "type": "Direct Subsidy Scheme Secondary Schools",
+  "lon": 114.18567779661589,
+  "lat": 22.321359493700268,
+  "ai_routable": true,
+  "ai_snap_m": 36.9,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20010413",
+  "ai_direct_m": 98.6,
+  "ai_route_m": 112.4,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 112.4,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 568.9,
+    "ai_covered_ratio": 0.05,
+    "ai_longest_exposed_m": 497.2,
+    "ai_pti_name": "To Kwa Wan Station"
+   },
+   "bus": {
+    "ai_route_m": 251.9,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 251.9,
+    "ai_pti_name": "12919"
+   },
+   "minibus": {
+    "ai_route_m": 112.4,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 112.4,
+    "ai_pti_name": "20010413"
+   }
+  },
+  "ai_best_cov_ratio": 0.459,
+  "ai_best_cov_route_m": 934.0,
+  "ai_best_cov_kind": "minibus",
+  "ai_best_cov_pti": "20014653",
+  "ai_best_cov_longest_exposed_m": 251.9,
+  "ai_n_pti_candidates": 206,
+  "ai_n_pti_reachable": 206,
+  "ai_best_covered_ratio": 0.459,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "HKMA DAVID LI KWOK PO COLLEGE",
+  "name_tc": "香港管理專業協會李國寶中學",
+  "district": "YAU TSIM MONG",
+  "type": "Direct Subsidy Scheme Secondary Schools",
+  "lon": 114.16378151105023,
+  "lat": 22.31398121294264,
+  "ai_routable": true,
+  "ai_snap_m": 20.5,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "10237",
+  "ai_direct_m": 68.4,
+  "ai_route_m": 90.3,
+  "ai_covered_ratio": 0.221,
+  "ai_covered_m": 19.9,
+  "ai_longest_exposed_m": 33.6,
+  "ai_n_exposed_runs": 4,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 506.9,
+    "ai_covered_ratio": 0.066,
+    "ai_longest_exposed_m": 473.4,
+    "ai_pti_name": "Olympic Station"
+   },
+   "bus": {
+    "ai_route_m": 90.3,
+    "ai_covered_ratio": 0.221,
+    "ai_longest_exposed_m": 33.6,
+    "ai_pti_name": "10237"
+   },
+   "minibus": {
+    "ai_route_m": 98.7,
+    "ai_covered_ratio": 0.287,
+    "ai_longest_exposed_m": 33.6,
+    "ai_pti_name": "20000872"
+   }
+  },
+  "ai_best_cov_ratio": 0.409,
+  "ai_best_cov_route_m": 952.8,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "13129",
+  "ai_best_cov_longest_exposed_m": 440.4,
+  "ai_n_pti_candidates": 155,
+  "ai_n_pti_reachable": 155,
+  "ai_best_covered_ratio": 0.409,
+  "ai_worst_covered_ratio": 0.032
+ },
+ {
+  "name": "DIOCESAN GIRLS' SCHOOL",
+  "name_tc": "拔萃女書院",
+  "district": "YAU TSIM MONG",
+  "type": "Direct Subsidy Scheme Secondary Schools",
+  "lon": 114.17340962845407,
+  "lat": 22.30708232013089,
+  "ai_routable": true,
+  "ai_snap_m": 44.9,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "9011",
+  "ai_direct_m": 99.1,
+  "ai_route_m": 73.7,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 73.7,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 345.0,
+    "ai_covered_ratio": 0.032,
+    "ai_longest_exposed_m": 322.6,
+    "ai_pti_name": "Jordan Station"
+   },
+   "bus": {
+    "ai_route_m": 73.7,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 73.7,
+    "ai_pti_name": "9011"
+   },
+   "minibus": {
+    "ai_route_m": 157.7,
+    "ai_covered_ratio": 0.273,
+    "ai_longest_exposed_m": 114.7,
+    "ai_pti_name": "20003011"
+   }
+  },
+  "ai_best_cov_ratio": 0.369,
+  "ai_best_cov_route_m": 553.3,
+  "ai_best_cov_kind": "minibus",
+  "ai_best_cov_pti": "20002671",
+  "ai_best_cov_longest_exposed_m": 168.7,
+  "ai_n_pti_candidates": 186,
+  "ai_n_pti_reachable": 183,
+  "ai_best_covered_ratio": 0.369,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "SCIENTIA SECONDARY SCHOOL",
+  "name_tc": "創知中學",
+  "district": "KOWLOON CITY",
+  "type": "Direct Subsidy Scheme Secondary Schools",
+  "lon": 114.17878644172976,
+  "lat": 22.319869675437232,
+  "ai_routable": true,
+  "ai_snap_m": 33.8,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "7032",
+  "ai_direct_m": 215.6,
+  "ai_route_m": 274.3,
+  "ai_covered_ratio": 0.031,
+  "ai_covered_m": 8.5,
+  "ai_longest_exposed_m": 154.9,
+  "ai_n_exposed_runs": 3,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 1048.9,
+    "ai_covered_ratio": 0.192,
+    "ai_longest_exposed_m": 462.4,
+    "ai_pti_name": "Mong Kok East Station"
+   },
+   "bus": {
+    "ai_route_m": 274.3,
+    "ai_covered_ratio": 0.031,
+    "ai_longest_exposed_m": 154.9,
+    "ai_pti_name": "7032"
+   },
+   "minibus": {
+    "ai_route_m": 288.2,
+    "ai_covered_ratio": 0.03,
+    "ai_longest_exposed_m": 154.9,
+    "ai_pti_name": "20014781"
+   }
+  },
+  "ai_best_cov_ratio": 0.284,
+  "ai_best_cov_route_m": 629.4,
+  "ai_best_cov_kind": "minibus",
+  "ai_best_cov_pti": "20014782",
+  "ai_best_cov_longest_exposed_m": 238.3,
+  "ai_n_pti_candidates": 137,
+  "ai_n_pti_reachable": 137,
+  "ai_best_covered_ratio": 0.284,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "KOWLOON SAM YUK SECONDARY SCHOOL",
+  "name_tc": "九龍三育中學",
+  "district": "YAU TSIM MONG",
+  "type": "Direct Subsidy Scheme Secondary Schools",
+  "lon": 114.16444058359318,
+  "lat": 22.324267111842936,
+  "ai_routable": true,
+  "ai_snap_m": 13.2,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "9082",
+  "ai_direct_m": 137.3,
+  "ai_route_m": 184.5,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 184.5,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 66.8,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 516.8,
+    "ai_covered_ratio": 0.058,
+    "ai_longest_exposed_m": 326.5,
+    "ai_pti_name": "Prince Edward Station"
+   },
+   "bus": {
+    "ai_route_m": 184.5,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 184.5,
+    "ai_pti_name": "9082"
+   },
+   "minibus": {
+    "ai_route_m": 247.2,
+    "ai_covered_ratio": 0.083,
+    "ai_longest_exposed_m": 125.3,
+    "ai_pti_name": "20000629"
+   }
+  },
+  "ai_best_cov_ratio": 0.4,
+  "ai_best_cov_route_m": 841.8,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "9104",
+  "ai_best_cov_longest_exposed_m": 309.3,
+  "ai_n_pti_candidates": 225,
+  "ai_n_pti_reachable": 225,
+  "ai_best_covered_ratio": 0.4,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "UNITED CHRISTIAN COLLEGE",
+  "name_tc": "滙基書院",
+  "district": "SHAM SHUI PO",
+  "type": "Caput Secondary Schools",
+  "lon": 114.17069121190235,
+  "lat": 22.329577453651122,
+  "ai_routable": true,
+  "ai_snap_m": 13.5,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20009667",
+  "ai_direct_m": 62.9,
+  "ai_route_m": 66.8,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 66.8,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 349.1,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 349.1,
+    "ai_pti_name": "Shek Kip Mei Station"
+   },
+   "bus": {
+    "ai_route_m": 101.6,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 101.6,
+    "ai_pti_name": "9200"
+   },
+   "minibus": {
+    "ai_route_m": 66.8,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 66.8,
+    "ai_pti_name": "20009667"
+   }
+  },
+  "ai_best_cov_ratio": 0.247,
+  "ai_best_cov_route_m": 1354.8,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "10000161",
+  "ai_best_cov_longest_exposed_m": 758.3,
+  "ai_n_pti_candidates": 181,
+  "ai_n_pti_reachable": 181,
+  "ai_best_covered_ratio": 0.247,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "S.K.H. ALL SAINTS' MIDDLE SCHOOL",
+  "name_tc": "聖公會諸聖中學",
+  "district": "YAU TSIM MONG",
+  "type": "Caput Secondary Schools",
+  "lon": 114.1730696773192,
+  "lat": 22.317241740377817,
+  "ai_routable": true,
+  "ai_snap_m": 18.9,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20022670",
+  "ai_direct_m": 58.1,
+  "ai_route_m": 77.6,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 77.6,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 545.5,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 545.5,
+    "ai_pti_name": "Mong Kok Station"
+   },
+   "bus": {
+    "ai_route_m": 214.5,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 214.5,
+    "ai_pti_name": "10251"
+   },
+   "minibus": {
+    "ai_route_m": 77.6,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 77.6,
+    "ai_pti_name": "20022670"
+   }
+  },
+  "ai_best_cov_ratio": 0.407,
+  "ai_best_cov_route_m": 755.6,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "10000161",
+  "ai_best_cov_longest_exposed_m": 382.0,
+  "ai_n_pti_candidates": 217,
+  "ai_n_pti_reachable": 217,
+  "ai_best_covered_ratio": 0.407,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "ZHONGSHAN WHAMPOA ACADEMY",
+  "name_tc": "中黃書院",
+  "district": "SHAM SHUI PO",
+  "type": "Private Secondary Schools (Day/Evening)",
+  "lon": 114.17503980351815,
+  "lat": 22.329405978955492,
+  "ai_routable": true,
+  "ai_snap_m": 21.5,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20013725",
+  "ai_direct_m": 47.1,
+  "ai_route_m": 74.7,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 74.7,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 876.8,
+    "ai_covered_ratio": 0.054,
+    "ai_longest_exposed_m": 507.3,
+    "ai_pti_name": "Shek Kip Mei Station"
+   },
+   "bus": {
+    "ai_route_m": 121.1,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 121.1,
+    "ai_pti_name": "7107"
+   },
+   "minibus": {
+    "ai_route_m": 74.7,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 74.7,
+    "ai_pti_name": "20013725"
+   }
+  },
+  "ai_best_cov_ratio": 0.314,
+  "ai_best_cov_route_m": 1060.3,
+  "ai_best_cov_kind": "mtr",
+  "ai_best_cov_pti": "Mong Kok East Station",
+  "ai_best_cov_longest_exposed_m": 500.6,
+  "ai_n_pti_candidates": 140,
+  "ai_n_pti_reachable": 140,
+  "ai_best_covered_ratio": 0.314,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "BEACON COLLEGE (MONG KOK)",
+  "name_tc": "遵理學校(旺角)",
+  "district": "YAU TSIM MONG",
+  "type": "Private Secondary Schools (Day/Evening)",
+  "lon": 114.17008786200446,
+  "lat": 22.314760170901234,
+  "ai_routable": true,
+  "ai_snap_m": 9.1,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "9052",
+  "ai_direct_m": 15.0,
+  "ai_route_m": 11.1,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 11.1,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 133.6,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 133.6,
+    "ai_pti_name": "Yau Ma Tei Station"
+   },
+   "bus": {
+    "ai_route_m": 11.1,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 11.1,
+    "ai_pti_name": "9052"
+   },
+   "minibus": {
+    "ai_route_m": 84.5,
+    "ai_covered_ratio": 0.117,
+    "ai_longest_exposed_m": 46.1,
+    "ai_pti_name": "20007274"
+   }
+  },
+  "ai_best_cov_ratio": 0.57,
+  "ai_best_cov_route_m": 284.9,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "9054",
+  "ai_best_cov_longest_exposed_m": 46.1,
+  "ai_n_pti_candidates": 207,
+  "ai_n_pti_reachable": 207,
+  "ai_best_covered_ratio": 0.57,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "OXBRIDGE BRITISH SCHOOL",
+  "name_tc": "劍津英國學校",
+  "district": "KOWLOON CITY",
+  "type": "Private Secondary Schools (Day/Evening)",
+  "lon": 114.18680301053315,
+  "lat": 22.311588321738515,
+  "ai_routable": true,
+  "ai_snap_m": 17.2,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "9029",
+  "ai_direct_m": 33.6,
+  "ai_route_m": 60.7,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 60.7,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 504.9,
+    "ai_covered_ratio": 0.308,
+    "ai_longest_exposed_m": 191.8,
+    "ai_pti_name": "To Kwa Wan Station"
+   },
+   "bus": {
+    "ai_route_m": 60.7,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 60.7,
+    "ai_pti_name": "9029"
+   },
+   "minibus": {
+    "ai_route_m": 133.0,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 133.0,
+    "ai_pti_name": "20017162"
+   }
+  },
+  "ai_best_cov_ratio": 0.497,
+  "ai_best_cov_route_m": 313.1,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "806",
+  "ai_best_cov_longest_exposed_m": 42.9,
+  "ai_n_pti_candidates": 178,
+  "ai_n_pti_reachable": 175,
+  "ai_best_covered_ratio": 0.497,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "OXBRIDGE BRITISH SCHOOL",
+  "name_tc": "劍津英國學校",
+  "district": "KOWLOON CITY",
+  "type": "Private Secondary Schools (Day/Evening)",
+  "lon": 114.1867253511926,
+  "lat": 22.311362561415557,
+  "ai_routable": true,
+  "ai_snap_m": 10.8,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "9029",
+  "ai_direct_m": 25.3,
+  "ai_route_m": 23.7,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 23.7,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 497.0,
+    "ai_covered_ratio": 0.198,
+    "ai_longest_exposed_m": 191.5,
+    "ai_pti_name": "To Kwa Wan Station"
+   },
+   "bus": {
+    "ai_route_m": 23.7,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 23.7,
+    "ai_pti_name": "9029"
+   },
+   "minibus": {
+    "ai_route_m": 96.1,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 96.1,
+    "ai_pti_name": "20017162"
+   }
+  },
+  "ai_best_cov_ratio": 0.534,
+  "ai_best_cov_route_m": 868.8,
+  "ai_best_cov_kind": "minibus",
+  "ai_best_cov_pti": "20000490",
+  "ai_best_cov_longest_exposed_m": 112.1,
+  "ai_n_pti_candidates": 176,
+  "ai_n_pti_reachable": 173,
+  "ai_best_covered_ratio": 0.534,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "EXCEL LONDON COLLEGE (TSIM SHA TSUI)",
+  "name_tc": "倫敦卓越書院(尖沙咀)",
+  "district": "YAU TSIM MONG",
+  "type": "Private Secondary Schools (Day/Evening)",
+  "lon": 114.17923260682274,
+  "lat": 22.301700094149325,
+  "ai_routable": true,
+  "ai_snap_m": 21.8,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "1284",
+  "ai_direct_m": 81.8,
+  "ai_route_m": 145.2,
+  "ai_covered_ratio": 0.421,
+  "ai_covered_m": 61.1,
+  "ai_longest_exposed_m": 79.7,
+  "ai_n_exposed_runs": 2,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 244.2,
+    "ai_covered_ratio": 0.69,
+    "ai_longest_exposed_m": 75.6,
+    "ai_pti_name": "Hung Hom Station"
+   },
+   "bus": {
+    "ai_route_m": 145.2,
+    "ai_covered_ratio": 0.421,
+    "ai_longest_exposed_m": 79.7,
+    "ai_pti_name": "1284"
+   },
+   "minibus": {
+    "ai_route_m": 242.5,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 242.5,
+    "ai_pti_name": "20014341"
+   }
+  },
+  "ai_best_cov_ratio": 0.76,
+  "ai_best_cov_route_m": 364.4,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "9014",
+  "ai_best_cov_longest_exposed_m": 75.6,
+  "ai_n_pti_candidates": 119,
+  "ai_n_pti_reachable": 115,
+  "ai_best_covered_ratio": 0.76,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "SPEATER COLLEGE",
+  "name_tc": "斯彼德書院",
+  "district": "KOWLOON CITY",
+  "type": "Private Secondary Schools (Day/Evening)",
+  "lon": 114.1890013734449,
+  "lat": 22.317933990185573,
+  "ai_routable": true,
+  "ai_snap_m": 29.2,
+  "ai_pti_kind": "mtr",
+  "ai_pti_name": "To Kwa Wan Station",
+  "ai_direct_m": 113.5,
+  "ai_route_m": 160.9,
+  "ai_covered_ratio": 0.389,
+  "ai_covered_m": 62.5,
+  "ai_longest_exposed_m": 76.6,
+  "ai_n_exposed_runs": 4,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 160.9,
+    "ai_covered_ratio": 0.389,
+    "ai_longest_exposed_m": 76.6,
+    "ai_pti_name": "To Kwa Wan Station"
+   },
+   "bus": {
+    "ai_route_m": 198.0,
+    "ai_covered_ratio": 0.316,
+    "ai_longest_exposed_m": 113.6,
+    "ai_pti_name": "4122"
+   },
+   "minibus": {
+    "ai_route_m": 183.1,
+    "ai_covered_ratio": 0.576,
+    "ai_longest_exposed_m": 41.4,
+    "ai_pti_name": "20006060"
+   }
+  },
+  "ai_best_cov_ratio": 0.678,
+  "ai_best_cov_route_m": 365.1,
+  "ai_best_cov_kind": "minibus",
+  "ai_best_cov_pti": "20000490",
+  "ai_best_cov_longest_exposed_m": 50.4,
+  "ai_n_pti_candidates": 142,
+  "ai_n_pti_reachable": 142,
+  "ai_best_covered_ratio": 0.678,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "RUDOLF STEINER EDUCATION FOUNDATION HONG KONG MARIA COLLEGE",
+  "name_tc": "香港華德福教育基金會瑪利亞書院",
+  "district": "YAU TSIM MONG",
+  "type": "Private Secondary Schools (Day/Evening)",
+  "lon": 114.16824535527165,
+  "lat": 22.325901894415114,
+  "ai_routable": true,
+  "ai_snap_m": 13.2,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "211",
+  "ai_direct_m": 48.9,
+  "ai_route_m": 47.5,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 47.5,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 24.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 104.5,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 104.5,
+    "ai_pti_name": "Prince Edward Station"
+   },
+   "bus": {
+    "ai_route_m": 47.5,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 47.5,
+    "ai_pti_name": "211"
+   },
+   "minibus": {
+    "ai_route_m": 200.7,
+    "ai_covered_ratio": 0.075,
+    "ai_longest_exposed_m": 160.7,
+    "ai_pti_name": "20023100"
+   }
+  },
+  "ai_best_cov_ratio": 0.548,
+  "ai_best_cov_route_m": 837.9,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "208",
+  "ai_best_cov_longest_exposed_m": 162.3,
+  "ai_n_pti_candidates": 234,
+  "ai_n_pti_reachable": 234,
+  "ai_best_covered_ratio": 0.548,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "BEACON COLLEGE (MONG KOK)",
+  "name_tc": "遵理學校(旺角)",
+  "district": "YAU TSIM MONG",
+  "type": "Private Secondary Schools (Day/Evening)",
+  "lon": 114.17003187734835,
+  "lat": 22.314731135185166,
+  "ai_routable": true,
+  "ai_snap_m": 15.5,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "9052",
+  "ai_direct_m": 21.2,
+  "ai_route_m": 11.1,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 11.1,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 133.6,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 133.6,
+    "ai_pti_name": "Yau Ma Tei Station"
+   },
+   "bus": {
+    "ai_route_m": 11.1,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 11.1,
+    "ai_pti_name": "9052"
+   },
+   "minibus": {
+    "ai_route_m": 84.5,
+    "ai_covered_ratio": 0.117,
+    "ai_longest_exposed_m": 46.1,
+    "ai_pti_name": "20007274"
+   }
+  },
+  "ai_best_cov_ratio": 0.57,
+  "ai_best_cov_route_m": 284.9,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "9054",
+  "ai_best_cov_longest_exposed_m": 46.1,
+  "ai_n_pti_candidates": 204,
+  "ai_n_pti_reachable": 204,
+  "ai_best_covered_ratio": 0.57,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "BEACON COLLEGE (MONG KOK)",
+  "name_tc": "遵理學校(旺角)",
+  "district": "YAU TSIM MONG",
+  "type": "Private Secondary Schools (Day/Evening)",
+  "lon": 114.17003187734835,
+  "lat": 22.314731135185166,
+  "ai_routable": true,
+  "ai_snap_m": 15.5,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "9052",
+  "ai_direct_m": 21.2,
+  "ai_route_m": 11.1,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 11.1,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 133.6,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 133.6,
+    "ai_pti_name": "Yau Ma Tei Station"
+   },
+   "bus": {
+    "ai_route_m": 11.1,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 11.1,
+    "ai_pti_name": "9052"
+   },
+   "minibus": {
+    "ai_route_m": 84.5,
+    "ai_covered_ratio": 0.117,
+    "ai_longest_exposed_m": 46.1,
+    "ai_pti_name": "20007274"
+   }
+  },
+  "ai_best_cov_ratio": 0.57,
+  "ai_best_cov_route_m": 284.9,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "9054",
+  "ai_best_cov_longest_exposed_m": 46.1,
+  "ai_n_pti_candidates": 204,
+  "ai_n_pti_reachable": 204,
+  "ai_best_covered_ratio": 0.57,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "HONGKONG LIMAI SCHOOL",
+  "name_tc": "香港力邁學校",
+  "district": "YAU TSIM MONG",
+  "type": "Private Secondary Schools (Day/Evening)",
+  "lon": 114.17510826723434,
+  "lat": 22.30299280714112,
+  "ai_routable": true,
+  "ai_snap_m": 22.3,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20000686",
+  "ai_direct_m": 131.2,
+  "ai_route_m": 131.7,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 131.7,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 420.7,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 420.7,
+    "ai_pti_name": "Jordan Station"
+   },
+   "bus": {
+    "ai_route_m": 224.4,
+    "ai_covered_ratio": 0.255,
+    "ai_longest_exposed_m": 164.4,
+    "ai_pti_name": "9007"
+   },
+   "minibus": {
+    "ai_route_m": 131.7,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 131.7,
+    "ai_pti_name": "20000686"
+   }
+  },
+  "ai_best_cov_ratio": 0.504,
+  "ai_best_cov_route_m": 954.4,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "9014",
+  "ai_best_cov_longest_exposed_m": 469.3,
+  "ai_n_pti_candidates": 194,
+  "ai_n_pti_reachable": 189,
+  "ai_best_covered_ratio": 0.504,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "HONGKONG LIMAI SCHOOL",
+  "name_tc": "香港力邁學校",
+  "district": "YAU TSIM MONG",
+  "type": "Private Secondary Schools (Day/Evening)",
+  "lon": 114.17513180311646,
+  "lat": 22.303257586753485,
+  "ai_routable": true,
+  "ai_snap_m": 13.0,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20000700",
+  "ai_direct_m": 28.2,
+  "ai_route_m": 3.8,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 3.8,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 454.2,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 454.2,
+    "ai_pti_name": "Jordan Station"
+   },
+   "bus": {
+    "ai_route_m": 243.3,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 243.3,
+    "ai_pti_name": "9007"
+   },
+   "minibus": {
+    "ai_route_m": 3.8,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 3.8,
+    "ai_pti_name": "20000700"
+   }
+  },
+  "ai_best_cov_ratio": 0.52,
+  "ai_best_cov_route_m": 815.5,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "9014",
+  "ai_best_cov_longest_exposed_m": 390.4,
+  "ai_n_pti_candidates": 192,
+  "ai_n_pti_reachable": 187,
+  "ai_best_covered_ratio": 0.52,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "LUI CHEUNG KWONG LUTHERAN EVENING COLLEGE",
+  "name_tc": "路德會呂祥光夜中學",
+  "district": "SHAM SHUI PO",
+  "type": "Private Secondary Schools (Day/Evening)",
+  "lon": 114.15909123686258,
+  "lat": 22.333541024047655,
+  "ai_routable": true,
+  "ai_snap_m": 25.3,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20016998",
+  "ai_direct_m": 28.0,
+  "ai_route_m": 55.5,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 55.5,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 281.1,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 281.1,
+    "ai_pti_name": "Cheung Sha Wan Station"
+   },
+   "bus": {
+    "ai_route_m": 55.5,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 55.5,
+    "ai_pti_name": "9228"
+   },
+   "minibus": {
+    "ai_route_m": 55.5,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 55.5,
+    "ai_pti_name": "20016998"
+   }
+  },
+  "ai_best_cov_ratio": 0.778,
+  "ai_best_cov_route_m": 285.7,
+  "ai_best_cov_kind": "mtr",
+  "ai_best_cov_pti": "Cheung Sha Wan Station",
+  "ai_best_cov_longest_exposed_m": 63.3,
+  "ai_n_pti_candidates": 216,
+  "ai_n_pti_reachable": 216,
+  "ai_best_covered_ratio": 0.778,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "WAHHAR COLLEGE HONG KONG",
+  "name_tc": "華夏書院",
+  "district": "YAU TSIM MONG",
+  "type": "Private Secondary Schools (Day/Evening)",
+  "lon": 114.16769559244268,
+  "lat": 22.31702895909654,
+  "ai_routable": true,
+  "ai_snap_m": 6.2,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20019968",
+  "ai_direct_m": 70.4,
+  "ai_route_m": 90.3,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 90.3,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 321.0,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 321.0,
+    "ai_pti_name": "Mong Kok Station"
+   },
+   "bus": {
+    "ai_route_m": 146.3,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 146.3,
+    "ai_pti_name": "12447"
+   },
+   "minibus": {
+    "ai_route_m": 90.3,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 90.3,
+    "ai_pti_name": "20019968"
+   }
+  },
+  "ai_best_cov_ratio": 0.642,
+  "ai_best_cov_route_m": 343.5,
+  "ai_best_cov_kind": "minibus",
+  "ai_best_cov_pti": "20021026",
+  "ai_best_cov_longest_exposed_m": 123.1,
+  "ai_n_pti_candidates": 249,
+  "ai_n_pti_reachable": 249,
+  "ai_best_covered_ratio": 0.642,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "STAMFORD AMERICAN SCHOOL HONG KONG (WEST KOWLOON)",
+  "name_tc": "STAMFORD AMERICAN SCHOOL HONG KONG (WEST KOWLOON)",
+  "district": "YAU TSIM MONG",
+  "type": "Private Secondary Schools (Day/Evening)",
+  "lon": 114.15575282868357,
+  "lat": 22.31828435735791,
+  "ai_routable": true,
+  "ai_snap_m": 65.7,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "12429",
+  "ai_direct_m": 113.1,
+  "ai_route_m": 360.5,
+  "ai_covered_ratio": 0.129,
+  "ai_covered_m": 46.6,
+  "ai_longest_exposed_m": 262.7,
+  "ai_n_exposed_runs": 2,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 660.2,
+    "ai_covered_ratio": 0.188,
+    "ai_longest_exposed_m": 273.6,
+    "ai_pti_name": "Olympic Station"
+   },
+   "bus": {
+    "ai_route_m": 360.5,
+    "ai_covered_ratio": 0.129,
+    "ai_longest_exposed_m": 262.7,
+    "ai_pti_name": "12429"
+   },
+   "minibus": {
+    "ai_route_m": 403.3,
+    "ai_covered_ratio": 0.115,
+    "ai_longest_exposed_m": 262.7,
+    "ai_pti_name": "20000905"
+   }
+  },
+  "ai_best_cov_ratio": 0.557,
+  "ai_best_cov_route_m": 1270.1,
+  "ai_best_cov_kind": "mtr",
+  "ai_best_cov_pti": "Olympic Station",
+  "ai_best_cov_longest_exposed_m": 282.1,
+  "ai_n_pti_candidates": 68,
+  "ai_n_pti_reachable": 68,
+  "ai_best_covered_ratio": 0.557,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "SAINT TOO BLOOM ACADEMY",
+  "name_tc": "聖道百卉書院",
+  "district": "SHAM SHUI PO",
+  "type": "Private Secondary Schools (Day/Evening)",
+  "lon": 114.1704873497245,
+  "lat": 22.330065097273703,
+  "ai_routable": true,
+  "ai_snap_m": 23.9,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20009667",
+  "ai_direct_m": 23.8,
+  "ai_route_m": 4.5,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 4.5,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 277.9,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 277.9,
+    "ai_pti_name": "Shek Kip Mei Station"
+   },
+   "bus": {
+    "ai_route_m": 157.5,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 157.5,
+    "ai_pti_name": "9200"
+   },
+   "minibus": {
+    "ai_route_m": 4.5,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 4.5,
+    "ai_pti_name": "20009667"
+   }
+  },
+  "ai_best_cov_ratio": 0.209,
+  "ai_best_cov_route_m": 1229.6,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "972",
+  "ai_best_cov_longest_exposed_m": 459.6,
+  "ai_n_pti_candidates": 185,
+  "ai_n_pti_reachable": 185,
+  "ai_best_covered_ratio": 0.209,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "PO LEUNG KUK CHOI KAI YAU SCHOOL",
+  "name_tc": "保良局蔡繼有學校",
+  "district": "SHAM SHUI PO",
+  "type": "Private Secondary Schools (Day/Evening)",
+  "lon": 114.148401653725,
+  "lat": 22.344565829493238,
+  "ai_routable": true,
+  "ai_snap_m": 65.8,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "6030",
+  "ai_direct_m": 263.2,
+  "ai_route_m": 371.2,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 371.2,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 1743.8,
+    "ai_covered_ratio": 0.063,
+    "ai_longest_exposed_m": 872.2,
+    "ai_pti_name": "Lai Chi Kok Station"
+   },
+   "bus": {
+    "ai_route_m": 371.2,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 371.2,
+    "ai_pti_name": "6030"
+   },
+   "minibus": {
+    "ai_route_m": 1171.7,
+    "ai_covered_ratio": 0.094,
+    "ai_longest_exposed_m": 872.2,
+    "ai_pti_name": "20022507"
+   }
+  },
+  "ai_best_cov_ratio": 0.235,
+  "ai_best_cov_route_m": 422.6,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "6029",
+  "ai_best_cov_longest_exposed_m": 323.5,
+  "ai_n_pti_candidates": 34,
+  "ai_n_pti_reachable": 34,
+  "ai_best_covered_ratio": 0.235,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "RUDOLF STEINER EDUCATION FOUNDATION HONG KONG MARIA COLLEGE",
+  "name_tc": "香港華德福教育基金會瑪利亞書院",
+  "district": "KOWLOON CITY",
+  "type": "Private Secondary Schools (Day/Evening)",
+  "lon": 114.1809900185696,
+  "lat": 22.330480574836947,
+  "ai_routable": true,
+  "ai_snap_m": 16.2,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "9135",
+  "ai_direct_m": 45.9,
+  "ai_route_m": 75.7,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 75.7,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 1028.9,
+    "ai_covered_ratio": 0.08,
+    "ai_longest_exposed_m": 449.3,
+    "ai_pti_name": "Kowloon Tong Station"
+   },
+   "bus": {
+    "ai_route_m": 75.7,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 75.7,
+    "ai_pti_name": "9135"
+   },
+   "minibus": {
+    "ai_route_m": 75.7,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 75.7,
+    "ai_pti_name": "20014193"
+   }
+  },
+  "ai_best_cov_ratio": 0.319,
+  "ai_best_cov_route_m": 411.2,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "4238",
+  "ai_best_cov_longest_exposed_m": 266.1,
+  "ai_n_pti_candidates": 149,
+  "ai_n_pti_reachable": 149,
+  "ai_best_covered_ratio": 0.319,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "ANANTARA COLLEGE",
+  "name_tc": "泰來書院",
+  "district": "KOWLOON CITY",
+  "type": "Private Secondary Schools (Day/Evening)",
+  "lon": 114.18593897020283,
+  "lat": 22.30762393685141,
+  "ai_routable": true,
+  "ai_snap_m": 14.3,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20000420",
+  "ai_direct_m": 41.2,
+  "ai_route_m": 53.8,
+  "ai_covered_ratio": 0.567,
+  "ai_covered_m": 30.5,
+  "ai_longest_exposed_m": 23.3,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 396.5,
+    "ai_covered_ratio": 0.022,
+    "ai_longest_exposed_m": 294.3,
+    "ai_pti_name": "Whampoa Station"
+   },
+   "bus": {
+    "ai_route_m": 57.0,
+    "ai_covered_ratio": 0.535,
+    "ai_longest_exposed_m": 23.3,
+    "ai_pti_name": "4260"
+   },
+   "minibus": {
+    "ai_route_m": 53.8,
+    "ai_covered_ratio": 0.567,
+    "ai_longest_exposed_m": 23.3,
+    "ai_pti_name": "20000420"
+   }
+  },
+  "ai_best_cov_ratio": 0.636,
+  "ai_best_cov_route_m": 467.5,
+  "ai_best_cov_kind": "minibus",
+  "ai_best_cov_pti": "20006074",
+  "ai_best_cov_longest_exposed_m": 79.7,
+  "ai_n_pti_candidates": 174,
+  "ai_n_pti_reachable": 171,
+  "ai_best_covered_ratio": 0.636,
+  "ai_worst_covered_ratio": 0.002
+ },
+ {
+  "name": "RUDOLF STEINER EDUCATION FOUNDATION HONG KONG MARIA COLLEGE",
+  "name_tc": "香港華德福教育基金會瑪利亞書院",
+  "district": "YAU TSIM MONG",
+  "type": "Private Secondary Schools (Day/Evening)",
+  "lon": 114.17129324835804,
+  "lat": 22.323933358933527,
+  "ai_routable": true,
+  "ai_snap_m": 44.1,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20000719",
+  "ai_direct_m": 61.1,
+  "ai_route_m": 100.6,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 100.6,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 10.7,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 270.9,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 270.9,
+    "ai_pti_name": "Prince Edward Station"
+   },
+   "bus": {
+    "ai_route_m": 122.4,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 122.4,
+    "ai_pti_name": "4033"
+   },
+   "minibus": {
+    "ai_route_m": 100.6,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 100.6,
+    "ai_pti_name": "20000719"
+   }
+  },
+  "ai_best_cov_ratio": 0.742,
+  "ai_best_cov_route_m": 558.6,
+  "ai_best_cov_kind": "mtr",
+  "ai_best_cov_pti": "Mong Kok Station",
+  "ai_best_cov_longest_exposed_m": 144.4,
+  "ai_n_pti_candidates": 214,
+  "ai_n_pti_reachable": 214,
+  "ai_best_covered_ratio": 0.742,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "YEW CHUNG INTERNATIONAL SCHOOL - SECONDARY",
+  "name_tc": "耀中國際學校（中學）",
+  "district": "KOWLOON CITY",
+  "type": "Private Secondary Schools (Day/Evening)",
+  "lon": 114.17720440582248,
+  "lat": 22.335754486043836,
+  "ai_routable": true,
+  "ai_snap_m": 44.3,
+  "ai_pti_kind": "mtr",
+  "ai_pti_name": "Kowloon Tong Station",
+  "ai_direct_m": 97.8,
+  "ai_route_m": 112.3,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 112.3,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 112.3,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 112.3,
+    "ai_pti_name": "Kowloon Tong Station"
+   },
+   "bus": {
+    "ai_route_m": 365.7,
+    "ai_covered_ratio": 0.02,
+    "ai_longest_exposed_m": 358.3,
+    "ai_pti_name": "4240"
+   },
+   "minibus": {
+    "ai_route_m": 193.8,
+    "ai_covered_ratio": 0.193,
+    "ai_longest_exposed_m": 148.0,
+    "ai_pti_name": "20003363"
+   }
+  },
+  "ai_best_cov_ratio": 0.673,
+  "ai_best_cov_route_m": 275.4,
+  "ai_best_cov_kind": "mtr",
+  "ai_best_cov_pti": "Kowloon Tong Station",
+  "ai_best_cov_longest_exposed_m": 90.1,
+  "ai_n_pti_candidates": 131,
+  "ai_n_pti_reachable": 131,
+  "ai_best_covered_ratio": 0.673,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "CALIFORNIA SCHOOL",
+  "name_tc": "CALIFORNIA SCHOOL",
+  "district": "YAU TSIM MONG",
+  "type": "Private Secondary Schools (Day/Evening)",
+  "lon": 114.17067247335147,
+  "lat": 22.314198355380128,
+  "ai_routable": true,
+  "ai_snap_m": 24.9,
+  "ai_pti_kind": "bus",
+  "ai_pti_name": "214",
+  "ai_direct_m": 62.0,
+  "ai_route_m": 18.8,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 18.8,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 43.7,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 43.7,
+    "ai_pti_name": "Yau Ma Tei Station"
+   },
+   "bus": {
+    "ai_route_m": 18.8,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 18.8,
+    "ai_pti_name": "214"
+   },
+   "minibus": {
+    "ai_route_m": 82.8,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 82.8,
+    "ai_pti_name": "20016920"
+   }
+  },
+  "ai_best_cov_ratio": 1.0,
+  "ai_best_cov_route_m": 44.8,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "9051",
+  "ai_best_cov_longest_exposed_m": 0.0,
+  "ai_n_pti_candidates": 212,
+  "ai_n_pti_reachable": 212,
+  "ai_best_covered_ratio": 1.0,
+  "ai_worst_covered_ratio": 0.0
+ },
+ {
+  "name": "STAMFORD AMERICAN SCHOOL HONG KONG",
+  "name_tc": "STAMFORD AMERICAN SCHOOL HONG KONG",
+  "district": "KOWLOON CITY",
+  "type": "Private Secondary Schools (Day/Evening)",
+  "lon": 114.17894172729052,
+  "lat": 22.31917431772599,
+  "ai_routable": true,
+  "ai_snap_m": 36.4,
+  "ai_pti_kind": "minibus",
+  "ai_pti_name": "20000465",
+  "ai_direct_m": 146.7,
+  "ai_route_m": 128.7,
+  "ai_covered_ratio": 0.0,
+  "ai_covered_m": 0,
+  "ai_longest_exposed_m": 128.7,
+  "ai_n_exposed_runs": 1,
+  "ai_unclassified_m": 0.0,
+  "ai_by_type": {
+   "mtr": {
+    "ai_route_m": 1075.7,
+    "ai_covered_ratio": 0.211,
+    "ai_longest_exposed_m": 277.2,
+    "ai_pti_name": "Mong Kok East Station"
+   },
+   "bus": {
+    "ai_route_m": 308.2,
+    "ai_covered_ratio": 0.003,
+    "ai_longest_exposed_m": 292.7,
+    "ai_pti_name": "781"
+   },
+   "minibus": {
+    "ai_route_m": 128.7,
+    "ai_covered_ratio": 0.0,
+    "ai_longest_exposed_m": 128.7,
+    "ai_pti_name": "20000465"
+   }
+  },
+  "ai_best_cov_ratio": 0.288,
+  "ai_best_cov_route_m": 1193.0,
+  "ai_best_cov_kind": "bus",
+  "ai_best_cov_pti": "10000161",
+  "ai_best_cov_longest_exposed_m": 277.2,
+  "ai_n_pti_candidates": 138,
+  "ai_n_pti_reachable": 138,
+  "ai_best_covered_ratio": 0.288,
+  "ai_worst_covered_ratio": 0.0
+ }
+]
