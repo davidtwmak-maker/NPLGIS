@@ -185,6 +185,13 @@ def main():
                 continue
             i = min(idxs, key=lambda j: edges[j][2])
             seq.append((i, a, b))
+        # Tobler's hiking function, applied per edge:
+        #   v = 6 * exp(-3.5 * |slope + 0.05|)   km/h
+        # with slope = rise / run.  It gives ~5 km/h on the flat and slows the
+        # walk on both climbs and descents, which a single route-wide speed
+        # factor cannot do.  A route that descends a hill is still slow; the
+        # old rule gave it full speed.
+        tobler_h = 0.0
         for i, a, b in seq:
             u, v, L, gr, cls, street, _c = edges[i]
             total += L
@@ -198,6 +205,11 @@ def main():
                     longest_exp = run
                 n_run += 1
             climb += gr * L
+            # slope of this edge: Gradient is a fraction, so rise = gr * L
+            slope = gr
+            v_kmh = 6.0 * math.exp(-3.5 * abs(slope + 0.05))
+            v_ms = max(v_kmh / 3.6, 0.2)
+            tobler_h += (L / v_ms) / 3600.0
         # splice each edge's full polyline so the drawn line follows the
         # street and its length equals the measured length
         # Splice each edge's full polyline so the drawn line follows the
@@ -219,15 +231,11 @@ def main():
             chain_xy.append((xy[snode][0], xy[snode][1]))
         else:
             chain_xy = [[xy[snode][0], xy[snode][1]]]
-        # walking time: 1.25 m/s on the flat (Hong Kong urban pedestrian speed),
-        # 0.9 m/s when the route climbs, 0.7 m/s when it descends steeply
-        if climb > 6:
-            speed = 0.9
-        elif climb < -6:
-            speed = 0.85
-        else:
-            speed = 1.25
-        minutes = total / speed / 60.0
+        # walking time from Tobler's hiking function, plus a rain penalty:
+        # students walking in heavy rain without an umbrella move slower.
+        minutes_flat = tobler_h * 60.0
+        minutes_rain = minutes_flat * 1.20
+        minutes = minutes_rain
         out.append({
             "_chain": chain_xy,
             "school_id": s["school_id"], "name": s["name"], "name_tc": s.get("name_tc"),
@@ -245,7 +253,8 @@ def main():
             "n_streets": len(streets),
             "top_streets": ", ".join("%s (%.0f m)" % (k, v) for k, v in streets.most_common(3)),
             "walk_minutes": round(minutes, 1),
-            "walk_speed_ms": speed,
+            "walk_minutes_flat": round(minutes_flat, 1),
+            "walk_speed_ms": round(total / (minutes_flat * 60.0), 2),
         })
         print("  %-44s %6.0f m from %s %s" % (s["name"][:44], total, best_e["station"], best_e["exit"]), flush=True)
 
@@ -283,8 +292,11 @@ def main():
     print("schools with 0 m of cover: %d" % sum(1 for r in out if r["covered_m"] == 0))
     print("fully covered walks: %d" % sum(1 for r in out if r["covered_ratio"] == 1.0))
     mins = [r["walk_minutes"] for r in out]
-    print("walk time at 1.25 m/s (0.9 uphill): median %.0f min | p90 %.0f min | max %.0f min"
+    print("walk time (Tobler + 20%% rain penalty): median %.0f min | p90 %.0f min | max %.0f min"
           % (stx.median(mins), stx.quantiles(mins, n=10)[8], max(mins)))
+    print("walk time on the flat (Tobler, no rain): median %.0f min | max %.0f min"
+          % (stx.median([r["walk_minutes_flat"] for r in out]),
+             max(r["walk_minutes_flat"] for r in out)))
     print("schools needing over 15 min: %d | over 20 min: %d"
           % (sum(1 for m in mins if m > 15), sum(1 for m in mins if m > 20)))
     print("worst 10 by longest uncovered stretch:")

@@ -20,8 +20,9 @@
   "climb_m": 22.1,
   "n_streets": 14,
   "top_streets": "Prince Edward Road West (29 m), Boundary Street (29 m), La Salle Road (11 m)",
-  "walk_minutes": 22.1,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 18.4,
+  "walk_minutes_flat": 15.3,
+  "walk_speed_ms": 1.29
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-24",
@@ -44,8 +45,9 @@
   "climb_m": 27.8,
   "n_streets": 8,
   "top_streets": "Argyle Street (29 m),  (12 m), Waterloo Road (12 m)",
-  "walk_minutes": 16.9,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 14.6,
+  "walk_minutes_flat": 12.2,
+  "walk_speed_ms": 1.25
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-43",
@@ -68,8 +70,9 @@
   "climb_m": 2.5,
   "n_streets": 4,
   "top_streets": "Hing Wah Street West (9 m), Tung Chau Street (7 m), Lai Hong Street (5 m)",
-  "walk_minutes": 6.8,
-  "walk_speed_ms": 1.25
+  "walk_minutes": 7.4,
+  "walk_minutes_flat": 6.1,
+  "walk_speed_ms": 1.38
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-51",
@@ -92,8 +95,9 @@
   "climb_m": 41.4,
   "n_streets": 4,
   "top_streets": " (15 m), Tai Hang Sai Street (11 m), Wai Chi Street (6 m)",
-  "walk_minutes": 5.4,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 7.8,
+  "walk_minutes_flat": 6.5,
+  "walk_speed_ms": 0.74
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-60",
@@ -116,8 +120,9 @@
   "climb_m": 3.1,
   "n_streets": 3,
   "top_streets": "True Light Lane (6 m),  (1 m), TRUE LIGHT LANE (1 m)",
-  "walk_minutes": 1.4,
-  "walk_speed_ms": 1.25
+  "walk_minutes": 1.7,
+  "walk_minutes_flat": 1.4,
+  "walk_speed_ms": 1.23
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-65",
@@ -140,8 +145,9 @@
   "climb_m": 14.5,
   "n_streets": 6,
   "top_streets": "Dyer Avenue (9 m), Man Tai Street (6 m), Tak Man Street (5 m)",
-  "walk_minutes": 6.9,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 6.7,
+  "walk_minutes_flat": 5.6,
+  "walk_speed_ms": 1.11
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-75",
@@ -164,8 +170,9 @@
   "climb_m": 1.2,
   "n_streets": 1,
   "top_streets": "Wai Chi Street (2 m)",
-  "walk_minutes": 0.3,
-  "walk_speed_ms": 1.25
+  "walk_minutes": 0.4,
+  "walk_minutes_flat": 0.3,
+  "walk_speed_ms": 1.17
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-77",
@@ -188,8 +195,9 @@
   "climb_m": 14.9,
   "n_streets": 4,
   "top_streets": "Ma Tau Wai Road (36 m), Farm Road (11 m), Tin Kwong Road (7 m)",
-  "walk_minutes": 9.0,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 7.8,
+  "walk_minutes_flat": 6.5,
+  "walk_speed_ms": 1.25
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-80",
@@ -212,8 +220,9 @@
   "climb_m": 3.4,
   "n_streets": 9,
   "top_streets": "Boundary Street (19 m), Yu Chau Street (16 m), Sycamore Street (13 m)",
-  "walk_minutes": 8.9,
-  "walk_speed_ms": 1.25
+  "walk_minutes": 9.7,
+  "walk_minutes_flat": 8.1,
+  "walk_speed_ms": 1.37
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-83",
@@ -236,8 +245,9 @@
   "climb_m": 3.4,
   "n_streets": 9,
   "top_streets": "Boundary Street (19 m), Yu Chau Street (16 m), Maple Street (12 m)",
-  "walk_minutes": 8.1,
-  "walk_speed_ms": 1.25
+  "walk_minutes": 8.9,
+  "walk_minutes_flat": 7.4,
+  "walk_speed_ms": 1.37
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-84",
@@ -260,8 +270,9 @@
   "climb_m": 3.0,
   "n_streets": 2,
   "top_streets": "Waterloo Road (7 m),  (1 m)",
-  "walk_minutes": 1.2,
-  "walk_speed_ms": 1.25
+  "walk_minutes": 1.6,
+  "walk_minutes_flat": 1.3,
+  "walk_speed_ms": 1.14
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-85",
@@ -284,8 +295,9 @@
   "climb_m": 32.9,
   "n_streets": 8,
   "top_streets": "Tin Kwong Road (23 m), Maidstone Road (8 m), Kau Pui Lung Road (8 m)",
-  "walk_minutes": 17.7,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 15.6,
+  "walk_minutes_flat": 13.0,
+  "walk_speed_ms": 1.22
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-86",
@@ -308,8 +320,9 @@
   "climb_m": 9.3,
   "n_streets": 7,
   "top_streets": "Maidstone Road (8 m), Kau Pui Lung Road (8 m), Tin Kwong Road (7 m)",
-  "walk_minutes": 8.3,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 7.0,
+  "walk_minutes_flat": 5.8,
+  "walk_speed_ms": 1.28
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-90",
@@ -332,8 +345,9 @@
   "climb_m": 9.2,
   "n_streets": 7,
   "top_streets": "Cherry Street (13 m),  (9 m), Oak Street (7 m)",
-  "walk_minutes": 7.7,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 6.5,
+  "walk_minutes_flat": 5.4,
+  "walk_speed_ms": 1.28
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-93",
@@ -356,8 +370,9 @@
   "climb_m": 31.1,
   "n_streets": 10,
   "top_streets": "Nga Tsin Wai Road (57 m), Nga Tsin Long Road (7 m), Nam Kok Road (6 m)",
-  "walk_minutes": 19.4,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 16.8,
+  "walk_minutes_flat": 14.0,
+  "walk_speed_ms": 1.24
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-104",
@@ -380,8 +395,9 @@
   "climb_m": 9.5,
   "n_streets": 3,
   "top_streets": "Tai Hang Tung Road (13 m), Tong Yam Street (3 m), Woh Chai Street (2 m)",
-  "walk_minutes": 6.5,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 5.6,
+  "walk_minutes_flat": 4.6,
+  "walk_speed_ms": 1.25
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-119",
@@ -404,8 +420,9 @@
   "climb_m": 35.3,
   "n_streets": 8,
   "top_streets": "Peony Road (25 m), Tai Hang Tung Road (16 m), Begonia Road (9 m)",
-  "walk_minutes": 13.4,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 12.5,
+  "walk_minutes_flat": 10.5,
+  "walk_speed_ms": 1.15
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-121",
@@ -428,8 +445,9 @@
   "climb_m": 18.9,
   "n_streets": 9,
   "top_streets": "Nga Tsin Wai Road (44 m), Inverness Road (10 m), Nga Tsin Long Road (7 m)",
-  "walk_minutes": 13.1,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 11.3,
+  "walk_minutes_flat": 9.4,
+  "walk_speed_ms": 1.25
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-123",
@@ -452,8 +470,9 @@
   "climb_m": 5.2,
   "n_streets": 3,
   "top_streets": "Nathan Road (12 m), Wing Sing Lane (3 m), Cliff Road (3 m)",
-  "walk_minutes": 2.9,
-  "walk_speed_ms": 1.25
+  "walk_minutes": 3.4,
+  "walk_minutes_flat": 2.8,
+  "walk_speed_ms": 1.28
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-124",
@@ -476,8 +495,9 @@
   "climb_m": 11.1,
   "n_streets": 3,
   "top_streets": "Chung Hau Street (11 m),  (2 m), Hau Man Street (1 m)",
-  "walk_minutes": 6.5,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 5.7,
+  "walk_minutes_flat": 4.7,
+  "walk_speed_ms": 1.24
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-128",
@@ -500,8 +520,9 @@
   "climb_m": 9.8,
   "n_streets": 7,
   "top_streets": "Cheung Fat Street (20 m),  (17 m), Un Chau Street (9 m)",
-  "walk_minutes": 13.0,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 10.6,
+  "walk_minutes_flat": 8.9,
+  "walk_speed_ms": 1.32
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-130",
@@ -524,8 +545,9 @@
   "climb_m": 48.6,
   "n_streets": 3,
   "top_streets": "Fat Kwong Street (14 m), Chung Hau Street (7 m), Good Shepherd Street (3 m)",
-  "walk_minutes": 11.1,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 11.6,
+  "walk_minutes_flat": 9.6,
+  "walk_speed_ms": 1.04
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-133",
@@ -548,8 +570,9 @@
   "climb_m": 26.4,
   "n_streets": 8,
   "top_streets": "Cambridge Road (30 m), Waterloo Road (8 m), Lancashire Road (8 m)",
-  "walk_minutes": 19.2,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 16.8,
+  "walk_minutes_flat": 14.0,
+  "walk_speed_ms": 1.23
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-134",
@@ -572,8 +595,9 @@
   "climb_m": 27.9,
   "n_streets": 6,
   "top_streets": "Tai Hang Tung Road (16 m), Begonia Road (15 m), Rose Street (5 m)",
-  "walk_minutes": 11.3,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 10.5,
+  "walk_minutes_flat": 8.8,
+  "walk_speed_ms": 1.16
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-136",
@@ -596,8 +620,9 @@
   "climb_m": 3.6,
   "n_streets": 6,
   "top_streets": "Sham Mong Road (11 m), Tung Chau Street (7 m), Hing Wah Street West (7 m)",
-  "walk_minutes": 9.6,
-  "walk_speed_ms": 1.25
+  "walk_minutes": 10.5,
+  "walk_minutes_flat": 8.8,
+  "walk_speed_ms": 1.37
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-137",
@@ -620,8 +645,9 @@
   "climb_m": 9.6,
   "n_streets": 2,
   "top_streets": "Chung Hau Street (5 m),  (2 m)",
-  "walk_minutes": 5.3,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 4.6,
+  "walk_minutes_flat": 3.9,
+  "walk_speed_ms": 1.24
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-138",
@@ -644,8 +670,9 @@
   "climb_m": 36.5,
   "n_streets": 10,
   "top_streets": "Sheung Shing Street (16 m), Maidstone Road (8 m), Kau Pui Lung Road (8 m)",
-  "walk_minutes": 18.7,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 16.5,
+  "walk_minutes_flat": 13.8,
+  "walk_speed_ms": 1.22
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-140",
@@ -668,8 +695,9 @@
   "climb_m": 13.7,
   "n_streets": 8,
   "top_streets": "Chi Wo Street (25 m), Gascoigne Road (19 m), Jordan Road (5 m)",
-  "walk_minutes": 8.5,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 7.4,
+  "walk_minutes_flat": 6.2,
+  "walk_speed_ms": 1.24
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-141",
@@ -692,8 +720,9 @@
   "climb_m": 28.5,
   "n_streets": 8,
   "top_streets": "Cambridge Road (30 m), Lancashire Road (12 m), Waterloo Road (8 m)",
-  "walk_minutes": 20.0,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 17.5,
+  "walk_minutes_flat": 14.6,
+  "walk_speed_ms": 1.23
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-142",
@@ -716,8 +745,9 @@
   "climb_m": 3.6,
   "n_streets": 5,
   "top_streets": "Mei Lai Road (18 m),  (12 m), Nassau Street (7 m)",
-  "walk_minutes": 3.3,
-  "walk_speed_ms": 1.25
+  "walk_minutes": 3.8,
+  "walk_minutes_flat": 3.1,
+  "walk_speed_ms": 1.32
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-148",
@@ -740,8 +770,9 @@
   "climb_m": 59.5,
   "n_streets": 4,
   "top_streets": " (25 m), Nam Shan Chuen Road (11 m), Tai Hang Sai Street (7 m)",
-  "walk_minutes": 14.8,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 15.2,
+  "walk_minutes_flat": 12.7,
+  "walk_speed_ms": 1.05
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-164",
@@ -764,8 +795,9 @@
   "climb_m": 5.4,
   "n_streets": 3,
   "top_streets": "Waterloo Road (35 m), Pitt Street (20 m), Tung Fong Street (1 m)",
-  "walk_minutes": 3.9,
-  "walk_speed_ms": 1.25
+  "walk_minutes": 4.5,
+  "walk_minutes_flat": 3.8,
+  "walk_speed_ms": 1.29
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-172",
@@ -788,8 +820,9 @@
   "climb_m": 47.4,
   "n_streets": 2,
   "top_streets": "Junction Road (22 m),  (19 m)",
-  "walk_minutes": 13.1,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 14.0,
+  "walk_minutes_flat": 11.7,
+  "walk_speed_ms": 1.01
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-173",
@@ -812,8 +845,9 @@
   "climb_m": 37.9,
   "n_streets": 10,
   "top_streets": "Sheung Shing Street (13 m), Maidstone Road (8 m), Kau Pui Lung Road (8 m)",
-  "walk_minutes": 18.1,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 16.2,
+  "walk_minutes_flat": 13.5,
+  "walk_speed_ms": 1.21
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-176",
@@ -836,8 +870,9 @@
   "climb_m": 47.1,
   "n_streets": 10,
   "top_streets": "Argyle Street (29 m),  (20 m), Waterloo Road (12 m)",
-  "walk_minutes": 20.3,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 18.7,
+  "walk_minutes_flat": 15.6,
+  "walk_speed_ms": 1.17
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-177",
@@ -860,8 +895,9 @@
   "climb_m": 10.7,
   "n_streets": 2,
   "top_streets": "Canton Road (18 m),  (6 m)",
-  "walk_minutes": 5.6,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 5.3,
+  "walk_minutes_flat": 4.4,
+  "walk_speed_ms": 1.14
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-183",
@@ -884,8 +920,9 @@
   "climb_m": 3.7,
   "n_streets": 9,
   "top_streets": "Boundary Street (19 m), Yu Chau Street (16 m), Maple Street (16 m)",
-  "walk_minutes": 7.9,
-  "walk_speed_ms": 1.25
+  "walk_minutes": 8.7,
+  "walk_minutes_flat": 7.2,
+  "walk_speed_ms": 1.37
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-184",
@@ -908,8 +945,9 @@
   "climb_m": 7.4,
   "n_streets": 5,
   "top_streets": "Pitt Street (15 m), Waterloo Road (14 m),  (2 m)",
-  "walk_minutes": 7.0,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 5.8,
+  "walk_minutes_flat": 4.8,
+  "walk_speed_ms": 1.3
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-196",
@@ -933,7 +971,8 @@
   "n_streets": 4,
   "top_streets": " (10 m), Mong Kok Road (7 m), Bute Street (3 m)",
   "walk_minutes": 4.6,
-  "walk_speed_ms": 0.9
+  "walk_minutes_flat": 3.8,
+  "walk_speed_ms": 1.09
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-210",
@@ -956,8 +995,9 @@
   "climb_m": 1.1,
   "n_streets": 2,
   "top_streets": "Woh Chai Street (4 m), Wai Chi Street (4 m)",
-  "walk_minutes": 0.4,
-  "walk_speed_ms": 1.25
+  "walk_minutes": 0.5,
+  "walk_minutes_flat": 0.4,
+  "walk_speed_ms": 1.23
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-230",
@@ -980,8 +1020,9 @@
   "climb_m": 86.9,
   "n_streets": 6,
   "top_streets": " (18 m), Kau Pui Lung Road (12 m), Sheung Wo Street (9 m)",
-  "walk_minutes": 14.2,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 18.3,
+  "walk_minutes_flat": 15.2,
+  "walk_speed_ms": 0.84
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-252",
@@ -1004,8 +1045,9 @@
   "climb_m": 85.7,
   "n_streets": 6,
   "top_streets": " (18 m), Kau Pui Lung Road (12 m), Maidstone Road (7 m)",
-  "walk_minutes": 13.1,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 17.4,
+  "walk_minutes_flat": 14.5,
+  "walk_speed_ms": 0.81
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-270",
@@ -1028,8 +1070,9 @@
   "climb_m": 47.6,
   "n_streets": 9,
   "top_streets": "Tin Kwong Road (23 m), Maidstone Road (8 m), Kau Pui Lung Road (8 m)",
-  "walk_minutes": 21.3,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 19.3,
+  "walk_minutes_flat": 16.1,
+  "walk_speed_ms": 1.19
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-271",
@@ -1052,8 +1095,9 @@
   "climb_m": 29.4,
   "n_streets": 5,
   "top_streets": " (18 m), Prince Edward Road West (11 m), Embankment Road (11 m)",
-  "walk_minutes": 14.8,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 14.1,
+  "walk_minutes_flat": 11.7,
+  "walk_speed_ms": 1.13
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-315",
@@ -1076,8 +1120,9 @@
   "climb_m": 75.7,
   "n_streets": 4,
   "top_streets": "Nam Cheong Street (17 m),  (15 m), Tai Hang Sai Street (11 m)",
-  "walk_minutes": 14.5,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 16.8,
+  "walk_minutes_flat": 14.0,
+  "walk_speed_ms": 0.93
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-324",
@@ -1100,8 +1145,9 @@
   "climb_m": 86.4,
   "n_streets": 6,
   "top_streets": " (18 m), Kau Pui Lung Road (12 m), Maidstone Road (7 m)",
-  "walk_minutes": 13.9,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 18.0,
+  "walk_minutes_flat": 15.0,
+  "walk_speed_ms": 0.83
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-326",
@@ -1124,8 +1170,9 @@
   "climb_m": 19.9,
   "n_streets": 4,
   "top_streets": "Tat Chee Avenue (7 m), To Yuen Street (7 m), Grandeur Road (7 m)",
-  "walk_minutes": 7.3,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 6.8,
+  "walk_minutes_flat": 5.7,
+  "walk_speed_ms": 1.16
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-333",
@@ -1148,8 +1195,9 @@
   "climb_m": 3.7,
   "n_streets": 4,
   "top_streets": "Hing Wah Street (9 m), Cheung Sha Wan Road (5 m),  (1 m)",
-  "walk_minutes": 5.0,
-  "walk_speed_ms": 1.25
+  "walk_minutes": 5.6,
+  "walk_minutes_flat": 4.6,
+  "walk_speed_ms": 1.34
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-339",
@@ -1172,8 +1220,9 @@
   "climb_m": 14.5,
   "n_streets": 7,
   "top_streets": "Tai Nan West Street (17 m), Castle Peak Road (9 m), Wing Hong Street (6 m)",
-  "walk_minutes": 9.8,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 8.4,
+  "walk_minutes_flat": 7.0,
+  "walk_speed_ms": 1.26
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-344",
@@ -1196,8 +1245,9 @@
   "climb_m": 17.8,
   "n_streets": 8,
   "top_streets": "Nga Tsin Long Road (24 m), Carpenter Road (19 m), Nga Tsin Wai Road (12 m)",
-  "walk_minutes": 16.4,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 13.7,
+  "walk_minutes_flat": 11.4,
+  "walk_speed_ms": 1.29
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-347",
@@ -1220,8 +1270,9 @@
   "climb_m": 3.0,
   "n_streets": 6,
   "top_streets": "Sung Wong Toi Road (9 m),  (8 m), Ma Tau Chung Road (8 m)",
-  "walk_minutes": 5.7,
-  "walk_speed_ms": 1.25
+  "walk_minutes": 6.3,
+  "walk_minutes_flat": 5.2,
+  "walk_speed_ms": 1.36
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-348",
@@ -1244,8 +1295,9 @@
   "climb_m": 28.6,
   "n_streets": 6,
   "top_streets": "Hereford Road (13 m), Waterloo Road (8 m), Renfrew Road (7 m)",
-  "walk_minutes": 16.0,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 14.5,
+  "walk_minutes_flat": 12.0,
+  "walk_speed_ms": 1.2
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-349",
@@ -1268,8 +1320,9 @@
   "climb_m": 5.7,
   "n_streets": 5,
   "top_streets": "Chi Kiang Street (25 m), To Kwa Wan Road (8 m), Sung On Street (7 m)",
-  "walk_minutes": 5.4,
-  "walk_speed_ms": 1.25
+  "walk_minutes": 6.2,
+  "walk_minutes_flat": 5.2,
+  "walk_speed_ms": 1.31
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-350",
@@ -1292,8 +1345,9 @@
   "climb_m": 10.0,
   "n_streets": 3,
   "top_streets": "Austin Road (19 m), Cox's Road (8 m), Nathan Road (5 m)",
-  "walk_minutes": 9.5,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 7.9,
+  "walk_minutes_flat": 6.6,
+  "walk_speed_ms": 1.3
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-352",
@@ -1316,8 +1370,9 @@
   "climb_m": 11.2,
   "n_streets": 2,
   "top_streets": " (41 m), Muk Hung Street (3 m)",
-  "walk_minutes": 10.4,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 8.6,
+  "walk_minutes_flat": 7.2,
+  "walk_speed_ms": 1.29
  },
  {
   "school_id": "edb_rcd_1629267205213_53323-365",
@@ -1340,8 +1395,9 @@
   "climb_m": 21.8,
   "n_streets": 4,
   "top_streets": "Austin Road (17 m),  (12 m), Pilkem Street (7 m)",
-  "walk_minutes": 8.4,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 7.9,
+  "walk_minutes_flat": 6.6,
+  "walk_speed_ms": 1.15
  },
  {
   "school_id": "edb_rcd_1629267205213_92681-3",
@@ -1364,8 +1420,9 @@
   "climb_m": 1.7,
   "n_streets": 6,
   "top_streets": "Hoi Fan Road (7 m), Wholesale Market Street (5 m), Yen Chow Street West (5 m)",
-  "walk_minutes": 5.5,
-  "walk_speed_ms": 1.25
+  "walk_minutes": 6.0,
+  "walk_minutes_flat": 5.0,
+  "walk_speed_ms": 1.38
  },
  {
   "school_id": "edb_rcd_1629267205213_92681-6",
@@ -1388,8 +1445,9 @@
   "climb_m": 29.4,
   "n_streets": 8,
   "top_streets": "Cambridge Road (30 m), Oxford Road (13 m), Lancashire Road (12 m)",
-  "walk_minutes": 21.0,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 18.3,
+  "walk_minutes_flat": 15.3,
+  "walk_speed_ms": 1.24
  },
  {
   "school_id": "edb_rcd_1629267205213_92681-9",
@@ -1412,8 +1470,9 @@
   "climb_m": 26.6,
   "n_streets": 9,
   "top_streets": "Argyle Street (31 m),  (12 m), Princess Margaret Road (11 m)",
-  "walk_minutes": 20.6,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 17.6,
+  "walk_minutes_flat": 14.7,
+  "walk_speed_ms": 1.26
  },
  {
   "school_id": "edb_rcd_1629267205213_92681-11",
@@ -1436,8 +1495,9 @@
   "climb_m": 1.3,
   "n_streets": 6,
   "top_streets": "Prince Edward Road West (12 m), Sai Yeung Choi Street South (8 m), Sai Yee Street (7 m)",
-  "walk_minutes": 3.4,
-  "walk_speed_ms": 1.25
+  "walk_minutes": 3.7,
+  "walk_minutes_flat": 3.1,
+  "walk_speed_ms": 1.37
  },
  {
   "school_id": "edb_rcd_1629267205213_92681-27",
@@ -1460,8 +1520,9 @@
   "climb_m": 2.2,
   "n_streets": 2,
   "top_streets": "Cheung Sha Wan Road (8 m), Tonkin Street (6 m)",
-  "walk_minutes": 3.6,
-  "walk_speed_ms": 1.25
+  "walk_minutes": 4.0,
+  "walk_minutes_flat": 3.3,
+  "walk_speed_ms": 1.36
  },
  {
   "school_id": "edb_rcd_1629267205213_92681-30",
@@ -1484,8 +1545,9 @@
   "climb_m": 32.4,
   "n_streets": 2,
   "top_streets": "Junction Road (22 m),  (13 m)",
-  "walk_minutes": 9.4,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 10.1,
+  "walk_minutes_flat": 8.4,
+  "walk_speed_ms": 1.01
  },
  {
   "school_id": "edb_rcd_1629267205213_87907-1",
@@ -1509,7 +1571,8 @@
   "n_streets": 3,
   "top_streets": "Kwai Chung Road (6 m), Lai Chi Kok Road (5 m),  (1 m)",
   "walk_minutes": 3.1,
-  "walk_speed_ms": 0.9
+  "walk_minutes_flat": 2.6,
+  "walk_speed_ms": 1.08
  },
  {
   "school_id": "edb_rcd_1629267205213_87907-16",
@@ -1532,8 +1595,9 @@
   "climb_m": 3.6,
   "n_streets": 4,
   "top_streets": " (11 m), Ying Wa Street (5 m), Tonkin Street West (4 m)",
-  "walk_minutes": 7.1,
-  "walk_speed_ms": 1.25
+  "walk_minutes": 7.7,
+  "walk_minutes_flat": 6.5,
+  "walk_speed_ms": 1.37
  },
  {
   "school_id": "edb_rcd_1629267205213_87907-18",
@@ -1556,8 +1620,9 @@
   "climb_m": 7.4,
   "n_streets": 6,
   "top_streets": "Ngan Hon Street (19 m), Wing Kwong Street (13 m), To Kwa Wan Road (10 m)",
-  "walk_minutes": 10.2,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 8.4,
+  "walk_minutes_flat": 7.0,
+  "walk_speed_ms": 1.32
  },
  {
   "school_id": "edb_rcd_1629267205213_87907-24",
@@ -1580,8 +1645,9 @@
   "climb_m": 2.2,
   "n_streets": 5,
   "top_streets": "Lai Hong Street (11 m), Tung Chau Street (10 m), Hing Wah Street West (7 m)",
-  "walk_minutes": 6.9,
-  "walk_speed_ms": 1.25
+  "walk_minutes": 7.5,
+  "walk_minutes_flat": 6.3,
+  "walk_speed_ms": 1.38
  },
  {
   "school_id": "edb_rcd_1629267205213_87907-26",
@@ -1604,8 +1670,9 @@
   "climb_m": 37.4,
   "n_streets": 4,
   "top_streets": " (21 m), Argyle Street (15 m), Luen Wan Street (8 m)",
-  "walk_minutes": 14.1,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 13.1,
+  "walk_minutes_flat": 10.9,
+  "walk_speed_ms": 1.16
  },
  {
   "school_id": "edb_rcd_1629267205213_87907-33",
@@ -1629,7 +1696,8 @@
   "n_streets": 3,
   "top_streets": " (12 m), Lai Chi Kok Road (4 m), Broadway (4 m)",
   "walk_minutes": 3.5,
-  "walk_speed_ms": 0.9
+  "walk_minutes_flat": 2.9,
+  "walk_speed_ms": 1.08
  },
  {
   "school_id": "edb_rcd_1629267205213_87907-34",
@@ -1652,8 +1720,9 @@
   "climb_m": 14.5,
   "n_streets": 2,
   "top_streets": "Wai Chi Street (15 m), Nam Cheong Street (7 m)",
-  "walk_minutes": 5.2,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 4.9,
+  "walk_minutes_flat": 4.1,
+  "walk_speed_ms": 1.16
  },
  {
   "school_id": "edb_rcd_1629267205213_87907-36",
@@ -1676,8 +1745,9 @@
   "climb_m": 4.1,
   "n_streets": 7,
   "top_streets": "Tonkin Street (20 m), Fuk Wing Street (6 m), Un Chau Street (6 m)",
-  "walk_minutes": 6.3,
-  "walk_speed_ms": 1.25
+  "walk_minutes": 7.0,
+  "walk_minutes_flat": 5.8,
+  "walk_speed_ms": 1.36
  },
  {
   "school_id": "edb_rcd_1629267205213_87907-38",
@@ -1701,7 +1771,8 @@
   "n_streets": 3,
   "top_streets": "Junction Road (27 m),  (12 m), Inverness Road (6 m)",
   "walk_minutes": 13.6,
-  "walk_speed_ms": 0.9
+  "walk_minutes_flat": 11.4,
+  "walk_speed_ms": 1.08
  },
  {
   "school_id": "edb_rcd_1629267205213_87907-39",
@@ -1724,8 +1795,9 @@
   "climb_m": 0.0,
   "n_streets": 3,
   "top_streets": " (9 m), Sham Mong Road (1 m), Tonkin Street West (1 m)",
-  "walk_minutes": 3.5,
-  "walk_speed_ms": 1.25
+  "walk_minutes": 3.8,
+  "walk_minutes_flat": 3.2,
+  "walk_speed_ms": 1.4
  },
  {
   "school_id": "edb_rcd_1629267205213_87907-40",
@@ -1748,8 +1820,9 @@
   "climb_m": 10.6,
   "n_streets": 3,
   "top_streets": "To Yuen Street (11 m), Tat Chee Avenue (8 m),  (1 m)",
-  "walk_minutes": 4.3,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 4.0,
+  "walk_minutes_flat": 3.4,
+  "walk_speed_ms": 1.16
  },
  {
   "school_id": "edb_rcd_1629267205213_87907-41",
@@ -1772,8 +1845,9 @@
   "climb_m": 1.6,
   "n_streets": 5,
   "top_streets": "Tung Choi Street (8 m), Playing Field Road (6 m), Fa Yuen Street (5 m)",
-  "walk_minutes": 3.5,
-  "walk_speed_ms": 1.25
+  "walk_minutes": 3.8,
+  "walk_minutes_flat": 3.2,
+  "walk_speed_ms": 1.37
  },
  {
   "school_id": "edb_rcd_1629267205213_87907-42",
@@ -1796,8 +1870,9 @@
   "climb_m": 11.3,
   "n_streets": 8,
   "top_streets": "Tin Kwong Road (16 m), Maidstone Road (8 m), Kau Pui Lung Road (8 m)",
-  "walk_minutes": 10.2,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 8.6,
+  "walk_minutes_flat": 7.2,
+  "walk_speed_ms": 1.28
  },
  {
   "school_id": "edb_rcd_1629267205213_87907-43",
@@ -1820,8 +1895,9 @@
   "climb_m": 1.6,
   "n_streets": 2,
   "top_streets": "Hoi Ting Road (11 m),  (9 m)",
-  "walk_minutes": 6.6,
-  "walk_speed_ms": 1.25
+  "walk_minutes": 7.1,
+  "walk_minutes_flat": 6.0,
+  "walk_speed_ms": 1.38
  },
  {
   "school_id": "edb_rcd_1629267205213_87907-46",
@@ -1844,8 +1920,9 @@
   "climb_m": 1.0,
   "n_streets": 4,
   "top_streets": "Jordan Road (10 m), Chi Wo Street (1 m),  (1 m)",
-  "walk_minutes": 4.4,
-  "walk_speed_ms": 1.25
+  "walk_minutes": 4.8,
+  "walk_minutes_flat": 4.0,
+  "walk_speed_ms": 1.38
  },
  {
   "school_id": "edb_rcd_1629267205213_87907-56",
@@ -1868,8 +1945,9 @@
   "climb_m": 23.0,
   "n_streets": 7,
   "top_streets": "Argyle Street (31 m),  (12 m), Waterloo Road (9 m)",
-  "walk_minutes": 18.6,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 15.9,
+  "walk_minutes_flat": 13.2,
+  "walk_speed_ms": 1.27
  },
  {
   "school_id": "edb_rcd_1629267205213_87907-58",
@@ -1892,8 +1970,9 @@
   "climb_m": 3.2,
   "n_streets": 7,
   "top_streets": "Prince Edward Road West (39 m), Lai Chi Kok Road (9 m), Tong Mi Road (7 m)",
-  "walk_minutes": 6.6,
-  "walk_speed_ms": 1.25
+  "walk_minutes": 7.2,
+  "walk_minutes_flat": 6.0,
+  "walk_speed_ms": 1.37
  },
  {
   "school_id": "edb_rcd_1629267205213_94310-1",
@@ -1916,8 +1995,9 @@
   "climb_m": 8.0,
   "n_streets": 3,
   "top_streets": "Tong Yam Street (34 m), Woh Chai Street (2 m), Tai Hang Tung Road (1 m)",
-  "walk_minutes": 6.3,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 5.3,
+  "walk_minutes_flat": 4.5,
+  "walk_speed_ms": 1.27
  },
  {
   "school_id": "edb_rcd_1629267205213_94310-2",
@@ -1940,8 +2020,9 @@
   "climb_m": 2.2,
   "n_streets": 6,
   "top_streets": "Sai Yeung Choi Street South (14 m), Soy Street (12 m), Shantung Street (9 m)",
-  "walk_minutes": 7.0,
-  "walk_speed_ms": 1.25
+  "walk_minutes": 7.6,
+  "walk_minutes_flat": 6.3,
+  "walk_speed_ms": 1.38
  },
  {
   "school_id": "edb_rcd_1629267205213_23500-2",
@@ -1964,8 +2045,9 @@
   "climb_m": 36.9,
   "n_streets": 9,
   "top_streets": "Peony Road (25 m), Tai Hang Tung Road (16 m), Begonia Road (9 m)",
-  "walk_minutes": 15.4,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 14.2,
+  "walk_minutes_flat": 11.8,
+  "walk_speed_ms": 1.17
  },
  {
   "school_id": "edb_rcd_1629267205213_23500-4",
@@ -1988,8 +2070,9 @@
   "climb_m": 1.0,
   "n_streets": 3,
   "top_streets": "Nathan Road (11 m), Hamilton Street (4 m), Pitt Street (3 m)",
-  "walk_minutes": 1.8,
-  "walk_speed_ms": 1.25
+  "walk_minutes": 1.9,
+  "walk_minutes_flat": 1.6,
+  "walk_speed_ms": 1.36
  },
  {
   "school_id": "edb_rcd_1629267205213_23500-5",
@@ -2012,8 +2095,9 @@
   "climb_m": 14.4,
   "n_streets": 6,
   "top_streets": "Chatham Road North (24 m), San Wai Street (8 m), Ma Tau Wai Road (4 m)",
-  "walk_minutes": 9.2,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 8.0,
+  "walk_minutes_flat": 6.6,
+  "walk_speed_ms": 1.24
  },
  {
   "school_id": "edb_rcd_1629267205213_23500-6",
@@ -2036,8 +2120,9 @@
   "climb_m": 9.5,
   "n_streets": 4,
   "top_streets": "Ma Tau Wai Road (22 m), Gillies Avenue North (14 m), San Lau Street (2 m)",
-  "walk_minutes": 9.1,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 7.7,
+  "walk_minutes_flat": 6.4,
+  "walk_speed_ms": 1.29
  },
  {
   "school_id": "edb_rcd_1629267205213_23500-7",
@@ -2060,8 +2145,9 @@
   "climb_m": 3.7,
   "n_streets": 3,
   "top_streets": "Cheong Wan Road (10 m),  (4 m), Hong Tat Path (4 m)",
-  "walk_minutes": 3.1,
-  "walk_speed_ms": 1.25
+  "walk_minutes": 3.5,
+  "walk_minutes_flat": 2.9,
+  "walk_speed_ms": 1.31
  },
  {
   "school_id": "edb_rcd_1629267205213_23500-8",
@@ -2084,8 +2170,9 @@
   "climb_m": 2.8,
   "n_streets": 4,
   "top_streets": "Kowloon City Road (12 m), Lok Shan Road (10 m), PAU CHUNG STREET (1 m)",
-  "walk_minutes": 2.1,
-  "walk_speed_ms": 1.25
+  "walk_minutes": 2.4,
+  "walk_minutes_flat": 2.0,
+  "walk_speed_ms": 1.31
  },
  {
   "school_id": "edb_rcd_1629267205213_23500-11",
@@ -2108,8 +2195,9 @@
   "climb_m": 0.6,
   "n_streets": 2,
   "top_streets": "Playing Field Road (9 m), Nathan Road (7 m)",
-  "walk_minutes": 1.4,
-  "walk_speed_ms": 1.25
+  "walk_minutes": 1.5,
+  "walk_minutes_flat": 1.3,
+  "walk_speed_ms": 1.37
  },
  {
   "school_id": "edb_rcd_1629267205213_23500-12",
@@ -2132,8 +2220,9 @@
   "climb_m": 1.0,
   "n_streets": 3,
   "top_streets": "Nathan Road (11 m), Hamilton Street (4 m), Pitt Street (3 m)",
-  "walk_minutes": 1.8,
-  "walk_speed_ms": 1.25
+  "walk_minutes": 1.9,
+  "walk_minutes_flat": 1.6,
+  "walk_speed_ms": 1.36
  },
  {
   "school_id": "edb_rcd_1629267205213_23500-13",
@@ -2156,8 +2245,9 @@
   "climb_m": 1.0,
   "n_streets": 3,
   "top_streets": "Nathan Road (11 m), Hamilton Street (4 m), Pitt Street (3 m)",
-  "walk_minutes": 1.8,
-  "walk_speed_ms": 1.25
+  "walk_minutes": 1.9,
+  "walk_minutes_flat": 1.6,
+  "walk_speed_ms": 1.36
  },
  {
   "school_id": "edb_rcd_1629267205213_23500-16",
@@ -2180,8 +2270,9 @@
   "climb_m": 9.9,
   "n_streets": 4,
   "top_streets": "Austin Road (29 m), Nathan Road (7 m), Pine Tree Hill Road (5 m)",
-  "walk_minutes": 7.4,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 6.2,
+  "walk_minutes_flat": 5.2,
+  "walk_speed_ms": 1.28
  },
  {
   "school_id": "edb_rcd_1629267205213_23500-17",
@@ -2204,8 +2295,9 @@
   "climb_m": 9.6,
   "n_streets": 3,
   "top_streets": "Austin Road (14 m), Cox's Road (8 m), Nathan Road (5 m)",
-  "walk_minutes": 8.0,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 6.7,
+  "walk_minutes_flat": 5.5,
+  "walk_speed_ms": 1.29
  },
  {
   "school_id": "edb_rcd_1629267205213_23500-19",
@@ -2228,8 +2320,9 @@
   "climb_m": 2.2,
   "n_streets": 2,
   "top_streets": "Cheung Sha Wan Road (8 m), Tonkin Street (6 m)",
-  "walk_minutes": 3.6,
-  "walk_speed_ms": 1.25
+  "walk_minutes": 4.0,
+  "walk_minutes_flat": 3.3,
+  "walk_speed_ms": 1.36
  },
  {
   "school_id": "edb_rcd_1629267205213_23500-20",
@@ -2252,8 +2345,9 @@
   "climb_m": 2.0,
   "n_streets": 6,
   "top_streets": "Portland Street (22 m), Shantung Street (11 m), Reclamation Street (8 m)",
-  "walk_minutes": 4.1,
-  "walk_speed_ms": 1.25
+  "walk_minutes": 4.5,
+  "walk_minutes_flat": 3.7,
+  "walk_speed_ms": 1.37
  },
  {
   "school_id": "edb_rcd_1629267205213_23500-21",
@@ -2276,8 +2370,9 @@
   "climb_m": 25.7,
   "n_streets": 4,
   "top_streets": " (17 m), Hoi Fan Road (9 m), Hoi Fai Road (9 m)",
-  "walk_minutes": 11.7,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 11.6,
+  "walk_minutes_flat": 9.6,
+  "walk_speed_ms": 1.1
  },
  {
   "school_id": "edb_rcd_1629267205213_23500-22",
@@ -2300,8 +2395,9 @@
   "climb_m": 7.7,
   "n_streets": 3,
   "top_streets": "Tong Yam Street (27 m), Woh Chai Street (2 m), Tai Hang Tung Road (1 m)",
-  "walk_minutes": 5.0,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 4.3,
+  "walk_minutes_flat": 3.6,
+  "walk_speed_ms": 1.24
  },
  {
   "school_id": "edb_rcd_1629267205213_23500-23",
@@ -2324,8 +2420,9 @@
   "climb_m": 152.7,
   "n_streets": 11,
   "top_streets": " (42 m), Tai Nan West Street (17 m), Castle Peak Road (9 m)",
-  "walk_minutes": 30.9,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 36.2,
+  "walk_minutes_flat": 30.2,
+  "walk_speed_ms": 0.92
  },
  {
   "school_id": "edb_rcd_1629267205213_23500-30",
@@ -2348,8 +2445,9 @@
   "climb_m": 27.3,
   "n_streets": 8,
   "top_streets": "Cambridge Road (22 m), Oxford Road (13 m), Waterloo Road (8 m)",
-  "walk_minutes": 18.6,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 16.4,
+  "walk_minutes_flat": 13.7,
+  "walk_speed_ms": 1.23
  },
  {
   "school_id": "edb_rcd_1629267205213_23500-33",
@@ -2372,8 +2470,9 @@
   "climb_m": 3.7,
   "n_streets": 7,
   "top_streets": "Ma Tau Wai Road (9 m), Tak Man Street (8 m), Dock Street (5 m)",
-  "walk_minutes": 5.0,
-  "walk_speed_ms": 1.25
+  "walk_minutes": 5.6,
+  "walk_minutes_flat": 4.7,
+  "walk_speed_ms": 1.35
  },
  {
   "school_id": "edb_rcd_1629267205213_23500-42",
@@ -2396,8 +2495,9 @@
   "climb_m": 1.3,
   "n_streets": 6,
   "top_streets": "Prince Edward Road West (12 m), Sai Yeung Choi Street South (8 m), Sai Yee Street (7 m)",
-  "walk_minutes": 3.4,
-  "walk_speed_ms": 1.25
+  "walk_minutes": 3.7,
+  "walk_minutes_flat": 3.1,
+  "walk_speed_ms": 1.37
  },
  {
   "school_id": "edb_rcd_1629267205213_23500-47",
@@ -2420,8 +2520,9 @@
   "climb_m": 1.1,
   "n_streets": 3,
   "top_streets": " (4 m), To Fuk Road (3 m), TO FUK ROAD (1 m)",
-  "walk_minutes": 1.5,
-  "walk_speed_ms": 1.25
+  "walk_minutes": 1.6,
+  "walk_minutes_flat": 1.4,
+  "walk_speed_ms": 1.35
  },
  {
   "school_id": "edb_rcd_1629267205213_23500-57",
@@ -2445,7 +2546,8 @@
   "n_streets": 2,
   "top_streets": "Nathan Road (7 m), Pitt Street (4 m)",
   "walk_minutes": 0.6,
-  "walk_speed_ms": 1.25
+  "walk_minutes_flat": 0.5,
+  "walk_speed_ms": 1.35
  },
  {
   "school_id": "edb_rcd_1629267205213_23500-58",
@@ -2468,7 +2570,8 @@
   "climb_m": 31.5,
   "n_streets": 8,
   "top_streets": " (30 m), Argyle Street (30 m), Man Fuk Road (12 m)",
-  "walk_minutes": 18.8,
-  "walk_speed_ms": 0.9
+  "walk_minutes": 16.5,
+  "walk_minutes_flat": 13.8,
+  "walk_speed_ms": 1.23
  }
 ]

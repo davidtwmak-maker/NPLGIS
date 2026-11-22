@@ -1496,39 +1496,39 @@
     },
     {
       "file": "apps/kowloon-covered-walkways/data/mtr_walks.geojson",
-      "bytes": 339154,
-      "mb": 0.323,
+      "bytes": 341919,
+      "mb": 0.326,
       "gzipped": false,
       "features": "",
       "title": "Worst-case walk from the nearest MTR station exit, one line per school (103)",
       "dataset_id": "",
       "records": "",
       "notes": "Shortest path on the LandsD 3D Pedestrian Network from the nearest MTR exit to each school. Scenario: bus and minibus service unavailable.",
-      "sha256": "58e6da4346d6cbac"
+      "sha256": "8e07fc5282de72fd"
     },
     {
       "file": "assets/data/kowloon-covered-walkways/mtr_walk_schools.json",
-      "bytes": 74313,
-      "mb": 0.071,
+      "bytes": 77284,
+      "mb": 0.074,
       "gzipped": false,
       "features": "103",
       "title": "Per-school metrics for the walk from the nearest MTR exit (103 schools)",
       "dataset_id": "landsd_rcd_1637222018065_52265",
       "records": "103",
       "notes": "",
-      "sha256": "e845bd9c155fd1c4"
+      "sha256": "1608f7612eabb90e"
     },
     {
       "file": "assets/data/kowloon-covered-walkways/mtr_walk_routes.geojson",
-      "bytes": 339154,
-      "mb": 0.323,
+      "bytes": 341919,
+      "mb": 0.326,
       "gzipped": false,
       "features": "103",
       "title": "The 103 worst-case walks as lines",
       "dataset_id": "landsd_rcd_1637222018065_52265",
       "records": "103",
       "notes": "",
-      "sha256": "58e6da4346d6cbac"
+      "sha256": "8e07fc5282de72fd"
     }
   ],
   "scripts": [
