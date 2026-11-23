@@ -241,10 +241,11 @@
     gFocusSchool.clearLayers();
 
     var opts = routeOptById[id] || {};
-    // two reference routes, by rule:
-    //   nearest_bus   the commute from the nearest bus/minibus stop (solid)
-    //   nearest_mtr   the worst-case walk from the nearest MTR exit (purple)
-    var order = ["nearest_bus", "nearest_mtr"];
+    // the routes the weighted metric blends:
+    //   nearest_bus      nearest BUS stop (solid blue)
+    //   nearest_minibus  nearest green minibus stop (dashed teal)
+    //   nearest_mtr      worst-case walk from the nearest MTR exit (purple)
+    var order = ["nearest_bus", "nearest_minibus", "nearest_mtr"];
     var bounds = [];
 
     order.forEach(function (kind) {
@@ -252,20 +253,21 @@
       if (!f) return;
       var q = f.properties;
       var isMtr = kind === "nearest_mtr";
+      var isMbus = kind === "nearest_minibus";
       var latlngs = lineLatLngs(f.geometry);
       var line = L.polyline(latlngs, {
-        color: isMtr ? "#7A2E8E" : "#1F4E79",
-        weight: isMtr ? 4.2 : 4,
+        color: isMtr ? "#7A2E8E" : (isMbus ? "#16A085" : "#1F4E79"),
+        weight: isMtr ? 4.2 : (isMbus ? 3.2 : 4),
         opacity: 1,
-        dashArray: isMtr ? "10,6" : null,
+        dashArray: isMtr ? "10,6" : (isMbus ? "6,4" : null),
         lineCap: "round", lineJoin: "round"
       }).addTo(gFocus);
       var shadePct = Math.round((q.ai_covered_ratio || 0) * 100);
+      var label = isMtr ? "Walk from " + q.pti_name
+        : (isMbus ? "Nearest minibus (" + q.pti_name + ")"
+                  : "Nearest bus (" + q.pti_name + ")");
       line.bindTooltip(
-        isMtr
-          ? "Walk from " + q.pti_name + ": " + fmt(q.ai_route_m) + " m, " + fmt(q.ai_covered_m) + " m shaded (" + shadePct + "%)"
-          : "Nearest bus/minibus (" + q.pti_kind + " " + q.pti_name + "): " +
-            fmt(q.ai_route_m) + " m, " + fmt(q.ai_covered_m) + " m shaded (" + shadePct + "%)",
+        label + ": " + fmt(q.ai_route_m) + " m, " + fmt(q.ai_covered_m) + " m shaded (" + shadePct + "%)",
         { sticky: true }
       );
       var lb = line.getBounds();
@@ -277,12 +279,13 @@
         var ll = mk.getLatLng();
         L.circleMarker(ll, {
           radius: 8, color: "#111111", weight: 2,
-          fillColor: isMtr ? "#7A2E8E" : "#1F4E79",
+          fillColor: isMtr ? "#7A2E8E" : (isMbus ? "#16A085" : "#1F4E79"),
           fillOpacity: 1
         }).bindPopup(
           "<b>" + esc(q.pti_name) + "</b><br>" + esc(q.pti_kind) +
           "<br>Start of the " + (isMtr ? "walk from the nearest MTR exit"
-            : "walk from the nearest bus/minibus stop") +
+            : isMbus ? "walk from the nearest minibus stop"
+            : "walk from the nearest bus stop") +
           " to " + esc(p.name)
         ).addTo(gFocusStop);
         L.polyline([ll, ll], { opacity: 0 }).addTo(gFocusStop);
@@ -339,23 +342,26 @@
         (p.ac_bus_cov != null ? p.ac_bus_cov.toFixed(2) : "–") +
         " &middot; gap " + fmt(p.ac_bus_gap_m) + " m"]);
     }
-    // the two route options drawn on the map (the ai_ro rules) + the 75/25 blend
+    // the route options drawn on the map + the typology-weighted blend
     var ro = p.ai_ro || {};
     function roRow(label, o) {
       if (!o) return;
       rows.push([label, esc(o.pti_kind) + " " + esc(o.pti_name) + " &middot; " +
         fmt(o.ai_route_m) + " m &middot; shaded " + fmt(o.ai_covered_m) + " m (" +
-        Math.round((o.ai_covered_ratio || 0) * 100) + "%) &middot; gap " +
-        fmt(o.ai_longest_exposed_m) + " m"]);
+        Math.round((o.ai_covered_ratio || 0) * 100) + "%)"]);
     }
     roRow("Nearest MTR exit", ro.nearest_mtr);
-    roRow("Nearest bus/minibus", ro.nearest_bus);
+    roRow("Nearest bus stop", ro.nearest_bus);
+    roRow("Nearest minibus stop", ro.nearest_minibus);
     var w = p.w;
     if (w) {
-      rows.push(["Weighting", (w.mode === "mtr"
-        ? "MTR 75% / bus-minibus 25%"
-        : "Bus-minibus 75% / MTR 25%") + " &middot; walk to MTR " +
-        fmt(ro.nearest_mtr ? ro.nearest_mtr.ai_route_m : 0) + " m"]);
+      var wl = { nearest_mtr: "MTR", nearest_minibus: "minibus", nearest_bus: "bus" };
+      var wtxt = ["nearest_mtr", "nearest_minibus", "nearest_bus"]
+        .filter(function (k) { return w.weights[k]; })
+        .map(function (k) { return wl[k] + " " + Math.round(w.weights[k] * 100) + "%"; })
+        .join(" / ");
+      rows.push(["Weighting", wtxt + " &middot; " +
+        (w.group === "bus-dependent" ? "bus/minibus-dependent" : "MTR-dependent")]);
       rows.push(["Weighted distance", fmt(w.route_m) + " m"]);
       rows.push(["Weighted shaded", fmt(w.shaded_m) + " m (" +
         Math.round(w.shaded_ratio * 100) + "%)"]);
@@ -366,10 +372,10 @@
       rows.map(function (r) {
         return '<div class="ir"><span class="ik">' + r[0] + '</span><span class="iv">' + r[1] + "</span></div>";
       }).join("") +
-      '<div class="ihint">Two reference routes are drawn: the blue line is the ' +
-        'commute from the nearest bus/minibus stop, the purple dashed line is the ' +
-        'worst-case walk from the nearest MTR exit. The panel blends them 75/25 toward ' +
-        'the mode the student would use (walk to MTR under 1,000 m means MTR-heavy).</div>';
+      '<div class="ihint">The weighted blend uses the school\'s access type: MTR-dependent ' +
+        'schools weight MTR 70% / minibus 15% / bus 15%; bus/minibus-dependent schools weight ' +
+        'minibus 35% / bus 35% / MTR 30%. Weighted shaded % = weighted shaded metres of the ' +
+        'blended distance.</div>';
     info.hidden = false;
     document.getElementById("info-close").addEventListener("click", clearSelection);
   }

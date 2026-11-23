@@ -116,9 +116,10 @@
           Routes are shortest paths on the LandsD 3D Pedestrian Network — not straight lines.
           Sham Shui Po · Kowloon City · Yau Tsim Mong · Wong Tai Sin · Kwun Tong · Kwai Chung, 164 schools.
           Under the 15-minute rule, 107 schools are walk-access to MTR and 57 are bus/minibus-dependent.
-          Each school shows two reference routes — from the nearest bus/minibus stop (the commute)
-          and the worst-case walk from the nearest MTR exit — and a weighted blend (75/25 toward the
-          mode the student would use: walk to MTR under 1,000 m means MTR-heavy).
+          Each school shows the routes the metric blends — nearest bus stop, nearest minibus stop,
+          and the worst-case walk from the nearest MTR exit — weighted by access type:
+          MTR-dependent schools MTR 70% / minibus 15% / bus 15%; bus/minibus-dependent schools
+          minibus 35% / bus 35% / MTR 30%.
         </p>
         <div class="cols">
           <div>
@@ -140,7 +141,8 @@
             <ul class="legend">
               <li><span class="ln" style="border-color:#1F6FB2"></span> Covered pedestrian path</li>
               <li><span class="ln" style="border-color:#d73027"></span> Route, coloured by covered share</li>
-              <li><span class="ln" style="border-color:#1F4E79;border-top-width:3px"></span> Route to the nearest bus/minibus stop (solid)</li>
+              <li><span class="ln" style="border-color:#1F4E79;border-top-width:3px"></span> Route to the nearest bus stop (solid)</li>
+              <li><span class="ln" style="border-color:#16A085;border-top-style:dashed"></span> Route to the nearest minibus stop (dashed)</li>
               <li><span class="ln" style="border-color:#7A2E8E;border-top-style:dashed"></span> Worst-case walk from the nearest MTR exit</li>
               <li><span class="sq" style="background:#C0392B"></span> MTR station exit</li>
               <li><span class="sq" style="background:#E08A1E"></span> Bus stop</li>
@@ -149,9 +151,10 @@
               <li><span class="dot" style="border:2px dashed #16A085;background:none"></span> Bus/minibus-dependent school — over 15 min walk to MTR</li>
             </ul>
             <p class="foot" style="margin-top:.7rem">
-              Weighted distance blends the MTR and bus/minibus routes <b>75/25</b> toward the
-              mode the student would use (walk to MTR under 1,000 m means MTR-heavy).
-              Median school: <b>444 m</b> weighted distance, <b>7%</b> weighted shade.
+              Weighted by access type (the 15-minute rule): MTR-dependent schools blend
+              <b>MTR 70% / minibus 15% / bus 15%</b>; bus/minibus-dependent schools blend
+              <b>minibus 35% / bus 35% / MTR 30%</b>.
+              Median school: <b>420 m</b> weighted distance, <b>7%</b> weighted shade.
             </p>
           </div>
         </div>
@@ -172,6 +175,6 @@
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
             integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    <script src="./app.js?v=20261123-5"></script>
+    <script src="./app.js?v=20261123-6"></script>
   </body>
 </html>

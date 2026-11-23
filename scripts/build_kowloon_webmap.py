@@ -183,22 +183,33 @@ for f in mtr_walks["features"]:
     mtr_fallback += 1
 print("route-option nearest_mtr filled from MTR walks:", mtr_fallback)
 
-# ------------------------------------------- weighted shade metric (75/25 blend)
-# Two routes per school: nearest MTR exit and nearest bus/minibus stop.  The
-# combined metric weights the mode the student would actually use:
-#   walk to MTR < 1,000 m -> MTR route 75%, bus/minibus 25%
-#   walk to MTR >= 1,000 m -> bus/minibus 75%, MTR 25%
+# ------------------------------------------- weighted shade metric (typology blend)
+# Three routes per school: nearest MTR exit, nearest bus stop, nearest minibus.
+# Weights depend on the school's access typology (the 15-minute rule):
+#   MTR-dependent (walk to MTR <= 15 min):  MTR 70%, minibus 15%, bus 15%
+#   bus/minibus-dependent:                  minibus 35%, bus 35%, MTR 30%
+# Missing route kinds renormalise the remaining weights to sum 1.
 # weighted shaded % = weighted shaded metres / weighted distance.
 for s in summary:
     _ro = s.get("ro") or {}
-    _m, _b = _ro.get("nearest_mtr"), _ro.get("nearest_bus")
-    if not (_m and _b):
+    _dep = s.get("access") == "transit-dependent"
+    if _dep:
+        _base = {"nearest_minibus": 0.35, "nearest_bus": 0.35, "nearest_mtr": 0.30}
+    else:
+        _base = {"nearest_mtr": 0.70, "nearest_minibus": 0.15, "nearest_bus": 0.15}
+    _have = {k: _ro[k] for k in _base if _ro.get(k)}
+    if not _have:
         continue
-    w_mtr = 0.75 if (_m.get("ai_route_m") or 0) < 1000 else 0.25
-    w_bus = 1.0 - w_mtr
-    wd = w_mtr * (_m.get("ai_route_m") or 0) + w_bus * (_b.get("ai_route_m") or 0)
-    ws = w_mtr * (_m.get("ai_covered_m") or 0) + w_bus * (_b.get("ai_covered_m") or 0)
-    w = {"mode": "mtr" if w_mtr == 0.75 else "bus", "mtr_weight": w_mtr,
+    _sum = sum(_base[k] for k in _have)
+    wd = ws = 0.0
+    _wm = {}
+    for k, o in _have.items():
+        w = _base[k] / _sum
+        _wm[k] = round(w, 3)
+        wd += w * (o.get("ai_route_m") or 0)
+        ws += w * (o.get("ai_covered_m") or 0)
+    w = {"group": "bus-dependent" if _dep else "mtr-dependent",
+         "weights": _wm,
          "route_m": round(wd, 1), "shaded_m": round(ws, 1),
          "shaded_ratio": round(ws / wd, 3) if wd else 0.0}
     s["w"] = w
