@@ -219,6 +219,17 @@
     });
   });
 
+  // ----------------------------------------------- the three route options
+  // per school: nearest MTR exit / nearest bus-minibus stop / most shaded metres
+  var routeOptById = {};
+  fetch("./data/route_options.geojson").then(function (r) { return r.json(); }).then(function (d) {
+    d.features.forEach(function (f) {
+      var p = f.properties;
+      if (!routeOptById[p.school_id]) routeOptById[p.school_id] = {};
+      routeOptById[p.school_id][p.ai_route_kind] = f;
+    });
+  });
+
   // ------------------------------------------------- select a school and show it
   function selectSchool(id) {
     var p = schoolById[id];
@@ -229,26 +240,34 @@
     gFocusStop.clearLayers();
     gFocusSchool.clearLayers();
 
-    var rts = routesById[id] || {};
-    var order = ["shortest", "best_covered"];
+    var opts = routeOptById[id] || {};
+    // three reference routes, by rule:
+    //   nearest_bus   the commute from the nearest bus/minibus stop (dashed)
+    //   most_shaded_m the walk with the most shaded METRES (solid, by shelter)
+    //   nearest_mtr   the worst-case walk from the nearest MTR exit (purple)
+    var order = ["nearest_bus", "most_shaded_m", "nearest_mtr"];
     var bounds = [];
 
     order.forEach(function (kind) {
-      var f = rts[kind];
+      var f = opts[kind];
       if (!f) return;
       var q = f.properties;
-      var isBest = kind === "best_covered";
+      var isMtr = kind === "nearest_mtr";
+      var isShade = kind === "most_shaded_m";
       var latlngs = lineLatLngs(f.geometry);
       var line = L.polyline(latlngs, {
-        color: covColor(q.ai_covered_ratio),
-        weight: isBest ? 5 : 3.4,
+        color: isMtr ? "#7A2E8E" : (isShade ? covColor(q.ai_covered_ratio) : "#1F4E79"),
+        weight: isMtr ? 4.2 : (isShade ? 5 : 3.4),
         opacity: 1,
-        dashArray: isBest ? null : "9,7",
+        dashArray: isShade ? null : (isMtr ? "10,6" : "9,7"),
         lineCap: "round", lineJoin: "round"
       }).addTo(gFocus);
+      var shadePct = Math.round((q.ai_covered_ratio || 0) * 100);
       line.bindTooltip(
-        (isBest ? "Most-sheltered: " : "Nearest-stop: ") +
-        fmt(q.ai_route_m) + " m, " + Math.round(q.ai_covered_ratio * 100) + "% covered",
+        isMtr
+          ? "Walk from " + q.pti_name + ": " + fmt(q.ai_route_m) + " m"
+          : (isShade ? "Most shaded walk: " : "Nearest bus/minibus (" + q.pti_kind + " " + q.pti_name + "): ") +
+            fmt(q.ai_route_m) + " m, " + fmt(q.ai_covered_m) + " m shaded (" + shadePct + "%)",
         { sticky: true }
       );
       var lb = line.getBounds();
@@ -260,31 +279,18 @@
         var ll = mk.getLatLng();
         L.circleMarker(ll, {
           radius: 8, color: "#111111", weight: 2,
-          fillColor: covColor(q.ai_covered_ratio), fillOpacity: 1
+          fillColor: isMtr ? "#7A2E8E" : (isShade ? covColor(q.ai_covered_ratio) : "#1F4E79"),
+          fillOpacity: 1
         }).bindPopup(
           "<b>" + esc(q.pti_name) + "</b><br>" + esc(q.pti_kind) +
-          "<br>Start of the " + (isBest ? "most-sheltered" : "nearest-stop") +
-          " route to " + esc(p.name)
+          "<br>Start of the " + (isMtr ? "walk from the nearest MTR exit"
+            : isShade ? "most-shaded walk" : "walk from the nearest bus/minibus stop") +
+          " to " + esc(p.name)
         ).addTo(gFocusStop);
         L.polyline([ll, ll], { opacity: 0 }).addTo(gFocusStop);
         bounds.push(ll);
       }
     });
-
-    // the worst-case walk from the nearest MTR exit
-    var mw = mtrWalkById[id];
-    if (mw) {
-      var mll = mw._coords.map(function (c) { return [c[1], c[0]]; });
-      L.polyline(mll, {
-        color: "#7A2E8E", weight: 4.2, opacity: 1,
-        dashArray: "10,6", lineCap: "round", lineJoin: "round"
-      }).bindTooltip(
-        "Walk from " + mw.station + " " + mw.exit + ": " +
-        fmt(mw.walk_m) + " m, " + fmt(mw.walk_minutes) + " min",
-        { sticky: true }
-      ).addTo(gFocus);
-      mll.forEach(function (ll) { bounds.push(ll); });
-    }
 
     // the school itself, enlarged
     L.circleMarker([p.lat, p.lon], {
@@ -335,30 +341,31 @@
         (p.ac_bus_cov != null ? p.ac_bus_cov.toFixed(2) : "–") +
         " &middot; gap " + fmt(p.ac_bus_gap_m) + " m"]);
     }
-    rows.push(["Most-sheltered stop", esc(p.ai_best_cov_kind) + " " + esc(p.ai_best_cov_pti)]);
-    rows.push(["Most-sheltered route", fmt(p.ai_best_cov_route_m) + " m"]);
-    rows.push(["Covered share", p.ai_best_cov_ratio.toFixed(2)]);
-    rows.push(["Longest uncovered gap", fmt(p.ai_best_cov_longest_exposed_m) + " m"]);
-    rows.push(["Nearest-stop route", fmt(p.ai_route_m) + " m"]);
-    rows.push(["Candidate stops", fmt(p.ai_n_pti_candidates)]);
-    var mw = mtrWalkById[p.school_id];
-    if (mw) {
-      rows.push(["MTR exit", esc(mw.station) + " " + esc(mw.exit)]);
-      rows.push([dep ? "MTR walk (reference)" : "Walk from MTR",
-                 fmt(mw.walk_m) + " m (" + fmt(mw.walk_minutes) + " min)"]);
-      rows.push(["MTR-walk gap", fmt(mw.longest_exposed_m) + " m"]);
+    // the three route options drawn on the map (the ai_ro rules)
+    var ro = p.ai_ro || {};
+    function roRow(label, o) {
+      if (!o) return;
+      rows.push([label, esc(o.pti_kind) + " " + esc(o.pti_name) + " &middot; " +
+        fmt(o.ai_route_m) + " m &middot; shaded " + fmt(o.ai_covered_m) + " m (" +
+        Math.round((o.ai_covered_ratio || 0) * 100) + "%) &middot; gap " +
+        fmt(o.ai_longest_exposed_m) + " m"]);
     }
+    roRow("Nearest MTR exit", ro.nearest_mtr);
+    roRow("Nearest bus/minibus", ro.nearest_bus);
+    roRow("Most shaded walk", ro.most_shaded_m);
+    rows.push(["Most-sheltered (share)", fmt(p.ai_best_cov_route_m) + " m &middot; " +
+      p.ai_best_cov_ratio.toFixed(2) + " covered &middot; gap " +
+      fmt(p.ai_best_cov_longest_exposed_m) + " m"]);
+    rows.push(["Candidate stops", fmt(p.ai_n_pti_candidates)]);
     info.innerHTML = '<span class="iclose" id="info-close" title="Clear selection">×</span>' +
       '<div class="ih">' + esc(p.name) + "</div>" +
       rows.map(function (r) {
         return '<div class="ir"><span class="ik">' + r[0] + '</span><span class="iv">' + r[1] + "</span></div>";
       }).join("") +
-      '<div class="ihint">' + (dep
-        ? "Bus/minibus is the practical access: the dashed line is the walk from the bus/minibus stop. " +
-          "The purple line is the worst-case walk from the MTR exit, drawn as reference."
-        : "Both routes are drawn on the map: the solid line is the " +
-          "most-sheltered walk, the dashed line the route from the nearest stop. " +
-          "The ringed markers are the stops each route starts from.") + "</div>";
+      '<div class="ihint">Three reference routes are drawn: the blue dashed line is the ' +
+        'commute from the nearest bus/minibus stop, the solid line is the walk with the most ' +
+        'shaded metres (metres of shade, not share), and the purple dashed line is the ' +
+        'worst-case walk from the nearest MTR exit. Ringed markers are each route\'s stop.</div>';
     info.hidden = false;
     document.getElementById("info-close").addEventListener("click", clearSelection);
   }

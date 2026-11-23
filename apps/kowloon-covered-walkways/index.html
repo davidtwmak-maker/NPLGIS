@@ -101,7 +101,7 @@
           <label><input type="checkbox" id="ly-school" checked /> <span class="swatch" style="border:none;background:#1A1A1A"></span> Schools</label>
           <label><input type="checkbox" id="ly-mtr" checked /> <span class="swatch" style="border:none;background:#7A2E8E"></span> Walk from nearest MTR exit</label>
           <label><input type="checkbox" id="ly-typ" checked /> <span class="swatch" style="border:2px dashed #16A085;background:none"></span> Bus/minibus-dependent schools</label>
-          <p class="ctl-hint">Click a school dot to draw its routes.</p>
+          <p class="ctl-hint">Click a school dot to draw its three reference routes.</p>
         </div>
       </details>
     </div>
@@ -115,8 +115,9 @@
           How much of the walk from a public transport stop to each secondary school is under cover?
           Routes are shortest paths on the LandsD 3D Pedestrian Network — not straight lines.
           Sham Shui Po · Kowloon City · Yau Tsim Mong · Wong Tai Sin · Kwun Tong · Kwai Chung, 164 schools.
-          Under the 15-minute rule, 107 schools are walk-access to MTR and 57 are bus/minibus-dependent —
-          those show both access routes side by side.
+          Under the 15-minute rule, 107 schools are walk-access to MTR and 57 are bus/minibus-dependent.
+          Each school shows three reference routes: from the nearest bus/minibus stop (the commute),
+          the walk with the most shaded metres, and the worst-case walk from the nearest MTR exit.
         </p>
         <div class="cols">
           <div>
@@ -138,8 +139,8 @@
             <ul class="legend">
               <li><span class="ln" style="border-color:#1F6FB2"></span> Covered pedestrian path</li>
               <li><span class="ln" style="border-color:#d73027"></span> Route, coloured by covered share</li>
-              <li><span class="ln" style="border-color:#666;border-top-style:dashed"></span> Nearest-stop route (dashed)</li>
-              <li><span class="ln" style="border-color:#1a9850;border-top-width:5px"></span> Most-sheltered route (bold)</li>
+              <li><span class="ln" style="border-color:#1F4E79;border-top-style:dashed"></span> Route to the nearest bus/minibus stop (dashed)</li>
+              <li><span class="ln" style="border-color:#1a9850;border-top-width:5px"></span> Walk with the most shaded metres (bold)</li>
               <li><span class="ln" style="border-color:#7A2E8E;border-top-style:dashed"></span> Worst-case walk from the nearest MTR exit</li>
               <li><span class="sq" style="background:#C0392B"></span> MTR station exit</li>
               <li><span class="sq" style="background:#E08A1E"></span> Bus stop</li>
@@ -170,6 +171,6 @@
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
             integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    <script src="./app.js?v=20261123-2"></script>
+    <script src="./app.js?v=20261123-3"></script>
   </body>
 </html>

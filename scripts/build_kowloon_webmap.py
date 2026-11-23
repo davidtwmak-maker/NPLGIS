@@ -79,6 +79,7 @@ for r in raw:
         "ai_best_cov_pti": r.get("ai_best_cov_pti"),
         "ai_best_cov_longest_exposed_m": r.get("ai_best_cov_longest_exposed_m"),
         "ai_n_pti_candidates": r.get("ai_n_pti_candidates"),
+        "ai_ro": r.get("ai_ro"),
     }
     _t = typ_by_id.get(r["school_id"])
     if _t:
@@ -113,6 +114,7 @@ for r in raw:
         "short_cov": r.get("ai_covered_ratio"),
         "short_gap_m": r.get("ai_longest_exposed_m"),
         "n_cand": r.get("ai_n_pti_candidates"),
+        "ro": r.get("ai_ro"),
     })
     if _t:
         summary[-1].update({
@@ -141,6 +143,46 @@ for f in routes["features"]:
                                    "geometry": f["geometry"],
                                    "properties": pr})
 
+# ------------------------------------------- app: route options (three per school)
+# nearest MTR exit / nearest bus-minibus stop / most shaded metres
+ro_src = json.load(open(os.path.join(WORK, "route_options.geojson"), encoding="utf-8"))
+app_ro = {"type": "FeatureCollection", "features": []}
+for f in ro_src["features"]:
+    pr = dict(f["properties"])
+    pr["school_id"] = f["properties"].get("school_id")
+    app_ro["features"].append({"type": "Feature",
+                               "geometry": f["geometry"],
+                               "properties": pr})
+
+# 22 schools have no reachable MTR exit within the routing catchment, so their
+# nearest_mtr option is missing; use the worst-case MTR walk (exit-level solve
+# from mtr_walk_schools.py) as that option.  Same for the summary rows.
+sum_by_id = {s["school_id"]: s for s in summary}
+sch_by_id = {f["properties"]["school_id"]: f["properties"] for f in schools["features"]}
+have_mtr = {f["properties"]["school_id"] for f in app_ro["features"]
+            if f["properties"].get("ai_route_kind") == "nearest_mtr"}
+mtr_fallback = 0
+for f in mtr_walks["features"]:
+    pw = f["properties"]
+    sid = pw.get("school_id")
+    if not sid or sid in have_mtr:
+        continue
+    ratio = pw.get("covered_ratio") or 0.0
+    route_m = pw.get("walk_m") or 0
+    o = {"pti_kind": "mtr",
+         "pti_name": (str(pw.get("station") or "") + " " + str(pw.get("exit") or "")).strip(),
+         "ai_route_m": route_m, "ai_covered_m": round(route_m * ratio),
+         "ai_covered_ratio": ratio, "ai_longest_exposed_m": pw.get("longest_exposed_m")}
+    app_ro["features"].append({"type": "Feature", "geometry": f["geometry"],
+                               "properties": {"school": pw.get("name"), "school_id": sid,
+                                              "ai_route_kind": "nearest_mtr", **o}})
+    if sid in sum_by_id and sum_by_id[sid].get("ro") is not None:
+        sum_by_id[sid]["ro"]["nearest_mtr"] = o
+    if sid in sch_by_id and sch_by_id[sid].get("ai_ro") is not None:
+        sch_by_id[sid]["ai_ro"]["nearest_mtr"] = o
+    mtr_fallback += 1
+print("route-option nearest_mtr filled from MTR walks:", mtr_fallback)
+
 # ---------------------------------------------------------------- write app data
 def write_json(path, obj):
     with open(path, "w", encoding="utf-8") as fh:
@@ -153,10 +195,11 @@ write_json(os.path.join(APPDATA, "stops.geojson"), pti)
 write_json(os.path.join(APPDATA, "covered_paths.geojson"), covered)
 write_json(os.path.join(APPDATA, "school_summary.json"), summary)
 write_json(os.path.join(APPDATA, "mtr_walks.geojson"), mtr_walks)
-print("app data: schools=%d routes=%d stops=%d covered=%d mtr_walks=%d" % (
+write_json(os.path.join(APPDATA, "route_options.geojson"), app_ro)
+print("app data: schools=%d routes=%d stops=%d covered=%d mtr_walks=%d route_options=%d" % (
     len(schools["features"]), len(app_routes["features"]),
     len(pti["features"]), len(covered["features"]),
-    len(mtr_walks["features"])))
+    len(mtr_walks["features"]), len(app_ro["features"])))
 
 # ------------------------------------------------- published site data (gz)
 def copy_gz(src, dst):
