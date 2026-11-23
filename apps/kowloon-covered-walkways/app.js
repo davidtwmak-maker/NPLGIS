@@ -14,9 +14,11 @@
   var map = L.map("map", { maxBounds: L.latLngBounds(BOUNDS).pad(0.25) });
   map.fitBounds(BOUNDS);
 
-  L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-    subdomains: "abcd", maxZoom: 19
+  // CARTO dropped key-free CDN access (tiles return "API KEY REQUIRED"),
+  // so the basemap is plain OpenStreetMap tiles — no key, stable, attributed.
+  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    maxZoom: 19
   }).addTo(map);
 
   // red (0 covered) -> green (1 covered), matching the static figure
