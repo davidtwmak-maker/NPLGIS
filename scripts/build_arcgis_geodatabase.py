@@ -9,11 +9,19 @@ will never draw.  This script converts the outputs into proper feature
 classes:
 
     Kowloon_Covered_Walkways.gdb
-        Schools_RouteMetrics   point   103  school + the exposure metrics
-        Route_Candidates        point 16387  every candidate stop per school
-        Routes_To_School       line    206  shortest + best-covered routes
-        Covered_Paths          line  14761  the sheltered network
-        Stops_PTI              point  1778  MTR exits / bus / minibus stops
+        Schools_RouteMetrics   point   164  school + the exposure metrics
+        Route_Candidates        point 24978  every candidate stop per school
+        Routes_To_School       line  12058  the routes, split at network nodes
+        Covered_Paths          line  34533  the sheltered network
+        Stops_PTI              point  3692  MTR exits / bus / minibus stops
+        MTR_WorstCase_Walks    line    164  the worst-case MTR walk per school
+        MTR_WorstCase_Schools  point   164  the MTR walk metrics per school
+
+Note on Routes_To_School: a route is stored as one feature PER NETWORK EDGE,
+not as one feature per route.  The 328 whole routes (shortest + best-covered
+per school) are 12,058 edges.  Dissolve on `school_id` + `ai_route_kind` to
+get a route back.  The MTR walk layer is the exception — those 164 features
+are whole routes, already merged.
 
 CRS: Hong Kong 1980 Grid System (EPSG:2326) — the same native CRS the CSDI
 layers carry, so these layers overlay the team's map without a spatial-
@@ -178,12 +186,35 @@ if os.path.exists(GDB):
     shutil.rmtree(GDB)
 os.makedirs(OUTDIR, exist_ok=True)
 
+# ------------------------------------------- 6. MTR_WorstCase_Walks
+# The worst-case scenario: bus and minibus service is out, so the student
+# walks from the nearest MTR station exit.  The walk geometry is the same
+# polyline the distance was measured on, so the length in EPSG:2326 equals
+# the `walk_m` attribute.
+log("MTR_WorstCase_Walks ...")
+mtr_routes = json.load(open(os.path.join(WORK, "mtr_walk_routes.geojson"), encoding="utf-8"))["features"]
+p6 = write_gj("mtr_worstcase_walks", fc(mtr_routes))
+
+# ------------------------------------------- 7. MTR_WorstCase_Schools
+# The same metrics as a point layer, for joining in ArcGIS.
+log("MTR_WorstCase_Schools ...")
+mtr_schools = json.load(open(os.path.join(WORK, "mtr_walk_schools.json"), encoding="utf-8"))
+mtr_sch_feats = []
+for r in mtr_schools:
+    p = {k: v for k, v in r.items() if k not in ("lon", "lat")}
+    mtr_sch_feats.append({"type": "Feature",
+                          "geometry": {"type": "Point", "coordinates": proj_xy(r["lon"], r["lat"])},
+                          "properties": p})
+p7 = write_gj("mtr_worstcase_schools", fc(mtr_sch_feats))
+
 LAYERS = [
     (p1, "Schools_RouteMetrics", "POINT"),
     (p2, "Route_Candidates", "POINT"),
     (p3, "Routes_To_School", "LINESTRING"),
     (p4, "Covered_Paths", "LINESTRING"),
     (p5, "Stops_PTI", "POINT"),
+    (p6, "MTR_WorstCase_Walks", "LINESTRING"),
+    (p7, "MTR_WorstCase_Schools", "POINT"),
 ]
 for src, name, gtype in LAYERS:
     cmd = [OGR2OGR, "-f", "OpenFileGDB", GDB, src,
@@ -215,6 +246,14 @@ with open(os.path.join(OUTDIR, "Schools_RouteMetrics.csv"), "w", newline="", enc
     for ft in sch_feats:
         w.writerow(ft["properties"])
 log(f"\nCSV written: {os.path.join(OUTDIR, 'Schools_RouteMetrics.csv')}")
+
+# and the worst-case metrics as a flat table
+with open(os.path.join(OUTDIR, "MTR_WorstCase_Schools.csv"), "w", newline="", encoding="utf-8") as f:
+    w = csv.DictWriter(f, fieldnames=list(mtr_sch_feats[0]["properties"].keys()))
+    w.writeheader()
+    for ft in mtr_sch_feats:
+        w.writerow(ft["properties"])
+log(f"CSV written: {os.path.join(OUTDIR, 'MTR_WorstCase_Schools.csv')}")
 
 shutil.rmtree(tmp, ignore_errors=True)
 log("done")

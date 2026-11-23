@@ -17,13 +17,14 @@ Outputs work/mtr_walk_schools.json
 import collections, json, math, os
 import numpy as np
 from shapely.geometry import shape, Point
-from shapely.ops import transform as shp_transform
+from shapely.ops import transform as shp_transform, unary_union
 from shapely.strtree import STRtree
 from pyproj import Transformer
 from scipy.sparse import coo_matrix
 from scipy.sparse.csgraph import dijkstra
 
-ROOT = os.path.expanduser("~/GIS Data/Sun-Rain Exposure")
+BASE = os.path.expanduser("~/GIS Data")
+ROOT = os.path.join(BASE, "Sun-Rain Exposure")
 RAW = os.path.join(ROOT, "raw")
 WORK = os.path.join(ROOT, "work")
 NET = os.path.expanduser("~/GIS Data/3D Pedestrian Network")
@@ -51,7 +52,30 @@ def classify(p):
     return "other"
 
 
-def load_network():
+# The study area, from the Census 2021 District Council polygons — the same
+# six districts as the main pipeline.  A hard-coded bounding box was used
+# before; it silently clipped the network when the study area was extended.
+DISTRICTS = {"深水埗區": "Sham Shui Po", "九龍城區": "Kowloon City",
+             "油尖旺區": "Yau Tsim Mong", "黃大仙區": "Wong Tai Sin",
+             "觀塘區": "Kwun Tong", "葵青區": "Kwai Chung"}
+
+
+def load_study_area():
+    import gzip
+    fn = os.path.join(BASE, "GeoInfo Map/raw/rgeo_highlight_d00/"
+                             "123_CENSUS_2021_DC_POLY.geojson.gz")
+    with gzip.open(fn, "rt") as fh:
+        dcs = json.load(fh)
+    geoms = [shape(ft["geometry"]) for ft in dcs["features"]
+             if ft["properties"].get("DC_CHI") in DISTRICTS]
+    area = unary_union(geoms)
+    print("study area: %d districts, bounds %s"
+          % (len(DISTRICTS), [round(v, 4) for v in area.bounds]), flush=True)
+    return area
+
+
+def load_network(study_area):
+    minx, miny, maxx, maxy = study_area.bounds
     segs = []
     for fn in ("covered_outdoor_paths.geojson", "exposed_outdoor_paths.geojson",
                "covered_indoor_or_unclassified.geojson"):
@@ -60,7 +84,10 @@ def load_network():
             continue
         for ft in json.load(open(path, encoding="utf-8"))["features"]:
             g = shape(ft["geometry"])
-            if not (114.10 < g.bounds[0] < 114.25 and 22.25 < g.bounds[1] < 22.40):
+            if g.bounds[0] > maxx or g.bounds[2] < minx \
+                    or g.bounds[1] > maxy or g.bounds[3] < miny:
+                continue
+            if not g.intersects(study_area):
                 continue
             p = ft["properties"]
             segs.append((g, p.get("Gradient") or 0.0, classify(p), p.get("StreetNameEN") or ""))
@@ -102,20 +129,33 @@ def load_network():
 
 
 def main():
-    xy, edge, G, edges, by_pair = load_network()
+    area = load_study_area()
+    xy, edge, G, edges, by_pair = load_network(area)
     print("network: %d nodes, %d edges" % (len(xy), len(edge)), flush=True)
 
     # ---- MTR exits -------------------------------------------------------
     mtr = json.load(open(os.path.join(RAW, "mtr_entry_points.geojson"), encoding="utf-8"))
+    # The entry-point layer covers ALL of Hong Kong.  Keep only the exits
+    # that could serve a school in the study area — an exit 10 km outside it
+    # is not a candidate, and including it would distort the snap statistics
+    # and let a far-away exit win on a broken network connection.  A 1 km
+    # buffer around the study area keeps legitimate cross-boundary exits
+    # (a school near the district line is often served by a station just
+    # outside it) while still dropping the far-flung ones.
+    keep = area.buffer(0.01)
     exits = []
     for f in mtr["features"]:
         pr = f["properties"]
         c = f["geometry"]["coordinates"]
+        pt = Point(c[0], c[1])
+        if not keep.intersects(pt):
+            continue
         exits.append({"station": pr.get("venue_name_en"), "station_zh": pr.get("venue_name_zh"),
                       "exit": pr.get("amenity_name_en"), "lon": c[0], "lat": c[1],
                       "z": c[2] if len(c) > 2 else None,
                       "level": pr.get("level_name_en")})
-    print("MTR exits in layer: %d" % len(exits), flush=True)
+    print("MTR exits in the study area: %d of %d"
+          % (len(exits), len(mtr["features"])), flush=True)
 
     node_pts = [Point(x, y) for x, y in xy]
     node_tree = STRtree(node_pts)
@@ -195,7 +235,7 @@ def main():
         for i, a, b in seq:
             u, v, L, gr, cls, street, _c = edges[i]
             total += L
-            streets[street] += 1
+            streets[street] += L
             if cls == "sheltered":
                 covered += L
                 run = 0.0
@@ -242,7 +282,9 @@ def main():
             "district": s["district"], "address": s.get("address"),
             "lon": s["lon"], "lat": s["lat"],
             "station": best_e["station"], "station_zh": best_e["station_zh"],
-            "exit": best_e["exit"], "exit_snap_m": round(best_e["snap_m"], 1),
+            "exit": best_e["exit"], "exit_level": best_e["level"],
+            "exit_lon": best_e["lon"], "exit_lat": best_e["lat"],
+            "exit_snap_m": round(best_e["snap_m"], 1),
             "walk_m": round(total, 1),
             "straight_m": round(best_e["snap_m"] + 0, 1),
             "covered_m": round(covered, 1),

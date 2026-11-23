@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Kowloon Peninsula — covered pedestrian pathways and school-route shelter.
+"""Covered pedestrian pathways and school-route shelter, six districts.
 
 Two panels:
   A  the covered (sheltered) pedestrian network in the study area, with the
@@ -124,7 +124,7 @@ def draw_base(ax, title):
 
 
 print("panel A base...", flush=True)
-draw_base(axA, "A   Covered pedestrian pathways on the Kowloon Peninsula")
+draw_base(axA, "A   Covered pedestrian pathways across the six study districts")
 
 # ---- A: covered paths + PTI
 cov_segs = [np.array(shape(f["geometry"]).coords) for f in cov
@@ -151,10 +151,6 @@ for f in pti:
         if nm and nm not in mtr_names:
             mtr_names[nm] = (f["geometry"]["coordinates"][0],
                              f["geometry"]["coordinates"][1])
-for nm, (x, y) in list(mtr_names.items()):
-    axA.annotate(nm, (x, y), fontsize=5.4, color="#7B241C", zorder=14,
-                 ha="center", va="bottom",
-                 bbox=dict(fc="white", ec="none", alpha=0.75, pad=0.6))
 
 print("panel B base...", flush=True)
 draw_base(axB, "B   Best-sheltered walking route from a stop to each school")
@@ -309,7 +305,7 @@ label_boxes = [inflate(t.get_window_extent(renderer)) for t in fig.findobj(
     matplotlib.text.Text) if t.get_text().strip() and t.get_visible()]
 
 # ------------------------------------------------------------------ titles
-fig.text(0.045, 0.955, "Sheltered walking to school on the Kowloon Peninsula",
+fig.text(0.045, 0.955, "Sheltered walking to school — Kowloon and Kwai Chung",
          fontsize=14.5, fontweight="bold", ha="left", va="center")
 fig.text(0.045, 0.920,
          "Covered pedestrian pathways, and how much of the walk from a bus / minibus / MTR stop to each secondary school is under cover",
@@ -385,3 +381,39 @@ Image.fromarray(buf, "RGBA").convert("RGB").save(PNG)
 fig.savefig(PDF)
 print("saved", PNG, os.path.getsize(PNG))
 print("saved", PDF, os.path.getsize(PDF))
+
+# The station labels are placed with a collision test, not blindly at the
+# station.  With six districts there are enough stations that two labels
+# 500 m apart collide ("Tsim Sha Tsui" over "Jordan"), and a label printed on
+# top of another is unreadable.  Each label tries a ring of offsets and is
+# DROPPED if it cannot find a clear spot, exactly like the school callouts
+# on panel B.
+MTR_OFFSETS = [(0, 0.0030), (0, -0.0044), (0.0062, 0.0018),
+               (-0.0062, 0.0018), (0.0062, -0.0030), (-0.0062, -0.0030),
+               (0.0080, 0.0038), (-0.0080, 0.0038), (0.0080, -0.0056),
+               (-0.0080, -0.0056), (0.0110, 0), (-0.0110, 0),
+               (0.0110, -0.0060), (-0.0110, -0.0060)]
+_mtr_boxes = []
+_n_mtr_dropped = 0
+for nm, (x, y) in list(mtr_names.items()):
+    placed = False
+    for dx, dy in MTR_OFFSETS:
+        ann = axA.annotate(nm, (x + dx, y + dy), fontsize=5.4, color="#7B241C",
+                           zorder=14, ha="center", va="bottom",
+                           bbox=dict(fc="white", ec="none", alpha=0.75, pad=0.6),
+                           arrowprops=dict(arrowstyle="-", lw=0.4, color="#A04040",
+                                           shrinkA=0, shrinkB=1))
+        fig.canvas.draw()
+        bb = ann.get_window_extent(renderer)
+        if (bb.x0 >= 0 and bb.y0 >= 0
+                and bb.x1 <= axA.get_window_extent().x1
+                and bb.y1 <= axA.get_window_extent().y1
+                and not any(boxes_overlap(bb, ob) for ob in _mtr_boxes)):
+            _mtr_boxes.append(bb)
+            placed = True
+            break
+        ann.remove()
+    if not placed:
+        _n_mtr_dropped += 1
+print(f"  MTR labels placed {len(_mtr_boxes)}, dropped {_n_mtr_dropped}", flush=True)
+

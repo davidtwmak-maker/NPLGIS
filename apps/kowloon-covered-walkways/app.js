@@ -8,7 +8,9 @@
 (function () {
   "use strict";
 
-  var BOUNDS = [[22.285, 114.122], [22.356, 114.226]];
+  // The six study districts: Sham Shui Po, Kowloon City, Yau Tsim Mong,
+  // Wong Tai Sin, Kwun Tong and Kwai Chung.
+  var BOUNDS = [[22.282, 114.076], [22.387, 114.248]];
   var map = L.map("map", { maxBounds: L.latLngBounds(BOUNDS).pad(0.25) });
   map.fitBounds(BOUNDS);
 
@@ -55,9 +57,10 @@
   // ------------------------------------------------------------- layer groups
   var gCov = L.layerGroup().addTo(map);      // the sheltered network
   var gRoute = L.layerGroup().addTo(map);    // every route (dimmed by default)
-  var gStop = L.layerGroup().addTo(map);      // the 1,778 stops
-  var gSchool = L.layerGroup().addTo(map);    // the 103 schools
+  var gStop = L.layerGroup().addTo(map);      // the 3,692 stops
+  var gSchool = L.layerGroup().addTo(map);    // the schools
   var gMtrWalk = L.layerGroup().addTo(map);  // the walk from the nearest MTR exit
+  var gTyp = L.layerGroup().addTo(map);     // halo on transit-dependent schools
   var gFocus = L.layerGroup();               // the SELECTED school's routes
   var gFocusStop = L.layerGroup();           // the stops that route starts at
   var gFocusSchool = L.layerGroup();         // the selected school, enlarged
@@ -152,6 +155,13 @@
         m.openPopup();
       });
       m.addTo(gSchool);
+      // bus/minibus-dependent schools (walk to MTR > 15 min) get a halo ring
+      if (p.ac_access === "transit-dependent") {
+        L.circleMarker([p.lat, p.lon], {
+          radius: 9.5, color: "#16A085", weight: 2, dashArray: "3,3", fill: false
+        }).bindTooltip("Bus/minibus-dependent: walk to MTR over 15 min", { sticky: true })
+          .addTo(gTyp);
+      }
     });
   });
 
@@ -273,20 +283,36 @@
   }
 
   function showInfo(p) {
+    var dep = p.ac_access === "transit-dependent";
     var rows = [
       ["District", esc(p.district)],
-      ["Type", esc(p.type)],
-      ["Most-sheltered stop", esc(p.ai_best_cov_kind) + " " + esc(p.ai_best_cov_pti)],
-      ["Most-sheltered route", fmt(p.ai_best_cov_route_m) + " m"],
-      ["Covered share", p.ai_best_cov_ratio.toFixed(2)],
-      ["Longest uncovered gap", fmt(p.ai_best_cov_longest_exposed_m) + " m"],
-      ["Nearest-stop route", fmt(p.ai_route_m) + " m"],
-      ["Candidate stops", fmt(p.ai_n_pti_candidates)]
+      ["Type", esc(p.type)]
     ];
+    if (p.ac_access) {
+      rows.push(["Access", dep
+        ? "Bus/minibus-dependent (walk to MTR " + fmt(p.ac_walk_min) + " min &gt; 15)"
+        : "Walk to MTR (" + fmt(p.ac_walk_min) + " min)"]);
+    }
+    // for dependent schools show BOTH access routes, labelled side by side:
+    // the bus/minibus route (normal conditions) and the MTR walk (reference)
+    if (dep && p.ac_bus_stop) {
+      rows.push(["Bus/minibus stop", esc(p.ac_bus_stop) +
+        " (" + fmt(p.ac_bus_n_routes) + " route" + (p.ac_bus_n_routes === 1 ? "" : "s") + ")"]);
+      rows.push(["Bus/minibus route", fmt(p.ac_bus_route_m) + " m &middot; covered " +
+        (p.ac_bus_cov != null ? p.ac_bus_cov.toFixed(2) : "–") +
+        " &middot; gap " + fmt(p.ac_bus_gap_m) + " m"]);
+    }
+    rows.push(["Most-sheltered stop", esc(p.ai_best_cov_kind) + " " + esc(p.ai_best_cov_pti)]);
+    rows.push(["Most-sheltered route", fmt(p.ai_best_cov_route_m) + " m"]);
+    rows.push(["Covered share", p.ai_best_cov_ratio.toFixed(2)]);
+    rows.push(["Longest uncovered gap", fmt(p.ai_best_cov_longest_exposed_m) + " m"]);
+    rows.push(["Nearest-stop route", fmt(p.ai_route_m) + " m"]);
+    rows.push(["Candidate stops", fmt(p.ai_n_pti_candidates)]);
     var mw = mtrWalkById[p.school_id];
     if (mw) {
       rows.push(["MTR exit", esc(mw.station) + " " + esc(mw.exit)]);
-      rows.push(["Walk from MTR", fmt(mw.walk_m) + " m (" + fmt(mw.walk_minutes) + " min)"]);
+      rows.push([dep ? "MTR walk (reference)" : "Walk from MTR",
+                 fmt(mw.walk_m) + " m (" + fmt(mw.walk_minutes) + " min)"]);
       rows.push(["MTR-walk gap", fmt(mw.longest_exposed_m) + " m"]);
     }
     info.innerHTML = '<span class="iclose" id="info-close" title="Clear selection">×</span>' +
@@ -294,9 +320,12 @@
       rows.map(function (r) {
         return '<div class="ir"><span class="ik">' + r[0] + '</span><span class="iv">' + r[1] + "</span></div>";
       }).join("") +
-      '<div class="ihint">Both routes are now drawn on the map: the solid line is the ' +
-      'most-sheltered walk, the dashed line the route from the nearest stop. ' +
-      'The ringed markers are the stops each route starts from.</div>';
+      '<div class="ihint">' + (dep
+        ? "Bus/minibus is the practical access: the dashed line is the walk from the bus/minibus stop. " +
+          "The purple line is the worst-case walk from the MTR exit, drawn as reference."
+        : "Both routes are drawn on the map: the solid line is the " +
+          "most-sheltered walk, the dashed line the route from the nearest stop. " +
+          "The ringed markers are the stops each route starts from.") + "</div>";
     info.hidden = false;
     document.getElementById("info-close").addEventListener("click", clearSelection);
   }
@@ -340,6 +369,7 @@
   bind("ly-stop", gStop);
   bind("ly-school", gSchool);
   bind("ly-mtr", gMtrWalk);
+  bind("ly-typ", gTyp);
 
   // ---------------------------------------------------------------- scale bar
   L.control.scale({ metric: true, imperial: false, position: "bottomleft" }).addTo(map);

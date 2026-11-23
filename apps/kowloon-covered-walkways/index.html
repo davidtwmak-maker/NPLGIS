@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="description" content="How covered is the walk from a bus, minibus or MTR stop to each secondary school on the Kowloon Peninsula? Routes solved on the LandsD 3D Pedestrian Network." />
-    <title>Covered Walkways to School — Kowloon Peninsula</title>
+    <meta name="description" content="How covered is the walk from a bus, minibus or MTR stop to each secondary school in Sham Shui Po, Kowloon City, Yau Tsim Mong, Wong Tai Sin, Kwun Tong and Kwai Chung? Routes solved on the LandsD 3D Pedestrian Network." />
+    <title>Covered Walkways to School — Kowloon and Kwai Chung</title>
     <link rel="icon" type="image/png" href="../../favicon.png" />
     <link rel="stylesheet" href="../../assets/style.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -98,6 +98,7 @@
           <label><input type="checkbox" id="ly-stop" checked /> <span class="swatch" style="border:none;background:#C0392B"></span> Stops</label>
           <label><input type="checkbox" id="ly-school" checked /> <span class="swatch" style="border:none;background:#1A1A1A"></span> Schools</label>
           <label><input type="checkbox" id="ly-mtr" checked /> <span class="swatch" style="border:none;background:#7A2E8E"></span> Walk from nearest MTR exit</label>
+          <label><input type="checkbox" id="ly-typ" checked /> <span class="swatch" style="border:2px dashed #16A085;background:none"></span> Bus/minibus-dependent schools</label>
           <p class="ctl-hint">Click a school dot to draw its routes.</p>
         </div>
       </details>
@@ -107,11 +108,13 @@
 
     <div id="panel">
       <div class="inner">
-        <h1>Covered Walkways to School — <span>Kowloon Peninsula</span></h1>
+        <h1>Covered Walkways to School — <span>Kowloon and Kwai Chung</span></h1>
         <p class="sub">
           How much of the walk from a public transport stop to each secondary school is under cover?
           Routes are shortest paths on the LandsD 3D Pedestrian Network — not straight lines.
-          Sham Shui Po · Kowloon City · Yau Tsim Mong, 103 schools.
+          Sham Shui Po · Kowloon City · Yau Tsim Mong · Wong Tai Sin · Kwun Tong · Kwai Chung, 164 schools.
+          Under the 15-minute rule, 107 schools are walk-access to MTR and 57 are bus/minibus-dependent —
+          those show both access routes side by side.
         </p>
         <div class="cols">
           <div>
@@ -140,10 +143,11 @@
               <li><span class="sq" style="background:#E08A1E"></span> Bus stop</li>
               <li><span class="sq" style="background:#6B4E9E"></span> Green minibus stop</li>
               <li><span class="dot" style="background:#1A1A1A"></span> Secondary school</li>
+              <li><span class="dot" style="border:2px dashed #16A085;background:none"></span> Bus/minibus-dependent school — over 15 min walk to MTR</li>
             </ul>
             <p class="foot" style="margin-top:.7rem">
-              <b>57 of 103</b> schools cannot avoid a walk of 200 m or more with no cover.
-              Only <b>2</b> have a completely covered walk.
+              <b>95 of 164</b> schools cannot avoid a walk of 200 m or more with no cover.
+              Only <b>1</b> has a completely covered walk.
             </p>
           </div>
         </div>
@@ -155,7 +159,7 @@
           <code>WeatherProof = 3</code> (unclassified) is counted as not covered.
           The <b>purple dashed line</b> is the worst-case walk from the nearest
           MTR station exit — the route a student must take if bus and minibus
-          service is out. Median 492 m, 8 min in rain.
+          service is out. Median 693 m, 12 min in rain.
           Method and assumptions: <a href="../../notes/kowloon-covered-walkways — NOTES.md">method note</a> ·
           <a href="https://github.com/davidtwmak-maker/NPLGIS">repository</a>
         </p>

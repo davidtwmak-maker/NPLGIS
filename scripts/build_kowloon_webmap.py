@@ -38,6 +38,13 @@ for d in (APPDATA, SITEDATA, os.path.join(VAULT, "arcgis")):
     os.makedirs(d, exist_ok=True)
 
 raw = json.load(open(os.path.join(WORK, "peninsula_routes_schools.json"), encoding="utf-8"))
+# access typology (15-min rule): walk-access vs bus/minibus-dependent, with
+# the paired bus reference and the priority tier.  Joined by school_id.
+typ_path = os.path.join(WORK, "access_typology.json")
+typ_by_id = {}
+if os.path.exists(typ_path):
+    typ_by_id = {r["school_id"]: r for r in json.load(open(typ_path, encoding="utf-8"))}
+print("access typology joined:", len(typ_by_id), "schools")
 routes = json.load(open(os.path.join(WORK, "peninsula_route_geometry.geojson"), encoding="utf-8"))
 covered = json.load(open(os.path.join(WORK, "peninsula_covered_paths.geojson"), encoding="utf-8"))
 pti = json.load(open(os.path.join(WORK, "peninsula_pti.geojson"), encoding="utf-8"))
@@ -73,6 +80,18 @@ for r in raw:
         "ai_best_cov_longest_exposed_m": r.get("ai_best_cov_longest_exposed_m"),
         "ai_n_pti_candidates": r.get("ai_n_pti_candidates"),
     }
+    _t = typ_by_id.get(r["school_id"])
+    if _t:
+        _b = _t["bus_ref"]
+        p["ac_access"] = _t["access"]
+        p["ac_walk_min"] = _t["walk_minutes"]
+        p["ac_bus_stop"] = (_b.get("stop_name") or _b.get("stop_id"))
+        p["ac_bus_route_m"] = _b.get("route_m")
+        p["ac_bus_cov"] = _b.get("covered_ratio")
+        p["ac_bus_gap_m"] = _b.get("longest_exposed_m")
+        p["ac_bus_n_routes"] = _b.get("n_routes_at_stop")
+        p["ac_bus_routes"] = _b.get("routes_at_stop")
+        p["ac_tier"] = _t["priority_tier"]
     schools["features"].append({
         "type": "Feature",
         "geometry": {"type": "Point", "coordinates": [r["lon"], r["lat"]]},
@@ -95,6 +114,22 @@ for r in raw:
         "short_gap_m": r.get("ai_longest_exposed_m"),
         "n_cand": r.get("ai_n_pti_candidates"),
     })
+    if _t:
+        summary[-1].update({
+            "access": _t["access"],
+            "walk_minutes": _t["walk_minutes"],
+            "bus_stop": _t["bus_ref"].get("stop_name") or _t["bus_ref"].get("stop_id"),
+            "bus_route_m": _t["bus_ref"].get("route_m"),
+            "bus_cov": _t["bus_ref"].get("covered_ratio"),
+            "bus_gap_m": _t["bus_ref"].get("longest_exposed_m"),
+            "bus_n_routes": _t["bus_ref"].get("n_routes_at_stop"),
+            "tier": _t["priority_tier"],
+        })
+
+# ---------------------------------------------------------------- app: MTR walks
+# The worst-case scenario: bus and minibus service is out, so the student
+# walks from the nearest MTR station exit.  These are the 164 walks.
+mtr_walks = json.load(open(os.path.join(WORK, "mtr_walk_routes.geojson"), encoding="utf-8"))
 
 # ---------------------------------------------------------------- app: routes
 # Keep every route (both kinds) and key it by school_id.
@@ -117,9 +152,11 @@ write_json(os.path.join(APPDATA, "routes.geojson"), app_routes)
 write_json(os.path.join(APPDATA, "stops.geojson"), pti)
 write_json(os.path.join(APPDATA, "covered_paths.geojson"), covered)
 write_json(os.path.join(APPDATA, "school_summary.json"), summary)
-print("app data: schools=%d routes=%d stops=%d covered=%d" % (
+write_json(os.path.join(APPDATA, "mtr_walks.geojson"), mtr_walks)
+print("app data: schools=%d routes=%d stops=%d covered=%d mtr_walks=%d" % (
     len(schools["features"]), len(app_routes["features"]),
-    len(pti["features"]), len(covered["features"])))
+    len(pti["features"]), len(covered["features"]),
+    len(mtr_walks["features"])))
 
 # ------------------------------------------------- published site data (gz)
 def copy_gz(src, dst):
@@ -130,13 +167,20 @@ def copy_gz(src, dst):
 
 copy_gz(os.path.join(WORK, "peninsula_route_geometry.geojson"),
         os.path.join(SITEDATA, "peninsula_route_geometry.geojson.gz"))
+copy_gz(os.path.join(WORK, "mtr_walk_routes.geojson"),
+        os.path.join(SITEDATA, "mtr_walk_routes.geojson.gz"))
 copy_gz(os.path.join(WORK, "peninsula_covered_paths.geojson"),
         os.path.join(SITEDATA, "peninsula_covered_paths.geojson.gz"))
 copy_gz(os.path.join(WORK, "peninsula_pti.geojson"),
         os.path.join(SITEDATA, "peninsula_pti.geojson.gz"))
+# the worst-case MTR walk, per school, as a flat table and as lines
+shutil.copyfile(os.path.join(WORK, "mtr_walk_schools.json"),
+                os.path.join(SITEDATA, "mtr_walk_schools.json"))
+shutil.copyfile(os.path.join(WORK, "mtr_walk_routes.geojson"),
+                os.path.join(SITEDATA, "mtr_walk_routes.geojson"))
 
 # The published copy of the school metrics drops the nested per-stop detail:
-# it is 16,269 records per school and turns a 130 kB file into 5.3 MB, for
+# it is up to 279 candidate stops per school and turns a 130 kB file into 5.3 MB, for
 # data the web map does not use.  The full version lives in the vault and in
 # the geodatabase's Route_Candidates class.
 PUBLIC_FIELDS = [

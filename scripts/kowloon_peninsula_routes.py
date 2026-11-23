@@ -1,18 +1,24 @@
 #!/usr/bin/env python3
-"""Kowloon Peninsula — covered-route analysis to secondary schools.
+"""Covered-route analysis to secondary schools — Kowloon, east and west.
 
 Question
 --------
-For each secondary school on the Kowloon Peninsula, how sheltered is the
-commute from the nearest public-transport stop (MTR exit / bus stop /
-green-minibus stop) to the school gate, walking on the LandsD 3D Pedestrian
-Network?
+For each registered secondary school, how sheltered is the commute from the
+nearest public-transport stop (MTR exit / bus stop / green-minibus stop) to
+the school gate, walking on the LandsD 3D Pedestrian Network?
+
+Study area
+----------
+Six Census 2021 District Council districts, added 22 November 2026:
+   深水埗區 Sham Shui Po    九龍城區 Kowloon City    油尖旺區 Yau Tsim Mong
+   黃大仙區 Wong Tai Sin   觀塘區 Kwun Tong        葵青區 Kwai Chung
+The first three are the Kowloon Peninsula; the study now also covers
+Kowloon East (Wong Tai Sin, Kwun Tong) and the western New Territories
+in Kowloon (Kwai Chung).
 
 Method
 ------
-1. Study area  = Census 2021 District Council polygons for 深水埗區 (Sham
-   Shui Po), 九龍城區 (Kowloon City) and 油尖旺區 (Yau Tsim Mong) — the
-   Kowloon Peninsula, excluding Kowloon East.
+1. Study area  = the six District Council polygons above.
 2. Network    = LandsD 3D Pedestrian Network, clipped to the study area.
    Each segment classified from the source's own fields:
        sheltered     WeatherProof == 1 (Covered)  OR  Location == 2 (Indoor)
@@ -57,7 +63,11 @@ OUT = os.path.join(BASE, "Sun-Rain Exposure", "out")
 for d in (WORK, OUT):
     os.makedirs(d, exist_ok=True)
 
-DISTRICTS = {"深水埗區": "Sham Shui Po", "九龍城區": "Kowloon City", "油尖旺區": "Yau Tsim Mong"}
+# The study area.  Kowloon Peninsula (Sham Shui Po, Kowloon City, Yau Tsim
+# Mong) plus Wong Tai Sin, Kwun Tong and Kwai Chung, added 22 November 2026.
+DISTRICTS = {"深水埗區": "Sham Shui Po", "九龍城區": "Kowloon City",
+             "油尖旺區": "Yau Tsim Mong", "黃大仙區": "Wong Tai Sin",
+             "觀塘區": "Kwun Tong", "葵青區": "Kwai Chung"}
 PTI_SEARCH_M = 800.0     # A1  straight-line radius for candidate stops
 SNAP_MAX_M = 150.0       # A2  max straight-line distance from school to network
 LAT0 = 22.32
@@ -81,9 +91,9 @@ for ft in dcs["features"]:
     if nm in DISTRICTS:
         dc_names[nm] = DISTRICTS[nm]
         dc_geoms[nm] = shape(ft["geometry"])
-peninsula = unary_union(list(dc_geoms.values()))
-minx, miny, maxx, maxy = peninsula.bounds
-log(f"peninsula: {list(dc_names.values())}  bounds={[round(v,4) for v in peninsula.bounds]}")
+study_area = unary_union(list(dc_geoms.values()))
+minx, miny, maxx, maxy = study_area.bounds
+log(f"study area: {list(dc_names.values())}  bounds={[round(v,4) for v in study_area.bounds]}")
 
 # --------------------------------------------------------------- the network
 CLS = {}
@@ -105,7 +115,7 @@ def load_network(fn):
         g = shape(ft["geometry"])
         if g.bounds[0] > maxx or g.bounds[2] < minx or g.bounds[1] > maxy or g.bounds[3] < miny:
             continue
-        if not g.intersects(peninsula):
+        if not g.intersects(study_area):
             continue
         parts = list(g.geoms) if g.geom_type == "MultiLineString" else [g]
         for part in parts:
@@ -232,7 +242,7 @@ for fn, kind in (("mtr_entry_points.geojson", "mtr"), ("td_bus_stops.geojson", "
     n_in = 0
     for ft in d["features"]:
         g = shape(ft["geometry"])
-        if not peninsula.intersects(g):
+        if not study_area.intersects(g):
             continue
         p = ft["properties"]
         if kind == "mtr":
@@ -289,21 +299,102 @@ for pt in pti:
 # ------------------------------------------------------------------ schools
 log("loading schools...")
 sch = json.load(open(os.path.join(RAW, "edb_secondary_schools_merged.geojson")))["features"]
-schools = []
+
+# ---------------------------------------------------------------- school filter
+# The study covers REGISTERED SECONDARY SCHOOLS only: government, aided and
+# direct-subsidy-scheme schools that operate a WHOLE-DAY secondary section.
+#
+# The EDB school registry does NOT hold one row per school.  It holds one row
+# per (school, registered premises, teaching session).  The School Registration
+# Number encodes all three:
+#
+#     SCRN = 6-digit school number | 4-digit location ID | 2-digit session code
+#     session code: 31 = A.M., 32 = P.M., 33 = whole day, 34 = evening
+#
+# So the merged file carries rows that are NOT registered secondary schools
+# for this purpose:
+#   - evening colleges, and A.M./P.M. secondary sections (session != whole day)
+#   - private and private-independent schools (outside the study scope)
+#   - caput schools (outside the study scope)
+#   - a second registered premises of the SAME school (a school with two
+#     registered sites appears twice)
+#
+# Filtering on finance type alone is NOT enough, and filtering on the dataset
+# alone is not enough either.
+SCHOOL_FINANCE = {"GOVERNMENT", "AIDED", "DIRECT SUBSIDY SCHEME"}
+SCHOOL_SESSION = "WHOLE DAY"
+PREMISES_MERGE_M = 150.0     # two registered sites this close are one campus
+
+
+def _metres_apart(a, b):
+    # lon/lat -> metres, using the HK scale factors
+    return math.hypot((a[0] - b[0]) * 102980.0, (a[1] - b[1]) * 110540.0)
+
+
+log("filtering to registered whole-day government / aided / DSS schools...")
+n_fin = n_sess = 0
+pre = []
 for ft in sch:
     g = shape(ft["geometry"])
-    if not peninsula.contains(g):
+    if not study_area.contains(g):
         continue
     p = ft["properties"]
+    if p.get("FinanceTypeEN") not in SCHOOL_FINANCE:
+        n_fin += 1
+        continue
+    if p.get("SessionEN") != SCHOOL_SESSION:
+        n_sess += 1
+        continue
+    pre.append((ft, g, p))
+log(f"  dropped {n_fin} by finance type, {n_sess} by session "
+    f"-> {len(pre)} registered whole-day schools")
+
+# Collapse a second registered premises of a school onto the main campus.
+# Two registered sites of the SAME school within PREMISES_MERGE_M of each
+# other are one campus (Lai Chack Middle School's Canton Road main site and
+# its Scout Path extension block are 100 m apart).  A genuinely separate
+# campus further away is KEPT as its own site, because students really do
+# attend there and the walk to it really is different.
+_by_no = {}
+for ft, g, p in pre:
+    _by_no.setdefault((p.get("SCRNEN") or "")[:6], []).append((ft, g, p))
+drop = set()
+n_pm = 0
+for no, group in _by_no.items():
+    if len(group) < 2:
+        continue
+    clusters = []
+    for item in group:
+        c = item[1].coords[0]
+        for cl in clusters:
+            if any(_metres_apart(c, other[1].coords[0]) <= PREMISES_MERGE_M
+                   for other in cl):
+                cl.append(item)
+                break
+        else:
+            clusters.append([item])
+    for cl in clusters:
+        # keep the lowest location ID; the registry uses it for the main site
+        cl_sorted = sorted(cl, key=lambda it: (it[2].get("SCRNEN") or "")[6:10])
+        for it in cl_sorted[1:]:
+            drop.add((it[2].get("dataset_id"), it[2].get("OBJECTID")))
+            n_pm += 1
+            log(f"  same campus, dropping the secondary premises: "
+                f"{it[2].get('NameEN')} ({it[2].get('AddressEN')})")
+log(f"  dropped {n_pm} duplicate campus records -> {len(pre) - len(drop)} sites")
+
+schools = []
+for ft, g, p in pre:
+    if (p.get("dataset_id"), p.get("OBJECTID")) in drop:
+        continue
     schools.append({"name": p.get("NameEN"), "name_tc": p.get("NameTC"),
                     "district": p.get("DistrictEN"), "type": p.get("DatasetEN"),
-                    # Six schools in the study area share a NAME with another
-                    # (two Rudolf Steiner campuses, two LAI CHACK sites, two
-                    # BEACON records).  Name alone is therefore NOT a usable
-                    # key for joining routes back to a school — it silently
-                    # merges three distinct campuses into one.
-                    #
-                    # OBJECTID alone is not enough either: the EDB schools
+                    "finance_type": p.get("FinanceTypeEN"),
+                    "session": p.get("SessionEN"),
+                    "school_no": (p.get("SCRNEN") or "")[:6],
+                    "location_id": (p.get("SCRNEN") or "")[6:10],
+                    "scrn": p.get("SCRNEN"),
+                    # OBJECTID alone is not a usable key: the EDB schools
                     # arrive as FIVE separate datasets (aided, private, DSS,
                     # government, caput) and each restarts its own OBJECTID
                     # counter, so "S33" is three different schools.
