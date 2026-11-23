@@ -241,11 +241,10 @@
     gFocusSchool.clearLayers();
 
     var opts = routeOptById[id] || {};
-    // three reference routes, by rule:
-    //   nearest_bus   the commute from the nearest bus/minibus stop (dashed)
-    //   most_shaded_m the walk with the most shaded METRES (solid, by shelter)
+    // two reference routes, by rule:
+    //   nearest_bus   the commute from the nearest bus/minibus stop (solid)
     //   nearest_mtr   the worst-case walk from the nearest MTR exit (purple)
-    var order = ["nearest_bus", "most_shaded_m", "nearest_mtr"];
+    var order = ["nearest_bus", "nearest_mtr"];
     var bounds = [];
 
     order.forEach(function (kind) {
@@ -253,20 +252,19 @@
       if (!f) return;
       var q = f.properties;
       var isMtr = kind === "nearest_mtr";
-      var isShade = kind === "most_shaded_m";
       var latlngs = lineLatLngs(f.geometry);
       var line = L.polyline(latlngs, {
-        color: isMtr ? "#7A2E8E" : (isShade ? covColor(q.ai_covered_ratio) : "#1F4E79"),
-        weight: isMtr ? 4.2 : (isShade ? 5 : 3.4),
+        color: isMtr ? "#7A2E8E" : "#1F4E79",
+        weight: isMtr ? 4.2 : 4,
         opacity: 1,
-        dashArray: isShade ? null : (isMtr ? "10,6" : "9,7"),
+        dashArray: isMtr ? "10,6" : null,
         lineCap: "round", lineJoin: "round"
       }).addTo(gFocus);
       var shadePct = Math.round((q.ai_covered_ratio || 0) * 100);
       line.bindTooltip(
         isMtr
-          ? "Walk from " + q.pti_name + ": " + fmt(q.ai_route_m) + " m"
-          : (isShade ? "Most shaded walk: " : "Nearest bus/minibus (" + q.pti_kind + " " + q.pti_name + "): ") +
+          ? "Walk from " + q.pti_name + ": " + fmt(q.ai_route_m) + " m, " + fmt(q.ai_covered_m) + " m shaded (" + shadePct + "%)"
+          : "Nearest bus/minibus (" + q.pti_kind + " " + q.pti_name + "): " +
             fmt(q.ai_route_m) + " m, " + fmt(q.ai_covered_m) + " m shaded (" + shadePct + "%)",
         { sticky: true }
       );
@@ -279,12 +277,12 @@
         var ll = mk.getLatLng();
         L.circleMarker(ll, {
           radius: 8, color: "#111111", weight: 2,
-          fillColor: isMtr ? "#7A2E8E" : (isShade ? covColor(q.ai_covered_ratio) : "#1F4E79"),
+          fillColor: isMtr ? "#7A2E8E" : "#1F4E79",
           fillOpacity: 1
         }).bindPopup(
           "<b>" + esc(q.pti_name) + "</b><br>" + esc(q.pti_kind) +
           "<br>Start of the " + (isMtr ? "walk from the nearest MTR exit"
-            : isShade ? "most-shaded walk" : "walk from the nearest bus/minibus stop") +
+            : "walk from the nearest bus/minibus stop") +
           " to " + esc(p.name)
         ).addTo(gFocusStop);
         L.polyline([ll, ll], { opacity: 0 }).addTo(gFocusStop);
@@ -341,7 +339,7 @@
         (p.ac_bus_cov != null ? p.ac_bus_cov.toFixed(2) : "–") +
         " &middot; gap " + fmt(p.ac_bus_gap_m) + " m"]);
     }
-    // the three route options drawn on the map (the ai_ro rules)
+    // the two route options drawn on the map (the ai_ro rules) + the 75/25 blend
     var ro = p.ai_ro || {};
     function roRow(label, o) {
       if (!o) return;
@@ -352,20 +350,26 @@
     }
     roRow("Nearest MTR exit", ro.nearest_mtr);
     roRow("Nearest bus/minibus", ro.nearest_bus);
-    roRow("Most shaded walk", ro.most_shaded_m);
-    rows.push(["Most-sheltered (share)", fmt(p.ai_best_cov_route_m) + " m &middot; " +
-      p.ai_best_cov_ratio.toFixed(2) + " covered &middot; gap " +
-      fmt(p.ai_best_cov_longest_exposed_m) + " m"]);
+    var w = p.w;
+    if (w) {
+      rows.push(["Weighting", (w.mode === "mtr"
+        ? "MTR 75% / bus-minibus 25%"
+        : "Bus-minibus 75% / MTR 25%") + " &middot; walk to MTR " +
+        fmt(ro.nearest_mtr ? ro.nearest_mtr.ai_route_m : 0) + " m"]);
+      rows.push(["Weighted distance", fmt(w.route_m) + " m"]);
+      rows.push(["Weighted shaded", fmt(w.shaded_m) + " m (" +
+        Math.round(w.shaded_ratio * 100) + "%)"]);
+    }
     rows.push(["Candidate stops", fmt(p.ai_n_pti_candidates)]);
     info.innerHTML = '<span class="iclose" id="info-close" title="Clear selection">×</span>' +
       '<div class="ih">' + esc(p.name) + "</div>" +
       rows.map(function (r) {
         return '<div class="ir"><span class="ik">' + r[0] + '</span><span class="iv">' + r[1] + "</span></div>";
       }).join("") +
-      '<div class="ihint">Three reference routes are drawn: the blue dashed line is the ' +
-        'commute from the nearest bus/minibus stop, the solid line is the walk with the most ' +
-        'shaded metres (metres of shade, not share), and the purple dashed line is the ' +
-        'worst-case walk from the nearest MTR exit. Ringed markers are each route\'s stop.</div>';
+      '<div class="ihint">Two reference routes are drawn: the blue line is the ' +
+        'commute from the nearest bus/minibus stop, the purple dashed line is the ' +
+        'worst-case walk from the nearest MTR exit. The panel blends them 75/25 toward ' +
+        'the mode the student would use (walk to MTR under 1,000 m means MTR-heavy).</div>';
     info.hidden = false;
     document.getElementById("info-close").addEventListener("click", clearSelection);
   }

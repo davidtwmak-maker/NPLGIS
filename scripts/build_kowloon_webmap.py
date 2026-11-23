@@ -183,6 +183,29 @@ for f in mtr_walks["features"]:
     mtr_fallback += 1
 print("route-option nearest_mtr filled from MTR walks:", mtr_fallback)
 
+# ------------------------------------------- weighted shade metric (75/25 blend)
+# Two routes per school: nearest MTR exit and nearest bus/minibus stop.  The
+# combined metric weights the mode the student would actually use:
+#   walk to MTR < 1,000 m -> MTR route 75%, bus/minibus 25%
+#   walk to MTR >= 1,000 m -> bus/minibus 75%, MTR 25%
+# weighted shaded % = weighted shaded metres / weighted distance.
+for s in summary:
+    _ro = s.get("ro") or {}
+    _m, _b = _ro.get("nearest_mtr"), _ro.get("nearest_bus")
+    if not (_m and _b):
+        continue
+    w_mtr = 0.75 if (_m.get("ai_route_m") or 0) < 1000 else 0.25
+    w_bus = 1.0 - w_mtr
+    wd = w_mtr * (_m.get("ai_route_m") or 0) + w_bus * (_b.get("ai_route_m") or 0)
+    ws = w_mtr * (_m.get("ai_covered_m") or 0) + w_bus * (_b.get("ai_covered_m") or 0)
+    w = {"mode": "mtr" if w_mtr == 0.75 else "bus", "mtr_weight": w_mtr,
+         "route_m": round(wd, 1), "shaded_m": round(ws, 1),
+         "shaded_ratio": round(ws / wd, 3) if wd else 0.0}
+    s["w"] = w
+    _pp = sch_by_id.get(s["school_id"])
+    if _pp is not None:
+        _pp["w"] = w
+
 # ---------------------------------------------------------------- write app data
 def write_json(path, obj):
     with open(path, "w", encoding="utf-8") as fh:
