@@ -122,16 +122,16 @@
         </p>
         <div class="cols">
           <div>
-            <h2>Worst schools — longest uncovered stretch</h2>
+            <h2>Lowest weighted shade</h2>
             <table id="tbl-worst">
-              <thead><tr><th>School</th><th class="num">Route</th><th class="num">Covered</th><th class="num">Gap</th></tr></thead>
+              <thead><tr><th>School</th><th class="num">W. distance</th><th class="num">Shaded</th></tr></thead>
               <tbody></tbody>
             </table>
           </div>
           <div>
-            <h2>Best schools — most sheltered route</h2>
+            <h2>Highest weighted shade</h2>
             <table id="tbl-best">
-              <thead><tr><th>School</th><th class="num">Route</th><th class="num">Covered</th><th class="num">Gap</th></tr></thead>
+              <thead><tr><th>School</th><th class="num">W. distance</th><th class="num">Shaded</th></tr></thead>
               <tbody></tbody>
             </table>
           </div>
@@ -149,8 +149,9 @@
               <li><span class="dot" style="border:2px dashed #16A085;background:none"></span> Bus/minibus-dependent school — over 15 min walk to MTR</li>
             </ul>
             <p class="foot" style="margin-top:.7rem">
-              <b>95 of 164</b> schools cannot avoid a walk of 200 m or more with no cover.
-              Only <b>1</b> has a completely covered walk.
+              Weighted distance blends the MTR and bus/minibus routes <b>75/25</b> toward the
+              mode the student would use (walk to MTR under 1,000 m means MTR-heavy).
+              Median school: <b>444 m</b> weighted distance, <b>7%</b> weighted shade.
             </p>
           </div>
         </div>
@@ -171,6 +172,6 @@
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
             integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    <script src="./app.js?v=20261123-4"></script>
+    <script src="./app.js?v=20261123-5"></script>
   </body>
 </html>

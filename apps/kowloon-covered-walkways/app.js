@@ -374,21 +374,24 @@
     document.getElementById("info-close").addEventListener("click", clearSelection);
   }
 
-  // ------------------------------------------------------------------- tables
+  // ------------------------------------------------------- tables (weighted)
+  // weighted distance and shaded share of the 75/25 two-route blend
   fetch("./data/school_summary.json").then(function (r) { return r.json(); }).then(function (d) {
     summary = d;
-    var worst = d.slice().sort(function (a, b) { return b.best_gap_m - a.best_gap_m; }).slice(0, 8);
-    var best = d.slice().sort(function (a, b) {
-      return (b.best_cov - a.best_cov) || (a.best_gap_m - b.best_gap_m);
+    var withW = d.filter(function (s) { return s.w; });
+    var best = withW.slice().sort(function (a, b) {
+      return (b.w.shaded_ratio - a.w.shaded_ratio) || (a.w.route_m - b.w.route_m);
+    }).slice(0, 8);
+    var worst = withW.slice().sort(function (a, b) {
+      return (a.w.shaded_ratio - b.w.shaded_ratio) || (b.w.route_m - a.w.route_m);
     }).slice(0, 8);
 
     function rows(list) {
       return list.map(function (s) {
         return '<tr data-id="' + esc(s.school_id) + '">' +
           "<td>" + esc(s.name) + "</td>" +
-          '<td class="num">' + fmt(s.best_route_m) + "</td>" +
-          '<td class="num">' + s.best_cov.toFixed(2) + "</td>" +
-          '<td class="num"><b>' + fmt(s.best_gap_m) + "</b></td></tr>";
+          '<td class="num">' + fmt(Math.round(s.w.route_m)) + "</td>" +
+          '<td class="num"><b>' + Math.round(s.w.shaded_ratio * 100) + "%</b></td></tr>";
       }).join("");
     }
     document.querySelector("#tbl-worst tbody").innerHTML = rows(worst);
