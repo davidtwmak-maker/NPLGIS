@@ -1,9 +1,10 @@
 /* Kowloon Covered Walkways to School — interactive map.
    Leaflet 1.9, no build step. Data in ./data (plain GeoJSON + JSON).
 
-   Clicking a school dot highlights ITS routes: the shortest route from the
-   nearest stop and the most-sheltered route from any stop, plus the stop
-   markers each route starts from.  Everything else on the map fades. */
+   Clicking a school dot highlights its blended routes: nearest bus stop,
+   nearest minibus stop and the worst-case walk from the nearest MTR exit,
+   plus the stop markers each route starts from.  The overview layers split
+   the routes to school by mode: via bus, via minibus, via MTR. */
 
 (function () {
   "use strict";
@@ -73,7 +74,8 @@
 
   // ------------------------------------------------------------- layer groups
   var gCov = L.layerGroup().addTo(map);      // the sheltered network
-  var gRoute = L.layerGroup().addTo(map);    // every route (dimmed by default)
+  var gRouteBus = L.layerGroup().addTo(map);  // routes to school — via bus
+  var gRouteMbus = L.layerGroup().addTo(map); // routes to school — via minibus
   var gStop = L.layerGroup().addTo(map);      // the 3,692 stops
   var gSchool = L.layerGroup().addTo(map);    // the schools
   var gMtrWalk = L.layerGroup().addTo(map);  // the walk from the nearest MTR exit
@@ -84,7 +86,6 @@
 
   var info = document.getElementById("info");
   var summary = [];
-  var routesById = {};       // school_id -> {shortest:..., best_covered:...}
   var schoolById = {};
   var mtrWalkById = {};       // school_id -> the MTR walk metrics
   var stopMarkerByKey = {};
@@ -115,35 +116,10 @@
       : conv(geom.coordinates);
   }
 
-  // --------------------------------------------------------------------- routes
-  fetch("./data/routes.geojson").then(function (r) { return r.json(); }).then(function (d) {
-    d.features.forEach(function (f) {
-      var p = f.properties;
-      var id = p.school_id;
-      if (!id) return;
-      if (!routesById[id]) routesById[id] = {};
-      routesById[id][p.ai_route_kind] = f;
-
-      var latlngs = lineLatLngs(f.geometry);
-      var kind = p.ai_route_kind;
-      var isBest = kind === "best_covered";
-      var line = L.polyline(latlngs, {
-        color: covColor(p.ai_covered_ratio),
-        weight: isBest ? 2.6 : 1.6,
-        opacity: isBest ? 0.95 : 0.55,
-        dashArray: isBest ? null : "5,4"
-      }).addTo(gRoute);
-
-      line.bindPopup(
-        "<b>" + esc(p.school) + "</b><br>" +
-        "<b>" + (isBest ? "Most-sheltered route" : "Nearest-stop route") + "</b><br>" +
-        "Route " + fmt(p.ai_route_m) + " m &middot; covered " +
-        (p.ai_covered_ratio).toFixed(2) + "<br>" +
-        "Longest uncovered stretch <b>" + fmt(p.ai_longest_exposed_m) + " m</b><br>" +
-        "From " + esc(p.pti_kind) + " " + esc(p.pti_name)
-      );
-    });
-  });
+  // ------------------------------- routes to school — by mode (overview)
+  // drawn from the route_options set inside the routeOptById fetch below:
+  // via bus and via minibus here, via MTR = the "walk from nearest MTR exit"
+  // layer (same routes, exit-level solve).
 
   // ---------------------------------------------------------------------- stops
   fetch("./data/stops.geojson").then(function (r) { return r.json(); }).then(function (d) {
@@ -175,11 +151,10 @@
         radius: 5, color: "#ffffff", weight: 1.1,
         fillColor: covColor(p.ai_best_cov_ratio), fillOpacity: 0.98
       });
+      var wp = p.w ? ("Weighted distance " + fmt(p.w.route_m) + " m &middot; shaded " +
+        fmt(p.w.shaded_m) + " m (" + Math.round(p.w.shaded_ratio * 100) + "%)") : "";
       m.bindPopup("<b>" + esc(p.name) + "</b><br>" +
-        esc(p.district) + " &middot; " + esc(p.type) + "<br>" +
-        "Most-sheltered route " + fmt(p.ai_best_cov_route_m) + " m, covered " +
-        p.ai_best_cov_ratio.toFixed(2) + "<br>" +
-        "Longest uncovered stretch <b>" + fmt(p.ai_best_cov_longest_exposed_m) + " m</b>");
+        esc(p.district) + " &middot; " + esc(p.type) + "<br>" + wp);
       m.on("click", function () {
         selectSchool(p.school_id);
         m.openPopup();
@@ -227,6 +202,22 @@
       var p = f.properties;
       if (!routeOptById[p.school_id]) routeOptById[p.school_id] = {};
       routeOptById[p.school_id][p.ai_route_kind] = f;
+
+      // overview: routes to school split by mode (MTR side = the walk layer)
+      var g = p.ai_route_kind === "nearest_bus" ? gRouteBus
+            : p.ai_route_kind === "nearest_minibus" ? gRouteMbus : null;
+      if (!g) return;
+      var isMbus = p.ai_route_kind === "nearest_minibus";
+      L.polyline(lineLatLngs(f.geometry), {
+        color: isMbus ? "#16A085" : "#1F4E79",
+        weight: 1.8, opacity: 0.7
+      }).bindPopup(
+        "<b>" + esc(p.school) + "</b><br>" +
+        "<b>Route to the nearest " + (isMbus ? "minibus" : "bus") + " stop</b><br>" +
+        "Route " + fmt(p.ai_route_m) + " m &middot; shaded " + fmt(p.ai_covered_m) +
+        " m (" + Math.round((p.ai_covered_ratio || 0) * 100) + "%)<br>" +
+        "From " + esc(p.pti_name)
+      ).addTo(g);
     });
   });
 
@@ -418,7 +409,8 @@
     });
   }
   bind("ly-cov", gCov);
-  bind("ly-route", gRoute);
+  bind("ly-route-bus", gRouteBus);
+  bind("ly-route-mbus", gRouteMbus);
   bind("ly-stop", gStop);
   bind("ly-school", gSchool);
   bind("ly-mtr", gMtrWalk);

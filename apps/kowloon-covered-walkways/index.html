@@ -96,7 +96,8 @@
         <summary>Layers</summary>
         <div class="ctl-body">
           <label><input type="checkbox" id="ly-cov" checked /> <span class="swatch" style="border:none;background:#1F6FB2"></span> Covered paths</label>
-          <label><input type="checkbox" id="ly-route" checked /> <span class="swatch" style="border:none;background:linear-gradient(90deg,#d73027,#fee08b,#1a9850)"></span> Routes to school</label>
+          <label><input type="checkbox" id="ly-route-bus" checked /> <span class="swatch" style="border:none;background:#1F4E79"></span> Routes to school — via bus</label>
+          <label><input type="checkbox" id="ly-route-mbus" checked /> <span class="swatch" style="border:none;background:#16A085"></span> Routes to school — via minibus</label>
           <label><input type="checkbox" id="ly-stop" checked /> <span class="swatch" style="border:none;background:#C0392B"></span> Stops</label>
           <label><input type="checkbox" id="ly-school" checked /> <span class="swatch" style="border:none;background:#1A1A1A"></span> Schools</label>
           <label><input type="checkbox" id="ly-mtr" checked /> <span class="swatch" style="border:none;background:#7A2E8E"></span> Walk from nearest MTR exit</label>
@@ -140,8 +141,7 @@
             <h2>Key</h2>
             <ul class="legend">
               <li><span class="ln" style="border-color:#1F6FB2"></span> Covered pedestrian path</li>
-              <li><span class="ln" style="border-color:#d73027"></span> Route, coloured by covered share</li>
-              <li><span class="ln" style="border-color:#1F4E79;border-top-width:3px"></span> Route to the nearest bus stop (solid)</li>
+              <li><span class="ln" style="border-color:#1F4E79;border-top-width:3px"></span> Route to the nearest bus stop</li>
               <li><span class="ln" style="border-color:#16A085;border-top-style:dashed"></span> Route to the nearest minibus stop (dashed)</li>
               <li><span class="ln" style="border-color:#7A2E8E;border-top-style:dashed"></span> Worst-case walk from the nearest MTR exit</li>
               <li><span class="sq" style="background:#C0392B"></span> MTR station exit</li>
@@ -175,6 +175,6 @@
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
             integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    <script src="./app.js?v=20261123-6"></script>
+    <script src="./app.js?v=20261123-7"></script>
   </body>
 </html>
