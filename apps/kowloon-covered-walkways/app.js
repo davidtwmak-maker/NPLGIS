@@ -102,6 +102,19 @@
       " Covered paths (" + fmt(d.features.length) + ")";
   });
 
+  // GeoJSON line geometry -> Leaflet latlngs.  Routes can be MULTI-PART
+  // (self-touching paths split into several coordinate arrays), so never map
+  // coordinates assuming a flat LineString: a nested part would leak into
+  // L.latLngBounds as a garbage point and fitBounds would zoom to the world.
+  function lineLatLngs(geom) {
+    function conv(part) {
+      return part.map(function (c) { return [c[1], c[0]]; });
+    }
+    return geom.type === "MultiLineString"
+      ? geom.coordinates.map(conv)
+      : conv(geom.coordinates);
+  }
+
   // --------------------------------------------------------------------- routes
   fetch("./data/routes.geojson").then(function (r) { return r.json(); }).then(function (d) {
     d.features.forEach(function (f) {
@@ -111,7 +124,7 @@
       if (!routesById[id]) routesById[id] = {};
       routesById[id][p.ai_route_kind] = f;
 
-      var latlngs = f.geometry.coordinates.map(function (c) { return [c[1], c[0]]; });
+      var latlngs = lineLatLngs(f.geometry);
       var kind = p.ai_route_kind;
       var isBest = kind === "best_covered";
       var line = L.polyline(latlngs, {
@@ -190,7 +203,7 @@
       var p = f.properties;
       p._coords = f.geometry.coordinates;
       mtrWalkById[p.school_id] = p;
-      var latlngs = f.geometry.coordinates.map(function (c) { return [c[1], c[0]]; });
+      var latlngs = lineLatLngs(f.geometry);
       L.polyline(latlngs, {
         color: "#7A2E8E",
         weight: 2.0,
@@ -225,7 +238,7 @@
       if (!f) return;
       var q = f.properties;
       var isBest = kind === "best_covered";
-      var latlngs = f.geometry.coordinates.map(function (c) { return [c[1], c[0]]; });
+      var latlngs = lineLatLngs(f.geometry);
       var line = L.polyline(latlngs, {
         color: covColor(q.ai_covered_ratio),
         weight: isBest ? 5 : 3.4,
@@ -238,7 +251,8 @@
         fmt(q.ai_route_m) + " m, " + Math.round(q.ai_covered_ratio * 100) + "% covered",
         { sticky: true }
       );
-      latlngs.forEach(function (ll) { bounds.push(ll); });
+      var lb = line.getBounds();
+      bounds.push(lb.getSouthWest(), lb.getNorthEast());
 
       // the stop this route starts from
       var mk = stopMarkerByKey[q.pti_kind + "|" + q.pti_name];
@@ -283,7 +297,9 @@
     gFocusSchool.addTo(map);
 
     if (bounds.length) {
-      map.fitBounds(L.latLngBounds(bounds).pad(0.12), { animate: true });
+      // snap, don't animate: an animated fitBounds can stall mid-transition in
+      // some webviews and leave the map at the old zoom
+      map.fitBounds(L.latLngBounds(bounds).pad(0.12), { animate: false });
     }
     showInfo(p);
   }
