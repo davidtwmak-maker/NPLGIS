@@ -14,12 +14,27 @@
   var map = L.map("map", { maxBounds: L.latLngBounds(BOUNDS).pad(0.25) });
   map.fitBounds(BOUNDS);
 
-  // CARTO dropped key-free CDN access (tiles return "API KEY REQUIRED"),
-  // so the basemap is plain OpenStreetMap tiles — no key, stable, attributed.
-  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  // CARTO basemap (Voyager raster) with our key, OSM as automatic fallback.
+  // The key is a client-side public map key: visible in page source by design.
+  // Restrict it to davidtwmak-maker.github.io in the CARTO dashboard.
+  var cartoAttr = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://carto.com/attribution/">CARTO</a>';
+  var cartoTiles = L.tileLayer(
+    "https://basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png?key=cb1_5e7q_1_85ae0d36d7f988e48b1cb227",
+    { attribution: cartoAttr, maxNativeZoom: 18, maxZoom: 20 }
+  );
+  var osmTiles = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     maxZoom: 19
-  }).addTo(map);
+  });
+  // Fall back to OSM if CARTO tiles fail (bad key, quota, outage).
+  var tileFails = 0;
+  cartoTiles.on("tileerror", function () {
+    if (++tileFails >= 3 && map.hasLayer(cartoTiles)) {
+      map.removeLayer(cartoTiles);
+      osmTiles.addTo(map);
+    }
+  });
+  cartoTiles.addTo(map);
 
   // red (0 covered) -> green (1 covered), matching the static figure
   function covColor(v) {
