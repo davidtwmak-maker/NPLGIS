@@ -182,6 +182,21 @@
           </article>
 
           <article class="card">
+            <h3>Self-study rooms</h3>
+            <p>
+              194 study rooms against 160,833 senior-secondary students. The seats are
+              not full — weighted 2025 library utilisation is 29.3% — but they are in
+              the wrong places: a 5.2&times; spread in students per 100 seats. And
+              <strong>128 of 211 census small areas contain no study room at all</strong>,
+              holding most of the students who live in the smallest flats.
+            </p>
+            <p class="meta">
+              EDB study rooms &middot; C&amp;SD 2021 small areas &middot; LandsD 3D pedestrian network
+              &middot; LegCo reply CSTB217
+            </p>
+          </article>
+
+          <article class="card">
             <h3>Historical maps</h3>
             <p>
               21 sheets of the LandsD historical map series, 1889 to 1970, over the
@@ -294,6 +309,20 @@
                    alt="Map of Hong Kong showing the land below 5 metres above sea level in blue over the 5 metre terrain model, with the ten largest low-lying patches numbered and named — Yuen Long, the northern New Territories coast, Tolo Harbour, Tai O on Lantau, the south Lantau coast, Kwai Chung, the Tuen Mun coast, Lok Ma Chau and Ma On Shan" loading="lazy" />
             </a>
             <figcaption><strong>Land below 5 metres</strong> — 60.6 km², 5.4% of Hong Kong's land, mapped from the 5 m DTM</figcaption>
+          </figure>
+          <figure>
+            <a href="./assets/maps/self-study-rooms/fig_study_rooms_gap.png">
+              <img src="./assets/maps/self-study-rooms/fig_study_rooms_gap.png"
+                   alt="Map of Hong Kong showing the 194 study rooms and 514 secondary schools, with the three most contended districts shaded, and beside it a scatter plot of senior-secondary students per 100 seats against 2025 library study-seat utilisation for all 18 districts" loading="lazy" />
+            </a>
+            <figcaption><strong>Self-study rooms: supply gap</strong> — 194 rooms, 6,521 seats, 160,833 senior-secondary students</figcaption>
+          </figure>
+          <figure>
+            <a href="./assets/maps/self-study-rooms/fig_crowding_small_area.png">
+              <img src="./assets/maps/self-study-rooms/fig_crowding_small_area.png"
+                   alt="Choropleth map of Hong Kong's 211 census small areas coloured by residents aged 15 to 24 per study room, with the 128 small areas containing no study room hatched in grey and the study rooms marked as red squares" loading="lazy" />
+            </a>
+            <figcaption><strong>Where the students live</strong> — 128 of 211 small areas hold no study room at all</figcaption>
           </figure>
         </div>
       </section>
@@ -505,7 +534,52 @@
                 <td>7 feature classes</td>
                 <td>Esri File Geodatabase, <strong>EPSG:2326 (Hong Kong 1980 Grid)</strong> — opens natively in ArcGIS Pro: <code>Schools_RouteMetrics</code> (164), <code>Route_Candidates</code> (24,978), <code>Routes_To_School</code> (328), <code>Covered_Paths</code> (34,533), <code>Stops_PTI</code> (3,692), <code>MTR_WorstCase_Walks</code> (164), <code>MTR_WorstCase_Schools</code> (164)</td>
               </tr>
-            </tbody>
+              <tr>
+                <td><code>assets/data/self-study-rooms/study_rooms.geojson</code></td>
+                <td>194</td>
+                <td>Every self-study room in Hong Kong, with its name and address. Education Bureau, EPSG:4326</td>
+              </tr>
+              <tr>
+                <td><code>assets/data/self-study-rooms/census_small_areas_slim.geojson.gz</code></td>
+                <td>211</td>
+                <td>The 2021 census small areas, slimmed to the 18 attributes the analysis uses: age bands, employment status and median floor area. C&amp;SD, EPSG:4326</td>
+              </tr>
+              <tr>
+                <td><code>assets/data/self-study-rooms/district_boundaries.geojson.gz</code></td>
+                <td>18</td>
+                <td>The District Council district boundaries, for the district-level join. C&amp;SD, EPSG:4326</td>
+              </tr>
+              <tr>
+                <td><code>assets/data/self-study-rooms/sec_enrol_district_grade.csv</code></td>
+                <td>22</td>
+                <td>Senior-secondary enrolment by district and grade, S1&ndash;S7, 2025/26. Education Bureau (published as a table, with no geometry)</td>
+              </tr>
+              <tr>
+                <td><code>assets/data/self-study-rooms/district_table.csv</code></td>
+                <td>18</td>
+                <td>The master table: enrolment, library seats and 2025 utilisation from the LegCo reply, census counts and median floor area</td>
+              </tr>
+              <tr>
+                <td><code>assets/data/self-study-rooms/crowding_small_area.csv</code></td>
+                <td>211</td>
+                <td>Per small area: median floor area, students, retired people and the number of study rooms inside it</td>
+              </tr>
+              <tr>
+                <td><code>assets/data/self-study-rooms/network_walk.csv</code></td>
+                <td>514</td>
+                <td>Every secondary school and its nearest study room, walked on the LandsD 3D pedestrian network</td>
+              </tr>
+              <tr>
+                <td><code>assets/data/self-study-rooms/elderly_competition_test.json</code></td>
+                <td>—</td>
+                <td>The regression and partial correlations behind the elderly-competition test, including the spurious shared-denominator correlation</td>
+              </tr>
+              <tr>
+                <td><code>assets/data/self-study-rooms/field_decode_audit.json</code></td>
+                <td>—</td>
+                <td>The seven proofs that decode the opaque C&amp;SD field codes by recomputing published figures</td>
+              </tr>
+</tbody>
           </table>
         </div>
         <p class="note">

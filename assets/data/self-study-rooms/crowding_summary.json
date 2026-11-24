@@ -1,0 +1,13 @@
+{
+ "territory_median_floor_area_m2": 46.0,
+ "n_small_areas": 211,
+ "n_small_areas_below_median": 105,
+ "study_rooms_inside_small_areas": 194,
+ "study_rooms_total": 194,
+ "small_areas_with_no_study_room": 128,
+ "students_total": 1044577,
+ "students_in_small_accommodation": 743605,
+ "share_students_in_small_accommodation_pct": 71.2,
+ "rooms_in_small_areas": 169,
+ "students_per_room_in_small_areas": 4400.0
+}

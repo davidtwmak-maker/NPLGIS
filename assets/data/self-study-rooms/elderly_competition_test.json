@@ -1,0 +1,35 @@
+{
+ "regression": {
+  "intercept": 23.168,
+  "b_per_1000_students": 1.29,
+  "b_ci95": [
+   -1.9,
+   3.965
+  ],
+  "c_per_1000_retired": -0.064,
+  "c_ci95": [
+   -0.335,
+   0.469
+  ],
+  "r2": 0.096,
+  "adj_r2": -0.024,
+  "n": 18,
+  "r2_students_only": 0.082,
+  "r2_retired_only": 0.027
+ },
+ "partial_correlations": {
+  "util_vs_students_given_retired": 0.268,
+  "util_vs_retired_given_students": -0.126,
+  "util_vs_65plus_given_students": -0.212,
+  "students_vs_retired": 0.815
+ },
+ "spurious_shared_denominator": {
+  "students_per_100_seats_vs_retired_per_seat": 0.866,
+  "util_vs_retired_per_seat": 0.554
+ },
+ "admission_card_applications": {
+  "2023": 2506,
+  "2024": 2618,
+  "2025": 2508
+ }
+}

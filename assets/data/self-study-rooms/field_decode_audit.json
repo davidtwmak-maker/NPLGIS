@@ -1,0 +1,88 @@
+{
+  "checks": [
+    {
+      "check": "1. age_1..age_5 band boundaries = 0-14 / 15-24 / 25-44 / 45-64 / 65+",
+      "passed": true,
+      "detail": {
+        "band_0-14": "csdi=807,737.0 usual=804,007 mobile=3,831 residual=-101.0",
+        "band_15-24": "csdi=591,073.0 usual=577,968 mobile=13,146 residual=-41.0",
+        "band_25-44": "csdi=2,159,351.0 usual=2,140,905 mobile=18,884 residual=-438.0",
+        "band_45-64": "csdi=2,402,340.0 usual=2,373,454 mobile=29,361 residual=-475.0",
+        "band_65+": "csdi=1,451,444.0 usual=1,438,318 mobile=13,196 residual=-70.0",
+        "sum_residual": -1125.0,
+        "expected_institutional_population": 1125
+      }
+    },
+    {
+      "check": "2. t_pop = land-based non-institutional population",
+      "passed": true,
+      "detail": {
+        "sum_t_pop": "7,411,945",
+        "C&SD published land-based total": "7,411,945"
+      }
+    },
+    {
+      "check": "3. t_wp + t_nwp == t_pop (18/18 districts)",
+      "passed": true,
+      "detail": {
+        "districts_failing": 0,
+        "n_districts": 18
+      }
+    },
+    {
+      "check": "4. nwp_st + nwp_re + nwp_care + nwp_hm + nwp_oth == t_nwp",
+      "passed": true,
+      "detail": {
+        "districts_failing": 0,
+        "territory_total_nwp_categories": "3,731,538",
+        "territory_t_nwp": "3,731,538"
+      }
+    },
+    {
+      "check": "5. fa_m = median floor area of accommodation (m2)",
+      "passed": true,
+      "detail": {
+        "territory_median_of_district_medians_m2": 41.0,
+        "C&SD published territory median floor area": "40 m2 (Main Results Table 7.10 / Summary Table 6.7)"
+      }
+    },
+    {
+      "check": "6. dh = domestic households (persons per household plausible)",
+      "passed": true,
+      "detail": {
+        "sum_dh": "2,673,714",
+        "sum_t_pop": "7,411,945",
+        "persons_per_household": 2.772,
+        "C&SD territory average domestic household size": "2.8 (2021 Census)"
+      }
+    },
+    {
+      "check": "7. fa_m plausible on the 540 major-housing-estate units",
+      "passed": true,
+      "detail": {
+        "n_estates": 540,
+        "median_fa_m_m2": 42.0,
+        "min": 12.0,
+        "max": 148.0
+      }
+    }
+  ],
+  "all_passed": true,
+  "field_decoding": {
+    "age_1": "0-14",
+    "age_2": "15-24",
+    "age_3": "25-44",
+    "age_4": "45-64",
+    "age_5": "65+",
+    "t_pop": "land-based non-institutional population",
+    "t_wp": "working population",
+    "t_nwp": "non-working population",
+    "nwp_st": "non-working students",
+    "nwp_re": "retired persons",
+    "nwp_care": "home caregivers",
+    "nwp_hm": "home-makers (household duties)",
+    "nwp_oth": "other non-working",
+    "dh": "domestic households",
+    "fa_m": "median floor area of accommodation (m2)"
+  }
+}

@@ -441,7 +441,7 @@ Each project's note in `notes/` lists the inputs its scripts expect.
 
 ## Student worksheets
 
-Six task sheets built from the projects in this repository, for secondary students
+Seven task sheets built from the projects in this repository, for secondary students
 and CSDI Awards entrants — real data, the real method, the check numbers, the
 traps, and the limitations to declare.
 
@@ -455,10 +455,14 @@ Start with **`worksheets/Student Worksheets — GIS Projects.md`** (the index).
 | Festival Walk 3D Mall Model | How do you get between floors in a mall built into a hillside? |
 | Building Heights in 3D | What does a city look like when you can see its height? |
 | MTR Fare Saver Map | Which neighbourhoods have no fare-saver mall within a short walk? |
+| Self-Study Rooms Seat Supply and Access | Can Hong Kong's study rooms serve the students taking the DSE? |
 
 Every live figure in them was re-verified against the source service on
 26 Oct 2026, and the Sham Shui Po building-height statistics were recomputed from
-`B1K_Bldg` rather than copied.
+`B1K_Bldg` rather than copied. The self-study-rooms sheet was added on
+24 Nov 2026 and its published note and worksheet are checked against the shipped
+layers by `scripts/self-study-rooms/verify_notes.py` — 136 assertions that fail
+if either the data or the note drifts.
 
 ---
 

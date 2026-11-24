@@ -1,7 +1,7 @@
 {
- "generated": "2026-11-05",
+ "generated": "2026-11-24",
  "repository": "davidtwmak-maker/NPLGIS",
- "note": "Every layer shipped in assets/data plus the Festival Walk 3D app data. Features counted from the file itself. Floor plate heights are schematic (5.5 m storey, 2x vertical exaggeration). The G floor is set to Tat Chee Avenue (達之路) at the junction where it meets the mall - 33.0 m measured from Esri WorldElevation3D Terrain3D - and the podium is a schematic foundation mass, not measured architectural heights. | 2026-11-05: added HK Steep Slopes >30 deg - 33,231 polygons of ground steeper than 30 degrees (113.29 km2 = 10.09% of land), the five-class slope raster at 20 m, the maximum-slope raster, and the two-panel map. Slope is the MAXIMUM gradient within each 20 m cell, not the mean: 22,700 recorded incidents sit in cells whose mean slope is under 30 degrees but whose max is over it, so a mean threshold would erase a fifth of the evidence. Area reconciliation error 0.0 m2, 0 invalid geometries. ",
+ "note": "Every layer shipped in assets/data plus the Festival Walk 3D app data. Features counted from the file itself. Floor plate heights are schematic (5.5 m storey, 2x vertical exaggeration). The G floor is set to Tat Chee Avenue (達之路) at the junction where it meets the mall - 33.0 m measured from Esri WorldElevation3D Terrain3D - and the podium is a schematic foundation mass, not measured architectural heights. | 2026-11-05: added HK Steep Slopes >30 deg - 33,231 polygons of ground steeper than 30 degrees (113.29 km2 = 10.09% of land), the five-class slope raster at 20 m, the maximum-slope raster, and the two-panel map. Slope is the MAXIMUM gradient within each 20 m cell, not the mean: 22,700 recorded incidents sit in cells whose mean slope is under 30 degrees but whose max is over it, so a mean threshold would erase a fifth of the evidence. Area reconciliation error 0.0 m2, 0 invalid geometries.  | 2026-11-24: added the Hong Kong self-study rooms project - 194 study rooms, 211 census small areas, 18 district boundaries, the district master table, the small-area crowding table, the network walk for 514 schools, the elderly-competition test and the field-code audit, plus two maps and a student worksheet. Seat counts and utilisation come from the Government's LegCo reply CSTB217, not from any dataset. The census field codes are opaque and were PROVED by recomputing published figures (7/7 checks). The obvious elderly-competition correlation of +0.866 is a shared-denominator artefact; the corrected test on counts finds no effect (adjusted R2 = -0.024, n = 18).",
  "sources": [
   {
    "name": "3D Pedestrian Network",
@@ -250,6 +250,36 @@
    "name": "Secondary schools (EDB, 5 datasets)",
    "id": "edb_rcd_1629267205213_53323 + 92681 + 87907 + 94310 + 23500",
    "provider": "Education Bureau via CSDI Portal"
+  },
+  {
+   "name": "List of Study Room",
+   "id": "edb_rcd_1633320468580_185",
+   "provider": "Education Bureau via CSDI Portal",
+   "url": "https://portal.csdi.gov.hk/server/rest/services/common/edb_rcd_1633320468580_185/FeatureServer"
+  },
+  {
+   "name": "Student Enrolment in Secondary Day Schools by District and Grade",
+   "id": "edb_rcd_1633336508088_48919",
+   "provider": "Education Bureau via CSDI Portal",
+   "url": "https://portal.csdi.gov.hk/server/rest/services/common/edb_rcd_1633336508088_48919/FeatureServer"
+  },
+  {
+   "name": "Census 2021 small areas (STPUG) with theme statistics",
+   "id": "censtatd_rcd_1635933193720_58660",
+   "provider": "Census and Statistics Department via CSDI Portal",
+   "url": "https://portal.csdi.gov.hk/server/rest/services/common/censtatd_rcd_1635933193720_58660/FeatureServer"
+  },
+  {
+   "name": "District Council district boundaries",
+   "id": "censtatd_rcd_1635932856094_19982",
+   "provider": "Census and Statistics Department via CSDI Portal",
+   "url": "https://portal.csdi.gov.hk/server/rest/services/common/censtatd_rcd_1635932856094_19982/FeatureServer"
+  },
+  {
+   "name": "Reply to LegCo Question 3479 (CSTB217) — library study-room seats and utilisation",
+   "id": "CSTB217",
+   "provider": "Government reply to the Legislative Council",
+   "url": "https://hkpl.gov.hk/en/library-notices/Resumption_20220421.html"
   }
  ],
  "files": [
@@ -1529,6 +1559,171 @@
    "records": "164",
    "notes": "Whole routes, already merged - one feature per school. EPSG:4326.",
    "sha256": "7bae0645dc41a783"
+  },
+  {
+   "file": "assets/data/self-study-rooms/study_rooms.geojson",
+   "bytes": 155743,
+   "mb": 0.149,
+   "gzipped": false,
+   "features": 194,
+   "title": "Every self-study room in Hong Kong, with its name and address",
+   "dataset_id": "edb_rcd_1633320468580_185",
+   "records": "",
+   "notes": "Education Bureau 'List of Study Room'. The only layer that lists all 194 rooms with coordinates. It carries NO seat count and NO utilisation - those come from the Government's LegCo reply CSTB217 (Q. 3479, 24 Jun 2026).",
+   "sha256": "82b6b3b195a0563e"
+  },
+  {
+   "file": "assets/data/self-study-rooms/census_small_areas_slim.geojson.gz",
+   "bytes": 11116239,
+   "mb": 10.601,
+   "gzipped": true,
+   "features": 211,
+   "title": "Census small areas, slimmed to the 18 attributes the analysis uses",
+   "dataset_id": "censtatd_rcd_1635933193720_58660",
+   "records": "",
+   "notes": "C&SD 2021 census small areas (STPUG). The source layer carries 211 attributes per unit; this ships 18: the five age bands, the working/non-working totals, the non-working student / retired / homemaker / carer / other counts, the median floor area (fa_m) and the household count. The field codes are opaque and were PROVED by recomputing published C&SD figures - see field_decode_audit.json.",
+   "sha256": "4734e9a5b41c0566"
+  },
+  {
+   "file": "assets/data/self-study-rooms/district_boundaries.geojson.gz",
+   "bytes": 8243037,
+   "mb": 7.861,
+   "gzipped": true,
+   "features": 18,
+   "title": "District Council district boundaries",
+   "dataset_id": "censtatd_rcd_1635932856094_19982",
+   "records": "",
+   "notes": "C&SD 2021 district boundaries, for the district-level join.",
+   "sha256": "3a6cc012ebc3a4a9"
+  },
+  {
+   "file": "assets/data/self-study-rooms/sec_enrol_district_grade.csv",
+   "bytes": 1574,
+   "mb": 0.002,
+   "gzipped": false,
+   "features": null,
+   "title": "Senior-secondary enrolment by district and grade",
+   "dataset_id": "edb_rcd_1633336508088_48919",
+   "records": "",
+   "notes": "Education Bureau enrolment by district and grade S1-S7 for 2025/26. EDB publishes this as a TABLE with no geometry, so it ships as a CSV rather than a GeoJSON. The total of all grades sums to 347,820, which matches the published total exactly.",
+   "sha256": "eb78d74e46b11c3d"
+  },
+  {
+   "file": "assets/data/self-study-rooms/district_table.csv",
+   "bytes": 1667,
+   "mb": 0.002,
+   "gzipped": false,
+   "features": null,
+   "title": "The master district table: supply, demand and crowding",
+   "dataset_id": "",
+   "records": "",
+   "notes": "18 rows. Senior-secondary enrolment (S1-S7 and S4-S6), library seats and 2025 utilisation from the LegCo reply, census student and retired counts, median floor area, students per household and the crowding index.",
+   "sha256": "74520c62b186bd35"
+  },
+  {
+   "file": "assets/data/self-study-rooms/crowding_small_area.csv",
+   "bytes": 9971,
+   "mb": 0.01,
+   "gzipped": false,
+   "features": null,
+   "title": "Per small area: median floor area, students and study rooms",
+   "dataset_id": "censtatd_rcd_1635933193720_58660",
+   "records": "",
+   "notes": "211 rows. The crowding measure: residents aged 15-24 per study room in each census small area, with the median floor area of the households there.",
+   "sha256": "4735f7a328368318"
+  },
+  {
+   "file": "assets/data/self-study-rooms/network_walk.csv",
+   "bytes": 82774,
+   "mb": 0.079,
+   "gzipped": false,
+   "features": null,
+   "title": "Every secondary school and its nearest study room, walked on the network",
+   "dataset_id": "landsd_rcd_1637222018065_52265",
+   "records": "",
+   "notes": "514 schools. The walk is a Dijkstra shortest path on the full LandsD 3D pedestrian network (465,892 features, 1.42M graph nodes), NOT a straight line. Four schools are unroutable and are flagged, not counted as zero.",
+   "sha256": "ac194cbc613b5978"
+  },
+  {
+   "file": "assets/data/self-study-rooms/elderly_competition_test.json",
+   "bytes": 693,
+   "mb": 0.001,
+   "gzipped": false,
+   "features": null,
+   "title": "The regression and partial correlations behind the elderly-competition test",
+   "dataset_id": "",
+   "records": "",
+   "notes": "Records the spurious shared-denominator correlation (r = +0.866) AND the corrected test on counts (retired persons per 1,000 students: beta = -0.064, CI includes zero; adjusted R2 = -0.024, n = 18), plus the exam-period admission-card applications for 2023-2025.",
+   "sha256": "7a534b5dee5e40a9"
+  },
+  {
+   "file": "assets/data/self-study-rooms/field_decode_audit.json",
+   "bytes": 2754,
+   "mb": 0.003,
+   "gzipped": false,
+   "features": null,
+   "title": "The seven proofs that decode the opaque C&SD field codes",
+   "dataset_id": "censtatd_rcd_1635933193720_58660",
+   "records": "",
+   "notes": "Each field code is proved by recomputing a published C&SD figure, not guessed. The decisive check: the five age bands sum to the population total in all 18 districts and the residual of -1,125 is exactly the institutional (hospital) population the land-based census definition excludes.",
+   "sha256": "e56abd098272c03a"
+  },
+  {
+   "file": "assets/data/self-study-rooms/network_summary.json",
+   "bytes": 1099,
+   "mb": 0.001,
+   "gzipped": false,
+   "features": null,
+   "title": "Distance-band counts and the route summary",
+   "dataset_id": "",
+   "records": "",
+   "notes": "The walk-distance bands (159 / 292 / 382 / 436 / 484 schools within 400 m to 1,500 m) against the straight-line counts, the detour factors and the snap distances.",
+   "sha256": "413c026796fe6c1d"
+  },
+  {
+   "file": "assets/data/self-study-rooms/crowding_summary.json",
+   "bytes": 408,
+   "mb": 0.0,
+   "gzipped": false,
+   "features": null,
+   "title": "The crowding thresholds",
+   "dataset_id": "censtatd_rcd_1635933193720_58660",
+   "records": "",
+   "notes": "The territory median floor area (46 m2), the number of small areas below it, the students and study rooms they hold, and the number with no study room at all (128 of 211).",
+   "sha256": "f8851f056e9aa96d"
+  },
+  {
+   "file": "assets/maps/self-study-rooms/fig_study_rooms_gap.png",
+   "bytes": 516531,
+   "mb": 0.493,
+   "gzipped": false,
+   "features": null,
+   "title": "Self-study rooms: supply gap and demand-vs-supply scatter",
+   "dataset_id": "",
+   "records": "",
+   "notes": "Two panels. Left: the 194 study rooms and 514 secondary schools, with the three most contended districts shaded. Right: senior-secondary students per 100 seats against 2025 library utilisation for all 18 districts, with the trend line.",
+   "sha256": "2bbbb42442bdcdca"
+  },
+  {
+   "file": "assets/maps/self-study-rooms/fig_crowding_small_area.png",
+   "bytes": 417452,
+   "mb": 0.398,
+   "gzipped": false,
+   "features": null,
+   "title": "Crowding: residents aged 15-24 per study room, by census small area",
+   "dataset_id": "",
+   "records": "",
+   "notes": "211 census small areas coloured by residents aged 15-24 per study room. The 128 small areas with NO study room inside are hatched, and the study rooms are marked as red squares.",
+   "sha256": "699d390b3b3c10ac"
+  },
+  {
+   "name": "HK self-study rooms — seat supply, student demand and walking access",
+   "file": "notes/hk-self-study-rooms — NOTES.md",
+   "description": "The full method note: every layer with its CSDI id and record count, the field-code proofs, the three findings (no evidence of elderly competition; the seats are not full but are unevenly placed; 128 of 211 small areas have no study room), the network-vs-straight-line result, the reproducibility chain and the caveats to declare.",
+   "format": "markdown",
+   "bytes": 11118,
+   "mb": 0.011,
+   "sha256": "6e351271b8425d93"
   }
  ],
  "scripts": [
@@ -1915,6 +2110,24 @@
    "bytes": 12370,
    "sha256": "c4c4550e1136d2c7",
    "description": "Builds the Leaflet app data, the published site data and the Esri File Geodatabase (EPSG:2326) from the analysis outputs. Flattens the nested per-stop JSON into its own feature class and keys everything on dataset_id + OBJECTID, because six schools share a name."
+  },
+  {
+   "file": "scripts/self-study-rooms/build_layers.py",
+   "bytes": 6173,
+   "sha256": "f956e801f45ad252",
+   "description": "Build the shipping layers from the working folder: convert the CSDI ArcGIS shaped downloads to RFC 7946, slim the census small areas to the attributes the analysis uses, and copy the analysis tables and figures into the repo."
+  },
+  {
+   "file": "scripts/self-study-rooms/verify_notes.py",
+   "bytes": 21952,
+   "sha256": "4c937b6a9b4d3cca",
+   "description": "Check every number in the published notes against the shipped layers - 136 assertions covering the district table, both walk-band table orientations, the crowding thresholds and each prose claim. The patterns CAPTURE the number the note states, so a swapped or drifted value fails."
+  },
+  {
+   "file": "scripts/self-study-rooms/update_manifest.py",
+   "bytes": 13221,
+   "sha256": "d8e3343aa28a72aa",
+   "description": "Extend assets/data/MANIFEST.json with the self-study-rooms entries, in place, with every feature count, byte size and sha256 measured from the shipped file rather than carried over from a build step."
   }
  ]
 }

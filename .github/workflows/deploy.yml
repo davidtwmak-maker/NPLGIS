@@ -61,7 +61,11 @@ jobs:
           test -f worksheet-site/index.html
           n=$(ls worksheet-site/*.html | wc -l | tr -d ' ')
           echo "  ok   $n worksheet pages built"
-          [ "$n" -eq 7 ] || { echo "::error::expected 7 worksheet pages, got $n"; exit 1; }
+          # the count is derived from the source files, not hard-coded, so
+          # adding a worksheet does not need this workflow edited
+          expect=$(ls worksheets/Student\ Worksheet\ *.md | grep -v 'Student Worksheets' | wc -l | tr -d ' ')
+          echo "  expect $expect worksheet pages (one per source sheet, plus the index)"
+          [ "$n" -eq $((expect + 1)) ] || { echo "::error::expected $((expect + 1)) worksheet pages, got $n"; exit 1; }
 
       - name: Verify every map referenced by the landing page exists
         run: |

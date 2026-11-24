@@ -1,0 +1,50 @@
+{
+  "network_features": 465892,
+  "graph_nodes": 1420016,
+  "graph_segments": 1497743,
+  "graph_unique_edges": 1497741,
+  "schools": 514,
+  "schools_reachable": 510,
+  "schools_unreachable": 4,
+  "snap_distance_m": {
+    "study_rooms": {
+      "median": 11.265378857823055,
+      "max": 42.03622772123102
+    },
+    "schools": {
+      "median": 25.68500409263942,
+      "max": 127.61081754605895
+    }
+  },
+  "walk_m": {
+    "median": 537.9000000000001,
+    "p90": 1175.5,
+    "max": 12524.4,
+    "min": 0.0
+  },
+  "straight_m": {
+    "median": 355.29999999999995,
+    "p90": 831.3,
+    "max": 7784.0
+  },
+  "detour_factor": {
+    "median": 1.437,
+    "p90": 1.992,
+    "max": 5.412
+  },
+  "within": {
+    "400m": 159,
+    "600m": 292,
+    "800m": 382,
+    "1000m": 436,
+    "1500m": 484
+  },
+  "within_straight": {
+    "400m": 295,
+    "600m": 394,
+    "800m": 453,
+    "1000m": 483,
+    "1500m": 494
+  },
+  "note_routable_definition": "routable = reached a study room on the network AND has a walk distance. A detour factor of 0.0 is valid (the school sits inside a study room) and is included."
+}

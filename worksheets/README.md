@@ -1,6 +1,6 @@
 # Student Worksheets — GIS Projects
 
-Six task sheets built from the NPL GIS Team's real GIS projects, for secondary
+Seven task sheets built from the NPL GIS Team's real GIS projects, for secondary
 students and CSDI Awards entrants.
 
 **Start with** `Student Worksheets — GIS Projects.md` — that is the index, with the
@@ -14,6 +14,7 @@ level and the "what question does it answer" for each.
 | `Student Worksheet — Festival Walk 3D Mall Model.md` | Festival Walk 3D | How do you get between floors in a mall built into a hillside? |
 | `Student Worksheet — Building Heights in 3D.md` | 3D Buildings | What does a city look like when you can see its height? |
 | `Student Worksheet — MTR Fare Saver Map.md` | MTR Fare Saver | Which neighbourhoods have no fare-saver mall within a short walk? |
+| `Student Worksheet — Self-Study Rooms Seat Supply and Access.md` | Self-Study Rooms | Can Hong Kong's study rooms serve the students taking the DSE? |
 
 ## What each worksheet gives the student
 
@@ -35,6 +36,12 @@ Every live figure was **re-verified against the source service on 26 Oct 2026** 
 the CSDI Portal, the SmartPLAY open-data feed, the GeoInfo Map REST service, and
 Esri WorldElevation3D Terrain3D. The Sham Shui Po building-height statistics were
 independently recomputed from `B1K_Bldg` rather than copied.
+
+The self-study-rooms sheet was added on **24 Nov 2026**. Its figures were
+verified against the source services on that date, and the published note and
+worksheet are checked against the shipped layers by
+`scripts/self-study-rooms/verify_notes.py` — **136 assertions** that fail if
+either the data or the note drifts.
 
 Where a figure has **drifted** since the underlying project note was written, the
 worksheet says so — the SmartPLAY booking window moves daily, so students'

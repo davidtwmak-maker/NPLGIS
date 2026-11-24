@@ -9,7 +9,7 @@ status: active
 
 # Student Worksheets — GIS Projects
 
-> **Six task sheets built from the team's real GIS projects.** Each one gives
+> **Seven task sheets built from the team's real GIS projects.** Each one gives
 > students the **actual government data**, the **actual method**, the **check
 > numbers** to verify their run against, and the **limitations** they must declare.
 > Written 26 Oct 2026.
@@ -21,7 +21,7 @@ note was written, the worksheet says so.
 
 ---
 
-## The six worksheets
+## The seven worksheets
 
 | # | Worksheet | Project | The question students answer | Level |
 |---|---|---|---|---|
@@ -31,10 +31,13 @@ note was written, the worksheet says so.
 | 4 | [[Student Worksheet — Festival Walk 3D Mall Model]] | Festival Walk 3D | *How do you get between floors in a mall built into a hillside?* | Advanced |
 | 5 | [[Student Worksheet — Building Heights in 3D]] | 3D Buildings | *What does a city look like when you can see its height?* | Intermediate |
 | 6 | [[Student Worksheet — MTR Fare Saver Map]] | MTR Fare Saver | *Which neighbourhoods have no fare-saver mall within a short walk?* | Intermediate |
+| 7 | [[Student Worksheet — Self-Study Rooms Seat Supply and Access]] | Self-Study Rooms | *Can Hong Kong's study rooms serve the students taking the DSE?* | Intermediate |
 
 **Start here:** #3 and #5 — they need the least setup. #1 and #4 are the strongest
-competition entries. #2 is the best teaching project because it contains a
-**deliberate trap** (the answer looks like price band; it is actually lead time).
+competition entries. #2 and #7 are the best teaching projects because each
+contains a **deliberate trap**: in #2 the answer looks like price band but is
+actually lead time; in #7 the obvious correlation looks decisive but is a
+shared-denominator artefact, and the corrected test finds no effect at all.
 
 ---
 
