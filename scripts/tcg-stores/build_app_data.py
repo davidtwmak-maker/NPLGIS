@@ -193,11 +193,14 @@ def main():
             "district": p.get("district"),
             "y1524": int(float(p.get("pop_15_24") or 0)),
             "pop": int(float(p.get("pop_total") or 0)),
-            "play": int(float(p.get("play_near") or 0)),
-            "play500": int(float(p.get("play_near_500") or 0)),
-            "shops": int(float(p.get("shops_near") or 0)),
-            "per": p.get("y1524_per_play_1000m"),
-            "band": p.get("play_band"),
+            # The published GeoJSON carries the ai_ prefixed names,
+            # because every field this project DERIVED carries that
+            # prefix. Read those names, not the working names.
+            "play": int(float(p.get("ai_play_near_1000m") or 0)),
+            "play500": int(float(p.get("ai_play_near_500m") or 0)),
+            "shops": int(float(p.get("ai_shops_near_1000m") or 0)),
+            "per": p.get("ai_y1524_per_play_1000m"),
+            "band": p.get("ai_play_band"),
             "geom": geom,
         })
 
@@ -224,6 +227,41 @@ def main():
             raise SystemExit(
                 f"FAIL: the area gate was not met "
                 f"({worst_rel_m2:,.0f} m2 on area {worst_rel_area})")
+
+    # ---- the areas must agree with the CSV --------------------------------
+    # The area values are read from the GeoJSON's properties, and a
+    # property that is RENAMED there reads as absent, which silently
+    # turns every area into zero. That is not a crash: the map renders
+    # and the panel says "no venue within 1 km" for the whole
+    # territory, which looks like a finding.
+    #
+    # So the area values are checked against the CSV, which carries the
+    # same numbers under the working names. If the two disagree, the
+    # build stops.
+    csv_rows = {r["stpug"]: r for r in
+                csv.DictReader(open(METRICS, encoding="utf-8-sig"))}
+    mism = []
+    for a in areas:
+        c = csv_rows.get(a["id"])
+        if c is None:
+            mism.append(f"area {a['id']} is not in the CSV")
+            continue
+        if a["play"] != int(float(c.get("play_near") or 0)):
+            mism.append(f"area {a['id']}: play {a['play']} vs CSV "
+                        f"{int(float(c.get('play_near') or 0))}")
+        if a["shops"] != int(float(c.get("shops_near") or 0)):
+            mism.append(f"area {a['id']}: shops {a['shops']} vs CSV "
+                        f"{int(float(c.get('shops_near') or 0))}")
+    if mism:
+        raise SystemExit(
+            "FAIL: the areas read from the GeoJSON do not match the CSV. "
+            "A property is probably renamed.\n   "
+            + "\n   ".join(mism[:12])
+            + (f"\n   ... and {len(mism) - 12} more" if len(mism) > 12 else "")
+        )
+    n_with_play = sum(1 for a in areas if a["play"] > 0)
+    print(f"   areas vs CSV: {len(areas)} areas agree "
+          f"({n_with_play} with a venue within 1 km): PASS")
 
     # ---- the shops --------------------------------------------------------
     shops = json.load(open(SHOPS, encoding="utf-8"))

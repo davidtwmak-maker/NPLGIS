@@ -2317,8 +2317,8 @@
   },
   {
    "file": "scripts/tcg-stores/build_app_data.py",
-   "bytes": 11594,
-   "sha256": "f47bcbc6eca475f3",
+   "bytes": 12728,
+   "sha256": "fc9d8e4c6bfa5e57",
    "description": "Build the browser data for the web map: the simplified area polygons, the shop points, the legend and the summary. Gates the polygon simplification at 60 m of vertex shift and 2% of area change, with an absolute gate for the smallest areas."
   },
   {

@@ -260,7 +260,7 @@ independent script, and the population total is checked against the published
 C&SD figure rather than assumed.
 
 **The AI found the bugs, by checking outputs against source data rather than
-trusting them.** Thirty-three silent defects were caught this way, including:
+trusting them.** Thirty-four silent defects were caught this way, including:
 
 - the census column names (`t_pop`, `age_2_15_24`) being read as if they were
   `pop_total` / `pop_15_24` — the build failed its own reconciliation gate at
@@ -347,10 +347,37 @@ trusting them.** Thirty-three silent defects were caught this way, including:
 - the English building name of a mall differing from the gazetteer's —
   the directory writes "Everest Industrial **Building**", the gazetteer
   "Everest Industrial **Centre**";
+- **a renamed field reading as zero.** The published GeoJSON carries the
+  `ai_` prefixed names — `ai_play_near_1000m`, not `play_near` — because
+  every derived field carries that prefix for the CSDI Awards disclosure.
+  The build script that assembles the browser data still read the old
+  names, so `p.get("play_near")` returned `None` for **every one of the
+  211 small areas**, and `int(float(None or 0))` turned each into **0**.
+  The app then reported "no play venue within 1 km" for the whole
+  territory. It did not crash, the map rendered, and the headline numbers
+  — which come from the summary — were correct, so the error was
+  invisible: only the per-area panel was wrong, and it looked like a
+  finding.
+  The fix is the reader, and the fix that stops it recurring is a
+  **cross-check against an independent copy of the same numbers**: the
+  build now compares every area's venue count against the CSV, which
+  carries the same values under the working names, and refuses to write
+  output if they disagree. A renamed field can now fail the build
+  instead of quietly emptying the map;
 
 **Every derived field carries an `ai_` prefix** (`ai_y1524_per_play_1000m`,
 `ai_play_venue_count`, …). This is the disclosure mechanism used for the
 CSDI Awards entry and it is what the school group should quote.
+
+**A prefix rename is a schema change.** Putting the `ai_` prefix on the
+published fields changed the names the GeoJSON carries, so every script
+that reads that GeoJSON has to read the new names. The prefix was
+applied to the published layer in one commit and the reader was not
+updated in the same one — and because a missing property is indistinguishable
+from a zero, the result was a map that claimed the whole territory had no
+venue within 1 km. **When a published field is renamed, every reader of
+that file is part of the change**, and the build needs a gate that
+compares the value it read against a second copy of the same number.
 
 ---
 
