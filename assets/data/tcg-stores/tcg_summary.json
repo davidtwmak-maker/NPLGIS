@@ -1,0 +1,170 @@
+{
+ "population_total": 7411945.0,
+ "population_total_check": "exact match with published 2021 Census",
+ "census_areas": 211,
+ "shops_total": 281,
+ "play_venues_total": 49,
+ "play_venues_geocoded": 49,
+ "pokemon_gyms_total": 63,
+ "pokemon_gyms_registered_only": 49,
+ "shops_confirmed_by_2_sources": 48,
+ "shops_assigned_to_area": 281,
+ "young_people_15_24": 591073.0,
+ "young_people_within_1km_of_a_venue": 181152.0,
+ "young_people_with_no_venue_within_1km": 409921.0,
+ "share_young_with_no_venue": 69.4,
+ "areas_with_no_venue": 152,
+ "sensitivity_all_gyms_counted_as_venues": {
+  "young_people_with_no_venue_within_1km": 391049.0,
+  "share_young_with_no_venue": 66.2,
+  "areas_with_no_venue": 146
+ },
+ "play_venues_by_district": {
+  "Sham Shui Po": 9,
+  "Yau Tsim Mong": 9,
+  "Kwun Tong": 7,
+  "Wan Chai": 6,
+  "Wong Tai Sin": 5,
+  "Kwai Tsing": 3,
+  "Sha Tin": 3,
+  "Kowloon City": 2,
+  "Tuen Mun": 2,
+  "Tai Po": 1,
+  "Eastern": 1,
+  "Southern": 1
+ },
+ "district_rollup": {
+  "Central and Western": {
+   "areas": 12,
+   "pop": 235953.0,
+   "y1524": 16779.0,
+   "play_near": 0,
+   "shops_near": 20
+  },
+  "Eastern": {
+   "areas": 14,
+   "pop": 560116.0,
+   "y1524": 38481.0,
+   "play_near": 4,
+   "shops_near": 23
+  },
+  "Islands": {
+   "areas": 8,
+   "pop": 165930.0,
+   "y1524": 15478.0,
+   "play_near": 0,
+   "shops_near": 0
+  },
+  "Kowloon City": {
+   "areas": 18,
+   "pop": 398291.0,
+   "y1524": 30169.0,
+   "play_near": 28,
+   "shops_near": 140
+  },
+  "Kwai Tsing": {
+   "areas": 6,
+   "pop": 621834.0,
+   "y1524": 52433.0,
+   "play_near": 5,
+   "shops_near": 17
+  },
+  "Kwun Tong": {
+   "areas": 9,
+   "pop": 673143.0,
+   "y1524": 60320.0,
+   "play_near": 15,
+   "shops_near": 81
+  },
+  "North": {
+   "areas": 14,
+   "pop": 309480.0,
+   "y1524": 27678.0,
+   "play_near": 0,
+   "shops_near": 2
+  },
+  "Sai Kung": {
+   "areas": 17,
+   "pop": 489037.0,
+   "y1524": 39744.0,
+   "play_near": 0,
+   "shops_near": 0
+  },
+  "Sha Tin": {
+   "areas": 7,
+   "pop": 698317.0,
+   "y1524": 54225.0,
+   "play_near": 1,
+   "shops_near": 4
+  },
+  "Sham Shui Po": {
+   "areas": 11,
+   "pop": 429301.0,
+   "y1524": 35412.0,
+   "play_near": 33,
+   "shops_near": 281
+  },
+  "Southern": {
+   "areas": 10,
+   "pop": 263760.0,
+   "y1524": 18883.0,
+   "play_near": 1,
+   "shops_near": 2
+  },
+  "Tai Po": {
+   "areas": 10,
+   "pop": 311231.0,
+   "y1524": 22669.0,
+   "play_near": 2,
+   "shops_near": 4
+  },
+  "Tsuen Wan": {
+   "areas": 8,
+   "pop": 215199.0,
+   "y1524": 15950.0,
+   "play_near": 0,
+   "shops_near": 4
+  },
+  "Tuen Mun": {
+   "areas": 9,
+   "pop": 503917.0,
+   "y1524": 38298.0,
+   "play_near": 0,
+   "shops_near": 6
+  },
+  "Wan Chai": {
+   "areas": 10,
+   "pop": 135700.0,
+   "y1524": 7721.0,
+   "play_near": 27,
+   "shops_near": 114
+  },
+  "Wong Tai Sin": {
+   "areas": 6,
+   "pop": 406802.0,
+   "y1524": 33463.0,
+   "play_near": 19,
+   "shops_near": 65
+  },
+  "Yau Tsim Mong": {
+   "areas": 16,
+   "pop": 323013.0,
+   "y1524": 24169.0,
+   "play_near": 56,
+   "shops_near": 292
+  },
+  "Yuen Long": {
+   "areas": 26,
+   "pop": 670921.0,
+   "y1524": 59201.0,
+   "play_near": 0,
+   "shops_near": 10
+  }
+ },
+ "catchment_metres": [
+  500,
+  1000,
+  1500
+ ],
+ "measure": "people aged 15-24 in the area per play venue within 1 km"
+}

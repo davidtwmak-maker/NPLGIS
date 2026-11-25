@@ -16,6 +16,7 @@
         <a href="./apps/festival-walk-3d/">3D Map</a>
         <a href="./apps/landslide-susceptibility/">Landslide Map</a>
         <a href="./apps/kowloon-covered-walkways/">Covered Walkways</a>
+        <a href="./apps/tcg-stores/">Card Game Venues</a>
         <a href="./#projects">Projects</a>
         <a href="./#maps">Maps</a>
         <a href="./#data">Data</a>
@@ -70,6 +71,23 @@
               · 5-fold spatial CV, ROC-AUC 0.88
             </p>
             <p><a class="btn btn-primary" href="./apps/landslide-susceptibility/">Open the web map →</a></p>
+          </article>
+
+          <article class="card card-featured">
+            <h3>Where to play a card game in Hong Kong <span class="tag tag-live">live</span></h3>
+            <p>
+              Where can you actually turn up and play a deck with other people? 281 card
+              shops and 49 confirmed play venues, geocoded to the building level with the
+              Hong Kong Government's own location search, then measured against the 2021
+              Population Census. <em>Seven in ten</em> 15-to-24-year-olds live more than
+              1 km from any venue — and that still holds at 66% if every registered
+              Pokémon Gym counts.
+            </p>
+            <p class="meta">
+              BAW VAULT + HKCardPrice directories · HK Gov location search ·
+              C&amp;SD 2021 Census (211 small areas)
+            </p>
+            <p><a class="btn btn-primary" href="./apps/tcg-stores/">Open the web map →</a></p>
           </article>
 
           <article class="card">
@@ -246,6 +264,13 @@
                    alt="Map of Hong Kong showing night-time light pollution from the VIIRS Day/Night Band, with all 41 country-park campsites marked and the six darkest numbered, and below it a bar chart ranking the 20 best campsites by darkness, access, facilities and open horizon" loading="lazy" />
             </a>
             <figcaption><strong>Campsites ranked for dark skies</strong> — 41 AFCD sites scored on VIIRS night lights, access and facilities</figcaption>
+          </figure>
+          <figure>
+            <a href="./assets/maps/tcg-stores/tcg_shops_map.png">
+              <img src="./assets/maps/tcg-stores/tcg_shops_map.png"
+                   alt="Map of Hong Kong showing the 2021 Census small areas coloured by the number of 15-to-24-year-olds within 1 km per play venue, with the 281 card shops, the 49 confirmed play venues and the 63 registered Pokémon Gyms marked" loading="lazy" />
+            </a>
+            <figcaption><strong>Where to play a card game</strong> — 281 shops and 49 confirmed play venues against the 2021 Census</figcaption>
           </figure>
           <figure>
             <a href="./assets/maps/landslide-susceptibility/landslide_susceptibility_map.png">
@@ -433,6 +458,26 @@
                 <td><code>assets/data/camping/campsite_scores.csv</code></td>
                 <td>41</td>
                 <td>Every factor behind the score, and the single-night rank-shift robustness check</td>
+              </tr>
+              <tr>
+                <td><code>assets/data/tcg-stores/tcg_shops_merged.json</code></td>
+                <td>281</td>
+                <td>Every card shop in Hong Kong, geocoded to the building level, with its play flag, Pokémon Gym id and which directories confirm it</td>
+              </tr>
+              <tr>
+                <td><code>assets/data/tcg-stores/tcg_small_area_metrics.geojson</code></td>
+                <td>211</td>
+                <td>2021 Census small areas with the 15–24 population and the young-people-per-play-venue measure. EPSG:4326</td>
+              </tr>
+              <tr>
+                <td><code>assets/data/tcg-stores/POPULATION — tcg_small_area_metrics.csv</code></td>
+                <td>211</td>
+                <td>The same metrics as a table, including the 500 m and 1.5 km catchments and the count of shops near each area</td>
+              </tr>
+              <tr>
+                <td><code>assets/data/tcg-stores/tcg_shops_hkcardprice.json</code></td>
+                <td>117</td>
+                <td>The HKCardPrice directory with its geocodes and District Council boundary checks</td>
               </tr>
               <tr>
                 <td><code>assets/data/landslide/susceptibility_cells.geojson.gz</code></td>

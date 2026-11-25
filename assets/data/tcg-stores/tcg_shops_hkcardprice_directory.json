@@ -1,0 +1,2001 @@
+[
+ {
+  "name": "HKTCG 香港集換式卡牌遊戲平台",
+  "slug": "hktcg",
+  "addr": "尖沙咀彌敦道63號iSQUARE國際廣場二樓",
+  "mtr": "尖沙咀站",
+  "district_zh": "油尖旺區",
+  "tags": [
+   "買卡",
+   "賣卡／收購",
+   "打牌",
+   "送評",
+   "本站有收購價"
+  ],
+  "play": true,
+  "buy": true,
+  "sell": false,
+  "grading": true,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "酋長部落 Jammy Tribe",
+  "slug": "j-tribe-tcg",
+  "addr": "新蒲崗七寶街3號振發工廠大廈3樓D-1室",
+  "mtr": "",
+  "district_zh": "黃大仙區",
+  "tags": [
+   "買卡",
+   "賣卡／收購",
+   "打牌",
+   "送評",
+   "繁中",
+   "日版",
+   "英文",
+   "韓版",
+   "本站有收購價"
+  ],
+  "play": true,
+  "buy": true,
+  "sell": false,
+  "grading": true,
+  "gym_id": "GYM063",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "皇巢卡店 Beehive",
+  "slug": "beehive-trading-card-shop",
+  "addr": "觀塘道404號時運工業大廈1樓A室",
+  "mtr": "",
+  "district_zh": "觀塘區",
+  "tags": [
+   "買卡",
+   "賣卡／收購",
+   "打牌",
+   "日版",
+   "繁中",
+   "英文",
+   "本站有收購價"
+  ],
+  "play": true,
+  "buy": true,
+  "sell": false,
+  "grading": false,
+  "gym_id": "GYM002",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "DOPA! 香港授權店",
+  "slug": "dopa-hk",
+  "addr": "旺角信和中心地舖 G36-37",
+  "mtr": "旺角站",
+  "district_zh": "油尖旺區",
+  "tags": [
+   "買卡",
+   "賣卡／收購",
+   "日版",
+   "本站有收購價"
+  ],
+  "play": false,
+  "buy": true,
+  "sell": false,
+  "grading": false,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "Brave Soul 闘卡魂",
+  "slug": "brave-soul",
+  "addr": "新蒲崗大有街1號勤達中心12樓1室(鑽石山A2出口步行約3分鐘)",
+  "mtr": "鑽石山站",
+  "district_zh": "黃大仙區",
+  "tags": [
+   "買卡",
+   "賣卡／收購",
+   "打牌",
+   "送評",
+   "繁中",
+   "日版",
+   "英文"
+  ],
+  "play": true,
+  "buy": true,
+  "sell": false,
+  "grading": true,
+  "gym_id": "GYM015",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "LIGHT TCG",
+  "slug": "light-tcg",
+  "addr": "尖沙咀加連威老道嘉威大廈41號C-D地舖",
+  "mtr": "尖沙咀站",
+  "district_zh": "油尖旺區",
+  "tags": [
+   "買卡",
+   "賣卡／收購",
+   "打牌"
+  ],
+  "play": true,
+  "buy": true,
+  "sell": false,
+  "grading": false,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "TCGstore.HK 收藏咭牌專門店(銅鑼灣)",
+  "slug": "tcgstore-hk",
+  "addr": "銅鑼灣羅素街61號麗園大廈2C",
+  "mtr": "銅鑼灣站",
+  "district_zh": "灣仔區",
+  "tags": [
+   "買卡",
+   "賣卡／收購",
+   "送評"
+  ],
+  "play": false,
+  "buy": true,
+  "sell": false,
+  "grading": true,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "Duckdraw TCG Store",
+  "slug": "duckdraw-tcg-store",
+  "addr": "旺角信和中心21樓05室",
+  "mtr": "旺角站",
+  "district_zh": "油尖旺區",
+  "tags": [
+   "買卡",
+   "賣卡／收購",
+   "打牌",
+   "送評"
+  ],
+  "play": true,
+  "buy": true,
+  "sell": false,
+  "grading": true,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "卡之島 CardLand",
+  "slug": "cardland",
+  "addr": "觀塘開源道55號開聯工業中心A座5樓512室(近觀塘站B3出口)",
+  "mtr": "觀塘站",
+  "district_zh": "觀塘區",
+  "tags": [
+   "買卡",
+   "賣卡／收購",
+   "打牌",
+   "送評",
+   "繁中"
+  ],
+  "play": true,
+  "buy": true,
+  "sell": false,
+  "grading": true,
+  "gym_id": "GYM086",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "精靈谷",
+  "slug": "mystic-valley",
+  "addr": "元朗喜利商場一樓9號舖",
+  "mtr": "朗屏站",
+  "district_zh": "元朗區",
+  "tags": [
+   "買卡",
+   "賣卡／收購",
+   "送評",
+   "日版",
+   "英文"
+  ],
+  "play": false,
+  "buy": true,
+  "sell": false,
+  "grading": true,
+  "gym_id": "",
+  "verified": "2026-11-10"
+ },
+ {
+  "name": "MOONROAD 旺角信和 246 店",
+  "slug": "moonroad-card-store",
+  "addr": "旺角彌敦道582-592號信和中心2樓246號舖",
+  "mtr": "旺角站",
+  "district_zh": "油尖旺區",
+  "tags": [
+   "買卡",
+   "賣卡／收購",
+   "送評",
+   "日版",
+   "英文",
+   "繁中"
+  ],
+  "play": false,
+  "buy": true,
+  "sell": false,
+  "grading": true,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "MOONROAD 希慎廣場店",
+  "slug": "moonroad-hysan-place",
+  "addr": "銅鑼灣軒尼詩道500號希慎廣場5樓514號舖",
+  "mtr": "銅鑼灣站",
+  "district_zh": "灣仔區",
+  "tags": [
+   "買卡",
+   "賣卡／收購",
+   "送評",
+   "日版",
+   "繁中"
+  ],
+  "play": false,
+  "buy": true,
+  "sell": false,
+  "grading": true,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "MOONROAD 觀塘店",
+  "slug": "moonroad-card-store-kwun-tong",
+  "addr": "觀塘興業街15號中美中心B座3樓304室",
+  "mtr": "",
+  "district_zh": "觀塘區",
+  "tags": [
+   "買卡",
+   "賣卡／收購",
+   "送評",
+   "日版",
+   "英文",
+   "繁中"
+  ],
+  "play": false,
+  "buy": true,
+  "sell": false,
+  "grading": true,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "MOONROAD 旺角信和 M45 店",
+  "slug": "moonroad-card-store-yau-tsim-mong",
+  "addr": "旺角彌敦道582-592號信和中心M樓M45號舖",
+  "mtr": "旺角站",
+  "district_zh": "油尖旺區",
+  "tags": [
+   "買卡",
+   "賣卡／收購",
+   "送評",
+   "日版",
+   "英文",
+   "繁中"
+  ],
+  "play": false,
+  "buy": true,
+  "sell": false,
+  "grading": true,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "MOONROAD 長沙灣天悅店",
+  "slug": "moonroad-card-store-sham-shui-po",
+  "addr": "長沙灣元州街162-188號天悅廣場1樓140號舖",
+  "mtr": "長沙灣站",
+  "district_zh": "深水埗區",
+  "tags": [
+   "買卡",
+   "賣卡／收購",
+   "送評",
+   "日版",
+   "英文",
+   "繁中"
+  ],
+  "play": false,
+  "buy": true,
+  "sell": false,
+  "grading": true,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "MOONROAD 灣仔188店",
+  "slug": "moonroad-oriental-188-wan-chai",
+  "addr": "灣仔灣仔道188號東方188商場2樓257號舖",
+  "mtr": "灣仔站",
+  "district_zh": "灣仔區",
+  "tags": [
+   "買卡",
+   "賣卡／收購",
+   "送評",
+   "日版",
+   "繁中",
+   "英文"
+  ],
+  "play": false,
+  "buy": true,
+  "sell": false,
+  "grading": true,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "MOONROAD 青衣城店",
+  "slug": "moonroad-maritime-square",
+  "addr": "青衣青敬路33號青衣城一期1樓148號舖",
+  "mtr": "青衣站",
+  "district_zh": "葵青區",
+  "tags": [
+   "買卡",
+   "賣卡／收購",
+   "送評",
+   "日版",
+   "英文",
+   "繁中"
+  ],
+  "play": false,
+  "buy": true,
+  "sell": false,
+  "grading": true,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "Bengal TCG",
+  "slug": "bengal-tcg",
+  "addr": "旺角彌敦道610號荷李活商業中心7樓21室",
+  "mtr": "旺角站",
+  "district_zh": "油尖旺區",
+  "tags": [
+   "買卡",
+   "賣卡／收購",
+   "送評"
+  ],
+  "play": false,
+  "buy": true,
+  "sell": false,
+  "grading": true,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "卡之里 Cards Village",
+  "slug": "cards-village",
+  "addr": "長沙灣青山道688-690號嘉名工廠大廈D座8樓(2025-10-01 搬入)",
+  "mtr": "荔枝角站",
+  "district_zh": "深水埗區",
+  "tags": [
+   "買卡",
+   "打牌",
+   "送評"
+  ],
+  "play": true,
+  "buy": true,
+  "sell": false,
+  "grading": true,
+  "gym_id": "SP207",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "通用卡店 General Card Shop",
+  "slug": "general-card-shop",
+  "addr": "荃灣荃豐中心地下A59-A61號舖",
+  "mtr": "荃灣站",
+  "district_zh": "荃灣區",
+  "tags": [
+   "買卡",
+   "賣卡／收購",
+   "送評",
+   "英文"
+  ],
+  "play": false,
+  "buy": true,
+  "sell": false,
+  "grading": true,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "Yamacardo",
+  "slug": "yamacardo",
+  "addr": "Unit 301, Hewlett Ctr, 54 Hoi Yuen Road, Kwun Tong",
+  "mtr": "觀塘站",
+  "district_zh": "觀塘區",
+  "tags": [
+   "買卡",
+   "賣卡／收購",
+   "送評"
+  ],
+  "play": false,
+  "buy": true,
+  "sell": false,
+  "grading": true,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "Card Card Fruit",
+  "slug": "card-card-fruit",
+  "addr": "旺角彌敦道582-592號信和中心17樓1704室(2026-07-03起由舊址搬入)",
+  "mtr": "旺角站",
+  "district_zh": "油尖旺區",
+  "tags": [
+   "買卡",
+   "賣卡／收購",
+   "送評"
+  ],
+  "play": false,
+  "buy": true,
+  "sell": false,
+  "grading": true,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "HobbyX 旺角店",
+  "slug": "hobbyx",
+  "addr": "旺角彌敦道608號總統商業大廈20樓02室",
+  "mtr": "旺角站",
+  "district_zh": "油尖旺區",
+  "tags": [
+   "買卡",
+   "打牌",
+   "送評"
+  ],
+  "play": true,
+  "buy": true,
+  "sell": false,
+  "grading": true,
+  "gym_id": "GYM078",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "Card Holo",
+  "slug": "card-holo",
+  "addr": "銅鑼灣勿地臣街11號 THE HEDON 19樓",
+  "mtr": "銅鑼灣站",
+  "district_zh": "灣仔區",
+  "tags": [
+   "買卡",
+   "賣卡／收購",
+   "送評"
+  ],
+  "play": false,
+  "buy": true,
+  "sell": false,
+  "grading": true,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "Cardier TCG 卡帝亞(皮神) 調景嶺旗艦店",
+  "slug": "cardier-tcg-tiu-keng-leng",
+  "addr": "將軍澳調景嶺都會駅 L2 74號舖(屈臣氏對面)",
+  "mtr": "調景嶺站",
+  "district_zh": "西貢區",
+  "tags": [
+   "買卡",
+   "賣卡／收購",
+   "送評",
+   "英文"
+  ],
+  "play": false,
+  "buy": true,
+  "sell": false,
+  "grading": true,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "ACardTCG",
+  "slug": "acardtcg",
+  "addr": "新蒲崗五芳街10號新寶中心19樓06室(鑽石山站附近)",
+  "mtr": "鑽石山站",
+  "district_zh": "黃大仙區",
+  "tags": [
+   "買卡",
+   "打牌",
+   "日版"
+  ],
+  "play": true,
+  "buy": true,
+  "sell": false,
+  "grading": false,
+  "gym_id": "GYM059",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "異次元桌遊社",
+  "slug": "different-dimension-tcg",
+  "addr": "天后清風街6-8號凱豐商業大廈2樓B",
+  "mtr": "天后站",
+  "district_zh": "東區",
+  "tags": [
+   "買卡",
+   "打牌"
+  ],
+  "play": true,
+  "buy": true,
+  "sell": false,
+  "grading": false,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "純白鎮 Masshirotaun",
+  "slug": "masshirotaun",
+  "addr": "沙田石門安平街新貿中心B座11樓1107室",
+  "mtr": "石門站",
+  "district_zh": "沙田區",
+  "tags": [
+   "買卡",
+   "打牌",
+   "繁中"
+  ],
+  "play": true,
+  "buy": true,
+  "sell": false,
+  "grading": false,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "CardKingdom HK",
+  "slug": "cardkingdom-hk",
+  "addr": "旺角西洋菜南街2A號銀城廣場地庫B82號舖",
+  "mtr": "旺角站",
+  "district_zh": "油尖旺區",
+  "tags": [
+   "買卡",
+   "賣卡／收購",
+   "送評"
+  ],
+  "play": false,
+  "buy": true,
+  "sell": false,
+  "grading": true,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "Pika Card TCG",
+  "slug": "pika-card-tcg",
+  "addr": "銅鑼灣富明街寶富大廈1樓1A室",
+  "mtr": "銅鑼灣站",
+  "district_zh": "灣仔區",
+  "tags": [
+   "買卡",
+   "打牌",
+   "日版",
+   "英文"
+  ],
+  "play": true,
+  "buy": true,
+  "sell": false,
+  "grading": false,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "MS TCG (金龍店)",
+  "slug": "ms-tcg-card-game-store",
+  "addr": "葵芳金龍工業中心第三座17樓J室",
+  "mtr": "葵芳站",
+  "district_zh": "葵青區",
+  "tags": [
+   "買卡",
+   "打牌"
+  ],
+  "play": true,
+  "buy": true,
+  "sell": false,
+  "grading": false,
+  "gym_id": "GYM029",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "CardKing",
+  "slug": "cardking",
+  "addr": "九龍灣臨興街21號美羅中心二期2樓231室",
+  "mtr": "九龍灣站",
+  "district_zh": "觀塘區",
+  "tags": [
+   "買卡",
+   "賣卡／收購",
+   "日版",
+   "英文"
+  ],
+  "play": false,
+  "buy": true,
+  "sell": false,
+  "grading": false,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "卡部屋遊戲社 Cardoya",
+  "slug": "cardoya",
+  "addr": "大埔普益街25號地舖",
+  "mtr": "大埔墟站",
+  "district_zh": "大埔區",
+  "tags": [
+   "買卡",
+   "打牌"
+  ],
+  "play": true,
+  "buy": true,
+  "sell": false,
+  "grading": false,
+  "gym_id": "GYM047",
+  "verified": "2026-11-10"
+ },
+ {
+  "name": "星光之都 Starlight Capital TCG",
+  "slug": "starlight-capital-tcg",
+  "addr": "屯門震寰路9號好收成工業大廈7樓714室",
+  "mtr": "",
+  "district_zh": "屯門區",
+  "tags": [
+   "買卡",
+   "打牌",
+   "繁中"
+  ],
+  "play": true,
+  "buy": true,
+  "sell": false,
+  "grading": false,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "HonikTCG 信和地庫門市",
+  "slug": "honik-hobby-tcg-sino-centre-b22",
+  "addr": "旺角彌敦道582-592號信和中心地庫B22鋪",
+  "mtr": "旺角站",
+  "district_zh": "油尖旺區",
+  "tags": [
+   "買卡"
+  ],
+  "play": false,
+  "buy": true,
+  "sell": false,
+  "grading": false,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "POKEDIGI 寄賣點",
+  "slug": "pokedigi",
+  "addr": "旺角信和中心2樓213號舖",
+  "mtr": "旺角站",
+  "district_zh": "油尖旺區",
+  "tags": [
+   "買卡",
+   "賣卡／收購"
+  ],
+  "play": false,
+  "buy": true,
+  "sell": false,
+  "grading": false,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "COMBO 天悅店",
+  "slug": "combo-card-games-academy",
+  "addr": "長沙灣元州街162-188號天悅廣場G樓B14號舖",
+  "mtr": "長沙灣站",
+  "district_zh": "深水埗區",
+  "tags": [
+   "買卡",
+   "打牌"
+  ],
+  "play": true,
+  "buy": true,
+  "sell": false,
+  "grading": false,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "CardBay",
+  "slug": "cardbay",
+  "addr": "銅鑼灣白沙道13號3樓",
+  "mtr": "銅鑼灣站",
+  "district_zh": "灣仔區",
+  "tags": [
+   "買卡",
+   "送評"
+  ],
+  "play": false,
+  "buy": true,
+  "sell": false,
+  "grading": true,
+  "gym_id": "",
+  "verified": "2026-11-10"
+ },
+ {
+  "name": "YulaYula TCG 銅鑼灣本店",
+  "slug": "yulayula-tcg",
+  "addr": "銅鑼灣富明街1-5號寶富大樓2樓K室",
+  "mtr": "銅鑼灣站",
+  "district_zh": "灣仔區",
+  "tags": [
+   "買卡",
+   "打牌"
+  ],
+  "play": true,
+  "buy": true,
+  "sell": false,
+  "grading": false,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "手痕 (CWB TCG)",
+  "slug": "cwb-tcg",
+  "addr": "銅鑼灣地帶一樓175至175A號舖",
+  "mtr": "銅鑼灣站",
+  "district_zh": "灣仔區",
+  "tags": [
+   "買卡",
+   "打牌"
+  ],
+  "play": true,
+  "buy": true,
+  "sell": false,
+  "grading": false,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "HKCARD & TCG Center (HKCard Express)",
+  "slug": "hkcard-express-and-tcg",
+  "addr": "荃灣荃豐中心商場地下A5及A18號舖",
+  "mtr": "荃灣站",
+  "district_zh": "荃灣區",
+  "tags": [
+   "買卡",
+   "送評",
+   "日版"
+  ],
+  "play": false,
+  "buy": true,
+  "sell": false,
+  "grading": true,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "Cypher Port HK",
+  "slug": "cypherport-hk",
+  "addr": "葵芳葵豐街53-57號福業大廈17樓1708室",
+  "mtr": "葵芳站",
+  "district_zh": "葵青區",
+  "tags": [
+   "買卡",
+   "打牌"
+  ],
+  "play": true,
+  "buy": true,
+  "sell": false,
+  "grading": false,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "Card Charge 寶卡站",
+  "slug": "card-charge",
+  "addr": "火炭穗禾路1號豐利工業中心3樓24室(IG 寫 Room 324)",
+  "mtr": "火炭站",
+  "district_zh": "沙田區",
+  "tags": [
+   "買卡",
+   "打牌"
+  ],
+  "play": true,
+  "buy": true,
+  "sell": false,
+  "grading": false,
+  "gym_id": "GYM115",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "正氣卡店 Justice Of Trading Card Games",
+  "slug": "justice-of-trading-card-games",
+  "addr": "大圍成運路25-27號成全工業大廈7樓6室",
+  "mtr": "大圍站",
+  "district_zh": "沙田區",
+  "tags": [
+   "買卡",
+   "打牌"
+  ],
+  "play": true,
+  "buy": true,
+  "sell": false,
+  "grading": false,
+  "gym_id": "GYM102",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "HobbyX Plus(K11 Art Mall)",
+  "slug": "hobbyx-plus-k11-art-mall",
+  "addr": "尖沙咀河內道18號K11 Art Mall 3樓304號舖",
+  "mtr": "尖沙咀站",
+  "district_zh": "油尖旺區",
+  "tags": [
+   "買卡",
+   "送評"
+  ],
+  "play": false,
+  "buy": true,
+  "sell": false,
+  "grading": true,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "大一 Audiocom(黃金電腦商場)",
+  "slug": "audiocom-golden-computer-arcade-tcg-counter",
+  "addr": "深水埗福華街146-152號黃金電腦商場地面28號舖",
+  "mtr": "深水埗站",
+  "district_zh": "深水埗區",
+  "tags": [
+   "買卡"
+  ],
+  "play": false,
+  "buy": true,
+  "sell": false,
+  "grading": false,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "T0HK TCG",
+  "slug": "t0hk-tcg",
+  "addr": "荃灣南豐中心19樓08室；另有格仔：荃灣荃豐中心別樹一格 A15-A16",
+  "mtr": "荃灣站",
+  "district_zh": "荃灣區",
+  "tags": [
+   "買卡",
+   "日版"
+  ],
+  "play": false,
+  "buy": true,
+  "sell": false,
+  "grading": false,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "KaBoom TCG Store",
+  "slug": "kaboom-tcg-store",
+  "addr": "觀塘巧明街105號好運工業大廈3樓D室",
+  "mtr": "",
+  "district_zh": "觀塘區",
+  "tags": [
+   "買卡",
+   "打牌"
+  ],
+  "play": true,
+  "buy": true,
+  "sell": false,
+  "grading": false,
+  "gym_id": "GYM092",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "通用卡店 啟德店",
+  "slug": "kowloon-city-shop-dd402",
+  "addr": "啟德木脆街12號雙子匯二期(Tower 2)6樓615-617號舖",
+  "mtr": "啟德站",
+  "district_zh": "九龍城區",
+  "tags": [
+   "送評",
+   "英文",
+   "日版"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": true,
+  "gym_id": "",
+  "verified": "2026-11-10"
+ },
+ {
+  "name": "ThisCARD 大埔墟良心卡店",
+  "slug": "thiscard-tai-po",
+  "addr": "大埔墟崇德街4-8號3樓(大埔商會/大埔鐵路博物館旁)",
+  "mtr": "大埔墟站",
+  "district_zh": "大埔區",
+  "tags": [
+   "買卡"
+  ],
+  "play": false,
+  "buy": true,
+  "sell": false,
+  "grading": false,
+  "gym_id": "GYM006",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "CGC Hong Kong 辦事處",
+  "slug": "cgc-hong-kong",
+  "addr": "尖沙咀廣東道25號港威大廈第1座12樓1208-10室",
+  "mtr": "尖沙咀站",
+  "district_zh": "油尖旺區",
+  "tags": [
+   "送評"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": true,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "PSA Hong Kong 送件中心 (Collectors Universe HK)",
+  "slug": "psa-hong-kong-collectors-universe-hk",
+  "addr": "尖沙咀廣東道33號中華按城6座20樓01-06室",
+  "mtr": "尖沙咀站",
+  "district_zh": "油尖旺區",
+  "tags": [
+   "送評"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": true,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "千日匠 School Driver 旺角新之城店",
+  "slug": "school-driver-mong-kok-sino-plaza",
+  "addr": "旺角新之城2樓256-257號(旺角中心隔離)",
+  "mtr": "旺角站",
+  "district_zh": "油尖旺區",
+  "tags": [
+   "買卡"
+  ],
+  "play": false,
+  "buy": true,
+  "sell": false,
+  "grading": false,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "通用卡店 太子店 (Card Express)",
+  "slug": "card-express",
+  "addr": "太子彌敦道760號聯合廣場地下G36號舖",
+  "mtr": "太子站",
+  "district_zh": "油尖旺區",
+  "tags": [
+   "送評"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": true,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "港。玩具(福榮街)",
+  "slug": "omochya-minato-fuk-wing-st",
+  "addr": "深水埗福榮街81號、93號地鋪",
+  "mtr": "深水埗站",
+  "district_zh": "深水埗區",
+  "tags": [
+   "買卡",
+   "繁中"
+  ],
+  "play": false,
+  "buy": true,
+  "sell": false,
+  "grading": false,
+  "gym_id": "SP138",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "福利模型 Fook Le Model(元州街店)",
+  "slug": "fook-le-model-yuen-chau-st",
+  "addr": "深水埗元州街66A地下(新高登商場對面)",
+  "mtr": "深水埗站",
+  "district_zh": "深水埗區",
+  "tags": [
+   "買卡"
+  ],
+  "play": false,
+  "buy": true,
+  "sell": false,
+  "grading": false,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "福利模型 Fook Le Model(青山道店)",
+  "slug": "fook-le-model-castle-peak-rd",
+  "addr": "九龍青山道483號再發工廠大廈1樓G室(荔枝角B1出口)",
+  "mtr": "荔枝角站",
+  "district_zh": "深水埗區",
+  "tags": [
+   "買卡"
+  ],
+  "play": false,
+  "buy": true,
+  "sell": false,
+  "grading": false,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "Battleground 觀塘店(Hobbyland X Battleground 旗艦體驗館)",
+  "slug": "battleground-kwun-tong",
+  "addr": "觀塘巧明街 The Angle(三布目商場)7樓701-706室",
+  "mtr": "",
+  "district_zh": "觀塘區",
+  "tags": [
+   "買卡"
+  ],
+  "play": false,
+  "buy": true,
+  "sell": false,
+  "grading": false,
+  "gym_id": "GYM125",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "千日匠 School Driver 鑽石山荷里活廣場店",
+  "slug": "school-driver-plaza-hollywood",
+  "addr": "鑽石山荷里活廣場3樓304",
+  "mtr": "鑽石山站",
+  "district_zh": "黃大仙區",
+  "tags": [
+   "買卡"
+  ],
+  "play": false,
+  "buy": true,
+  "sell": false,
+  "grading": false,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "卡達 Carder Toysnplace",
+  "slug": "carder-toysnplace",
+  "addr": "新蒲崗大有街32號泰力工業中心6樓7室(鑽石山A2出口)",
+  "mtr": "鑽石山站",
+  "district_zh": "黃大仙區",
+  "tags": [
+   "買卡"
+  ],
+  "play": false,
+  "buy": true,
+  "sell": false,
+  "grading": false,
+  "gym_id": "GYM073",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "卡研社 Card Lab(紅磡)",
+  "slug": "card-lab-hung-hom",
+  "addr": "紅磡民裕街30號興業工商大廈4樓B1室",
+  "mtr": "",
+  "district_zh": "九龍城區",
+  "tags": [
+   "買卡"
+  ],
+  "play": false,
+  "buy": true,
+  "sell": false,
+  "grading": false,
+  "gym_id": "GYM069",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "Game Mega 遊戲極 (石門京瑞廣場店)",
+  "slug": "game-mega-shek-mun",
+  "addr": "石門安群街1號京瑞廣場二期1樓 OK Mall 101C15舖",
+  "mtr": "石門站",
+  "district_zh": "沙田區",
+  "tags": [
+   "買卡"
+  ],
+  "play": false,
+  "buy": true,
+  "sell": false,
+  "grading": false,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "玩具模型倉 (馬鞍山新港城店)",
+  "slug": "fotan-toys-ma-on-shan",
+  "addr": "馬鞍山新港城4期3樓3011號舖",
+  "mtr": "馬鞍山站",
+  "district_zh": "沙田區",
+  "tags": [
+   "買卡",
+   "繁中"
+  ],
+  "play": false,
+  "buy": true,
+  "sell": false,
+  "grading": false,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "Carddesu Trading Card Shop",
+  "slug": "carddesu",
+  "addr": "銅鑼灣富明街寶富大樓1樓1C室",
+  "mtr": "銅鑼灣站",
+  "district_zh": "灣仔區",
+  "tags": [
+   "買卡"
+  ],
+  "play": false,
+  "buy": true,
+  "sell": false,
+  "grading": false,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "玩具模型倉 (將軍澳廣場店)",
+  "slug": "fotan-toys-tko-plaza",
+  "addr": "將軍澳廣場1樓1081號舖",
+  "mtr": "將軍澳站",
+  "district_zh": "西貢區",
+  "tags": [
+   "買卡",
+   "日版"
+  ],
+  "play": false,
+  "buy": true,
+  "sell": false,
+  "grading": false,
+  "gym_id": "",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "KBG Hub TCG",
+  "slug": "kbg-hub-tcg",
+  "addr": "旺角信和中心地庫 B39 舖 14D 格",
+  "mtr": "旺角站",
+  "district_zh": "油尖旺區",
+  "tags": [],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "",
+  "verified": "2026-11-10"
+ },
+ {
+  "name": "Cardstop",
+  "slug": "cardstop",
+  "addr": "",
+  "mtr": "",
+  "district_zh": "",
+  "tags": [],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "",
+  "verified": "2026-11-10"
+ },
+ {
+  "name": "Battleground 荔枝角店",
+  "slug": "battleground-lai-chi-kok",
+  "addr": "荔枝角長順街11號長城工廠大廈5樓A09室",
+  "mtr": "",
+  "district_zh": "深水埗區",
+  "tags": [
+   "買卡",
+   "打牌",
+   "營業狀況待確認"
+  ],
+  "play": true,
+  "buy": true,
+  "sell": false,
+  "grading": false,
+  "gym_id": "GYM031",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "Card Aurora",
+  "slug": "card-aurora",
+  "addr": "西環皇后大道西540-546號寶德大廈3樓C室",
+  "mtr": "",
+  "district_zh": "中西區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "SP137",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "Pluto Card Game",
+  "slug": "pluto-card-game",
+  "addr": "西環德輔道西 402-404 創業商場G65號",
+  "mtr": "",
+  "district_zh": "中西區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "SP158",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "Cardtheland 咭之島",
+  "slug": "cardtheland",
+  "addr": "黃埔凱旋工商中心2期3樓G1B室",
+  "mtr": "",
+  "district_zh": "九龍城區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "GYM096",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "Master Cardhub",
+  "slug": "master-cardhub",
+  "addr": "紅磡蕪湖街53-59號金輝行8樓03室",
+  "mtr": "",
+  "district_zh": "九龍城區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "GYM126",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "Card Gather",
+  "slug": "card-gather",
+  "addr": "屯門建泰街 6 號恒威工業中心B2座1樓158室",
+  "mtr": "",
+  "district_zh": "屯門區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "SP06",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "肥佬玩具卡店 屯門",
+  "slug": "tuen-mun-shop-93499",
+  "addr": "屯門置樂利寶商場1/f  84號",
+  "mtr": "",
+  "district_zh": "屯門區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "SP96",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "Card Way",
+  "slug": "card-way",
+  "addr": "鰂魚涌英皇道995-997號萬利廣場93號鋪",
+  "mtr": "鰂魚涌站",
+  "district_zh": "東區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "SP152",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "卡牌屋集玩店",
+  "slug": "sha-tin-shop-9fd0a",
+  "addr": "火炭禾寮坑街2-16號安盛工業大廈5樓k室",
+  "mtr": "火炭站",
+  "district_zh": "沙田區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "SP77",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "Have Card 樓上咭店",
+  "slug": "have-card",
+  "addr": "九龍弼街49號唐二樓",
+  "mtr": "",
+  "district_zh": "油尖旺區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "GYM091",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "WannCARDda",
+  "slug": "wanncardda",
+  "addr": "太子長豐商業大廈8樓806室",
+  "mtr": "太子站",
+  "district_zh": "油尖旺區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "GYM085",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "九龍卡牌(旺角)",
+  "slug": "yau-tsim-mong-shop-31ae5",
+  "addr": "旺角花園街75號花園商業大廈702",
+  "mtr": "旺角站",
+  "district_zh": "油尖旺區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "SP62",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "AURORA TCG",
+  "slug": "aurora-tcg",
+  "addr": "長沙灣元州街162-188號天悅廣場112號鋪",
+  "mtr": "長沙灣站",
+  "district_zh": "深水埗區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "GYM011",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "CARD CAVE",
+  "slug": "card-cave",
+  "addr": "長沙灣天悅廣場1樓159B",
+  "mtr": "長沙灣站",
+  "district_zh": "深水埗區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "GYM045",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "CLS-TCG",
+  "slug": "cls-tcg",
+  "addr": "荔枝角國際工業大廈B1209室",
+  "mtr": "",
+  "district_zh": "深水埗區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "SP14",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "COMBO 嘉名店(籌備中)",
+  "slug": "combo",
+  "addr": "荔枝角嘉名工廠大廈6樓B座5室",
+  "mtr": "荔枝角站",
+  "district_zh": "深水埗區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "GYM023",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "Card Collection",
+  "slug": "card-collection",
+  "addr": "長沙灣元州街162-188號天悅廣場176號舖",
+  "mtr": "長沙灣站",
+  "district_zh": "深水埗區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "GYM16",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "Card Cyber",
+  "slug": "card-cyber",
+  "addr": "長沙灣元州街265號昌發工廠大廈c座1樓07鋪",
+  "mtr": "",
+  "district_zh": "深水埗區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "SP151",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "Card Men",
+  "slug": "card-men",
+  "addr": "青山道155-169號天悅廣場一樓168號舖",
+  "mtr": "長沙灣站",
+  "district_zh": "深水埗區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "SP08",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "Card Revolution",
+  "slug": "card-revolution",
+  "addr": "長沙灣天悅廣場1樓123A號舖",
+  "mtr": "長沙灣站",
+  "district_zh": "深水埗區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "SP09",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "Card Universe Limited",
+  "slug": "card-universe-limited",
+  "addr": "青山道658號 福至工業大廈 2樓 209",
+  "mtr": "荔枝角站",
+  "district_zh": "深水埗區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "SP10",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "CardGameStation",
+  "slug": "cardgamestation",
+  "addr": "荔枝角青山道658號福至工業大廈2樓212室",
+  "mtr": "荔枝角站",
+  "district_zh": "深水埗區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "GYM062",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "CardPro 卡鋪",
+  "slug": "cardpro",
+  "addr": "荔枝角青山道485號九龍廣場10樓1007室",
+  "mtr": "荔枝角站",
+  "district_zh": "深水埗區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "GYM106",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "Cardlos 卡樂師",
+  "slug": "cardlos",
+  "addr": "長沙灣天悅廣場1樓173號鋪",
+  "mtr": "長沙灣站",
+  "district_zh": "深水埗區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "GYM124",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "Cardoor Shop",
+  "slug": "cardoor-shop",
+  "addr": "長沙灣天悅廣場220號鋪",
+  "mtr": "長沙灣站",
+  "district_zh": "深水埗區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "SP13",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "K.S. CARD",
+  "slug": "k-s-card",
+  "addr": "九龍長沙灣元州街162-188號天悅廣埸2樓223號",
+  "mtr": "長沙灣站",
+  "district_zh": "深水埗區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "SP35",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "MA CARD GYM",
+  "slug": "ma-card-gym",
+  "addr": "荔枝角 瓊林街 龍翔工業大廈9E 28室",
+  "mtr": "",
+  "district_zh": "深水埗區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "SP38",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "MY 咭",
+  "slug": "sham-shui-po-shop-d1753",
+  "addr": "天悅廣埸 1樓133A店",
+  "mtr": "長沙灣站",
+  "district_zh": "深水埗區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "SP81",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "Ptcgcardfans 見卡打牌",
+  "slug": "ptcgcardfans",
+  "addr": "天悅廣埸1樓165店",
+  "mtr": "長沙灣站",
+  "district_zh": "深水埗區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "GYM081",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "九龍卡牌(天悅)",
+  "slug": "sham-shui-po-shop-6c087",
+  "addr": "長沙灣 元州街162-188號 天悦廣場118號店",
+  "mtr": "長沙灣站",
+  "district_zh": "深水埗區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "SP61",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "刀劍卡店",
+  "slug": "sham-shui-po-shop-53878",
+  "addr": "RM220,福至工業大廈,荔枝角",
+  "mtr": "荔枝角站",
+  "district_zh": "深水埗區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "SP63",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "卡片工房",
+  "slug": "sham-shui-po-shop-c0805",
+  "addr": "九龍元州街188號天悅廣場1樓135號舖",
+  "mtr": "長沙灣站",
+  "district_zh": "深水埗區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "SP76",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "太極卡",
+  "slug": "sham-shui-po-shop-ac7fa",
+  "addr": "長沙灣青山道469號聯邦廣場地庫55號舖",
+  "mtr": "荔枝角站",
+  "district_zh": "深水埗區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "SP142",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "幻影卡社",
+  "slug": "sham-shui-po-shop-f9db8",
+  "addr": "深水埗天悅廣場天悅廣場140號鋪",
+  "mtr": "長沙灣站",
+  "district_zh": "深水埗區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "SP71",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "新星卡社 Nova Card Store(步陞)",
+  "slug": "nova-card-store",
+  "addr": "長沙灣元州街165號步陞工商業大廈1樓A室",
+  "mtr": "長沙灣站",
+  "district_zh": "深水埗區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "SP108",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "暴龍哥TCG",
+  "slug": "tcg",
+  "addr": "長沙灣元州街162-188號天悅廣場2樓226號舖",
+  "mtr": "長沙灣站",
+  "district_zh": "深水埗區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "SP126",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "肥佬玩具卡店 天悅",
+  "slug": "sham-shui-po-shop-4bbba",
+  "addr": "長沙灣天悅廣場 177A",
+  "mtr": "長沙灣站",
+  "district_zh": "深水埗區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "SP95",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "鬍子卡牌",
+  "slug": "sham-shui-po-shop-7c793",
+  "addr": "九龍長沙灣青山道155-181號.天悅廣場1/F 123舖",
+  "mtr": "長沙灣站",
+  "district_zh": "深水埗區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "SP135",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "HONG KONG CARD STORE 香港卡牌",
+  "slug": "hong-kong-card-store",
+  "addr": "灣仔灣仔道188號東方188商場158號舖",
+  "mtr": "灣仔站",
+  "district_zh": "灣仔區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "SP32",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "TCG STORE HK",
+  "slug": "tcg-store-hk",
+  "addr": "灣仔灣仔道188號東方188商場 244號店",
+  "mtr": "灣仔站",
+  "district_zh": "灣仔區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "SP166",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "CardX",
+  "slug": "cardx",
+  "addr": "荃灣橫龍街48-56號 宏龍工業大廈 4樓3室C",
+  "mtr": "",
+  "district_zh": "荃灣區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "SP153",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "卡棋骰 Khaki",
+  "slug": "khaki",
+  "addr": "葵興工業街23至31號美聯工業大厦15樓D1室",
+  "mtr": "",
+  "district_zh": "葵青區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "SP111",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "CARDSLASH",
+  "slug": "cardslash",
+  "addr": "觀塘偉業街181號盈達商業大廈9樓A2室",
+  "mtr": "",
+  "district_zh": "觀塘區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "GYM098",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "Card Legacy",
+  "slug": "card-legacy",
+  "addr": "九龍觀塘開源道47號凱源工業大廈1/f C室",
+  "mtr": "觀塘站",
+  "district_zh": "觀塘區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "GYM020",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "Grass Type TCG Company",
+  "slug": "grass-type-tcg-company",
+  "addr": "Room R3, 11/F Everest Industrial Building, 396 Kwun Tong Road",
+  "mtr": "",
+  "district_zh": "觀塘區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "SP28",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "MOONROAD HK(官方道館名單,觀塘成業街)",
+  "slug": "moonroad-hk",
+  "addr": "觀塘成業街19-21號成業工業大廈7樓17室",
+  "mtr": "",
+  "district_zh": "觀塘區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "GYM079",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "Turbo TCG",
+  "slug": "turbo-tcg",
+  "addr": "觀塘開聯工業中心A 座 6樓611A室",
+  "mtr": "",
+  "district_zh": "觀塘區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "GYM44",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "Ookido Institute TCG 大木研究所",
+  "slug": "ookido-institute-tcg",
+  "addr": "新蒲崗六合街25號 嘉時工業大廈 1樓128室",
+  "mtr": "",
+  "district_zh": "黃大仙區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "GYM116",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "Play Card Chill",
+  "slug": "play-card-chill",
+  "addr": "九龍新蒲崗五芳街26號榮盛工業大廈15樓B06室",
+  "mtr": "鑽石山站",
+  "district_zh": "黃大仙區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "GYM054",
+  "verified": "2026-11-07"
+ },
+ {
+  "name": "卡羽",
+  "slug": "wong-tai-sin-shop-959f2",
+  "addr": "新蒲崗大有街14號萬星工業大廈6樓606室",
+  "mtr": "鑽石山站",
+  "district_zh": "黃大仙區",
+  "tags": [
+   "營業狀況待確認"
+  ],
+  "play": false,
+  "buy": false,
+  "sell": false,
+  "grading": false,
+  "gym_id": "GYM089",
+  "verified": "2026-11-07"
+ }
+]
