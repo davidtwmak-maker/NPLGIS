@@ -165,7 +165,7 @@ across the territory.
 - The summed population reconciles **exactly** with the published C&SD figure
   — **7,411,945**. It does.
 - Polygon simplification moves no vertex more than **60 m** (worst case
-  **13.4 m**).
+  **13.3 m**).
 - No small area loses more than 2% of its area to simplification, and no area
   with a population above 50 changes by more than 5%.
 
