@@ -260,7 +260,7 @@ independent script, and the population total is checked against the published
 C&SD figure rather than assumed.
 
 **The AI found the bugs, by checking outputs against source data rather than
-trusting them.** Thirty-five silent defects were caught this way, including:
+trusting them.** Thirty-six silent defects were caught this way, including:
 
 - the census column names (`t_pop`, `age_2_15_24`) being read as if they were
   `pop_total` / `pop_15_24` — the build failed its own reconciliation gate at
@@ -378,7 +378,22 @@ trusting them.** Thirty-five silent defects were caught this way, including:
   gazetteer's own building record so the spelling is the official one.
   The facility is kept in a new `geocode_evidence` field, so the
   match can still be audited. Every one of the 37 was checked against
-  the building its address names; no position moved.
+  the building its address names; no position moved;
+- **a name read before it was assigned.** The geocoder's `choose()`
+  scores how well a gazetteer hit's own name matches the shop's name
+  (`token_q`), and a distance gate *reads* that score to decide
+  whether a far hit can still be the right building. In an
+  intermediate version of the file the score was computed *after*
+  that gate, so the gate read a name that had never been assigned:
+  `UnboundLocalError: cannot access local variable 'token_q'`.
+  It crashed the 205-shop run part way through rather than
+  corrupting it — which is the better of the two outcomes, but a run
+  that dies mid-way leaves the previous output file in place with no
+  sign that this one produced nothing. The score is now computed
+  before the gate, and `scripts/tcg-stores/check_token_order.py`
+  asserts on the AST that every name is assigned before it is read;
+  the check was verified by deliberately breaking the file and
+  confirming it fails.
 
 **Every derived field carries an `ai_` prefix** (`ai_y1524_per_play_1000m`,
 `ai_play_venue_count`, …). This is the disclosure mechanism used for the
