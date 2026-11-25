@@ -170,12 +170,28 @@ tried before name-only queries.
 
 **Merged: 289 shops**, of which 47 are confirmed by two or more sources.
 
-The unresolved 14 HKCardPrice shops are all **mall addresses** with no street
-number of their own (e.g. 天悅廣場) — the mall is the only identifier, and the
-government index lists it under a variant character (廣埸 for 廣場). The
-unresolved 4 hand-built venues were traced to **wrong addresses in the source
-listings**, not to failed matches: 嘉時工廠大廈 is at 六合街25-27號 in San Po
-Kong, not the 福華街25號 the directory gives — a different building.
+The **5** HKCardPrice shops still unresolved are the cases the government
+index simply does not carry in the shape the directory gives them, or does
+not carry at all:
+
+| Shop | Address | Why |
+|---|---|---|
+| Cardstop | *(none)* | the directory lists no address at all |
+| Grass Type TCG Company | Room R3, 11/F Everest Industrial Building, 396 Kwun Tong Road | the gazetteer calls it Everest Industrial **Centre**; the directory says **Building** |
+| Have Card 樓上咭店 | 九龍弼街49號唐二樓 | the building is not in the index under that name |
+| MY 咭 | 天悅廣埸 1樓133A店 | the mall is indexed as 天悅廣場, and the unit is on its first floor |
+| Ptcgcardfans 見卡打牌 | 天悅廣埸1樓165店 | the same mall, the same floor |
+
+The **4** unresolved hand-built venues were traced to **wrong addresses in the
+source listings**, not to failed matches: 嘉時工廠大廈 is at 六合街25-27號 in San
+Po Kong, not the 福華街25號 the directory gives — a different building.
+
+**The three that moved.** Three shops changed position when the matcher was
+corrected, and in every case the new position is the one the address names:
+千日匠 旺角新之城店 moved 6.4 km, from a stray HKT WiFi hotspot in Tai Kok to
+旺角中心第一座, the mall its address gives; CardKing moved 87 m from 美羅中心
+to 美羅中心2期, because its address says 二期; Card Gather moved 84 m from
+良膳廚坊 to 屯門恒威工業中心, because its address says so.
 
 **Three geocodes were checked by hand against the authoritative District
 Council boundary layer and confirmed correct despite differing from the
