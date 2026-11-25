@@ -70,9 +70,10 @@ def collect(with_raw):
     if notes.exists():
         items.append(("notes/hk-tcg-stores — NOTES.md", notes))
 
-    # Every pipeline script.
+    # Every pipeline script. Compiled bytecode is excluded: a .pyc in
+    # the delivered zip is noise, and a stale one is misleading.
     for p in sorted((REPO / "scripts/tcg-stores").rglob("*")):
-        if p.is_file():
+        if p.is_file() and p.suffix != ".pyc" and "__pycache__" not in p.parts:
             items.append((f"scripts/tcg-stores/{p.name}", p))
 
     # The manifest entry for this project.
@@ -103,6 +104,17 @@ def collect(with_raw):
 
 
 def write_readme(items, raw, with_raw):
+    # Every number in the README is read from the published summary.
+    # A hand-typed count in a delivered document goes stale the moment
+    # the pipeline is rerun, and nobody reading the zip would know.
+    with open(HERE / "out/merged_summary.json", encoding="utf-8") as f:
+        S = json.load(f)
+    sens = S["sensitivity_all_gyms_counted_as_venues"]
+    pbd = S["play_venues_by_district"]
+
+    def dist_line(name, n):
+        return f"{name} {n}"
+
     lines = [
         "HONG KONG TRADING CARD GAME SHOPS AND PLAY VENUES",
         "=" * 56,
@@ -152,19 +164,29 @@ def write_readme(items, raw, with_raw):
     lines += [
         "THE HEADLINE FINDING",
         "",
-        "  409,921 of Hong Kong's 591,073 people aged 15 to 24 - 69.4% -",
+        f"  {S['young_people_with_no_venue_within_1km']:,.0f} of Hong Kong's "
+        f"{S['young_people_15_24']:,.0f} people aged 15 to 24 - "
+        f"{S['share_young_with_no_venue']}% -",
         "  live more than 1 km from any confirmed card-game play venue.",
-        "  152 of the 211 census small areas have no venue within 1 km.",
+        f"  {S['areas_with_no_venue']} of the {S['census_areas']} census small "
+        "areas have no venue within 1 km.",
         "",
         "  The figure is a lower bound on the problem, and a sensitivity",
         "  scenario is included: counting every registered Pokemon Gym as a",
-        "  venue brings the unserved share to 66.2%.",
+        f"  venue brings the unserved share to {sens['share_young_with_no_venue']}%.",
         "",
-        "  The supply side: 282 shops and play venues were located, of which",
-        "  49 are confirmed play spaces and 63 are official Pokemon Gyms. 47",
+        f"  The supply side: {S['shops_total']} shops and play venues were "
+        f"located, of which",
+        f"  {S['play_venues_total']} are confirmed play spaces and "
+        f"{S['pokemon_gyms_total']} are official Pokemon Gyms. "
+        f"{S['shops_confirmed_by_2_sources']}",
         "  shops are listed by two independent directories. Supply is",
-        "  concentrated - Sham Shui Po 9 venues, Yau Tsim Mong 9, Kwun Tong 7,",
-        "  Wan Chai 6, Wong Tai Sin 5 - and the North, Tuen Mun, Tsuen Wan,",
+        f"  concentrated - {dist_line('Sham Shui Po', pbd['Sham Shui Po'])}, "
+        f"{dist_line('Yau Tsim Mong', pbd['Yau Tsim Mong'])}, "
+        f"{dist_line('Kwun Tong', pbd['Kwun Tong'])},",
+        f"  {dist_line('Wan Chai', pbd['Wan Chai'])}, "
+        f"{dist_line('Wong Tai Sin', pbd['Wong Tai Sin'])} - and the North, "
+        "Tuen Mun, Tsuen Wan,",
         "  Sai Kung and Yuen Long districts have none at all.",
         "",
         "HOW TO CHECK IT",
