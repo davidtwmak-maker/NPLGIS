@@ -46,9 +46,22 @@ reading of the supply side — the unserved share only falls from **69.4% to
 | **District Council boundaries** | District check for every geocode | `assets/data/self-study-rooms/district_boundaries.geojson.gz`, 18 features |
 
 **OpenStreetMap was tried and abandoned.** All three Overpass mirrors failed
-(`overpass-api.de`, `overpass.osm.jp`, `overpass.private.coffee`), and the raw
-tile downloads contained **zero** `shop` tags for any Hong Kong card game shop.
-OSM has no usable coverage of this scene.
+(`overpass-api.de`, `overpass.osm.jp`, `overpass.private.coffee`). The
+fallback was to download the raw tile data for the whole territory: a
+**651-tile grid**, plus **23 tiles split into quarters** where the full-tile
+request hit the 50,000-node limit, giving **720 tiles with complete
+coverage** and no gaps.
+
+Every tag in those 720 tiles was read. There is **not one shop tagged as a
+card game shop** — no `shop=cards`, no `shop=card_game`, no
+`shop=board_game`, no `shop=hobby`. The parser found **173 distinct shop
+tags** in total (`supermarket` 588, `mall` 656, `convenience` 1,237, and so
+on). The nearest neighbours are `shop=toys` (50) and `shop=model` (3); two
+of those model shops matched only because their name contains 模型
+("models"), and both were rejected as card-game shops. OSM has no usable
+coverage of this scene.
+
+The tile data is kept, so the claim is checkable rather than asserted.
 
 ### The merge
 
