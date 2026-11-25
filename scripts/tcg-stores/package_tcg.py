@@ -42,19 +42,28 @@ def collect(with_raw):
     items = []
 
     # The web map application.
+    #
+    # The zip MIRRORS THE REPOSITORY LAYOUT rather than flattening it.
+    # The app's HTML refers to ../../assets/style.css, ../../favicon.png
+    # and ../../notes/... , because in the repository it sits at
+    # apps/tcg-stores/. Flattening it to app/ breaks every one of those
+    # paths, and the app then renders unstyled with no notes link. So
+    # the zip keeps apps/, assets/ and notes/ where they are, and the
+    # published data goes under assets/data/tcg-stores/ where the
+    # repository puts it.
     for p in sorted((REPO / "apps/tcg-stores").rglob("*")):
         if p.is_file():
-            items.append((f"app/{p.relative_to(REPO / 'apps/tcg-stores')}", p))
+            items.append((str(p.relative_to(REPO)), p))
 
-    # The published data.
+    # The published data, where the repository keeps it.
     for p in sorted((REPO / "assets/data/tcg-stores").rglob("*")):
         if p.is_file():
-            items.append((f"data/{p.name}", p))
+            items.append((f"assets/data/tcg-stores/{p.name}", p))
 
     # The static map figure.
     for p in sorted((REPO / "assets/maps/tcg-stores").rglob("*")):
         if p.is_file():
-            items.append((f"maps/{p.name}", p))
+            items.append((f"assets/maps/tcg-stores/{p.name}", p))
 
     # The written notes.
     notes = REPO / "notes/hk-tcg-stores — NOTES.md"
@@ -64,12 +73,22 @@ def collect(with_raw):
     # Every pipeline script.
     for p in sorted((REPO / "scripts/tcg-stores").rglob("*")):
         if p.is_file():
-            items.append((f"scripts/{p.name}", p))
+            items.append((f"scripts/tcg-stores/{p.name}", p))
 
     # The manifest entry for this project.
     man = REPO / "assets/data/MANIFEST.json"
     if man.exists():
-        items.append(("metadata/MANIFEST.json", man))
+        items.append(("assets/data/MANIFEST.json", man))
+
+    # The shared assets the app's HTML refers to by a path that walks
+    # up out of the app folder: ../../assets/style.css and
+    # ../../favicon.png. They are copied into the same relative shape
+    # inside the zip, so the app folder works as it is, unpacked and
+    # served, without editing a single line.
+    for rel in ("assets/style.css", "favicon.png"):
+        p = REPO / rel
+        if p.exists():
+            items.append((rel, p))
 
     raw = []
     if with_raw:
@@ -95,24 +114,32 @@ def write_readme(items, raw, with_raw):
         "",
         "WHAT IS HERE",
         "",
-        "  app/       The interactive web map. Open app/index.html in a",
-        "             browser, or serve the folder over HTTP - the app loads",
-        "             its data files with fetch(), which a file:// URL",
-        "             blocks. The published copy is online at",
+        "  This zip mirrors the repository layout, so the app folder works",
+        "  as it stands, unpacked and served, without editing a line.",
+        "",
+        "  apps/tcg-stores/   The interactive web map. Open",
+        "             apps/tcg-stores/index.html in a browser, or serve",
+        "             the folder over HTTP - the app loads its data files",
+        "             with fetch(), which a file:// URL blocks. The",
+        "             published copy is online at",
         "             https://davidtwmak-maker.github.io/NPLGIS/apps/tcg-stores/",
         "",
-        "  data/      The published data: shop and venue points, the small",
-        "             area metrics, the district boundaries, the summary.",
+        "  assets/data/       The published data: shop and venue points,",
+        "             the small area metrics, the district boundaries,",
+        "             the summary, and the repository manifest.",
         "",
-        "  maps/      The static map figure, as a PNG.",
+        "  assets/maps/       The static map figure, as a PNG.",
         "",
-        "  notes/     The written notes: method, sources, the checks that",
-        "             were run, and the defects that were found.",
+        "  notes/             The written notes: method, sources, the",
+        "             checks that were run, and the defects that were",
+        "             found.",
         "",
-        "  scripts/   Every script in the pipeline, in the order they run.",
-        "             These produce the data/ files from the raw sources.",
+        "  scripts/tcg-stores/  Every script in the pipeline, in the order",
+        "             they run. These produce the data files from the raw",
+        "             sources.",
         "",
-        "  metadata/  The repository manifest entry for this project.",
+        "  assets/style.css   and  favicon.png  - the shared assets the",
+        "             app's HTML refers to.",
         "",
     ]
     if with_raw:
