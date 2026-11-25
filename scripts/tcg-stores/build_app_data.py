@@ -24,14 +24,17 @@ OUTPUT
 from atomic_write import write_json_atomic
 import csv
 import gzip
+import hashlib
 import json
 import math
+import re
 from collections import defaultdict
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 OUT = Path("/Users/davidhermes/nplgis/apps/tcg-stores/data")
 OUT.mkdir(parents=True, exist_ok=True)
+APP = Path("/Users/davidhermes/nplgis/apps/tcg-stores")
 
 METRICS = HERE / "out/merged_metrics.csv"
 METRICS_GJ = HERE / "out/merged_metrics.geojson"
@@ -286,6 +289,34 @@ def main():
     write_json_atomic(OUT / "metrics.json", metrics, separators=(",", ":"))
     write_json_atomic(OUT / "summary.json", summary, indent=1)
     write_json_atomic(OUT / "districts.json", districts, separators=(",", ":"))
+
+    # The build id is a hash of the data files just written, so it
+    # changes exactly when the data changes. The app appends it to its
+    # fetch URLs: GitHub Pages caches the data for 10 minutes, and a
+    # returning browser would otherwise keep the previous build.
+    h = hashlib.sha256()
+    for f in sorted(OUT.glob("*.json")):
+        h.update(f.name.encode())
+        h.update(f.read_bytes())
+    build_id = h.hexdigest()[:12]
+
+    index = APP / "index.html"
+    html = index.read_text(encoding="utf-8")
+    html = re.sub(
+        r'(window\.__TCG_BUILD__\s*=\s*")[^"]*(")',
+        lambda m: m.group(1) + build_id + m.group(2),
+        html,
+    )
+    if "__TCG_BUILD__" not in html:
+        # The line is not there yet: put it in before app.js is loaded.
+        html = html.replace(
+            '<script src="./app.js',
+            f'<script>window.__TCG_BUILD__="{build_id}";</script>\n'
+            '    <script src="./app.js',
+            1,
+        )
+    index.write_text(html, encoding="utf-8")
+    print(f"\nbuild id: {build_id}")
 
     for f in sorted(OUT.glob("*.json")):
         print(f"   {f.name:16} {f.stat().st_size / 1024:8.0f} KB")
