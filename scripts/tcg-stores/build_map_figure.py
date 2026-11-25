@@ -8,7 +8,7 @@ White background.
 The figure shows THREE things and each has its own channel:
   1. the 211 census small areas, coloured by the demand-to-supply ratio
      (people aged 15-24 within 1 km, per PLAY VENUE within 1 km);
-  2. the 287 card shops, as dots - white where you can actually play,
+  2. the card shops, as dots - white where you can actually play,
      gold where the shop only sells cards, pink where it is an official
      Pokemon Gym;
   3. the shop clusters, named in the Key by area, not by callout.
@@ -34,6 +34,11 @@ HERE = Path(__file__).resolve().parent
 REPO = Path("/Users/davidhermes/nplgis")
 OUT_DIR = REPO / "assets/maps/tcg-stores"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
+
+# The headline counts, read from the summary the analysis wrote. The
+# figure quotes them, so a hard-coded copy in the caption is a number
+# that goes stale the moment the data changes.
+SUMMARY = json.load(open(HERE / "out/merged_summary.json", encoding="utf-8"))
 
 # ---- house font ----------------------------------------------------------
 for f in ("Times New Roman.ttf", "Times New Roman Bold.ttf",
@@ -164,12 +169,19 @@ def main():
                 path_effects=[pe.withStroke(linewidth=2.6, foreground="white")])
 
     # ---- titles ------------------------------------------------------------
+    # The counts come from the summary file, not from constants. A
+    # hard-coded number in a figure caption is a number that goes stale
+    # the moment the data changes - and this caption had already been
+    # stale once, reading "287 card shops and 55 play venues" against a
+    # layer of 282 shops and 49 venues.
+    n_shops = int(SUMMARY.get("shops_total", 0))
+    n_venues = int(SUMMARY.get("play_venues_total", 0))
     fig.text(0.045, 0.972, "Where can you go to play trading card games in Hong Kong?",
              fontsize=16, ha="left", va="top", fontweight="bold")
     fig.text(0.045, 0.950,
-             "287 card shops and 55 play venues against the 2021 Population "
-             "Census: the number of 15–24-year-olds within 1 km, per play "
-             "venue within 1 km",
+             f"{n_shops} card shops and {n_venues} play venues against the 2021 "
+             "Population Census: the number of 15–24-year-olds within 1 km, "
+             "per play venue within 1 km",
              fontsize=10.5, ha="left", va="top", color="#333333")
 
     # ---- the Key -----------------------------------------------------------

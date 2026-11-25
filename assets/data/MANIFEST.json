@@ -2323,8 +2323,8 @@
   },
   {
    "file": "scripts/tcg-stores/build_map_figure.py",
-   "bytes": 10514,
-   "sha256": "739f7435c513f973",
+   "bytes": 11216,
+   "sha256": "5bf8dbd6c03b4a8e",
    "description": "Build the static map figure: the census small areas in six classes, the shops, the confirmed play venues and the registered Pokemon Gyms, with a key and the headline numbers."
   },
   {
