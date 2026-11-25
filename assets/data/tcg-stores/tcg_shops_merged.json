@@ -5454,6 +5454,25 @@
   "hkcardprice_addr": "旺角信和中心21樓05室"
  },
  {
+  "name": "精靈谷",
+  "name_zh": "精靈谷",
+  "address": "元朗喜利商場一樓9號舖",
+  "address_zh": "元朗喜利商場一樓9號舖",
+  "lat": 22.44458,
+  "lon": 114.0258,
+  "ai_sources": [
+   "hkcardprice"
+  ],
+  "games": [],
+  "services": [],
+  "ai_play_space": false,
+  "ai_play_tag": false,
+  "gym_id": null,
+  "mtr": "朗屏站",
+  "district": "Yuen Long",
+  "hkcardprice_addr": "元朗喜利商場一樓9號舖"
+ },
+ {
   "name": "MOONROAD 旺角信和 246 店",
   "name_zh": "MOONROAD 旺角信和 246 店",
   "address": "旺角彌敦道582-592號信和中心2樓246號舖",
@@ -5625,12 +5644,31 @@
   "hkcardprice_addr": "旺角彌敦道608號總統商業大廈20樓02室"
  },
  {
+  "name": "Cardier TCG 卡帝亞(皮神) 調景嶺旗艦店",
+  "name_zh": "Cardier TCG 卡帝亞(皮神) 調景嶺旗艦店",
+  "address": "將軍澳調景嶺都會駅 L2 74號舖(屈臣氏對面)",
+  "address_zh": "將軍澳調景嶺都會駅 L2 74號舖(屈臣氏對面)",
+  "lat": 22.30446,
+  "lon": 114.25238,
+  "ai_sources": [
+   "hkcardprice"
+  ],
+  "games": [],
+  "services": [],
+  "ai_play_space": false,
+  "ai_play_tag": false,
+  "gym_id": null,
+  "mtr": "調景嶺站",
+  "district": "Sai Kung",
+  "hkcardprice_addr": "將軍澳調景嶺都會駅 L2 74號舖(屈臣氏對面)"
+ },
+ {
   "name": "異次元桌遊社",
   "name_zh": "異次元桌遊社",
   "address": "天后清風街6-8號凱豐商業大廈2樓B",
   "address_zh": "天后清風街6-8號凱豐商業大廈2樓B",
-  "lat": 22.28444,
-  "lon": 114.19251,
+  "lat": 22.28445,
+  "lon": 114.1925,
   "ai_sources": [
    "hkcardprice"
   ],
@@ -5667,8 +5705,8 @@
   "name_zh": "CardKing",
   "address": "九龍灣臨興街21號美羅中心二期2樓231室",
   "address_zh": "九龍灣臨興街21號美羅中心二期2樓231室",
-  "lat": 22.32411,
-  "lon": 114.21083,
+  "lat": 22.32488,
+  "lon": 114.21124,
   "ai_sources": [
    "hkcardprice"
   ],
@@ -5724,8 +5762,8 @@
   "name_zh": "COMBO 天悅店",
   "address": "長沙灣元州街162-188號天悅廣場G樓B14號舖",
   "address_zh": "長沙灣元州街162-188號天悅廣場G樓B14號舖",
-  "lat": 22.33492,
-  "lon": 114.16054,
+  "lat": 22.33488,
+  "lon": 114.16036,
   "ai_sources": [
    "hkcardprice"
   ],
@@ -5800,8 +5838,8 @@
   "name_zh": "大一 Audiocom(黃金電腦商場)",
   "address": "深水埗福華街146-152號黃金電腦商場地面28號舖",
   "address_zh": "深水埗福華街146-152號黃金電腦商場地面28號舖",
-  "lat": 22.33185,
-  "lon": 114.16251,
+  "lat": 22.33174,
+  "lon": 114.16301,
   "ai_sources": [
    "hkcardprice"
   ],
@@ -5832,6 +5870,25 @@
   "mtr": null,
   "district": "Kwun Tong",
   "hkcardprice_addr": "觀塘巧明街105號好運工業大廈3樓D室"
+ },
+ {
+  "name": "通用卡店 啟德店",
+  "name_zh": "通用卡店 啟德店",
+  "address": "啟德木脆街12號雙子匯二期(Tower 2)6樓615-617號舖",
+  "address_zh": "啟德木脆街12號雙子匯二期(Tower 2)6樓615-617號舖",
+  "lat": 22.33159,
+  "lon": 114.2021,
+  "ai_sources": [
+   "hkcardprice"
+  ],
+  "games": [],
+  "services": [],
+  "ai_play_space": false,
+  "ai_play_tag": false,
+  "gym_id": null,
+  "mtr": "啟德站",
+  "district": "Kowloon City",
+  "hkcardprice_addr": "啟德木脆街12號雙子匯二期(Tower 2)6樓615-617號舖"
  },
  {
   "name": "CGC Hong Kong 辦事處",
@@ -5876,8 +5933,8 @@
   "name_zh": "千日匠 School Driver 旺角新之城店",
   "address": "旺角新之城2樓256-257號(旺角中心隔離)",
   "address_zh": "旺角新之城2樓256-257號(旺角中心隔離)",
-  "lat": 22.37359,
-  "lon": 114.11675,
+  "lat": 22.31988,
+  "lon": 114.16998,
   "ai_sources": [
    "hkcardprice"
   ],
@@ -5887,7 +5944,7 @@
   "ai_play_tag": false,
   "gym_id": null,
   "mtr": "旺角站",
-  "district": "Tsuen Wan",
+  "district": "Yau Tsim Mong",
   "hkcardprice_addr": "旺角新之城2樓256-257號(旺角中心隔離)"
  },
  {
@@ -5967,6 +6024,25 @@
   "hkcardprice_addr": "九龍青山道483號再發工廠大廈1樓G室(荔枝角B1出口)"
  },
  {
+  "name": "Battleground 觀塘店(Hobbyland X Battleground 旗艦體驗館)",
+  "name_zh": "Battleground 觀塘店(Hobbyland X Battleground 旗艦體驗館)",
+  "address": "觀塘巧明街 The Angle(三布目商場)7樓701-706室",
+  "address_zh": "觀塘巧明街 The Angle(三布目商場)7樓701-706室",
+  "lat": 22.31256,
+  "lon": 114.22166,
+  "ai_sources": [
+   "hkcardprice"
+  ],
+  "games": [],
+  "services": [],
+  "ai_play_space": false,
+  "ai_play_tag": false,
+  "gym_id": "GYM125",
+  "mtr": null,
+  "district": "Kwun Tong",
+  "hkcardprice_addr": "觀塘巧明街 The Angle(三布目商場)7樓701-706室"
+ },
+ {
   "name": "千日匠 School Driver 鑽石山荷里活廣場店",
   "name_zh": "千日匠 School Driver 鑽石山荷里活廣場店",
   "address": "鑽石山荷里活廣場3樓304",
@@ -6041,6 +6117,25 @@
   "mtr": "銅鑼灣站",
   "district": "Wan Chai",
   "hkcardprice_addr": "銅鑼灣富明街寶富大樓1樓1C室"
+ },
+ {
+  "name": "玩具模型倉 (將軍澳廣場店)",
+  "name_zh": "玩具模型倉 (將軍澳廣場店)",
+  "address": "將軍澳廣場1樓1081號舖",
+  "address_zh": "將軍澳廣場1樓1081號舖",
+  "lat": 22.3089,
+  "lon": 114.26221,
+  "ai_sources": [
+   "hkcardprice"
+  ],
+  "games": [],
+  "services": [],
+  "ai_play_space": false,
+  "ai_play_tag": false,
+  "gym_id": null,
+  "mtr": "將軍澳站",
+  "district": "Sai Kung",
+  "hkcardprice_addr": "將軍澳廣場1樓1081號舖"
  },
  {
   "name": "KBG Hub TCG",
@@ -6126,8 +6221,8 @@
   "name_zh": "Card Gather",
   "address": "屯門建泰街 6 號恒威工業中心B2座1樓158室",
   "address_zh": "屯門建泰街 6 號恒威工業中心B2座1樓158室",
-  "lat": 22.3959,
-  "lon": 113.97065,
+  "lat": 22.39515,
+  "lon": 113.97082,
   "ai_sources": [
    "hkcardprice"
   ],
@@ -6139,6 +6234,25 @@
   "mtr": null,
   "district": "Tuen Mun",
   "hkcardprice_addr": "屯門建泰街 6 號恒威工業中心B2座1樓158室"
+ },
+ {
+  "name": "肥佬玩具卡店 屯門",
+  "name_zh": "肥佬玩具卡店 屯門",
+  "address": "屯門置樂利寶商場1/f  84號",
+  "address_zh": "屯門置樂利寶商場1/f  84號",
+  "lat": 22.38821,
+  "lon": 113.97965,
+  "ai_sources": [
+   "hkcardprice"
+  ],
+  "games": [],
+  "services": [],
+  "ai_play_space": false,
+  "ai_play_tag": false,
+  "gym_id": "SP96",
+  "mtr": null,
+  "district": "Tuen Mun",
+  "hkcardprice_addr": "屯門置樂利寶商場1/f  84號"
  },
  {
   "name": "Card Way",
@@ -6519,6 +6633,25 @@
   "mtr": null,
   "district": "Tsuen Wan",
   "hkcardprice_addr": "荃灣橫龍街48-56號 宏龍工業大廈 4樓3室C"
+ },
+ {
+  "name": "卡棋骰 Khaki",
+  "name_zh": "卡棋骰 Khaki",
+  "address": "葵興工業街23至31號美聯工業大厦15樓D1室",
+  "address_zh": "葵興工業街23至31號美聯工業大厦15樓D1室",
+  "lat": 22.36177,
+  "lon": 114.13555,
+  "ai_sources": [
+   "hkcardprice"
+  ],
+  "games": [],
+  "services": [],
+  "ai_play_space": false,
+  "ai_play_tag": false,
+  "gym_id": "SP111",
+  "mtr": null,
+  "district": "Kwai Tsing",
+  "hkcardprice_addr": "葵興工業街23至31號美聯工業大厦15樓D1室"
  },
  {
   "name": "MOONROAD HK(官方道館名單,觀塘成業街)",

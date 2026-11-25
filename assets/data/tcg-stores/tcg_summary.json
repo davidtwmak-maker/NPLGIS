@@ -2,22 +2,22 @@
  "population_total": 7411945.0,
  "population_total_check": "exact match with published 2021 Census",
  "census_areas": 211,
- "shops_total": 282,
+ "shops_total": 289,
  "play_venues_total": 49,
  "play_venues_geocoded": 49,
- "pokemon_gyms_total": 63,
- "pokemon_gyms_registered_only": 49,
+ "pokemon_gyms_total": 66,
+ "pokemon_gyms_registered_only": 52,
  "shops_confirmed_by_2_sources": 47,
- "shops_assigned_to_area": 282,
+ "shops_assigned_to_area": 289,
  "young_people_15_24": 591073.0,
  "young_people_within_1km_of_a_venue": 181152.0,
  "young_people_with_no_venue_within_1km": 409921.0,
  "share_young_with_no_venue": 69.4,
  "areas_with_no_venue": 152,
  "sensitivity_all_gyms_counted_as_venues": {
-  "young_people_with_no_venue_within_1km": 391049.0,
-  "share_young_with_no_venue": 66.2,
-  "areas_with_no_venue": 146
+  "young_people_with_no_venue_within_1km": 385054.0,
+  "share_young_with_no_venue": 65.1,
+  "areas_with_no_venue": 145
  },
  "play_venues_by_district": {
   "Sham Shui Po": 9,
@@ -60,21 +60,21 @@
    "pop": 398291.0,
    "y1524": 30169.0,
    "play_near": 28,
-   "shops_near": 139
+   "shops_near": 142
   },
   "Kwai Tsing": {
    "areas": 6,
    "pop": 621834.0,
    "y1524": 52433.0,
    "play_near": 5,
-   "shops_near": 17
+   "shops_near": 18
   },
   "Kwun Tong": {
    "areas": 9,
    "pop": 673143.0,
    "y1524": 60320.0,
    "play_near": 15,
-   "shops_near": 80
+   "shops_near": 82
   },
   "North": {
    "areas": 14,
@@ -88,7 +88,7 @@
    "pop": 489037.0,
    "y1524": 39744.0,
    "play_near": 0,
-   "shops_near": 0
+   "shops_near": 3
   },
   "Sha Tin": {
    "areas": 7,
@@ -130,7 +130,7 @@
    "pop": 503917.0,
    "y1524": 38298.0,
    "play_near": 0,
-   "shops_near": 6
+   "shops_near": 8
   },
   "Wan Chai": {
    "areas": 10,
@@ -144,21 +144,21 @@
    "pop": 406802.0,
    "y1524": 33463.0,
    "play_near": 19,
-   "shops_near": 65
+   "shops_near": 67
   },
   "Yau Tsim Mong": {
    "areas": 16,
    "pop": 323013.0,
    "y1524": 24169.0,
    "play_near": 56,
-   "shops_near": 296
+   "shops_near": 301
   },
   "Yuen Long": {
    "areas": 26,
    "pop": 670921.0,
    "y1524": 59201.0,
    "play_near": 0,
-   "shops_near": 10
+   "shops_near": 11
   }
  },
  "catchment_metres": [

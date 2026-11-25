@@ -90,18 +90,89 @@ def script_entry(rel, description):
     }
 
 
+# The counts that appear in a description are read from the published
+# summary, never typed in. A hand-written count goes stale the moment the
+# pipeline is rerun, and a stale count in a manifest is a false claim.
+SUMMARY_PATH = REPO / "assets/data/tcg-stores/tcg_summary.json"
+
+
+def _summary():
+    with open(SUMMARY_PATH, encoding="utf-8") as f:
+        return json.load(f)
+
+
+def merged_shops_note():
+    """The description of the merged layer, with its counts from the data."""
+    s = _summary()
+    return (
+        "{n} shops merged from the BAW VAULT directory (205), the HKCardPrice "
+        "PTCG directory (117) and a hand-built list of card-game and "
+        "board-game venues (23). Each record carries its coordinates, the "
+        "District Council district confirmed against the boundary layer, "
+        "whether a play space is confirmed by the source, any official "
+        "Pokemon Gym id, and which directories list it. {c} shops are "
+        "confirmed by two or more sources. A hand-built venue that is the "
+        "same shop as a directory listing is merged into it rather than "
+        "counted twice. EPSG:4326."
+    ).format(n=s["shops_total"], c=s["shops_confirmed_by_2_sources"])
+
+
+def summary_note():
+    """The description of the summary file, with its counts from the data."""
+    s = _summary()
+    sens = s["sensitivity_all_gyms_counted_as_venues"]
+    return (
+        "The figures quoted in the web map and the notes: {shops} shops, "
+        "{play} confirmed play venues, {gyms} registered Pokemon Gyms, "
+        "{y1524:,.0f} people aged 15-24, {near:,.0f} of them within 1 km of "
+        "a venue, and {far:,.0f} ({pct}%) with no venue within 1 km. Also the "
+        "sensitivity scenario in which every registered Gym is counted as a "
+        "venue, which still leaves {spct}% of young people unserved."
+    ).format(
+        shops=s["shops_total"],
+        play=s["play_venues_total"],
+        gyms=s["pokemon_gyms_total"],
+        y1524=s["young_people_15_24"],
+        near=s["young_people_within_1km_of_a_venue"],
+        far=s["young_people_with_no_venue_within_1km"],
+        pct=s["share_young_with_no_venue"],
+        spct=sens["share_young_with_no_venue"],
+    )
+
+
+def hkcardprice_geocode_note():
+    """The description of the HKCardPrice geocode file, counts from the data."""
+    s = _summary()
+    n_total = 117
+    n_geocoded = _hkp_geocoded_count()
+    return (
+        "The {total} HKCardPrice shops, each with the geocode evidence: the "
+        "building the address matched, the district from the District Council "
+        "boundary layer, whether the district agreed with the directory's own "
+        "label, and the score. {geocoded} of the {total} are geocoded to the "
+        "building level; the {rest} that are not are mall addresses with no "
+        "street number, or an address the government index does not carry."
+    ).format(total=n_total, geocoded=n_geocoded, rest=n_total - n_geocoded)
+
+
+def _hkp_geocoded_count():
+    """How many HKCardPrice shops carry a building-level geocode."""
+    path = REPO / "assets/data/tcg-stores/tcg_shops_hkcardprice.json"
+    with open(path, encoding="utf-8") as f:
+        data = json.load(f)
+    rows = data if isinstance(data, list) else data.get("features", [])
+    n = 0
+    for r in rows:
+        props = r.get("properties", r)
+        if props.get("geocoded") or props.get("ai_geocode_rule"):
+            n += 1
+    return n
+
+
 FILES = [
     ("assets/data/tcg-stores/tcg_shops_merged.json",
      "Every card shop in Hong Kong, geocoded to the building level",
-     "281 shops merged from the BAW VAULT directory (205), the HKCardPrice "
-     "PTCG directory (117) and a hand-built list of card-game and "
-     "board-game venues (23). Each record carries its coordinates, the "
-     "District Council district confirmed against the boundary layer, "
-     "whether a play space is confirmed by the source, any official "
-     "Pokemon Gym id, and which directories list it. 48 shops are confirmed "
-     "by two or more sources. A hand-built venue that is the same shop as a "
-     "directory listing is merged into it rather than counted twice. "
-     "EPSG:4326.",
+     merged_shops_note(),
      "", "auto", ""),
     ("assets/data/tcg-stores/tcg_small_area_metrics.geojson",
      "2021 Census small areas with the card-game supply measure",
@@ -121,20 +192,11 @@ FILES = [
      CENSUS_ID, "auto", ""),
     ("assets/data/tcg-stores/tcg_summary.json",
      "The headline numbers for the card-game project",
-     "The figures quoted in the web map and the notes: 281 shops, 49 "
-     "confirmed play venues, 63 registered Pokemon Gyms, 591,073 people "
-     "aged 15-24, 181,152 of them within 1 km of a venue, and 409,921 "
-     "(69.4%) with no venue within 1 km. Also the sensitivity scenario in "
-     "which every registered Gym is counted as a venue, which still leaves "
-     "66.2% of young people unserved.",
+     summary_note(),
      CENSUS_ID, "", ""),
     ("assets/data/tcg-stores/tcg_shops_hkcardprice.json",
      "The HKCardPrice directory with its geocodes",
-     "The 117 HKCardPrice shops, each with the geocode evidence: the "
-     "building the address matched, the district from the District Council "
-     "boundary layer, whether the district agreed with the directory's own "
-     "label, and the score. 103 of the 117 are geocoded to the building "
-     "level; the 14 that are not are mall addresses with no street number.",
+     hkcardprice_geocode_note(),
      DC_ID, "auto", ""),
     ("assets/data/tcg-stores/tcg_shops_hkcardprice_directory.json",
      "The raw HKCardPrice directory scrape",
@@ -168,7 +230,7 @@ SCRIPTS = [
     ("scripts/tcg-stores/merge_shops.py",
      "Merge the three directories into one shop-level layer. A shop is the same shop only when its name AND its building agree, so a mall's separate branches stay separate. A hand-built venue that is already a directory play venue in the same building is absorbed into it rather than added twice."),
     ("scripts/tcg-stores/analyse_merged.py",
-     "The spatial analysis: assign every shop to its census small area, count play venues within 500 m, 1 km and 1.5 km, and derive the young-people-per-venue measure. Refuses to write output unless the population reconciles exactly with the published 2021 Census total of 7,411,945 and every area's age bands sum to its own total. Also runs the sensitivity scenario in which all 63 registered Pokemon Gyms count as venues."),
+     "The spatial analysis: assign every shop to its census small area, count play venues within 500 m, 1 km and 1.5 km, and derive the young-people-per-venue measure. Refuses to write output unless the population reconciles exactly with the published 2021 Census total of 7,411,945 and every area's age bands sum to its own total. Also runs the sensitivity scenario in which every registered Pokemon Gym counts as a venue."),
     ("scripts/tcg-stores/build_app_data.py",
      "Build the browser data for the web map: the simplified area polygons, the shop points, the legend and the summary. Gates the polygon simplification at 60 m of vertex shift and 2% of area change, with an absolute gate for the smallest areas."),
     ("scripts/tcg-stores/build_map_figure.py",

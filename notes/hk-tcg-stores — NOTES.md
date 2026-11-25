@@ -9,10 +9,10 @@ and play venue in Hong Kong with the 2021 Population Census population aged
 
 | | |
 |---|---|
-| Card shops mapped | **282** |
+| Card shops mapped | **289** |
 | Places you can actually play | **49** |
-| Shops confirmed by two independent directories | **48 (17%)** |
-| Official Pokémon Gyms (run events) | **63** |
+| Shops confirmed by two independent directories | **47 (16%)** |
+| Official Pokémon Gyms (run events) | **66** |
 | Census small areas | **211** |
 | Hong Kong's population aged 15–24 | **591,073 (8% of the population)** |
 | 15–24-year-olds within 1 km of a play venue | **181,152** |
@@ -26,11 +26,11 @@ people who would play them are spread across the whole territory. **Seven in ten
 they could play.** That is the finding, and it is a supply problem, not a demand
 problem.
 
-**The finding survives its own strongest challenge.** If every one of the 63
+**The finding survives its own strongest challenge.** If every one of the 66
 registered Pokémon Gyms is counted as a venue too — the most generous possible
 reading of the supply side — the unserved share only falls from **69.4% to
-66.2%**, and the number of small areas with no venue only falls from 152 to
-146. The gap is not an artefact of how strictly "play space" is defined.
+65.1%**, and the number of small areas with no venue only falls from 152 to
+145. The gap is not an artefact of how strictly "play space" is defined.
 
 ---
 
@@ -62,6 +62,16 @@ of those model shops matched only because their name contains 模型
 coverage of this scene.
 
 The tile data is kept, so the claim is checkable rather than asserted.
+
+**But the sweep did find one real gap.** 玩具模型倉 (Hobbyland) is a trading-card
+chain, and OSM carries its Sham Shui Po branch at **福榮街 54** — a shop that
+**neither directory lists**. The two directories together carry its Kwun Tong
+branch (BAW VAULT), its Ma On Shan branch and its Tseung Kwan O branch
+(HKCardPrice), but not this one. It is left out of the layer rather than
+hand-added: OSM has no card-game shop tag, so this is a name-matched
+`shop=toys` record, and the scope of a single shop should be settled by
+reading its page, not by a keyword rule. **One branch of one chain in one
+district** is the honest size of what OSM contributed.
 
 ### The merge
 
@@ -155,10 +165,10 @@ tried before name-only queries.
 | Set | Geocoded | District-confirmed |
 |---|---|---|
 | BAW VAULT shops | 205 | — |
-| HKCardPrice shops | **103 / 117** | 100 |
+| HKCardPrice shops | **112 / 117** | 100 |
 | Hand-built venues | **19 / 23** | 19 |
 
-**Merged: 282 shops**, of which 47 are confirmed by two or more sources.
+**Merged: 289 shops**, of which 47 are confirmed by two or more sources.
 
 The unresolved 14 HKCardPrice shops are all **mall addresses** with no street
 number of their own (e.g. 天悅廣場) — the mall is the only identifier, and the
@@ -185,7 +195,7 @@ play at — BAW VAULT's `play_space` service tag, HKCardPrice's 打牌 flag, or 
 hand-built venue entry. A *registered Gym* is one on the official Pokémon shop
 map, so it runs official events and events need a play space. That is strong
 evidence, but it is not the same claim as "you can turn up and play", so the
-63 Gyms are counted and reported separately rather than folded into the 49
+66 Gyms are counted and reported separately rather than folded into the 49
 confirmed venues. The sensitivity scenario below tests the assumption.
 
 **The measure.** For every census small area:
@@ -234,7 +244,7 @@ independent script, and the population total is checked against the published
 C&SD figure rather than assumed.
 
 **The AI found the bugs, by checking outputs against source data rather than
-trusting them.** Twenty-three silent defects were caught this way, including:
+trusting them.** Thirty-three silent defects were caught this way, including:
 
 - the census column names (`t_pop`, `age_2_15_24`) being read as if they were
   `pop_total` / `pop_15_24` — the build failed its own reconciliation gate at
@@ -287,6 +297,40 @@ trusting them.** Twenty-three silent defects were caught this way, including:
 - `s not in confirmed` comparing **dicts by value**, so two different shops
   with the same fields compared equal and a registered Gym was dropped from
   the registered-only count;
+- **fourteen of the 117 HKCardPrice shops failing to geocode, and being
+  silently dropped from the layer** — they were never reported as missing.
+  Five separate causes, one per building-name shape the tokeniser did not
+  handle:
+  - the area prefix was stripped from the whole name, so **將軍澳廣場**
+    (the mall in Tseung Kwan O) became "廣場" — two characters, rejected as
+    too short. The building name is the *whole* run, area included, and the
+    strip must not be allowed to eat it;
+  - the mall name could not be followed immediately by a floor number
+    (**將軍澳廣場1樓**), so no building token was produced at all;
+  - a building named *after* the street number (**49號唐二樓**) has a CJK run
+    that begins with the 號 marker, and did not look like a building;
+  - the English patterns required the building word to be **last**
+    ("Everest Industrial Building" has it in the middle) and did not know
+    the **abbreviations** directories use ("Hewlett Ctr");
+  - the gazetteer's record type **`P`** was not accepted. 喜利商場 is a
+    type-P record, and type-P records were being filtered out before
+    scoring, so a perfectly good mall was never a candidate.
+- the **distinctive-name comparison accepting a prefix** as a match: the
+  wanted core "元朗喜利" and the hit core "元朗" (a different building,
+  元朗大廈) compared as equal on a loose containment test. A hit matches
+  when the wanted core *ends with* the hit's core, since the identifying
+  part of a building name is at its end;
+- a **script-mixed building name** — 美聯**工業****大厦**, traditional 工業
+  with simplified 厦 — matching neither the traditional nor the
+  simplified suffix list, and so matching nothing;
+- the gazetteer's own qualifier **" (別稱)"** surviving the suffix strip
+  and turning the hit's core into "喜利商場 (別稱)", which matched nothing;
+- an **area record** (元朗, type PL, the area's centroid) winning over the
+  real building, putting 精靈谷 at the 元朗 centroid, 700 m from the
+  喜利商場 its address names;
+- the English building name of a mall differing from the gazetteer's —
+  the directory writes "Everest Industrial **Building**", the gazetteer
+  "Everest Industrial **Centre**";
 
 **Every derived field carries an `ai_` prefix** (`ai_y1524_per_play_1000m`,
 `ai_play_venue_count`, …). This is the disclosure mechanism used for the
@@ -300,7 +344,7 @@ CSDI Awards entry and it is what the school group should quote.
   tagged 打牌 by HKCardPrice and 12 by BAW VAULT's service tags; nobody has
   walked in and checked. A venue's play space can change without notice. The
   sensitivity scenario above shows the conclusion does not rest on how
-  strictly this flag is read — 66.2% are still unserved if all 63 registered
+  strictly this flag is read — 65.1% are still unserved if all 66 registered
   Gyms count.
 - **Six venues were absorbed rather than added.** The 49 confirmed venues
   include six that two sources independently list. If those six were counted
@@ -345,7 +389,7 @@ CSDI Awards entry and it is what the school group should quote.
 
 | File | What |
 |---|---|
-| `tcg_shops_merged.json` | The merged layer: 282 shops with coordinates, district, play flag, gym id, source count |
+| `tcg_shops_merged.json` | The merged layer: 289 shops with coordinates, district, play flag, gym id, source count |
 | `tcg_shops_hkcardprice.json` | The 117 HKCardPrice shops with geocodes and district checks |
 | `tcg_shops_hkcardprice_directory.json` | The raw directory scrape, before geocoding — provenance |
 | `tcg_play_venues.json` | The 23 hand-built venues, 19 geocoded |

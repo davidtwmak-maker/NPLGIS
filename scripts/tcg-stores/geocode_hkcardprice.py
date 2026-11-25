@@ -63,9 +63,24 @@ DC_EN = {
     "離島區": "Islands",
 }
 
+# The gazetteer's record types that can stand for a place a shop is in.
+#   B  building            S  shopping centre     PL complex
+#   F  facility inside one P  place (a named building the index
+#                             classifies as a place - 喜利商場 is type
+#                             P, and excluding it lost the shop)
+#   SS shopping centre / street
+# ST is a STREET and is never a place a shop is inside.
+PLACE_TYPES = ("B", "S", "PL", "F", "P", "SS")
+
 BUILDING_WORDS = [
     "中心", "大廈", "廣場", "商場", "大樓", "工廈", "工業中心", "工業大廈",
     "工商中心", "工廠大廈", "花園", "別墅", "地帶",
+    # Added after the first pass dropped shops whose buildings end in
+    # one of these: 都會駅 (Metro Town, a shopping mall), 雙子匯 (The
+    # Twins, a commercial building), 唐二樓 (a tonglau block). Without
+    # them the address produced no building token at all and the shop
+    # was silently dropped from the layer.
+    "駅", "匯", "樓", "閣", "臺", "台",
 ]
 # The suffixes that carry no identifying information. Two sources may call
 # the same building 工業大廈 or 工廠大廈, so the distinctive part is what
@@ -74,6 +89,12 @@ GENERIC_SUFFIX = [
     "工業大廈", "工廠大廈", "工業中心", "商業大廈", "商業中心", "工商中心",
     "貿易大廈", "工業大廈", "廣場", "商場", "大廈", "大樓", "中心", "花園",
     "別墅", "工廈", "地帶", "樓宇",
+    # The SIMPLIFIED forms. A directory writes 美聯工業大厦 where the
+    # gazetteer has 美聯工業大廈, and the suffix must be stripped from
+    # both or the two never compare equal.
+    "工业大厦", "工商中心", "商业大厦", "商业中心", "贸易大厦", "工业中心",
+    "工厂大厦", "广场", "商场", "大厦", "大楼", "中心", "花园", "别墅",
+    "工厦", "地带", "楼宇",
 ]
 # District and area names that appear at the front of a Chinese address.
 AREA_PREFIX = [
@@ -100,12 +121,45 @@ def strip_area_prefix(run):
 
 
 def distinctive(name):
-    """The part of a building name that identifies it."""
+    """The part of a building name that identifies it.
+
+    Strips the generic suffix (大廈, 中心, 廣場...) AND the gazetteer's
+    qualifier. The gazetteer records a building's former name as
+    "喜利商場 (別稱)" - a qualifier the directory never writes - and
+    without stripping it the hit's core is "喜利商場 (別稱)", which
+    matches nothing.
+
+    The suffix list must cover the SIMPLIFIED forms too: a directory
+    writes 美聯工業大厦 where the gazetteer has 美聯工業大廈.
+
+    The English generic words are normalised as well, because the two
+    sources disagree on them: the directory writes "Everest Industrial
+    Building" and the gazetteer "Everest Industrial Centre".
+    """
     n = (name or "").strip()
-    for suf in GENERIC_SUFFIX:
+    # The gazetteer's own qualifier: 喜利商場 (別稱)
+    n = re.sub(r"[（(]\s*別稱\s*[)）]", "", n).strip()
+    # A directory mixes the scripts freely: 美聯工業大厦 writes 工業 in
+    # traditional and 厦 in simplified, so neither the traditional
+    # suffix 工業大廈 nor the simplified 工业大厦 matches it. Normalise
+    # the characters that differ between the two spellings FIRST, so
+    # that only one form of each suffix has to be listed.
+    n = (n.replace("厦", "廈").replace("业", "業").replace("场", "場")
+          .replace("楼", "樓").replace("广", "廣").replace("带", "帶")
+          .replace("园", "園").replace("别", "別"))
+    # The LONGEST matching suffix wins. "工業大廈" must be stripped
+    # before "大廈", or 美聯工業大廈 and 美聯工業 both reduce to the
+    # same core and stop being distinguishable.
+    for suf in sorted(GENERIC_SUFFIX, key=len, reverse=True):
         if n.endswith(suf) and len(n) > len(suf) + 1:
             n = n[: -len(suf)]
             break
+    n = n.strip()
+    if re.search(r"[A-Za-z]", n):
+        n = re.sub(r"\b(CENTRE|CENTER|BUILDING|BLDG|PLAZA|MALL|TOWER|HOUSE|"
+                   r"ESTATE|ARCADE|FACTORY|INDUSTRIAL|WORKS|GARDENS|COURT|"
+                   r"CTR|CENT)\b", "", n, flags=re.I)
+        n = re.sub(r"\s+", " ", n).strip()
     return n.strip()
 EN_BUILDING = re.compile(
     r"\b([A-Z][A-Za-z0-9'&\-]*(?:\s+[A-Z][A-Za-z0-9'&\-]*){0,3})\s+"
@@ -116,6 +170,53 @@ EN_MALL = re.compile(
     r"\b([A-Z][A-Za-z0-9'&\-]*(?:\s+[A-Z][A-Za-z0-9'&\-]*){0,2})\s+"
     r"(PLAZA|MALL|TOWER|HOUSE|ESTATE)\b"
 )
+# An English building name whose KEYWORD is not the last word, and the
+# abbreviated forms directories use. "Everest Industrial Building" has
+# the keyword in the middle, and "Hewlett Ctr" abbreviates "Centre" -
+# neither matched the patterns above, so those two shops produced no
+# building token and were dropped from the layer.
+EN_BUILDING_MID = re.compile(
+    r"\b([A-Z][A-Za-z0-9'&\-]+)\s+"
+    r"(INDUSTRIAL|COMMERCIAL|TRADE|CENTRAL)\s+"
+    r"(CENTRE|CENTER|BUILDING|BLDG|PLAZA|MALL|TOWER|HOUSE|ESTATE|FACTORY|"
+    r"WORKS|COURT)\b",
+    re.I,
+)
+EN_BUILDING_ABBR = re.compile(
+    r"\b([A-Z][A-Za-z0-9'&\-]*(?:\s+[A-Z][A-Za-z0-9'&\-]*){0,2})\s+"
+    r"(CTR|CENT|BLDG|IND|EST)\b",
+    re.I,
+)
+
+
+def variant_forms(name):
+    """The other spellings of a building name that the gazetteer may hold.
+
+    Hong Kong directories are inconsistent about a few characters. The
+    gazetteer always uses the standard form, so a token written the
+    other way finds nothing - and a shop with no location is dropped
+    from the layer without ever being reported as missing.
+
+      埸 -> 場   in mall names   (天悅廣埸 -> 天悅廣場)
+      厦 -> 廈   in building names (美聯工業大厦 -> 美聯工業大廈)
+
+    Returns every distinct alternative, including the original.
+    """
+    swaps = [("廣埸", "廣場"), ("商埸", "商場"), ("大厦", "大廈"),
+             ("廣场", "廣場"), ("商场", "商場")]
+    out = [name]
+    for a, b in swaps:
+        if a in name:
+            out.append(name.replace(a, b))
+    # A simplified 厦 anywhere, paired with 大厦 or 工業大厦.
+    if "厦" in name:
+        out.append(name.replace("厦", "廈"))
+    seen, res = set(), []
+    for s in out:
+        if s not in seen:
+            seen.add(s)
+            res.append(s)
+    return res
 
 
 def parse_address(addr):
@@ -143,9 +244,19 @@ def parse_address(addr):
             if len(core) >= L:
                 zh_cores.append(core[-L:])
     # a mall name in the address, e.g. 天悅廣場
-    for w in ("廣場", "商場", "中心", "大廈", "大樓", "地帶", "城"):
+    for w in ("廣場", "商場", "中心", "大廈", "大樓", "地帶", "城", "匯", "駅"):
         for m in re.finditer(r"([\u4e00-\u9fffA-Za-z0-9]{2,8}" + w + ")", addr):
-            b = strip_area_prefix(m.group(1))
+            run = m.group(1)
+            # Keep the FULL run as a candidate, not just the part left
+            # after the area prefix. "將軍澳廣場" is the name of the
+            # mall in Tseung Kwan O, and "銅鑼灣地帶" is the name of
+            # the mall in Causeway Bay - stripping the area leaves
+            # "廣場" and "地帶", which are not buildings, and the
+            # candidate is then discarded for being too short. The
+            # shops were then silently dropped from the layer.
+            if len(run) >= 3:
+                buildings.append(run)
+            b = strip_area_prefix(run)
             if len(b) >= 3:
                 buildings.append(b)
     # A MALL address carries the mall name but no street number of its
@@ -154,19 +265,45 @@ def parse_address(addr):
     # street number. The mall name is the FIRST building-like word in the
     # address, before any floor marker.
     if not nums:
+        # The floor marker can follow the mall name with NO separator:
+        # "將軍澳廣場1樓1081號舖". The pattern below requires up to four
+        # NON-digit characters between the mall name and the floor, so
+        # a digit straight after 廣場 broke the match and no building
+        # token was produced at all.
         m = re.search(r"([\u4e00-\u9fff]{2,12}?(?:廣場|商場|中心|大廈|大樓|地帶))"
                       r"[^0-9]{0,4}(?:\d|[A-Za-z])\s*(?:樓|层|F|/[0-9])", addr)
         if m:
-            b = strip_area_prefix(m.group(1))
+            run = m.group(1)
+            if len(run) >= 3:
+                buildings.append(run)
+            b = strip_area_prefix(run)
             if len(b) >= 3:
                 buildings.append(b)
         else:
             # a bare mall name and a unit: "天悅廣埸 1樓133A店"
             m = re.search(r"([\u4e00-\u9fff]{2,12}?(?:廣場|廣埸|商場))", addr)
             if m:
-                b = strip_area_prefix(m.group(1))
+                run = m.group(1)
+                if len(run) >= 3:
+                    buildings.append(run)
+                b = strip_area_prefix(run)
                 if len(b) >= 3:
                     buildings.append(b)
+
+    # A building name that comes AFTER the street number. The Chinese
+    # run then starts with the 號 marker itself - "號唐二樓",
+    # "號美聯工業大厦" - so the run does not look like a building name
+    # and no token is produced. Two of the shops that failed to
+    # geocode had their building named this way.
+    for m in re.finditer(r"號\s*([一-鿿]{2,10}?(?:大廈|大厦|工廈|工業大廈|"
+                         r"工商中心|中心|廣場|商場|大樓|花園|別墅|地帶|"
+                         r"匯|駅|樓|閣|臺|台))", addr):
+        run = m.group(1)
+        if len(run) >= 3:
+            buildings.append(run)
+        b = strip_area_prefix(run)
+        if len(b) >= 3:
+            buildings.append(b)
 
     # --- English -----------------------------------------------------
     for m in re.finditer(r"(\d+(?:\s*[-–]\s*\d+)?[A-Za-z]?)\s*"
@@ -179,6 +316,17 @@ def parse_address(addr):
         buildings.append(m.group(1) + " " + m.group(2))
     for m in EN_MALL.finditer(addr):
         buildings.append(m.group(1) + " " + m.group(2))
+    for m in EN_BUILDING_MID.finditer(addr):
+        buildings.append(" ".join(x.title() for x in m.groups()))
+    for m in EN_BUILDING_ABBR.finditer(addr):
+        b = " ".join(x.title() for x in m.groups())
+        buildings.append(b)
+        # "Hewlett Ctr" is "Hewlett Centre" in the gazetteer. Try the
+        # expansion as well as the abbreviation.
+        exp = {"Ctr": "Centre", "Cent": "Centre", "Bldg": "Building",
+               "Ind": "Industrial", "Est": "Estate"}.get(m.group(2).title())
+        if exp:
+            buildings.append(m.group(1).title() + " " + exp)
 
     seen, bn = set(), []
     for b in buildings:
@@ -226,12 +374,59 @@ def hit_cores(hit):
     return cores
 
 
+def is_area_hit(hit, addr=""):
+    """Is this gazetteer record an AREA rather than a place?
+
+    The gazetteer holds a record for every district and neighbourhood
+    (元朗, 旺角), and its coordinate is the area's CENTROID - not a
+    building. Such a record must never be the answer when the address
+    names a building.
+
+    A shopping centre is also type PL, so the type alone does not tell
+    them apart. The test is the record's own NAME against the address:
+    an area record is named exactly like the area the address names,
+    and carries no street address of its own. 精靈谷's address is
+    "元朗喜利商場一樓9號舖" - the hit called 元朗 is the area, and the
+    hit called 喜利商場 is the building. Matching the area put the shop
+    at the 元朗 centroid, 700 m from the mall.
+    """
+    if hit.get("type") not in ("PL", "P"):
+        return False
+    cn = str(hit.get("cname") or "").strip()
+    en = str(hit.get("ename") or "").strip()
+    # The hit names a district: every District Council district ends
+    # in 區 and has a "District" English name.
+    if cn.endswith("區") or en.endswith("District"):
+        return True
+    # The hit's name IS an area named in the address, and the hit
+    # carries no street address of its own.
+    if addr:
+        for area in AREA_PREFIX:
+            if cn == area and area in addr:
+                if not str(hit.get("caddress") or "").strip():
+                    return True
+    return False
+
+
 def name_hit(hit, want_names):
     """Does the hit's name contain one of the wanted building names?
 
     Compared on the DISTINCTIVE part, because the directory and the
     government index differ on the generic suffix: the directory writes
-    寶富大廈 where the index writes 寶富大樓."""
+    寶富大廈 where the index writes 寶富大樓.
+
+    A hit's distinctive core must MATCH the wanted core, not merely be
+    a part of it. The wanted name is often still carrying its area
+    prefix - "咀加連威老道嘉威大廈" for 嘉威大廈 - and a loose
+    containment test let the street 富明街 score as a match for
+    "銅鑼灣富明街寶富大廈", while the real building 寶富大樓 was
+    rejected because its core is a prefix, not the whole thing.
+
+    The comparison is therefore made on the SUFFIX: the distinctive
+    part of a building name sits at its end (寶富大樓 -> 寶富, 新貿
+    中心 -> 新貿), so a hit matches when the wanted core ENDS with the
+    hit's core.
+    """
     blob = " ".join(str(hit.get(k) or "") for k in
                     ("cname", "ename", "caddress", "eaddress"))
     bl = blob.lower()
@@ -239,14 +434,24 @@ def name_hit(hit, want_names):
         wl = w.lower()
         if len(wl) >= 3 and wl in bl:
             return True
-        if re.search(r"[\u4e00-\u9fff]", w):
+        if re.search(r"[一-鿿]", w):
             core = distinctive(w)
             if len(core) >= 2 and core in bl:
                 return True
             # the hit may carry a qualifier: 嘉康中心 (前稱)
             for hn in (str(hit.get("cname") or ""), str(hit.get("ename") or "")):
                 hd = distinctive(hn)
-                if hd and len(hd) >= 2 and (hd in core or core in hd):
+                if not hd or len(hd) < 2:
+                    continue
+                # The hit's core must BE the wanted core, or be the
+                # tail of it: "寶富" is the tail of "富明街寶富".
+                # A hit whose core is only a prefix of the wanted core
+                # is a different building - "元朗" is a prefix of
+                # "元朗喜利", and matching it put the shop at 元朗大廈
+                # instead of 喜利商場.
+                if core == hd or core.endswith(hd):
+                    return True
+                if hd == core:
                     return True
     return False
 
@@ -289,13 +494,18 @@ def main():
                              r"Estate|Court|Building|Bldg))\b", addr):
             tokens.append(m.group(1))
         tokens = list(dict.fromkeys(t for t in tokens if t))
-        # The directory sometimes writes a mall name with a variant
-        # character (天悅廣埸 for 天悅廣場). Query the corrected form too.
+        # The directory sometimes writes a building name with a variant
+        # character. Query the corrected form too:
+        #   天悅廣埸  -> 天悅廣場   (埸 for 場)
+        #   美聯工業大厦 -> 美聯工業大廈 (simplified 厦 for 廈)
+        # Each of these is a building the gazetteer holds under the
+        # other form, so without the correction the shop is unlocated
+        # and silently dropped.
         extra = []
         for t in tokens:
-            fixed = t.replace("廣埸", "廣場").replace("商埸", "商場")
-            if fixed != t:
-                extra.append(fixed)
+            for fixed in variant_forms(t):
+                if fixed != t:
+                    extra.append(fixed)
         tokens = list(dict.fromkeys(tokens + extra))
 
         cands = {}
@@ -313,7 +523,7 @@ def main():
             # legitimate places to find a shop. A mall address has no
             # street number of its own, so the mall hit is what
             # identifies it.
-            if h.get("type") not in ("B", "S", "PL", "F"):
+            if h.get("type") not in PLACE_TYPES:
                 continue
             # The hit must be in Hong Kong. A bounding box is not a
             # land test, so this asks the District Council boundary
@@ -328,6 +538,15 @@ def main():
                 continue
             hn = hit_numbers(h)
             named = name_hit(h, buildings)
+            # An AREA record is not a building. The gazetteer holds a
+            # record for every district and neighbourhood (元朗,
+            # type PL), and the hit sits at the area's centroid. When
+            # the address names a building that is also a candidate, the
+            # area must not win: 精靈谷 was placed at the 元朗
+            # centroid, 700 m from 喜利商場, the mall its address
+            # names. The area scores lower than any building.
+            if is_area_hit(h, s.get("addr", "")):
+                named = False
             # A hit that states a number and it is not ours is a DIFFERENT
             # building of the same name - skip it entirely. But if the hit
             # IS the building we asked for by name (a mall, whose unit

@@ -210,7 +210,7 @@
   "geocode_district": "Wan Chai",
   "geocode_district_expected": "Wan Chai",
   "geocode_district_ok": true,
-  "geocode_score": 5.0
+  "geocode_score": 9.0
  },
  {
   "name": "Duckdraw TCG Store",
@@ -290,14 +290,16 @@
   "grading": true,
   "gym_id": "",
   "verified": "2026-11-10",
-  "geocoded": false,
-  "reason": "no building match",
-  "tokens": [
-   "元朗喜利商場一樓9號舖",
-   "9號元朗喜利商場一樓",
-   "喜利商場",
-   "元朗喜利商場"
-  ]
+  "geocoded": true,
+  "lat": 22.44458,
+  "lon": 114.0258,
+  "geocode_match": "喜利商場 (別稱)",
+  "geocode_address": "青山公路　－　元朗段   211-223號",
+  "geocode_type": "P",
+  "geocode_district": "Yuen Long",
+  "geocode_district_expected": "Yuen Long",
+  "geocode_district_ok": true,
+  "geocode_score": 4.0
  },
  {
   "name": "MOONROAD 旺角信和 246 店",
@@ -617,11 +619,16 @@
   "grading": true,
   "gym_id": "",
   "verified": "2026-11-07",
-  "geocoded": false,
-  "reason": "no building match",
-  "tokens": [
-   "Unit 301, Hewlett Ctr, 54 Hoi Yuen Road, Kwun Tong"
-  ]
+  "geocoded": true,
+  "lat": 22.30937,
+  "lon": 114.2245,
+  "geocode_match": "豐利中心",
+  "geocode_address": "開源道   54號",
+  "geocode_type": "B",
+  "geocode_district": "Kwun Tong",
+  "geocode_district_expected": "Kwun Tong",
+  "geocode_district_ok": true,
+  "geocode_score": 7.0
  },
  {
   "name": "Card Card Fruit",
@@ -725,11 +732,16 @@
   "grading": true,
   "gym_id": "",
   "verified": "2026-11-07",
-  "geocoded": false,
-  "reason": "no building match",
-  "tokens": [
-   "將軍澳調景嶺都會駅 L2 74號舖(屈臣氏對面)"
-  ]
+  "geocoded": true,
+  "lat": 22.30446,
+  "lon": 114.25238,
+  "geocode_match": "都會駅",
+  "geocode_address": "景嶺路   8號",
+  "geocode_type": "S",
+  "geocode_district": "Sai Kung",
+  "geocode_district_expected": "Sai Kung",
+  "geocode_district_ok": true,
+  "geocode_score": 4.0
  },
  {
   "name": "ACardTCG",
@@ -776,11 +788,11 @@
   "gym_id": "",
   "verified": "2026-11-07",
   "geocoded": true,
-  "lat": 22.28444,
-  "lon": 114.19251,
-  "geocode_match": "凱豐商業大廈",
-  "geocode_address": "清風街   6-8號",
-  "geocode_type": "B",
+  "lat": 22.28445,
+  "lon": 114.1925,
+  "geocode_match": "祥記膠輪(香港)汽車用品有限公司",
+  "geocode_address": "北角清風街6-14號凱豐商業大廈地下",
+  "geocode_type": "F",
   "geocode_district": "Wan Chai",
   "geocode_district_expected": "Eastern",
   "geocode_district_ok": false,
@@ -917,15 +929,15 @@
   "gym_id": "",
   "verified": "2026-11-07",
   "geocoded": true,
-  "lat": 22.32411,
-  "lon": 114.21083,
-  "geocode_match": "美羅中心",
-  "geocode_address": "臨興街   32號",
+  "lat": 22.32488,
+  "lon": 114.21124,
+  "geocode_match": "美羅中心2期",
+  "geocode_address": "臨興街   21號",
   "geocode_type": "B",
   "geocode_district": "Kwun Tong",
   "geocode_district_expected": "Kwun Tong",
   "geocode_district_ok": true,
-  "geocode_score": 6.0
+  "geocode_score": 9.0
  },
  {
   "name": "卡部屋遊戲社 Cardoya",
@@ -1052,11 +1064,11 @@
   "gym_id": "",
   "verified": "2026-11-07",
   "geocoded": true,
-  "lat": 22.33492,
-  "lon": 114.16054,
-  "geocode_match": "郭炳輝醫生醫務所有限公司",
-  "geocode_address": "九龍深水埗區元州街162-188號天悅廣場地下A9舖",
-  "geocode_type": "F",
+  "lat": 22.33488,
+  "lon": 114.16036,
+  "geocode_match": "天悅廣場 (別稱)",
+  "geocode_address": "東沙島街   162-164號|元州街   174-188號",
+  "geocode_type": "B",
   "geocode_district": "Sham Shui Po",
   "geocode_district_expected": "Sham Shui Po",
   "geocode_district_ok": true,
@@ -1132,11 +1144,16 @@
   "grading": false,
   "gym_id": "",
   "verified": "2026-11-07",
-  "geocoded": false,
-  "reason": "no building match",
-  "tokens": [
-   "銅鑼灣地帶一樓175至175A號舖"
-  ]
+  "geocoded": true,
+  "lat": 22.28001,
+  "lon": 114.18575,
+  "geocode_match": "銅鑼灣地帶",
+  "geocode_address": "香港銅鑼灣記利佐治街2-10號",
+  "geocode_type": "F",
+  "geocode_district": "Wan Chai",
+  "geocode_district_expected": "Wan Chai",
+  "geocode_district_ok": true,
+  "geocode_score": 4.0
  },
  {
   "name": "HKCARD & TCG Center (HKCard Express)",
@@ -1290,11 +1307,11 @@
   "gym_id": "",
   "verified": "2026-11-07",
   "geocoded": true,
-  "lat": 22.33185,
-  "lon": 114.16251,
-  "geocode_match": "黃金大廈",
-  "geocode_address": "福榮街   131-133號|福華街   146-152號",
-  "geocode_type": "S",
+  "lat": 22.33174,
+  "lon": 114.16301,
+  "geocode_match": "Wi-Fi.HK 熱點位置: 豐澤",
+  "geocode_address": "九龍深水埗福華街 146/152號黃金電腦商場50號舖",
+  "geocode_type": "F",
   "geocode_district": "Sham Shui Po",
   "geocode_district_expected": "Sham Shui Po",
   "geocode_district_ok": true,
@@ -1371,12 +1388,16 @@
   "grading": true,
   "gym_id": "",
   "verified": "2026-11-10",
-  "geocoded": false,
-  "reason": "no building match",
-  "tokens": [
-   "啟德木脆街12號雙子匯二期(Tower 2)6樓615-617號舖",
-   "12號啟德木脆街"
-  ]
+  "geocoded": true,
+  "lat": 22.33159,
+  "lon": 114.2021,
+  "geocode_match": "雙子匯二期",
+  "geocode_address": "沐翠街   12號",
+  "geocode_type": "B",
+  "geocode_district": "Kowloon City",
+  "geocode_district_expected": "Kowloon City",
+  "geocode_district_ok": true,
+  "geocode_score": 7.0
  },
  {
   "name": "ThisCARD 大埔墟良心卡店",
@@ -1428,7 +1449,7 @@
   "geocode_district": "Yau Tsim Mong",
   "geocode_district_expected": "Yau Tsim Mong",
   "geocode_district_ok": true,
-  "geocode_score": 5.0
+  "geocode_score": 9.0
  },
  {
   "name": "PSA Hong Kong 送件中心 (Collectors Universe HK)",
@@ -1472,14 +1493,14 @@
   "gym_id": "",
   "verified": "2026-11-07",
   "geocoded": true,
-  "lat": 22.37359,
-  "lon": 114.11675,
-  "geocode_match": "已登記的WiFi 熱點: Hong Kong Telecommunications (HKT) Limited (APID 04764)",
-  "geocode_address": "荃灣青山公路荃灣段264-298號南豐中心新之城3層302號舖",
-  "geocode_type": "F",
-  "geocode_district": "Tsuen Wan",
+  "lat": 22.31988,
+  "lon": 114.16998,
+  "geocode_match": "旺角中心第一座 (別稱)",
+  "geocode_address": "亞皆老街   65號|彌敦道   688號",
+  "geocode_type": "B",
+  "geocode_district": "Yau Tsim Mong",
   "geocode_district_expected": "Yau Tsim Mong",
-  "geocode_district_ok": false,
+  "geocode_district_ok": true,
   "geocode_score": 4.0
  },
  {
@@ -1602,12 +1623,16 @@
   "grading": false,
   "gym_id": "GYM125",
   "verified": "2026-11-07",
-  "geocoded": false,
-  "reason": "no building match",
-  "tokens": [
-   "觀塘巧明街 The Angle(三布目商場)7樓701-706室",
-   "三布目商場"
-  ]
+  "geocoded": true,
+  "lat": 22.31256,
+  "lon": 114.22166,
+  "geocode_match": "三布目 (前稱)",
+  "geocode_address": "The Millennity",
+  "geocode_type": "P",
+  "geocode_district": "Kwun Tong",
+  "geocode_district_expected": "Kwun Tong",
+  "geocode_district_ok": true,
+  "geocode_score": 4.0
  },
  {
   "name": "千日匠 School Driver 鑽石山荷里活廣場店",
@@ -1782,12 +1807,16 @@
   "grading": false,
   "gym_id": "",
   "verified": "2026-11-07",
-  "geocoded": false,
-  "reason": "no building match",
-  "tokens": [
-   "將軍澳廣場1樓1081號舖",
-   "將軍澳廣場"
-  ]
+  "geocoded": true,
+  "lat": 22.3089,
+  "lon": 114.26221,
+  "geocode_match": "啟心醫務中心",
+  "geocode_address": "新界西貢區唐德街1號將軍澳廣場2樓2089舖",
+  "geocode_type": "F",
+  "geocode_district": "Sai Kung",
+  "geocode_district_expected": "Sai Kung",
+  "geocode_district_ok": true,
+  "geocode_score": 4.0
  },
  {
   "name": "KBG Hub TCG",
@@ -1978,10 +2007,10 @@
   "gym_id": "SP06",
   "verified": "2026-11-07",
   "geocoded": true,
-  "lat": 22.3959,
-  "lon": 113.97065,
-  "geocode_match": "良膳廚坊",
-  "geocode_address": "新界屯門建泰街6號恒威工業中心A2座5樓6室",
+  "lat": 22.39515,
+  "lon": 113.97082,
+  "geocode_match": "屯門恒威工業中心",
+  "geocode_address": "屯門建泰街6號",
   "geocode_type": "F",
   "geocode_district": "Tuen Mun",
   "geocode_district_expected": "Tuen Mun",
@@ -2003,13 +2032,16 @@
   "grading": false,
   "gym_id": "SP96",
   "verified": "2026-11-07",
-  "geocoded": false,
-  "reason": "no building match",
-  "tokens": [
-   "屯門置樂利寶商場1/f  84號",
-   "置樂利寶商場",
-   "屯門置樂利寶商場"
-  ]
+  "geocoded": true,
+  "lat": 22.38821,
+  "lon": 113.97965,
+  "geocode_match": "利寶商場",
+  "geocode_address": "",
+  "geocode_type": "P",
+  "geocode_district": "Tuen Mun",
+  "geocode_district_expected": "Tuen Mun",
+  "geocode_district_ok": true,
+  "geocode_score": 4.0
  },
  {
   "name": "Card Way",
@@ -2082,7 +2114,8 @@
   "reason": "no building match",
   "tokens": [
    "九龍弼街49號唐二樓",
-   "49號九龍弼街"
+   "49號九龍弼街",
+   "唐二樓"
   ]
  },
  {
@@ -2651,7 +2684,7 @@
   "geocode_district": "Sham Shui Po",
   "geocode_district_expected": "Sham Shui Po",
   "geocode_district_ok": true,
-  "geocode_score": 5.0
+  "geocode_score": 9.0
  },
  {
   "name": "太極卡",
@@ -2729,7 +2762,7 @@
   "geocode_district": "Sham Shui Po",
   "geocode_district_expected": "Sham Shui Po",
   "geocode_district_ok": true,
-  "geocode_score": 5.0
+  "geocode_score": 9.0
  },
  {
   "name": "暴龍哥TCG",
@@ -2902,11 +2935,16 @@
   "grading": false,
   "gym_id": "SP111",
   "verified": "2026-11-07",
-  "geocoded": false,
-  "reason": "no building match",
-  "tokens": [
-   "葵興工業街23至31號美聯工業大厦15樓D1室"
-  ]
+  "geocoded": true,
+  "lat": 22.36177,
+  "lon": 114.13555,
+  "geocode_match": "美聯工業大廈",
+  "geocode_address": "工業街   23-31號",
+  "geocode_type": "B",
+  "geocode_district": "Kwai Tsing",
+  "geocode_district_expected": "Kwai Tsing",
+  "geocode_district_ok": true,
+  "geocode_score": 4.0
  },
  {
   "name": "CARDSLASH",
@@ -2979,6 +3017,7 @@
   "reason": "no building match",
   "tokens": [
    "Room R3, 11/F Everest Industrial Building, 396 Kwun Tong Road",
+   "Everest Industrial Building",
    "Industrial Building"
   ]
  },
