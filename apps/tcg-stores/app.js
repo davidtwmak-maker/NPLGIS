@@ -34,6 +34,12 @@
 (function () {
   "use strict";
 
+  // The data files are fetched with a version string, because GitHub
+  // Pages serves them with a 10-minute cache and a returning browser
+  // would otherwise keep seeing the previous build's data. The version
+  // is written into the file by the build script, so a data change
+  // always busts the cache and a rebuild with no data change does not.
+  var V = "?v=" + (window.__TCG_BUILD__ || "dev");
   var D = "./data/";
   var map, areaLayer, shopLayer, wireLayer;
   var areas, metrics, shops, summary, districts;
@@ -64,11 +70,11 @@
   }
 
   Promise.all([
-    fetch(D + "areas.json").then(function (r) { return r.json(); }),
-    fetch(D + "metrics.json").then(function (r) { return r.json(); }),
-    fetch(D + "shops.json").then(function (r) { return r.json(); }),
-    fetch(D + "summary.json").then(function (r) { return r.json(); }),
-    fetch(D + "districts.json").then(function (r) { return r.json(); })
+    fetch(D + "areas.json" + V).then(function (r) { return r.json(); }),
+    fetch(D + "metrics.json" + V).then(function (r) { return r.json(); }),
+    fetch(D + "shops.json" + V).then(function (r) { return r.json(); }),
+    fetch(D + "summary.json" + V).then(function (r) { return r.json(); }),
+    fetch(D + "districts.json" + V).then(function (r) { return r.json(); })
   ]).then(function (r) {
     areas = r[0]; metrics = r[1]; shops = r[2]; summary = r[3]; districts = r[4];
     // areas.json is a compact array of plain objects, which is smaller
