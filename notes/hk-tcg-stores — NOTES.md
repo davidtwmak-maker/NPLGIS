@@ -260,7 +260,7 @@ independent script, and the population total is checked against the published
 C&SD figure rather than assumed.
 
 **The AI found the bugs, by checking outputs against source data rather than
-trusting them.** Thirty-four silent defects were caught this way, including:
+trusting them.** Thirty-five silent defects were caught this way, including:
 
 - the census column names (`t_pop`, `age_2_15_24`) being read as if they were
   `pop_total` / `pop_15_24` — the build failed its own reconciliation gate at
@@ -364,6 +364,21 @@ trusting them.** Thirty-four silent defects were caught this way, including:
   carries the same values under the working names, and refuses to write
   output if they disagree. A renamed field can now fail the build
   instead of quietly emptying the map;
+- **a matched record naming the wrong thing.** The government index
+  holds a record type `F` — a business *inside* a building: a clinic,
+  a 7-Eleven, a WiFi hotspot. **37 of the 112 resolved HKCardPrice
+  shops matched one**, because the index keys on the unit number the
+  address gives, and a unit number lives inside a building. The
+  position was right in every case, but the published `geocode_match`
+  named the clinic — so 玩具模型倉 (將軍澳廣場店) was published as
+  "啟心醫務中心" and 天悅廣場's eight shops were published as
+  "郭炳輝醫生醫務所有限公司".
+  The label is now the **building**, read from the facility's own
+  address and from the shop's address, then confirmed against the
+  gazetteer's own building record so the spelling is the official one.
+  The facility is kept in a new `geocode_evidence` field, so the
+  match can still be audited. Every one of the 37 was checked against
+  the building its address names; no position moved.
 
 **Every derived field carries an `ai_` prefix** (`ai_y1524_per_play_1000m`,
 `ai_play_venue_count`, …). This is the disclosure mechanism used for the
@@ -378,6 +393,14 @@ from a zero, the result was a map that claimed the whole territory had no
 venue within 1 km. **When a published field is renamed, every reader of
 that file is part of the change**, and the build needs a gate that
 compares the value it read against a second copy of the same number.
+
+`scripts/check_app_fields.py` is that gate, applied to every app in this
+repository: it compares every property name each app reads against every
+property name its published data actually contains, and exits non-zero
+when an app reads something that is not there. It is the check that would
+have caught the 5834 bug before it shipped, and it covers the three apps
+here — the walkways app (日曬雨淋中學's project) passes on all 33 fields
+it reads.
 
 ---
 

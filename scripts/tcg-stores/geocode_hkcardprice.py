@@ -63,6 +63,20 @@ DC_EN = {
     "離島區": "Islands",
 }
 
+# The floor and unit part at the end of an address. Stripped off to
+# leave the building name.
+_FLOOR_UNIT = re.compile(
+    r"("
+    r"地下.*|地庫.*|地窖.*|樓上.*|樓下.*|"
+    r"G\s*/\s*F.*|GF.*|"
+    r"LG\s*\d+.*|UG\s*\d+.*|"
+    # Chinese floor numerals: 二樓, 三字樓, 廿三樓
+    r"[一二三四五六七八九十廿零兩]+\s*[字]?\s*[樓层F].*|"
+    r"\d+[A-Za-z]?\s*[樓层F室舖铺座檔鋪位號].*|"
+    r"[A-Za-z]{0,3}\s*\d+[A-Za-z]?\s*[室舖铺座檔鋪位號].*"
+    r")$")
+_LATIN = re.compile(r"[A-Za-z]")
+
 # The gazetteer's record types that can stand for a place a shop is in.
 #   B  building            S  shopping centre     PL complex
 #   F  facility inside one P  place (a named building the index
@@ -361,6 +375,116 @@ def hit_numbers(hit):
     return out
 
 
+def _strip_floor_unit(tail):
+    """Strip the floor and unit part off the end of an address tail.
+
+    "THE HEDON16樓" -> "THE HEDON"
+    "天悅廣場地下A9舖" -> "天悅廣場"
+    "凱源工業大廈1/f C室" -> "凱源工業大廈"
+    """
+    prev = None
+    while prev != tail:
+        prev = tail
+        tail = _FLOOR_UNIT.sub("", tail).strip(" ,;-·、")
+    return tail
+
+
+def building_after_ha(addr):
+    """The building an address names after a street-number marker.
+
+    The building sits after the 號 that follows the street number:
+    "九龍九龍城區蕪湖街53-59號金輝行12樓2-3室" -> 金輝行
+    "尖沙咀河內道 18 號 K11 購物藝術館地庫 1 樓" -> K11 購物藝術館
+    """
+    if not addr:
+        return None
+    cands = []
+    for m in re.finditer(r"號\s*", addr):
+        tail = addr[m.end():].strip()
+        if not tail:
+            continue
+        tail = _strip_floor_unit(tail)
+        if len(tail) < 2:
+            continue
+        cands.append(tail)
+    if not cands:
+        return None
+    # Prefer a name that carries Latin letters (K11, THE HEDON), then
+    # the longest.
+    return max(cands, key=lambda c: len(c) + (2 if _LATIN.search(c) else 0))
+
+
+def gazetteer_building(cand, lat, lon, cache=None):
+    """The gazetteer's OWN record for the building called `cand`.
+
+    The gazetteer is the authority on building names - it is the same
+    index the position came from - so the label is looked up there
+    rather than guessed from the address text.
+    """
+    if not cand:
+        return None
+    best, bd = None, 1e9
+    for h in hits_of(query(cand, cache if cache is not None else load_cache())):
+        if h.get("type") not in ("B", "S", "PL", "P", "SS"):
+            continue
+        try:
+            la, lo = float(h["lat"]), float(h["lon"])
+        except (KeyError, TypeError, ValueError):
+            continue
+        d = abs(la - lat) + abs(lo - lon)
+        if d < bd:
+            bd, best = d, h
+    # Only accept a record that is essentially at the same point.
+    if best is not None and bd <= 0.0015:
+        return best
+    return None
+
+
+def building_label(hit, shop_addr, lat, lon, cache=None):
+    """The building a matched facility record should be reported as.
+
+    A type-F record is a business INSIDE a building - a clinic, a
+    7-Eleven, a WiFi hotspot. Its own address names the building it is
+    in: "新界西貢區唐德街1號將軍澳廣場2樓2089舖" is a medical centre on
+    the 2nd floor of 將軍澳廣場.
+
+    Matching a shop to one of these puts it in the right place, but the
+    published label then says the card shop IS the clinic. So the
+    building is read out of the facility's own address, and from the
+    SHOP's address when the facility's does not repeat it ("屯門建泰街
+    6號" for a clinic, where the shop's address names 恒威工業中心).
+    """
+    hit_addr = str(hit.get("caddress") or hit.get("eaddress") or "")
+    cands = [c for c in (building_after_ha(hit_addr),
+                         building_after_ha(shop_addr)) if c]
+    if not cands:
+        return None
+    # Prefer a building the gazetteer confirms, which also gives its
+    # official spelling.
+    for c in cands:
+        rec = gazetteer_building(c, lat, lon, cache)
+        if not rec:
+            continue
+        name = rec.get("cname") or rec.get("ename")
+        if not name:
+            continue
+        # The gazetteer appends "(別稱)" to an alternative name.
+        name = re.sub(r"\s*\(別稱\)\s*$", "", name).strip()
+        # The gazetteer's Chinese name for iSQUARE is 國際廣場, which
+        # drops the brand the shop's own address writes (iSQUARE國際
+        # 廣場). Where one name contains the other, the longer one is
+        # the more complete statement of the same building.
+        if c != name and name in c:
+            c = _strip_floor_unit(c)
+            if c and name in c:
+                return c
+        return name
+    # No gazetteer record: fall back to the address reading, with the
+    # floor part stripped off.
+    c = _strip_floor_unit(cands[0])
+    return c or cands[0]
+
+
 def hit_cores(hit):
     """The Chinese street cores of a hit."""
     blob = str(hit.get("caddress") or "")
@@ -581,14 +705,29 @@ def main():
         d = district_of(lat, lon)
         want_d = DC_EN.get(s.get("district_zh", "").strip(), "")
         same = bool(want_d and d and d.lower() == want_d.lower())
+
+        # A type-F record is a business inside a building. The match is
+        # to the right place, but the published name must be the
+        # BUILDING, not the clinic or the convenience store that
+        # happens to sit at that point. The facility is kept as the
+        # evidence for the match.
+        hit_name = h.get("cname") or h.get("ename") or ""
+        hit_type = h.get("type")
+        match_name = hit_name
+        if hit_type == "F":
+            bld = building_label(h, s.get("addr", ""), lat, lon, cache)
+            if bld:
+                match_name = bld
+
         out.append({
             **s,
             "geocoded": True,
             "lat": round(lat, 6),
             "lon": round(lon, 6),
-            "geocode_match": h.get("cname") or h.get("ename") or "",
+            "geocode_match": match_name,
+            "geocode_evidence": hit_name,
             "geocode_address": h.get("caddress") or h.get("eaddress") or "",
-            "geocode_type": h.get("type"),
+            "geocode_type": hit_type,
             "geocode_district": d,
             "geocode_district_expected": want_d,
             "geocode_district_ok": same,
@@ -596,7 +735,7 @@ def main():
         })
         mark = "ok " if same else "DIF"
         print(f"  [{i:3}/{len(shops)}] {s['name'][:30]:32} -> "
-              f"{str(h.get('cname') or h.get('ename'))[:16]:18} "
+              f"{str(match_name)[:16]:18} "
               f"({lat:.5f},{lon:.5f}) {mark}[{d}]")
 
     write_json_atomic(OUT, out, indent=1)
