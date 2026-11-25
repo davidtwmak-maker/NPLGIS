@@ -1,7 +1,7 @@
 {
  "generated": "2026-11-24",
  "repository": "davidtwmak-maker/NPLGIS",
- "note": "Every layer shipped in assets/data plus the Festival Walk 3D app data. Features counted from the file itself. Floor plate heights are schematic (5.5 m storey, 2x vertical exaggeration). The G floor is set to Tat Chee Avenue (達之路) at the junction where it meets the mall - 33.0 m measured from Esri WorldElevation3D Terrain3D - and the podium is a schematic foundation mass, not measured architectural heights. | 2026-11-05: added HK Steep Slopes >30 deg - 33,231 polygons of ground steeper than 30 degrees (113.29 km2 = 10.09% of land), the five-class slope raster at 20 m, the maximum-slope raster, and the two-panel map. Slope is the MAXIMUM gradient within each 20 m cell, not the mean: 22,700 recorded incidents sit in cells whose mean slope is under 30 degrees but whose max is over it, so a mean threshold would erase a fifth of the evidence. Area reconciliation error 0.0 m2, 0 invalid geometries.  | 2026-11-24: added the Hong Kong self-study rooms project - 194 study rooms, 211 census small areas, 18 district boundaries, the district master table, the small-area crowding table, the network walk for 514 schools, the elderly-competition test and the field-code audit, plus two maps and a student worksheet. Seat counts and utilisation come from the Government's LegCo reply CSTB217, not from any dataset. The census field codes are opaque and were PROVED by recomputing published figures (7/7 checks). The obvious elderly-competition correlation of +0.866 is a shared-denominator artefact; the corrected test on counts finds no effect (adjusted R2 = -0.024, n = 18).",
+ "note": "Every layer shipped in assets/data plus the Festival Walk 3D app data. Features counted from the file itself. Floor plate heights are schematic (5.5 m storey, 2x vertical exaggeration). The G floor is set to Tat Chee Avenue (達之路) at the junction where it meets the mall - 33.0 m measured from Esri WorldElevation3D Terrain3D - and the podium is a schematic foundation mass, not measured architectural heights. | 2026-11-05: added HK Steep Slopes >30 deg - 33,231 polygons of ground steeper than 30 degrees (113.29 km2 = 10.09% of land), the five-class slope raster at 20 m, the maximum-slope raster, and the two-panel map. Slope is the MAXIMUM gradient within each 20 m cell, not the mean: 22,700 recorded incidents sit in cells whose mean slope is under 30 degrees but whose max is over it, so a mean threshold would erase a fifth of the evidence. Area reconciliation error 0.0 m2, 0 invalid geometries.  | 2026-11-24: added the Hong Kong self-study rooms project - 194 study rooms, 211 census small areas, 18 district boundaries, the district master table, the small-area crowding table, the network walk for 514 schools, the elderly-competition test and the field-code audit, plus two maps and a student worksheet. Seat counts and utilisation come from the Government's LegCo reply CSTB217, not from any dataset. The census field codes are opaque and were PROVED by recomputing published figures (7/7 checks). The obvious elderly-competition correlation of +0.866 is a shared-denominator artefact; the corrected test on counts finds no effect (adjusted R2 = -0.024, n = 18). | 2026-11-24: added the Hong Kong self-study rooms project - 194 study rooms, 211 census small areas, 18 district boundaries, the district master table, the small-area crowding table, the network walk for 514 schools, the elderly-competition test and the field-code audit, plus two maps and a student worksheet. Seat counts and utilisation come from the Government's LegCo reply CSTB217, not from any dataset. The census field codes are opaque and were PROVED by recomputing published figures (7/7 checks). The obvious elderly-competition correlation of +0.866 is a shared-denominator artefact; the corrected test on counts finds no effect (adjusted R2 = -0.024, n = 18). | 2026-11-24: added the Hong Kong self-study rooms project - 194 study rooms, 211 census small areas, 18 district boundaries, the district master table, the small-area crowding table, the network walk for 514 schools, the elderly-competition test and the field-code audit, plus two maps and a student worksheet. Seat counts and utilisation come from the Government's LegCo reply CSTB217, not from any dataset. The census field codes are opaque and were PROVED by recomputing published figures (7/7 checks). The obvious elderly-competition correlation of +0.866 is a shared-denominator artefact; the corrected test on counts finds no effect (adjusted R2 = -0.024, n = 18). | 2026-11-24: added the Hong Kong self-study rooms project - 194 study rooms, 211 census small areas, 18 district boundaries, the district master table, the small-area crowding table, the network walk for 514 schools, the elderly-competition test and the field-code audit, plus two maps and a student worksheet. Seat counts and utilisation come from the Government's LegCo reply CSTB217, not from any dataset. The census field codes are opaque and were PROVED by recomputing published figures (7/7 checks). The obvious elderly-competition correlation of +0.866 is a shared-denominator artefact; the corrected test on counts finds no effect (adjusted R2 = -0.024, n = 18).",
  "sources": [
   {
    "name": "3D Pedestrian Network",
@@ -1724,6 +1724,42 @@
    "bytes": 11118,
    "mb": 0.011,
    "sha256": "6e351271b8425d93"
+  },
+  {
+   "file": "assets/data/self-study-rooms/POPULATION — district_census_full.csv",
+   "bytes": 3235,
+   "mb": 0.003,
+   "gzipped": false,
+   "features": null,
+   "title": "District population, as a plain table",
+   "dataset_id": "censtatd_rcd_1635932856094_19982",
+   "records": "",
+   "notes": "18 rows, 26 columns. One row per District Council district, carrying the census population variables: total, the five age bands, working and non-working totals, the non-working student / retired / homemaker / carer / other counts, domestic households, median floor area (fa_m), population by sex and housing type, median monthly earnings, degree holders, usual residents living in the same district, and the usual-resident quartiles. Built from the full 212-field CSDI district layer, so it can be queried for population questions the original analysis did not ask.",
+   "sha256": "da1de7d3ac38744b"
+  },
+  {
+   "file": "assets/data/self-study-rooms/POPULATION — small_area_census.csv",
+   "bytes": 21899,
+   "mb": 0.021,
+   "gzipped": false,
+   "features": null,
+   "title": "Small-area population, floor area and study rooms, as a plain table",
+   "dataset_id": "censtatd_rcd_1635933193720_58660",
+   "records": "",
+   "notes": "211 rows, 20 columns. One row per census small area: total population, the five age bands (age_2 is 15-24), the non-working student / retired / carer / homemaker / other counts, domestic households, median floor area (fa_m), and the number of study rooms inside the area. This is the table the crowding map is drawn from - the crowding choropleth can be rebuilt from it alone.",
+   "sha256": "b5782b164fdb5448"
+  },
+  {
+   "file": "assets/data/self-study-rooms/POPULATION — data dictionary.md",
+   "bytes": 5772,
+   "mb": 0.006,
+   "gzipped": false,
+   "features": null,
+   "title": "What every population column means, and how each census code was proved",
+   "dataset_id": "",
+   "records": "",
+   "notes": "The column dictionary for the two population CSVs above. Documents each census field code (t_pop, age_1..age_5, nwp_st, nwp_re, fa_m, dh and the rest), how it was PROVED against published C&SD figures rather than guessed, the two different measures called 'students' and why they differ, the seat and utilisation caveats, and the formulas to re-derive the study's headline numbers.",
+   "sha256": "6c3471313a694eeb"
   }
  ],
  "scripts": [

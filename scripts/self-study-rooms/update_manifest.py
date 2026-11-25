@@ -139,6 +139,35 @@ FILES = [
      "18 rows. Senior-secondary enrolment (S1-S7 and S4-S6), library seats and 2025 "
      "utilisation from the LegCo reply, census student and retired counts, median "
      "floor area, students per household and the crowding index."),
+    ("assets/data/self-study-rooms/POPULATION — district_census_full.csv",
+     "District population, as a plain table",
+     CSDI_DC,
+     "18 rows, 26 columns. One row per District Council district, carrying the "
+     "census population variables: total, the five age bands, working and "
+     "non-working totals, the non-working student / retired / homemaker / carer "
+     "/ other counts, domestic households, median floor area (fa_m), population "
+     "by sex and housing type, median monthly earnings, degree holders, usual "
+     "residents living in the same district, and the usual-resident quartiles. "
+     "Built from the full 212-field CSDI district layer, so it can be queried "
+     "for population questions the original analysis did not ask."),
+    ("assets/data/self-study-rooms/POPULATION — data dictionary.md",
+     "What every population column means, and how each census code was proved",
+     "",
+     "The column dictionary for the two population CSVs above. Documents each "
+     "census field code (t_pop, age_1..age_5, nwp_st, nwp_re, fa_m, dh and the "
+     "rest), how it was PROVED against published C&SD figures rather than "
+     "guessed, the two different measures called 'students' and why they differ, "
+     "the seat and utilisation caveats, and the formulas to re-derive the "
+     "study's headline numbers."),
+    ("assets/data/self-study-rooms/POPULATION — small_area_census.csv",
+     "Small-area population, floor area and study rooms, as a plain table",
+     CSDI_STPUG,
+     "211 rows, 20 columns. One row per census small area: total population, "
+     "the five age bands (age_2 is 15-24), the non-working student / retired / "
+     "carer / homemaker / other counts, domestic households, median floor area "
+     "(fa_m), and the number of study rooms inside the area. This is the table "
+     "the crowding map is drawn from - the crowding choropleth can be rebuilt "
+     "from it alone."),
     ("assets/data/self-study-rooms/crowding_small_area.csv",
      "Per small area: median floor area, students and study rooms",
      CSDI_STPUG,
