@@ -76,6 +76,13 @@ def collect(with_raw):
         if p.is_file() and p.suffix != ".pyc" and "__pycache__" not in p.parts:
             items.append((f"scripts/tcg-stores/{p.name}", p))
 
+    # The repo-wide gate that checks every app in the repository reads
+    # fields its published data actually contains. It lives at the
+    # scripts root because it covers all three projects, not this one.
+    gate = REPO / "scripts/check_app_fields.py"
+    if gate.exists():
+        items.append(("scripts/check_app_fields.py", gate))
+
     # The manifest entry for this project.
     man = REPO / "assets/data/MANIFEST.json"
     if man.exists():
@@ -212,6 +219,15 @@ def write_readme(items, raw, with_raw):
         "    build_app_data.py      the browser data, with the fidelity gate",
         "    build_map_figure.py    the static map figure",
         "    publish_data.py        the published data files in the repository",
+        "",
+        "  Two checks are run before a build is published:",
+        "",
+        "    check_app_fields.py         every field an app reads is present",
+        "                                in that app's published data - the",
+        "                                gate that catches a renamed field",
+        "                                reading as zero",
+        "    check_token_order.py        every name the geocoder reads is",
+        "                                assigned before it is read",
         "",
         "  Four checks can be run on their own at any point:",
         "",
