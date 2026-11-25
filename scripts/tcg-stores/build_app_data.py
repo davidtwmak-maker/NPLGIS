@@ -21,6 +21,7 @@ THE FIDELITY GATE ON THE SIMPLIFICATION
 OUTPUT
     /Users/davidhermes/nplgis/apps/tcg-stores/data/
 """
+from atomic_write import write_json_atomic
 import csv
 import gzip
 import json
@@ -280,16 +281,11 @@ def main():
     summary["pokemon_gyms"] = sum(1 for s in out_shops if s.get("gym"))
 
     # ---- write ------------------------------------------------------------
-    json.dump(areas, open(OUT / "areas.json", "w", encoding="utf-8"),
-              ensure_ascii=False, separators=(",", ":"))
-    json.dump(out_shops, open(OUT / "shops.json", "w", encoding="utf-8"),
-              ensure_ascii=False, separators=(",", ":"))
-    json.dump(metrics, open(OUT / "metrics.json", "w", encoding="utf-8"),
-              ensure_ascii=False, separators=(",", ":"))
-    json.dump(summary, open(OUT / "summary.json", "w", encoding="utf-8"),
-              ensure_ascii=False, indent=1)
-    json.dump(districts, open(OUT / "districts.json", "w", encoding="utf-8"),
-              ensure_ascii=False, separators=(",", ":"))
+    write_json_atomic(OUT / "areas.json", areas, separators=(",", ":"))
+    write_json_atomic(OUT / "shops.json", out_shops, separators=(",", ":"))
+    write_json_atomic(OUT / "metrics.json", metrics, separators=(",", ":"))
+    write_json_atomic(OUT / "summary.json", summary, indent=1)
+    write_json_atomic(OUT / "districts.json", districts, separators=(",", ":"))
 
     for f in sorted(OUT.glob("*.json")):
         print(f"   {f.name:16} {f.stat().st_size / 1024:8.0f} KB")

@@ -33,6 +33,8 @@ import math
 from collections import defaultdict
 from pathlib import Path
 
+from atomic_write import write_json_atomic
+
 HERE = Path(__file__).resolve().parent
 OUT = HERE / "out"
 OUT.mkdir(exist_ok=True)
@@ -425,8 +427,7 @@ def main():
             },
         } for a in areas],
     }
-    json.dump(gj, open(OUT / "merged_metrics.geojson", "w", encoding="utf-8"),
-              ensure_ascii=False)
+    write_json_atomic(OUT / "merged_metrics.geojson", gj, indent=None)
 
     # ---- the summary -------------------------------------------------------
     play_district = Counter()
@@ -471,8 +472,7 @@ def main():
         "catchment_metres": CATCHMENTS,
         "measure": "people aged 15-24 in the area per play venue within 1 km",
     }
-    json.dump(summary, open(OUT / "merged_summary.json", "w", encoding="utf-8"),
-              ensure_ascii=False, indent=1)
+    write_json_atomic(OUT / "merged_summary.json", summary, indent=1)
 
     print(f"\nyoung (15-24) with a venue within 1 km: {served_y:,.0f}")
     print(f"young with NO venue within 1 km:        {unserved_y:,.0f} "

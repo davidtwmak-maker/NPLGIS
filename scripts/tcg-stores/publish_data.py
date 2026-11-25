@@ -24,6 +24,7 @@ WHY IT IS A SCRIPT AND NOT A ONE-OFF
 
 Usage:  publish_data.py
 """
+from atomic_write import write_json_atomic
 import csv
 import json
 import math
@@ -63,27 +64,21 @@ def main():
     # ---- the summary -------------------------------------------------
     summary = json.load(open(HERE / "out/merged_summary.json", encoding="utf-8"))
     summary["published_from"] = "analyse_merged.py"
-    json.dump(summary, open(OUT / "tcg_summary.json", "w", encoding="utf-8"),
-              ensure_ascii=False, indent=1)
+    write_json_atomic(OUT / "tcg_summary.json", summary, indent=1)
 
     # ---- the merged shops ---------------------------------------------
     shops = json.load(open(HERE / "shops_merged.json", encoding="utf-8"))
-    json.dump(shops, open(OUT / "tcg_shops_merged.json", "w", encoding="utf-8"),
-              ensure_ascii=False, indent=1)
+    write_json_atomic(OUT / "tcg_shops_merged.json", shops, indent=1)
 
     # ---- the play venues ----------------------------------------------
     venues = json.load(open(HERE / "play_venues_geocoded.json", encoding="utf-8"))
-    json.dump(venues, open(OUT / "tcg_play_venues.json", "w", encoding="utf-8"),
-              ensure_ascii=False, indent=1)
+    write_json_atomic(OUT / "tcg_play_venues.json", venues, indent=1)
 
     # ---- the HKCardPrice shops -----------------------------------------
     hkp = json.load(open(HERE / "shops_hkcardprice_geocoded.json", encoding="utf-8"))
-    json.dump(hkp, open(OUT / "tcg_shops_hkcardprice.json", "w", encoding="utf-8"),
-              ensure_ascii=False, indent=1)
+    write_json_atomic(OUT / "tcg_shops_hkcardprice.json", hkp, indent=1)
     raw_hkp = json.load(open(HERE / "raw/hkcardprice_shops.json", encoding="utf-8"))
-    json.dump(raw_hkp,
-              open(OUT / "tcg_shops_hkcardprice_directory.json", "w",
-                   encoding="utf-8"), ensure_ascii=False, indent=1)
+    write_json_atomic(OUT / "tcg_shops_hkcardprice_directory.json", raw_hkp, indent=1)
 
     # ---- the small area metrics ----------------------------------------
     rows = list(csv.DictReader(open(HERE / "out/merged_metrics.csv",
@@ -108,8 +103,7 @@ def main():
         out_feats.append({"type": "Feature", "properties": feat["properties"],
                            "geometry": geom})
     out = {"type": "FeatureCollection", "features": out_feats}
-    json.dump(out, open(OUT / "tcg_small_area_metrics.geojson", "w",
-                        encoding="utf-8"), ensure_ascii=False)
+    write_json_atomic(OUT / "tcg_small_area_metrics.geojson", out, indent=None)
 
     size = (OUT / "tcg_small_area_metrics.geojson").stat().st_size
     print(f"simplification fidelity (published layer):")

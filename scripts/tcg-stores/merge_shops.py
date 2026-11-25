@@ -31,6 +31,7 @@ HOW SHOPS ARE MATCHED
 OUTPUT
     shops_merged.json - one record per physical shop
 """
+from atomic_write import write_json_atomic
 import json
 import math
 import re
@@ -411,8 +412,7 @@ def main():
     print("play by source:", dict(Counter(
         s for m in play_total for s in m["ai_sources"])))
 
-    json.dump(merged, open(OUT, "w", encoding="utf-8"),
-              ensure_ascii=False, indent=1)
+    write_json_atomic(OUT, merged, indent=1)
     print(f"\nwrote {OUT}")
 
 

@@ -2275,8 +2275,8 @@
   },
   {
    "file": "scripts/tcg-stores/geocode_shops.py",
-   "bytes": 34882,
-   "sha256": "1116cec76cec5c92",
+   "bytes": 35188,
+   "sha256": "9a05114899d00465",
    "description": "Geocode the 205 BAW VAULT shops to the building level with the Hong Kong Government location search service, matching on the building token with a strict token-quality rule. Asserts every accepted hit is within about 700 m of its source pin."
   },
   {
@@ -2287,8 +2287,8 @@
   },
   {
    "file": "scripts/tcg-stores/geocode_hkcardprice.py",
-   "bytes": 15253,
-   "sha256": "874de8281e736d33",
+   "bytes": 15796,
+   "sha256": "aa05b7232066dd88",
    "description": "Geocode the 117 HKCardPrice shops with the same evidence ranking as the other geocoder: building name match, then street number, then street name as credit only, with the district as a confirmatory check and never a veto. Handles mall addresses with no street number, and the directory's variant character for a shopping centre."
   },
   {
@@ -2305,20 +2305,20 @@
   },
   {
    "file": "scripts/tcg-stores/merge_shops.py",
-   "bytes": 17994,
-   "sha256": "bbffa2e2701f27ef",
+   "bytes": 17982,
+   "sha256": "3faea5b9ad21043b",
    "description": "Merge the three directories into one shop-level layer. A shop is the same shop only when its name AND its building agree, so a mall's separate branches stay separate. A hand-built venue that is already a directory play venue in the same building is absorbed into it rather than added twice."
   },
   {
    "file": "scripts/tcg-stores/analyse_merged.py",
-   "bytes": 19276,
-   "sha256": "bf561e30ada5c0e1",
+   "bytes": 19223,
+   "sha256": "964a43e54c1a297f",
    "description": "The spatial analysis: assign every shop to its census small area, count play venues within 500 m, 1 km and 1.5 km, and derive the young-people-per-venue measure. Refuses to write output unless the population reconciles exactly with the published 2021 Census total of 7,411,945 and every area's age bands sum to its own total. Also runs the sensitivity scenario in which all 63 registered Pokemon Gyms count as venues."
   },
   {
    "file": "scripts/tcg-stores/build_app_data.py",
-   "bytes": 11826,
-   "sha256": "ae85824cc6a70274",
+   "bytes": 11594,
+   "sha256": "f47bcbc6eca475f3",
    "description": "Build the browser data for the web map: the simplified area polygons, the shop points, the legend and the summary. Gates the polygon simplification at 60 m of vertex shift and 2% of area change, with an absolute gate for the smallest areas."
   },
   {

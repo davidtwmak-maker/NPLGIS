@@ -41,6 +41,8 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 
+from atomic_write import write_json_atomic
+
 HERE = Path(__file__).resolve().parent
 CACHE = HERE / "raw" / "geocode_cache.json"
 OUT = HERE / "shops_geocoded.json"
@@ -290,7 +292,10 @@ def load_cache():
 
 
 def save_cache(c):
-    CACHE.write_text(json.dumps(c, ensure_ascii=False, indent=1), encoding="utf-8")
+    # Atomic write. A plain write_text() leaves a truncated, unparseable
+    # cache if the run is killed mid-write, and the cache is what makes a
+    # re-run cheap - losing it means re-querying every address.
+    write_json_atomic(CACHE, c, indent=1)
 
 
 def metres(lat1, lon1, lat2, lon2):
@@ -779,7 +784,9 @@ def main():
             print(f"  [{i}/{len(rows)}] {name}", flush=True)
         time.sleep(0.25)
 
-    json.dump(out, open(OUT, "w"), ensure_ascii=False, indent=1)
+    # Atomic write: a run killed here must not leave a half-written file
+    # that a later step reads as complete.
+    write_json_atomic(OUT, out, indent=1)
     print("\nrules:", rules)
     moved = [o["moved_m"] for o in out]
     print(f"moved: max={max(moved):.0f}m  >150m={sum(1 for m in moved if m>150)}  "

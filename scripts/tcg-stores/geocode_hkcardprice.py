@@ -22,6 +22,7 @@ THE MATCH
 OUTPUT
     shops_hkcardprice_geocoded.json
 """
+from atomic_write import write_json_atomic
 import json
 import re
 import sys
@@ -314,6 +315,17 @@ def main():
             # identifies it.
             if h.get("type") not in ("B", "S", "PL", "F"):
                 continue
+            # The hit must be in Hong Kong. A bounding box is not a
+            # land test, so this asks the District Council boundary
+            # layer directly: a hit outside every district is not a
+            # building in Hong Kong and cannot be the shop.
+            try:
+                hlat = float(h["lat"]) + HK80_TO_WGS[0]
+                hlon = float(h["lon"]) + HK80_TO_WGS[1]
+            except (KeyError, TypeError, ValueError):
+                continue
+            if not district_of(hlat, hlon):
+                continue
             hn = hit_numbers(h)
             named = name_hit(h, buildings)
             # A hit that states a number and it is not ours is a DIFFERENT
@@ -368,7 +380,7 @@ def main():
               f"{str(h.get('cname') or h.get('ename'))[:16]:18} "
               f"({lat:.5f},{lon:.5f}) {mark}[{d}]")
 
-    json.dump(out, open(OUT, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    write_json_atomic(OUT, out, indent=1)
     ok = sum(1 for o in out if o.get("geocoded"))
     dok = sum(1 for o in out if o.get("geocoded") and
               o.get("geocode_district") and o.get("geocode_district_expected") and
