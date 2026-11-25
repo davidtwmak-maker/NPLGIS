@@ -258,8 +258,15 @@ def main():
     # and reported as its own thing.
     confirmed = [s for s in shops
                  if s.get("ai_play_space") or s.get("ai_play_tag")]
+    # A shop that is BOTH a confirmed play space and a registered Gym
+    # appears in `confirmed`, so it must be excluded from the
+    # registered-only count. The test has to be by IDENTITY: two
+    # different shops with the same fields compare EQUAL as dicts, and
+    # "s not in confirmed" would then drop a shop that was never a
+    # play space at all.
+    confirmed_ids = {id(s) for s in confirmed}
     registered_only = [s for s in shops
-                       if s.get("gym_id") and s not in confirmed]
+                       if s.get("gym_id") and id(s) not in confirmed_ids]
     play = confirmed
     print(f"shops: {len(shops)}   confirmed play venues: {len(confirmed)}   "
           f"registered Gyms without a confirmed play space: {len(registered_only)}")

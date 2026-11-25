@@ -9,7 +9,7 @@ and play venue in Hong Kong with the 2021 Population Census population aged
 
 | | |
 |---|---|
-| Card shops mapped | **281** |
+| Card shops mapped | **282** |
 | Places you can actually play | **49** |
 | Shops confirmed by two independent directories | **48 (17%)** |
 | Official Pokémon Gyms (run events) | **63** |
@@ -56,7 +56,7 @@ The three directories are merged into one layer on a **shop-level** key —
 building + shop name — not on the building alone, because a single mall can
 hold a dozen card shops and each needs its own point on the map.
 
-- **48 shops** appear in two or more directories. Every one was checked
+- **47 shops** appear in two or more directories. Every one was checked
   address-by-address before being merged.
 - Matching on the building alone would wrongly merge a mall's shops together;
   matching on the name alone would wrongly merge a chain's branches. Both the
@@ -103,6 +103,33 @@ order:
    down a street splits a single building between two districts. The district
    is recorded and compared, but it never rejects an otherwise good match.
 
+**Three gates that override the ranking**, each added after it caught a real
+error rather than before it:
+
+- **A point-in-polygon land test.** A bounding box is not a land test.
+  Hong Kong is not a rectangle, and the BAW VAULT pin for HobbyX Plus (K11
+  Art Mall) sits at 22.426 N, 114.086 E — in the Pearl River estuary,
+  **40 km from the shop**, and inside the bounding box. Every candidate is
+  now tested against the District Council boundary polygons: a hit outside
+  every district is not in Hong Kong and cannot be the shop's building.
+- **The address outranks the pin.** A directory pin whose District Council
+  district contradicts the district the address names is a wrong pin. When
+  that happens the pin stops anchoring the radius, and the candidate's own
+  district is checked against the address's instead. The area-to-district
+  mapping used for this is **derived** — the government geocoder is asked
+  where each area name is, the district its hits agree on is taken, and the
+  shop pins are used only as a cross-check. An area where the geocoder's
+  hits disagree, or where the pins disagree with the geocoder, is left
+  unmapped: an unmapped area never triggers the check, whereas a wrongly
+  mapped area would reject a correct pin.
+- **An area is not a building, and a road is not a building.** The
+  government index has a record for every district and neighbourhood
+  ("旺角", type `PL`) and for every street ("CASTLE PEAK ROAD", type `ST`).
+  Both were being accepted as buildings. An area token cannot outscore a
+  building token, and street records are rejected outright — "League Castle
+  (D-Park)" was being placed on the road 645 m from 愉景新城, the building
+  its address actually gives.
+
 **Why this ranking.** The hardest problem in this dataset is **duplicate
 building names**. There are three separate buildings called 嘉威大廈 in Hong
 Kong. When a source address is only a building name, the search returns all
@@ -118,7 +145,7 @@ tried before name-only queries.
 | HKCardPrice shops | **103 / 117** | 100 |
 | Hand-built venues | **19 / 23** | 19 |
 
-**Merged: 281 shops**, of which 48 are confirmed by two or more sources.
+**Merged: 282 shops**, of which 47 are confirmed by two or more sources.
 
 The unresolved 14 HKCardPrice shops are all **mall addresses** with no street
 number of their own (e.g. 天悅廣場) — the mall is the only identifier, and the
@@ -194,7 +221,7 @@ independent script, and the population total is checked against the published
 C&SD figure rather than assumed.
 
 **The AI found the bugs, by checking outputs against source data rather than
-trusting them.** Fourteen silent defects were caught this way, including:
+trusting them.** Twenty-three silent defects were caught this way, including:
 
 - the census column names (`t_pop`, `age_2_15_24`) being read as if they were
   `pop_total` / `pop_15_24` — the build failed its own reconciliation gate at
@@ -224,7 +251,29 @@ trusting them.** Fourteen silent defects were caught this way, including:
   name and the other the Chinese one — "Brave Soul TCG" and "Brave Soul 闘卡魂"
   are one shop, and the branch name has to be stripped off as well
   ("Battleground" and "Battleground Kwun Tong" are one chain);
-- a truncation where the area table showed bare codes instead of names.
+- a truncation where the area table showed bare codes instead of names;
+- **a bounding box being used as a land test** — Hong Kong is not a
+  rectangle, and the directory's own pin for HobbyX Plus (K11 Art Mall) sat
+  at 22.426 N, 114.086 E, in the Pearl River estuary **40 km from the shop**.
+  A point-in-polygon test against the District Council boundary is the only
+  test that settles "is this in Hong Kong", and it rejected the pin;
+- the address tokeniser cutting a building name at its phase marker, so
+  "恒豐工業大廈第1期" produced the token "工業大廈第" — a token that matches
+  every industrial building in Hong Kong, and did;
+- the shop's own name being used as a building token, so "League Castle
+  (D-Park)" matched **CASTLE PEAK ROAD**, a road, 645 m from the building its
+  address gives (愉景新城);
+- a street record (type `ST`) being accepted as a building at all;
+- an **area** record being accepted as a building, so "Have Card" was placed
+  at the Mong Kok district centroid, 679 m from 華懋王子大廈, because the
+  area name matched exactly and the building name did not;
+- a mall's Chinese name carrying a qualifier — "天悅廣場 (別稱)" — which made
+  an exact match look like a partial one;
+- a mall whose name starts with a lower-case letter ("i SQUARE") being
+  invisible to the tokeniser, leaving one shop unlocated;
+- `s not in confirmed` comparing **dicts by value**, so two different shops
+  with the same fields compared equal and a registered Gym was dropped from
+  the registered-only count;
 
 **Every derived field carries an `ai_` prefix** (`ai_y1524_per_play_1000m`,
 `ai_play_venue_count`, …). This is the disclosure mechanism used for the
@@ -283,7 +332,7 @@ CSDI Awards entry and it is what the school group should quote.
 
 | File | What |
 |---|---|
-| `tcg_shops_merged.json` | The merged layer: 281 shops with coordinates, district, play flag, gym id, source count |
+| `tcg_shops_merged.json` | The merged layer: 282 shops with coordinates, district, play flag, gym id, source count |
 | `tcg_shops_hkcardprice.json` | The 117 HKCardPrice shops with geocodes and district checks |
 | `tcg_shops_hkcardprice_directory.json` | The raw directory scrape, before geocoding — provenance |
 | `tcg_play_venues.json` | The 23 hand-built venues, 19 geocoded |

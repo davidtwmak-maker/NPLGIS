@@ -38,8 +38,8 @@
   "name_zh": "Cardlos 卡樂師",
   "address": "卡樂師 長沙灣天悅廣場1樓173號鋪",
   "address_zh": "卡樂師 長沙灣天悅廣場1樓173號鋪",
-  "lat": 22.33716,
-  "lon": 114.14899,
+  "lat": 22.33509,
+  "lon": 114.15995,
   "ai_sources": [
    "bawvault",
    "hkcardprice"
@@ -55,7 +55,7 @@
   "district": "Cheung Sha Wan",
   "baw_region": "Kowloon",
   "baw_url": "https://bawvault.com/card-shops/hong-kong/kowloon/cardlos-cheung-sha-wan/",
-  "ai_geocode_rule": "directory-pin",
+  "ai_geocode_rule": "building-match",
   "hkcardprice_addr": "長沙灣天悅廣場1樓173號鋪"
  },
  {
@@ -63,8 +63,8 @@
   "name_zh": "",
   "address": "長沙灣天悅廣場1樓130號鋪 Hong Kong",
   "address_zh": "長沙灣天悅廣場1樓130號鋪 Hong Kong",
-  "lat": 22.23568,
-  "lon": 113.94732,
+  "lat": 22.33509,
+  "lon": 114.15995,
   "ai_sources": [
    "bawvault"
   ],
@@ -84,7 +84,7 @@
   "district": "Cheung Sha Wan",
   "baw_region": "Kowloon",
   "baw_url": "https://bawvault.com/card-shops/hong-kong/kowloon/mirror-force-cheung-sha-wan/",
-  "ai_geocode_rule": "directory-pin"
+  "ai_geocode_rule": "building-match"
  },
  {
   "name": "OA Card (Oztet Amigo)",
@@ -173,7 +173,7 @@
   "district": "Cheung Sha Wan",
   "baw_region": "Kowloon",
   "baw_url": "https://bawvault.com/card-shops/hong-kong/kowloon/sports-card-hong-kong-store-cheung-sha-wan/",
-  "ai_geocode_rule": "directory-pin"
+  "ai_geocode_rule": "building-match"
  },
  {
   "name": "0H Fantastic-TB TCG",
@@ -303,8 +303,8 @@
   "name_zh": "CARD CAVE",
   "address": "CARD CAVE 長沙灣天悅廣場1樓159B",
   "address_zh": "CARD CAVE 長沙灣天悅廣場1樓159B",
-  "lat": 22.33716,
-  "lon": 114.14899,
+  "lat": 22.33509,
+  "lon": 114.15995,
   "ai_sources": [
    "bawvault",
    "hkcardprice"
@@ -320,7 +320,7 @@
   "district": "Cheung Sha Wan",
   "baw_region": "Kowloon",
   "baw_url": "https://bawvault.com/card-shops/hong-kong/kowloon/card-cave-cheung-sha-wan/",
-  "ai_geocode_rule": "directory-pin",
+  "ai_geocode_rule": "building-match",
   "hkcardprice_addr": "長沙灣天悅廣場1樓159B"
  },
  {
@@ -354,8 +354,8 @@
   "name_zh": "",
   "address": "天悅廣場1樓143A號鋪, 長沙灣, HKG",
   "address_zh": "天悅廣場1樓143A號鋪, 長沙灣, HKG",
-  "lat": 22.33716,
-  "lon": 114.14899,
+  "lat": 22.33509,
+  "lon": 114.15995,
   "ai_sources": [
    "bawvault"
   ],
@@ -375,15 +375,15 @@
   "district": "Cheung Sha Wan",
   "baw_region": "Kowloon",
   "baw_url": "https://bawvault.com/card-shops/hong-kong/kowloon/card-gathering-cheung-sha-wan/",
-  "ai_geocode_rule": "directory-pin"
+  "ai_geocode_rule": "building-match"
  },
  {
   "name": "Card Revolution",
   "name_zh": "Card Revolution",
   "address": "長沙灣天悅廣場1樓123A號舖",
   "address_zh": "長沙灣天悅廣場1樓123A號舖",
-  "lat": 22.33716,
-  "lon": 114.14899,
+  "lat": 22.33509,
+  "lon": 114.15995,
   "ai_sources": [
    "bawvault",
    "hkcardprice"
@@ -400,7 +400,7 @@
   "district": "Cheung Sha Wan",
   "baw_region": "Kowloon",
   "baw_url": "https://bawvault.com/card-shops/hong-kong/kowloon/card-revolution-cheung-sha-wan/",
-  "ai_geocode_rule": "directory-pin",
+  "ai_geocode_rule": "building-match",
   "hkcardprice_addr": "長沙灣天悅廣場1樓123A號舖"
  },
  {
@@ -489,8 +489,8 @@
   "name_zh": "MAGIC TEENS/魔法少年",
   "address": "長沙灣青山道181號天悅廣場地下B號舖",
   "address_zh": "長沙灣青山道181號天悅廣場地下B號舖",
-  "lat": 22.33534,
-  "lon": 114.16006,
+  "lat": 22.33509,
+  "lon": 114.15995,
   "ai_sources": [
    "bawvault"
   ],
@@ -505,15 +505,15 @@
   "district": "Cheung Sha Wan",
   "baw_region": "Kowloon",
   "baw_url": "https://bawvault.com/card-shops/hong-kong/kowloon/magic-teens-cheung-sha-wan/",
-  "ai_geocode_rule": "directory-pin"
+  "ai_geocode_rule": "building-match"
  },
  {
   "name": "My Kat",
   "name_zh": "My咭",
   "address": "九龍長沙灣天悅廣場113號",
   "address_zh": "九龍長沙灣天悅廣場113號",
-  "lat": 22.32864,
-  "lon": 114.16464,
+  "lat": 22.33507,
+  "lon": 114.1604,
   "ai_sources": [
    "bawvault"
   ],
@@ -529,15 +529,15 @@
   "district": "Cheung Sha Wan",
   "baw_region": "Kowloon",
   "baw_url": "https://bawvault.com/card-shops/hong-kong/kowloon/my-kat-cheung-sha-wan/",
-  "ai_geocode_rule": "directory-pin"
+  "ai_geocode_rule": "building-match"
  },
  {
   "name": "OutPlay TCG",
   "name_zh": "",
   "address": "OutPlay Tcg 長沙灣天悅廣場131號店",
   "address_zh": "OutPlay Tcg 長沙灣天悅廣場131號店",
-  "lat": 22.329,
-  "lon": 114.16419,
+  "lat": 22.33507,
+  "lon": 114.1604,
   "ai_sources": [
    "bawvault"
   ],
@@ -553,7 +553,7 @@
   "district": "Cheung Sha Wan",
   "baw_region": "Kowloon",
   "baw_url": "https://bawvault.com/card-shops/hong-kong/kowloon/outplay-tcg-cheung-sha-wan/",
-  "ai_geocode_rule": "directory-pin"
+  "ai_geocode_rule": "building-match"
  },
  {
   "name": "Ptcgcardfans",
@@ -887,8 +887,8 @@
   "name_zh": "",
   "address": "觀塘觀塘道472-484號觀塘工業中心第1座12樓J1室",
   "address_zh": "觀塘觀塘道472-484號觀塘工業中心第1座12樓J1室",
-  "lat": 22.31046,
-  "lon": 114.22805,
+  "lat": 22.31088,
+  "lon": 114.22744,
   "ai_sources": [
    "bawvault"
   ],
@@ -914,15 +914,15 @@
   "district": "Kwun Tong",
   "baw_region": "Kowloon",
   "baw_url": "https://bawvault.com/card-shops/hong-kong/kowloon/ark-black-cat-kwun-tong/",
-  "ai_geocode_rule": "directory-pin"
+  "ai_geocode_rule": "building-match"
  },
  {
   "name": "Cardzoku",
   "name_zh": "",
   "address": "九龍觀塘駿業里8號世貿大樓11樓13號室",
   "address_zh": "九龍觀塘駿業里8號世貿大樓11樓13號室",
-  "lat": 22.31253,
-  "lon": 114.22412,
+  "lat": 22.31243,
+  "lon": 114.22369,
   "ai_sources": [
    "bawvault"
   ],
@@ -1058,7 +1058,7 @@
   "district": "Kwun Tong",
   "baw_region": "Kowloon",
   "baw_url": "https://bawvault.com/card-shops/hong-kong/kowloon/top-draw-kwun-tong/",
-  "ai_geocode_rule": "directory-pin"
+  "ai_geocode_rule": "building-match"
  },
  {
   "name": "Trading Card Man",
@@ -2029,8 +2029,8 @@
   "name_zh": "",
   "address": "九龍亞皆老街8號, 朗豪坊 10樓 30-31號舖",
   "address_zh": "九龍亞皆老街8號, 朗豪坊 10樓 30-31號舖",
-  "lat": 22.31883,
-  "lon": 114.16848,
+  "lat": 22.31838,
+  "lon": 114.16853,
   "ai_sources": [
    "bawvault"
   ],
@@ -2049,7 +2049,7 @@
   "district": "Mong Kok",
   "baw_region": "Kowloon",
   "baw_url": "https://bawvault.com/card-shops/hong-kong/kowloon/league-castle-langham-place-mong-kok/",
-  "ai_geocode_rule": "directory-pin"
+  "ai_geocode_rule": "building-match"
  },
  {
   "name": "Mad Max Toys (MOKO)",
@@ -2108,8 +2108,8 @@
   "name_zh": "樓上咭店/Have Card",
   "address": "九龍旺角道97-99號華懋王子大廈2樓J室, Hong Kong, Mong Kok",
   "address_zh": "九龍旺角道97-99號華懋王子大廈2樓J室, Hong Kong, Mong Kok",
-  "lat": 22.3201,
-  "lon": 114.17149,
+  "lat": 22.32102,
+  "lon": 114.17113,
   "ai_sources": [
    "bawvault",
    "hkcardprice"
@@ -2180,15 +2180,13 @@
  },
  {
   "name": "Battleground",
-  "name_zh": "Battleground 荔枝角店",
+  "name_zh": "",
   "address": "香港九龍荔枝角長順街15號D2 PLACE TWO 1樓105-107",
   "address_zh": "香港九龍荔枝角長順街15號D2 PLACE TWO 1樓105-107",
-  "lat": 22.33614,
+  "lat": 22.33613,
   "lon": 114.14755,
   "ai_sources": [
-   "bawvault",
-   "hkcardprice",
-   "play_venue"
+   "bawvault"
   ],
   "games": [
    "dbs",
@@ -2205,17 +2203,14 @@
    "sealed",
    "singles"
   ],
-  "ai_play_space": true,
-  "ai_play_tag": true,
-  "gym_id": "GYM031",
+  "ai_play_space": false,
+  "ai_play_tag": false,
+  "gym_id": null,
   "mtr": null,
   "district": "Lai Chi Kok",
   "baw_region": "Kowloon",
   "baw_url": "https://bawvault.com/card-shops/hong-kong/kowloon/battleground-lai-chi-kok/",
-  "ai_geocode_rule": "directory-pin",
-  "hkcardprice_addr": "荔枝角長順街11號長城工廠大廈5樓A09室",
-  "place_type": "card_venue",
-  "play_note": "Card game and board game specialist with a dedicated shop floor; also a second branch in Kwun Tong"
+  "ai_geocode_rule": "building-match"
  },
  {
   "name": "KK Zone TCG",
@@ -2842,8 +2837,8 @@
   "name_zh": "HobbyX Plus(K11 Art Mall)",
   "address": "HobbyX PLus 尖沙咀河內道18號K11 Art Mall3樓304號舖, 九龍",
   "address_zh": "HobbyX PLus 尖沙咀河內道18號K11 Art Mall3樓304號舖, 九龍",
-  "lat": 22.42596,
-  "lon": 114.08564,
+  "lat": 22.29755,
+  "lon": 114.17355,
   "ai_sources": [
    "bawvault",
    "hkcardprice"
@@ -2871,8 +2866,8 @@
   "name_zh": "",
   "address": "Players’Club TCG 尖沙咀i SQUARE 2樓210",
   "address_zh": "Players’Club TCG 尖沙咀i SQUARE 2樓210",
-  "lat": 22.32203,
-  "lon": 114.20786,
+  "lat": 22.29705,
+  "lon": 114.17185,
   "ai_sources": [
    "bawvault"
   ],
@@ -2895,7 +2890,7 @@
   "district": "Tsim Sha Tsui",
   "baw_region": "Kowloon",
   "baw_url": "https://bawvault.com/card-shops/hong-kong/kowloon/players-club-tcg-prince-edward/",
-  "ai_geocode_rule": "directory-pin"
+  "ai_geocode_rule": "building-match"
  },
  {
   "name": "Pocha Cards",
@@ -2920,14 +2915,13 @@
  },
  {
   "name": "HKTCG",
-  "name_zh": "通用卡店 啟德店",
+  "name_zh": "",
   "address": "彌敦道63號　ISquare 2/F Shop 208, 尖沙咀",
   "address_zh": "彌敦道63號　ISquare 2/F Shop 208, 尖沙咀",
   "lat": 22.297,
   "lon": 114.17184,
   "ai_sources": [
-   "bawvault",
-   "hkcardprice"
+   "bawvault"
   ],
   "games": [
    "dbs",
@@ -2941,12 +2935,11 @@
   "ai_play_space": false,
   "ai_play_tag": false,
   "gym_id": null,
-  "mtr": "啟德站",
+  "mtr": null,
   "district": "Tsim Sha Tsui",
   "baw_region": "Kowloon",
   "baw_url": "https://bawvault.com/card-shops/hong-kong/kowloon/hktcg-tsim-sha-tsui/",
-  "ai_geocode_rule": "building-match",
-  "hkcardprice_addr": "啟德木脆街12號雙子匯二期(Tower 2)6樓615-617號舖"
+  "ai_geocode_rule": "building-match"
  },
  {
   "name": "Legendary TCG",
@@ -3125,7 +3118,7 @@
   "district": "Hung Hom",
   "baw_region": "Kowloon",
   "baw_url": "https://bawvault.com/card-shops/hong-kong/kowloon/rapp-collect-hung-hom/",
-  "ai_geocode_rule": "directory-pin"
+  "ai_geocode_rule": "building-match"
  },
  {
   "name": "Rico TCG",
@@ -3487,7 +3480,7 @@
   "name_zh": "",
   "address": "THE GUNDAM BASE HONG KONG 啟德沐翠街12號雙子匯2期8樓803, 九龍城",
   "address_zh": "THE GUNDAM BASE HONG KONG 啟德沐翠街12號雙子匯2期8樓803, 九龍城",
-  "lat": 22.3318,
+  "lat": 22.33179,
   "lon": 114.20169,
   "ai_sources": [
    "bawvault"
@@ -3503,7 +3496,7 @@
   "district": "Kowloon City",
   "baw_region": "Kowloon",
   "baw_url": "https://bawvault.com/card-shops/hong-kong/kowloon/the-gundam-base-hong-kong-kowloon-city/",
-  "ai_geocode_rule": "directory-pin"
+  "ai_geocode_rule": "building-match"
  },
  {
   "name": "Wanncardda",
@@ -3605,8 +3598,8 @@
   "name_zh": "電電屋",
   "address": "凱旋工商中心第一期民裕街41號13樓F2室",
   "address_zh": "凱旋工商中心第一期民裕街41號13樓F2室",
-  "lat": 22.30929,
-  "lon": 114.18856,
+  "lat": 22.30966,
+  "lon": 114.18886,
   "ai_sources": [
    "bawvault"
   ],
@@ -3621,7 +3614,7 @@
   "district": "To Kwa Wan",
   "baw_region": "Kowloon",
   "baw_url": "https://bawvault.com/card-shops/hong-kong/kowloon/tin-tin-uk-to-kwa-wan/",
-  "ai_geocode_rule": "directory-pin"
+  "ai_geocode_rule": "building-match"
  },
  {
   "name": "Tsap Wui Card Shop",
@@ -3764,8 +3757,8 @@
   "name_zh": "YulaYula TCG 銅鑼灣本店",
   "address": "YULAYULA TCG LIMITED 銅鑼灣富明街1-5號寶富大樓2樓K室, 銅鑼灣",
   "address_zh": "YULAYULA TCG LIMITED 銅鑼灣富明街1-5號寶富大樓2樓K室, 銅鑼灣",
-  "lat": 22.27879,
-  "lon": 114.18332,
+  "lat": 22.27903,
+  "lon": 114.18817,
   "ai_sources": [
    "bawvault",
    "hkcardprice"
@@ -3790,7 +3783,7 @@
   "district": "Causeway Bay",
   "baw_region": "Hong Kong Island",
   "baw_url": "https://bawvault.com/card-shops/hong-kong/hong-kong-island/yulayula-tcg-causeway-bay/",
-  "ai_geocode_rule": "building-match",
+  "ai_geocode_rule": "directory-pin",
   "hkcardprice_addr": "銅鑼灣富明街1-5號寶富大樓2樓K室"
  },
  {
@@ -3959,18 +3952,17 @@
   "district": "Causeway Bay",
   "baw_region": "Hong Kong Island",
   "baw_url": "https://bawvault.com/card-shops/hong-kong/hong-kong-island/tcg-mart-causeway-bay/",
-  "ai_geocode_rule": "directory-pin"
+  "ai_geocode_rule": "building-match"
  },
  {
   "name": "TCGstore.HK",
-  "name_zh": "港。玩具(福榮街)",
+  "name_zh": "",
   "address": "銅鑼灣羅素街61號2C麗園大廈",
   "address_zh": "銅鑼灣羅素街61號2C麗園大廈",
   "lat": 22.27907,
   "lon": 114.1833,
   "ai_sources": [
-   "bawvault",
-   "hkcardprice"
+   "bawvault"
   ],
   "games": [
    "pokemon"
@@ -3978,13 +3970,12 @@
   "services": [],
   "ai_play_space": false,
   "ai_play_tag": false,
-  "gym_id": "SP138",
-  "mtr": "深水埗站",
+  "gym_id": null,
+  "mtr": null,
   "district": "Causeway Bay",
   "baw_region": "Hong Kong Island",
   "baw_url": "https://bawvault.com/card-shops/hong-kong/hong-kong-island/tcgstore-hk-causeway-bay/",
-  "ai_geocode_rule": "building-match",
-  "hkcardprice_addr": "深水埗福榮街81號、93號地鋪"
+  "ai_geocode_rule": "building-match"
  },
  {
   "name": "Basic Land (Wan Chai)",
@@ -4138,8 +4129,8 @@
   "name_zh": "",
   "address": "Company 北角堡壘街41-43號怡家洋樓4號後舖, 香港",
   "address_zh": "Company 北角堡壘街41-43號怡家洋樓4號後舖, 香港",
-  "lat": 22.29012,
-  "lon": 114.19774,
+  "lat": 22.28969,
+  "lon": 114.19695,
   "ai_sources": [
    "bawvault"
   ],
@@ -4159,7 +4150,7 @@
   "district": "North Point",
   "baw_region": "Hong Kong Island",
   "baw_url": "https://bawvault.com/card-shops/hong-kong/hong-kong-island/darts-station-north-point/",
-  "ai_geocode_rule": "directory-pin"
+  "ai_geocode_rule": "building-match"
  },
  {
   "name": "Card Knight",
@@ -4272,8 +4263,8 @@
   "name_zh": "",
   "address": "香港香港島石塘咀和合街1號金陵閣A座306室",
   "address_zh": "香港香港島石塘咀和合街1號金陵閣A座306室",
-  "lat": 22.28596,
-  "lon": 114.13439,
+  "lat": 22.28591,
+  "lon": 114.13435,
   "ai_sources": [
    "bawvault"
   ],
@@ -4286,7 +4277,7 @@
   "district": "Shek Tong Tsui",
   "baw_region": "Hong Kong Island",
   "baw_url": "https://bawvault.com/card-shops/hong-kong/hong-kong-island/sifu-tcg-shek-tong-tsui/",
-  "ai_geocode_rule": "directory-pin"
+  "ai_geocode_rule": "building-match"
  },
  {
   "name": "MTG Mint Card",
@@ -4424,8 +4415,8 @@
   "name_zh": "",
   "address": "League Castle (D-park) 荃灣青山公路荃灣段398號愉景新城1樓1056a號舖",
   "address_zh": "League Castle (D-park) 荃灣青山公路荃灣段398號愉景新城1樓1056a號舖",
-  "lat": 22.37414,
-  "lon": 114.10509,
+  "lat": 22.37593,
+  "lon": 114.11105,
   "ai_sources": [
    "bawvault"
   ],
@@ -4495,10 +4486,11 @@
   "name_zh": "通用卡店",
   "address": "新界荃灣青山道144號荃豐中心地下A59",
   "address_zh": "新界荃灣青山道144號荃豐中心地下A59",
-  "lat": 22.37207,
-  "lon": 114.11919,
+  "lat": 22.37209,
+  "lon": 114.11912,
   "ai_sources": [
-   "bawvault"
+   "bawvault",
+   "hkcardprice"
   ],
   "games": [
    "pokemon",
@@ -4510,19 +4502,20 @@
   "ai_play_space": false,
   "ai_play_tag": false,
   "gym_id": null,
-  "mtr": null,
+  "mtr": "荃灣站",
   "district": "Tsuen Wan",
   "baw_region": "New Territories",
   "baw_url": "https://bawvault.com/card-shops/hong-kong/new-territories/general-card-shop-tsuen-wan/",
-  "ai_geocode_rule": "directory-pin"
+  "ai_geocode_rule": "building-match",
+  "hkcardprice_addr": "荃灣荃豐中心地下A59-A61號舖"
  },
  {
   "name": "MS TCG",
   "name_zh": "MS TCG (金龍店)",
   "address": "葵芳金龍工業中心第三座17樓J室",
   "address_zh": "葵芳金龍工業中心第三座17樓J室",
-  "lat": 22.35836,
-  "lon": 114.13126,
+  "lat": 22.35796,
+  "lon": 114.13056,
   "ai_sources": [
    "bawvault",
    "hkcardprice"
@@ -4548,7 +4541,7 @@
   "district": "Kwai Fong",
   "baw_region": "New Territories",
   "baw_url": "https://bawvault.com/card-shops/hong-kong/new-territories/ms-tcg-kwai-fong/",
-  "ai_geocode_rule": "directory-pin",
+  "ai_geocode_rule": "building-match",
   "hkcardprice_addr": "葵芳金龍工業中心第三座17樓J室"
  },
  {
@@ -5054,7 +5047,7 @@
   "district": "Kwai Chung",
   "baw_region": "New Territories",
   "baw_url": "https://bawvault.com/card-shops/hong-kong/new-territories/lok-fung-ka-se-kwai-chung/",
-  "ai_geocode_rule": "directory-pin"
+  "ai_geocode_rule": "building-match"
  },
  {
   "name": "Card Mania",
@@ -5314,7 +5307,7 @@
   "district": "Tin Shui Wai",
   "baw_region": "New Territories",
   "baw_url": "https://bawvault.com/card-shops/hong-kong/new-territories/ho-fai-card-game-shop-tin-shui-wai/",
-  "ai_geocode_rule": "directory-pin"
+  "ai_geocode_rule": "building-match"
  },
  {
   "name": "Game's Lair",
@@ -5611,25 +5604,6 @@
   "mtr": "荔枝角站",
   "district": "Sham Shui Po",
   "hkcardprice_addr": "長沙灣青山道688-690號嘉名工廠大廈D座8樓(2025-10-01 搬入)"
- },
- {
-  "name": "通用卡店 General Card Shop",
-  "name_zh": "通用卡店 General Card Shop",
-  "address": "荃灣荃豐中心地下A59-A61號舖",
-  "address_zh": "荃灣荃豐中心地下A59-A61號舖",
-  "lat": 22.37188,
-  "lon": 114.11953,
-  "ai_sources": [
-   "hkcardprice"
-  ],
-  "games": [],
-  "services": [],
-  "ai_play_space": false,
-  "ai_play_tag": false,
-  "gym_id": null,
-  "mtr": "荃灣站",
-  "district": "Tsuen Wan",
-  "hkcardprice_addr": "荃灣荃豐中心地下A59-A61號舖"
  },
  {
   "name": "HobbyX 旺角店",
@@ -5936,6 +5910,25 @@
   "hkcardprice_addr": "太子彌敦道760號聯合廣場地下G36號舖"
  },
  {
+  "name": "港。玩具(福榮街)",
+  "name_zh": "港。玩具(福榮街)",
+  "address": "深水埗福榮街81號、93號地鋪",
+  "address_zh": "深水埗福榮街81號、93號地鋪",
+  "lat": 22.33066,
+  "lon": 114.16429,
+  "ai_sources": [
+   "hkcardprice"
+  ],
+  "games": [],
+  "services": [],
+  "ai_play_space": false,
+  "ai_play_tag": false,
+  "gym_id": "SP138",
+  "mtr": "深水埗站",
+  "district": "Sham Shui Po",
+  "hkcardprice_addr": "深水埗福榮街81號、93號地鋪"
+ },
+ {
   "name": "福利模型 Fook Le Model(元州街店)",
   "name_zh": "福利模型 Fook Le Model(元州街店)",
   "address": "深水埗元州街66A地下(新高登商場對面)",
@@ -6067,6 +6060,28 @@
   "mtr": "旺角站",
   "district": "Yau Tsim Mong",
   "hkcardprice_addr": "旺角信和中心地庫 B39 舖 14D 格"
+ },
+ {
+  "name": "Battleground 荔枝角店",
+  "name_zh": "Battleground 荔枝角店",
+  "address": "荔枝角長順街11號長城工廠大廈5樓A09室",
+  "address_zh": "荔枝角長順街11號長城工廠大廈5樓A09室",
+  "lat": 22.33606,
+  "lon": 114.14838,
+  "ai_sources": [
+   "hkcardprice",
+   "play_venue"
+  ],
+  "games": [],
+  "services": [],
+  "ai_play_space": true,
+  "ai_play_tag": true,
+  "gym_id": "GYM031",
+  "mtr": null,
+  "district": "Sham Shui Po",
+  "hkcardprice_addr": "荔枝角長順街11號長城工廠大廈5樓A09室",
+  "place_type": "card_venue",
+  "play_note": "Card game and board game specialist with a dedicated shop floor; also a second branch in Kwun Tong"
  },
  {
   "name": "Card Aurora",

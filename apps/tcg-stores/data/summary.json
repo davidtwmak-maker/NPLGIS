@@ -2,13 +2,13 @@
  "population_total": 7411945.0,
  "population_total_check": "exact match with published 2021 Census",
  "census_areas": 211,
- "shops_total": 281,
+ "shops_total": 282,
  "play_venues_total": 49,
  "play_venues_geocoded": 49,
  "pokemon_gyms_total": 63,
  "pokemon_gyms_registered_only": 49,
- "shops_confirmed_by_2_sources": 48,
- "shops_assigned_to_area": 281,
+ "shops_confirmed_by_2_sources": 47,
+ "shops_assigned_to_area": 282,
  "young_people_15_24": 591073.0,
  "young_people_within_1km_of_a_venue": 181152.0,
  "young_people_with_no_venue_within_1km": 409921.0,
@@ -45,8 +45,8 @@
    "areas": 14,
    "pop": 560116.0,
    "y1524": 38481.0,
-   "play_near": 4,
-   "shops_near": 23
+   "play_near": 6,
+   "shops_near": 25
   },
   "Islands": {
    "areas": 8,
@@ -60,7 +60,7 @@
    "pop": 398291.0,
    "y1524": 30169.0,
    "play_near": 28,
-   "shops_near": 140
+   "shops_near": 139
   },
   "Kwai Tsing": {
    "areas": 6,
@@ -74,7 +74,7 @@
    "pop": 673143.0,
    "y1524": 60320.0,
    "play_near": 15,
-   "shops_near": 81
+   "shops_near": 80
   },
   "North": {
    "areas": 14,
@@ -102,7 +102,7 @@
    "pop": 429301.0,
    "y1524": 35412.0,
    "play_near": 33,
-   "shops_near": 281
+   "shops_near": 307
   },
   "Southern": {
    "areas": 10,
@@ -123,7 +123,7 @@
    "pop": 215199.0,
    "y1524": 15950.0,
    "play_near": 0,
-   "shops_near": 4
+   "shops_near": 5
   },
   "Tuen Mun": {
    "areas": 9,
@@ -136,8 +136,8 @@
    "areas": 10,
    "pop": 135700.0,
    "y1524": 7721.0,
-   "play_near": 27,
-   "shops_near": 114
+   "play_near": 26,
+   "shops_near": 113
   },
   "Wong Tai Sin": {
    "areas": 6,
@@ -151,7 +151,7 @@
    "pop": 323013.0,
    "y1524": 24169.0,
    "play_near": 56,
-   "shops_near": 292
+   "shops_near": 296
   },
   "Yuen Long": {
    "areas": 26,
@@ -167,8 +167,8 @@
   1500
  ],
  "measure": "people aged 15-24 in the area per play venue within 1 km",
- "shops_in_layer": 281,
+ "shops_in_layer": 282,
  "play_in_layer": 49,
- "shops_in_two_sources": 48,
+ "shops_in_two_sources": 47,
  "pokemon_gyms": 63
 }

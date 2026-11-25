@@ -161,11 +161,25 @@ def name_key(name):
     """A key for matching a shop's NAME across directories.
 
     "ACard TCG" and "ACardTCG" are the same shop; "Brave Soul TCG" and
-    "Brave Soul 闘卡魂" are the same shop with a Chinese name added."""
+    "Brave Soul 闘卡魂" are the same shop with a Chinese name added.
+
+    A Chinese-only name must NOT produce an empty key. 港。玩具 has no
+    Latin characters at all, and an empty key made it collide with
+    every other Chinese-only shop - one of them claimed it and the
+    other twenty were swallowed with it. So the Chinese characters are
+    kept as the key when there is no Latin script to use.
+    """
     n = norm_en(name)
     n = re.sub(r"(tcg|cards|card|shop|store|hk|ltd|limited|company|co|"
                r"gaming|hobby|trading)", "", n)
-    return n
+    if n:
+        return n
+    # no Latin script: use the Chinese characters, stripped of the
+    # punctuation and of the generic shop words
+    z = norm_zh(name)
+    z = re.sub(r"(集換式卡牌遊戲平台|卡牌遊戲及桌遊專門店|桌上遊戲專賣店|"
+               r"桌遊工作室|桌遊天地|遊桌|店|遊戲|專門|專賣|研究|所)", "", z)
+    return z
 
 
 def main():

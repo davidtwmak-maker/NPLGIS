@@ -1781,31 +1781,31 @@
   },
   {
    "file": "assets/data/tcg-stores/tcg_shops_merged.json",
-   "bytes": 175270,
+   "bytes": 175535,
    "mb": 0.167,
    "gzipped": false,
    "features": null,
    "title": "Every card shop in Hong Kong, geocoded to the building level",
    "dataset_id": "",
-   "records": 281,
+   "records": 282,
    "notes": "281 shops merged from the BAW VAULT directory (205), the HKCardPrice PTCG directory (117) and a hand-built list of card-game and board-game venues (23). Each record carries its coordinates, the District Council district confirmed against the boundary layer, whether a play space is confirmed by the source, any official Pokemon Gym id, and which directories list it. 48 shops are confirmed by two or more sources. A hand-built venue that is the same shop as a directory listing is merged into it rather than counted twice. EPSG:4326.",
-   "sha256": "6a898ffc565c3bf9"
+   "sha256": "da947f5d9c81abc4"
   },
   {
    "file": "assets/data/tcg-stores/tcg_small_area_metrics.geojson",
-   "bytes": 1198352,
-   "mb": 1.143,
+   "bytes": 1263722,
+   "mb": 1.205,
    "gzipped": false,
    "features": 211,
    "title": "2021 Census small areas with the card-game supply measure",
    "dataset_id": "censtatd_rcd_1635933193720_58660",
    "records": "",
    "notes": "The 211 census small areas, each with its total population, its population aged 15-24, the number of play venues within 500 m, 1 km and 1.5 km, and ai_y1524_per_play_1000m - the 15-to-24-year-olds per play venue within 1 km. The geometry is simplified for the browser (worst vertex shift 13.3 m against a 60 m gate). EPSG:4326.",
-   "sha256": "534770ddf4c1c9c9"
+   "sha256": "280cb7b542dab3a5"
   },
   {
    "file": "assets/data/tcg-stores/POPULATION — tcg_small_area_metrics.csv",
-   "bytes": 13489,
+   "bytes": 13491,
    "mb": 0.013,
    "gzipped": false,
    "features": null,
@@ -1813,11 +1813,11 @@
    "dataset_id": "censtatd_rcd_1635933193720_58660",
    "records": 211,
    "notes": "One row per census small area: the population, the 15-24 population, the count of play venues and card shops near the area at each catchment radius, and the derived measures. The population total reconciles exactly with the published 2021 Census figure of 7,411,945.",
-   "sha256": "6dbc7c3c4d07372f"
+   "sha256": "1610e5e7e28ee811"
   },
   {
    "file": "assets/data/tcg-stores/tcg_summary.json",
-   "bytes": 3225,
+   "bytes": 3265,
    "mb": 0.003,
    "gzipped": false,
    "features": null,
@@ -1825,7 +1825,7 @@
    "dataset_id": "censtatd_rcd_1635933193720_58660",
    "records": "",
    "notes": "The figures quoted in the web map and the notes: 281 shops, 49 confirmed play venues, 63 registered Pokemon Gyms, 591,073 people aged 15-24, 181,152 of them within 1 km of a venue, and 409,921 (69.4%) with no venue within 1 km. Also the sensitivity scenario in which every registered Gym is counted as a venue, which still leaves 66.2% of young people unserved.",
-   "sha256": "db70a18f7f62251c"
+   "sha256": "9610a873d21d0566"
   },
   {
    "file": "assets/data/tcg-stores/tcg_shops_hkcardprice.json",
@@ -2275,8 +2275,8 @@
   },
   {
    "file": "scripts/tcg-stores/geocode_shops.py",
-   "bytes": 15594,
-   "sha256": "cc0682c3df8ca8a5",
+   "bytes": 34882,
+   "sha256": "1116cec76cec5c92",
    "description": "Geocode the 205 BAW VAULT shops to the building level with the Hong Kong Government location search service, matching on the building token with a strict token-quality rule. Asserts every accepted hit is within about 700 m of its source pin."
   },
   {
@@ -2305,14 +2305,14 @@
   },
   {
    "file": "scripts/tcg-stores/merge_shops.py",
-   "bytes": 17286,
-   "sha256": "d8762dccdcc2a0c7",
+   "bytes": 17994,
+   "sha256": "bbffa2e2701f27ef",
    "description": "Merge the three directories into one shop-level layer. A shop is the same shop only when its name AND its building agree, so a mall's separate branches stay separate. A hand-built venue that is already a directory play venue in the same building is absorbed into it rather than added twice."
   },
   {
    "file": "scripts/tcg-stores/analyse_merged.py",
-   "bytes": 18861,
-   "sha256": "2fa53fa30bb05b98",
+   "bytes": 19276,
+   "sha256": "bf561e30ada5c0e1",
    "description": "The spatial analysis: assign every shop to its census small area, count play venues within 500 m, 1 km and 1.5 km, and derive the young-people-per-venue measure. Refuses to write output unless the population reconciles exactly with the published 2021 Census total of 7,411,945 and every area's age bands sum to its own total. Also runs the sensitivity scenario in which all 63 registered Pokemon Gyms count as venues."
   },
   {
