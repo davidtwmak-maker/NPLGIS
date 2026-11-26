@@ -102,9 +102,9 @@ An MTR exit is the best shelter in the system; a green minibus stop — the one
 that serves what the bus does not — is the worst.
 
 
-## Five bugs found and fixed
+## Six bugs found and fixed
 
-All five produced plausible-looking output and no error. Bugs 3 and 4 were
+All six produced plausible-looking output and no error. Bugs 3 and 4 were
 found by checking the outputs against the data rather than trusting them; bug 3
 was prompted by a reader questioning the route distances.
 

@@ -113,6 +113,10 @@ def actuals(rows):
             1 for r in rows if float(r.get("covered_m") or 0) == 0),
         "exit snap median": round(stx.median(snaps), 1),
         "exit snap max": round(max(snaps), 1),
+        # How many exits the search covered, and how many stations won
+        # at least one school.  The note states both in prose.
+        "stations used": len({r.get("station") for r in rows
+                              if r.get("station")}),
     }
 
 
@@ -230,6 +234,26 @@ def main():
                                     f"data says {got:g}")
                 print(f"    {key:36} note {want:>7g}   data {got:>7g}   "
                       f"{'' if ok else '<-- DIFFERS'}")
+
+    # The sentence that describes the search, not a table row: it states
+    # how many stations won.  That IS derivable from the shipped data
+    # (the stations that won at least one school).  The exit count in
+    # the same sentence is the size of the raw candidate set, which the
+    # package does not ship, so it is not checked here.
+    m = re.search(r"\((\d+) stations used\)", mtr_section(text))
+    if m:
+        say_stations = int(m.group(1))
+        got = act.get("stations used")
+        ok = got is not None and say_stations == got
+        if got is not None and not ok:
+            problems.append(f"overall stations used: note says {say_stations}, "
+                            f"data says {got}")
+        print(f"    {'stations used':36} note {say_stations:>7}   "
+              f"data {got if got is not None else '—':>7}   "
+              f"{'' if ok else '<-- DIFFERS'}")
+    else:
+        problems.append("overall stations used: the sentence describing the "
+                        "exit search was not found in the note")
 
     print()
     print("  === the by-district table ===")
