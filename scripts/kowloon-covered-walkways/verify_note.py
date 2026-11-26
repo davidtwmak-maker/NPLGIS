@@ -32,8 +32,32 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parent.parent          # scripts/kowloon-covered-walkways -> repo root
-DATA = REPO / "assets/data/kowloon-covered-walkways/mtr_walk_schools.json"
 NOTE = REPO / "notes/kowloon-covered-walkways — NOTES.md"
+
+# The gate has to find its data in two different layouts: the
+# repository's (assets/data/kowloon-covered-walkways/) and the hand-off
+# package's (data/ and arcgis/). So the candidates are searched rather
+# than assumed - a gate that only works in one layout is a gate that
+# gets skipped.
+MTR_CANDIDATES = [
+    "assets/data/kowloon-covered-walkways/mtr_walk_schools.json",
+    "data/mtr_walk_schools.json",
+]
+CSV_CANDIDATES = [
+    "assets/data/kowloon-covered-walkways/Schools_RouteMetrics.csv",
+    "arcgis/Schools_RouteMetrics.csv",
+    "data/Schools_RouteMetrics.csv",
+]
+
+
+def find(rel_candidates, start):
+    """The first candidate that exists, searching upward from start."""
+    for base in [start] + list(start.parents):
+        for rel in rel_candidates:
+            p = base / rel
+            if p.exists():
+                return p
+    return None
 
 # The heading that opens the MTR worst-case section. The note's tables
 # are scoped by heading because row labels repeat across sections.
@@ -65,8 +89,8 @@ OVERALL_ROWS = [
 ]
 
 
-def load_rows():
-    d = json.load(open(DATA, encoding="utf-8"))
+def load_rows(path):
+    d = json.load(open(path, encoding="utf-8"))
     return d if isinstance(d, list) else d.get("schools", d)
 
 
@@ -151,14 +175,18 @@ def note_district_claims(text):
 
 
 def main():
-    if not DATA.exists():
-        print(f"  {DATA} not found")
+    data_path = find(MTR_CANDIDATES, HERE)
+    if data_path is None:
+        print("  mtr_walk_schools.json not found in any known layout:")
+        for c in MTR_CANDIDATES:
+            print(f"    {c}")
         return 1
-    if not NOTE.exists():
-        print(f"  {NOTE} not found")
+    note_path = find(["notes/kowloon-covered-walkways — NOTES.md"], HERE)
+    if note_path is None:
+        print("  kowloon-covered-walkways — NOTES.md not found")
         return 1
-    text = NOTE.read_text(encoding="utf-8")
-    rows = load_rows()
+    text = note_path.read_text(encoding="utf-8")
+    rows = load_rows(data_path)
     act = actuals(rows)
     problems = []
 
@@ -245,6 +273,14 @@ def main():
     check_school_table(text, problems)
 
     print()
+    print("  === the map page's own headline figures ===")
+    check_page_figures(text, problems)
+
+    print()
+    print("  === the app's MTR option against the walk it draws ===")
+    check_app_mtr(problems)
+
+    print()
     if problems:
         print(f"BROKEN NOTE: {len(problems)} figure(s) in the method note do "
               f"not match the shipped data.")
@@ -263,9 +299,9 @@ def check_school_table(text, problems):
     the most-sheltered route to the school, so they are read from the
     `ai_best_cov_*` columns.
     """
-    csv_path = REPO / "assets/data/kowloon-covered-walkways/Schools_RouteMetrics.csv"
-    if not csv_path.exists():
-        problems.append(f"school table: {csv_path} not found")
+    csv_path = find(CSV_CANDIDATES, HERE)
+    if csv_path is None:
+        problems.append("school table: Schools_RouteMetrics.csv not found")
         return
     with open(csv_path, encoding="utf-8-sig") as f:
         rows = list(csv.DictReader(f))
@@ -327,6 +363,153 @@ def check_school_table(text, problems):
                                     f"{want:g}, data says {got:g}")
                 print(f"    {'detour factor ' + what:44} note {want:>7g}   "
                       f"data {got:>7g}   {'' if ok else '<-- DIFFERS'}")
+
+
+def check_app_mtr(problems):
+    """The app's MTR option must be the walk the app DRAWS.
+
+    The map draws the worst-case MTR walk as a purple dashed line from
+    mtr_walks.geojson, and quotes its length in the key text.  The
+    school's panel used to show a DIFFERENT walk - the one the
+    stop-to-school pipeline solved, whose candidate stops were capped at
+    800 m straight-line from the school.  For 19 of the 164 schools the
+    two disagreed, by up to 312 m, so the line and the number beside it
+    described two different journeys.
+
+    So the app's per-school nearest_mtr option must equal the walk in
+    mtr_walks.geojson, for every school.
+    """
+    walks_path = find([
+        "apps/kowloon-covered-walkways/data/mtr_walks.geojson",
+        "data/mtr_walks.geojson"], HERE)
+    schools_path = find([
+        "apps/kowloon-covered-walkways/data/schools.geojson",
+        "data/schools.geojson"], HERE)
+    if walks_path is None or schools_path is None:
+        problems.append("app MTR: the app's data files were not found")
+        return
+    mw = json.load(open(walks_path, encoding="utf-8"))
+    walk_by = {f["properties"].get("school_id"): f["properties"]
+               for f in mw.get("features", mw)}
+    sd = json.load(open(schools_path, encoding="utf-8"))
+    feats = sd.get("features", sd)
+
+    n = mism = missing = 0
+    samples = []
+    for f in feats:
+        p = f.get("properties", {})
+        sid = p.get("school_id")
+        w = walk_by.get(sid)
+        o = ((p.get("ai_ro") or {}).get("nearest_mtr") or {})
+        if w is None or o.get("ai_route_m") is None:
+            missing += 1
+            continue
+        n += 1
+        if abs(float(o["ai_route_m"]) - float(w["walk_m"])) > 0.51:
+            mism += 1
+            if len(samples) < 6:
+                samples.append((p.get("name"), o["ai_route_m"], w["walk_m"]))
+
+    print(f"    schools compared : {n}")
+    print(f"    mismatched      : {mism}")
+    print(f"    missing         : {missing}")
+    for s in samples:
+        print(f"      {s[0][:44]:46} option {s[1]:8.1f}  walk {s[2]:8.1f}")
+    if mism:
+        problems.append(f"app MTR: {mism} school(s) quote an MTR walk that is "
+                        f"not the walk the app draws")
+    if missing:
+        problems.append(f"app MTR: {missing} school(s) have no MTR option")
+
+
+def check_page_figures(text, problems):
+    """The map's own headline text, checked against the shipped data.
+
+    index.html states the median weighted distance, the median weighted
+    shade, the median MTR walk and the school counts.  Those figures
+    are derived at build time by build_kowloon_webmap.py, but a derived
+    figure can still go stale if the page is edited by hand afterwards,
+    so they are checked here too.
+    """
+    idx = find(["apps/kowloon-covered-walkways/index.html"], HERE)
+    if idx is None:
+        problems.append("page figures: index.html not found")
+        return
+    html = idx.read_text(encoding="utf-8")
+
+    csv_path = find(CSV_CANDIDATES, HERE)
+    if csv_path is None:
+        return
+    with open(csv_path, encoding="utf-8-sig") as f:
+        rows = list(csv.DictReader(f))
+
+    summary_path = find([
+        "apps/kowloon-covered-walkways/data/school_summary.json",
+        "data/school_summary.json"], HERE)
+    if summary_path is None:
+        return
+    summary = json.load(open(summary_path, encoding="utf-8"))
+    srows = summary if isinstance(summary, list) else summary.get("schools", summary)
+    wd = sorted(float(x["w"]["route_m"]) for x in srows if x.get("w"))
+    ws = sorted(float(x["w"]["shaded_ratio"]) for x in srows if x.get("w"))
+    wa = sum(1 for x in srows if x.get("access") == "walk-access")
+    td = sum(1 for x in srows if x.get("access") == "transit-dependent")
+
+    mtr_path = find([
+        "apps/kowloon-covered-walkways/data/mtr_walks.geojson",
+        "data/mtr_walks.geojson"], HERE)
+    if mtr_path is None:
+        return
+    mw = json.load(open(mtr_path, encoding="utf-8"))
+    mrows = mw.get("features", mw)
+    mv = sorted(float(f["properties"]["walk_m"]) for f in mrows
+                if f["properties"].get("walk_m") is not None)
+    mm = sorted(float(f["properties"]["walk_minutes"]) for f in mrows
+                if f["properties"].get("walk_minutes") is not None)
+
+    checks = [
+        ("median weighted distance",
+         page_number(html, r"Median school: <b>([\d,]+ m)</b>"),
+         "%d m" % round(stx.median(wd))),
+        ("median weighted shade",
+         page_number(html, r"weighted distance, <b>(\d+%)</b> weighted shade"),
+         "%d%%" % round(stx.median(ws) * 100)),
+        ("median MTR walk",
+         page_number(html, r"service is out\. Median ([\d,]+ m)"),
+         "%d m" % round(stx.median(mv))),
+        ("median MTR minutes",
+         page_number(html, r"Median [\d,]+ m, (\d+ min) in rain"),
+         "%d min" % round(stx.median(mm))),
+        ("schools",
+         page_number(html, r"Kwai Chung, (\d+) schools"),
+         str(len(srows))),
+        ("walk-access schools",
+         page_number(html, r"rule, (\d+) schools are walk-access"),
+         str(wa)),
+        ("transit-dependent schools",
+         page_number(html, r"walk-access to MTR and (\d+) are bus/minibus"),
+         str(td)),
+    ]
+    print()
+    print("  === the map page's own headline figures ===")
+    for label, want, got in checks:
+        if want is None:
+            problems.append(f"page {label}: not found in index.html")
+            print(f"    {label:28} NOT FOUND IN THE PAGE")
+            continue
+        ok = str(want) == str(got)
+        if not ok:
+            problems.append(f"page {label}: page says {want}, data says {got}")
+        print(f"    {label:28} page {str(want):>10}   data {str(got):>10}   "
+              f"{'' if ok else '<-- DIFFERS'}")
+
+
+def page_number(html, pattern):
+    """The number the page states, read out of the page."""
+    m = re.search(pattern, html)
+    if not m:
+        return None
+    return m.group(1)
 
 
 def note_number(text, label, pattern):

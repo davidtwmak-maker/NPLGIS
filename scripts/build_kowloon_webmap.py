@@ -25,7 +25,11 @@ import sys
 
 BASE = os.path.expanduser("~/GIS Data/Sun-Rain Exposure")
 WORK = os.path.join(BASE, "work")
-REPO = os.path.expanduser("~/.hermes/cache/scratch/NPLGIS")
+# The repository the live site is served from.  The script used to write
+# to a scratch clone, which meant the published app was built from a
+# copy that could drift from the one that is actually deployed.  It
+# writes to the real repository now.
+REPO = os.path.expanduser("~/nplgis")
 APPDATA = os.path.join(REPO, "apps/kowloon-covered-walkways/data")
 SITEDATA = os.path.join(REPO, "assets/data/kowloon-covered-walkways")
 VAULT = os.path.expanduser("~/Library/Mobile Documents/iCloud~md~obsidian/"
@@ -153,19 +157,39 @@ for f in ro_src["features"]:
     app_ro["features"].append({"type": "Feature",
                                "geometry": f["geometry"],
                                "properties": pr})
-
-# 22 schools have no reachable MTR exit within the routing catchment, so their
-# nearest_mtr option is missing; use the worst-case MTR walk (exit-level solve
-# from mtr_walk_schools.py) as that option.  Same for the summary rows.
+# THE MTR OPTION MUST COME FROM THE MTR WALK, ALWAYS.
+#
+# The app draws the worst-case walk as a purple dashed line from
+# mtr_walks.geojson (mtr_walk_schools.py: every MTR exit in a 1 km
+# buffer, shortest wins) and quotes its length in the map's key text.
+# The school's panel must therefore show that same walk, or the line
+# and the number beside it describe two different journeys.
+#
+# The stop-to-school pipeline also solves an MTR route, but with the
+# candidate stops capped at 800 m straight-line from the school
+# (PTI_SEARCH_M).  For 19 of the 164 schools that cap excludes the
+# nearer exit the MTR script found, so the two disagree -- by up to
+# 312 m at CARMEL ALISON LAM FOUNDATION SECONDARY SCHOOL.  So the
+# option is REPLACED for every school, not just filled in for the 22
+# that had no MTR route at all.
+#
+# The bus and minibus options are untouched: those are the stop-to-
+# school question, and the cap is deliberate there.
 sum_by_id = {s["school_id"]: s for s in summary}
 sch_by_id = {f["properties"]["school_id"]: f["properties"] for f in schools["features"]}
-have_mtr = {f["properties"]["school_id"] for f in app_ro["features"]
-            if f["properties"].get("ai_route_kind") == "nearest_mtr"}
+
+# Drop every nearest_mtr option the stop-to-school pipeline produced.
+dropped = [f for f in app_ro["features"]
+           if f["properties"].get("ai_route_kind") == "nearest_mtr"]
+app_ro["features"] = [f for f in app_ro["features"]
+                       if f["properties"].get("ai_route_kind") != "nearest_mtr"]
+print("nearest_mtr options replaced from the MTR walks: dropped", len(dropped))
+
 mtr_fallback = 0
 for f in mtr_walks["features"]:
     pw = f["properties"]
     sid = pw.get("school_id")
-    if not sid or sid in have_mtr:
+    if not sid:
         continue
     ratio = pw.get("covered_ratio") or 0.0
     route_m = pw.get("walk_m") or 0
@@ -181,7 +205,7 @@ for f in mtr_walks["features"]:
     if sid in sch_by_id and sch_by_id[sid].get("ai_ro") is not None:
         sch_by_id[sid]["ai_ro"]["nearest_mtr"] = o
     mtr_fallback += 1
-print("route-option nearest_mtr filled from MTR walks:", mtr_fallback)
+print("route-option nearest_mtr taken from the MTR walks:", mtr_fallback)
 
 # ------------------------------------------- weighted shade metric (typology blend)
 # Three routes per school: nearest MTR exit, nearest bus stop, nearest minibus.
@@ -235,10 +259,69 @@ print("app data: schools=%d routes=%d stops=%d covered=%d mtr_walks=%d route_opt
     len(pti["features"]), len(covered["features"]),
     len(mtr_walks["features"]), len(app_ro["features"])))
 
+# ------------------------------------------------- the map's own headline text
+# Every figure the page states is DERIVED from the data written above.
+# A hand-typed number in the page goes stale the moment the data is
+# rebuilt, and a stale figure in a write-up reads as a finding.  So the
+# page carries placeholders and this step fills them in from the files
+# that were just written.
+def derive_page_figures():
+    import statistics as stx
+    # the weighted metric: median weighted distance and shade
+    rows = json.load(open(os.path.join(APPDATA, "school_summary.json"),
+                           encoding="utf-8"))
+    rows = rows if isinstance(rows, list) else rows.get("schools", rows)
+    wd = sorted(float(x["w"]["route_m"]) for x in rows if x.get("w"))
+    ws = sorted(float(x["w"]["shaded_ratio"]) for x in rows if x.get("w"))
+    # the MTR walk: median length and the median minutes in rain
+    mrows = json.load(open(os.path.join(APPDATA, "mtr_walks.geojson"),
+                            encoding="utf-8"))
+    mrows = mrows.get("features", mrows)
+    mv = sorted(float(f["properties"]["walk_m"]) for f in mrows
+                if f["properties"].get("walk_m") is not None)
+    mm = sorted(float(f["properties"]["walk_minutes"]) for f in mrows
+                if f["properties"].get("walk_minutes") is not None)
+    # the access typology: how many schools are walk-access to MTR
+    wa = sum(1 for x in rows if x.get("access") == "walk-access")
+    td = sum(1 for x in rows if x.get("access") == "transit-dependent")
+
+    # The placeholder names in index.html, exactly.  They must match the
+    # page character for character, so they are written here in the same
+    # form the page uses: {NAME}.
+    figs = {
+        "N_SCHOOLS": str(len(rows)),
+        "N_WALK": str(wa),
+        "N_TRANSIT": str(td),
+        "W_DIST": "%d m" % round(stx.median(wd)),
+        "W_SHADE": "%d%%" % round(stx.median(ws) * 100),
+        "MTR_MEDIAN": "%d m" % round(stx.median(mv)),
+        "MTR_MINUTES": "%d min" % round(stx.median(mm)),
+    }
+    idx = os.path.join(REPO, "apps/kowloon-covered-walkways/index.html")
+    if not os.path.exists(idx):
+        print("index.html not found; page figures left as placeholders")
+        return figs
+    html = open(idx, encoding="utf-8").read()
+    for k, v in figs.items():
+        html = html.replace("{%s}" % k, v)
+    open(idx, "w", encoding="utf-8").write(html)
+    left = [k for k in figs if "{%s}" % k in html]
+    print("page figures derived:", ", ".join("%s=%s" % kv
+                                            for kv in sorted(figs.items())))
+    if left:
+        print("  WARNING placeholders still present:", left)
+    return figs
+
+
+derive_page_figures()
+
 # ------------------------------------------------- published site data (gz)
 def copy_gz(src, dst):
+    # mtime=0 so the gzip header carries no timestamp: otherwise every
+    # rebuild produces a byte-different file with identical content, and
+    # the repository churns on files that never actually changed.
     with open(src, "rb") as fi:
-        with gzip.open(dst, "wb", compresslevel=9) as fo:
+        with gzip.GzipFile(dst, "wb", compresslevel=9, mtime=0) as fo:
             shutil.copyfileobj(fi, fo)
 
 
@@ -367,8 +450,15 @@ os.remove(tmp_sch)
 gdb_zip = os.path.join(SITEDATA, "Kowloon_Covered_Walkways.gdb.zip")
 if os.path.exists(gdb_zip):
     os.remove(gdb_zip)
+# The zip stores each member's mtime, so a rebuild produces a
+# byte-different archive with identical content.  Touch every member to
+# a fixed date first, so the archive is reproducible and the repository
+# only churns when the data actually changes.
 subprocess.run(["/bin/bash", "-lc",
-                f"cd '{os.path.dirname(gdb_dir)}' && zip -qr '{gdb_zip}' "
+                f"find '{os.path.dirname(gdb_dir)}' -exec touch -t "
+                f"202601010000 {{}} +"], check=False)
+subprocess.run(["/bin/bash", "-lc",
+                f"cd '{os.path.dirname(gdb_dir)}' && zip -qr -X '{gdb_zip}' "
                 f"'{os.path.basename(gdb_dir)}'"], check=True)
 shutil.copyfile(gdb_zip, os.path.join(VAULT, "arcgis",
                                       "Kowloon_Covered_Walkways.gdb.zip"))

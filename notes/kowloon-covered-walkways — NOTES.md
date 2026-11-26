@@ -162,6 +162,31 @@ was prompted by a reader questioning the route distances.
    so the search is scoped to the MTR section by its heading. The school-route
    table is checked separately against `Schools_RouteMetrics.csv`, and all
    seven of its figures agree.
+6. **The web map and the note were quoting two different MTR walks.** The
+   app ships two MTR route sets: `mtr_walks.geojson` — the worst-case walk
+   from the nearest station exit, built by `mtr_walk_schools.py`, median
+   693 m — and, inside each school's `ai_ro.nearest_mtr` option, the
+   stop-to-school pipeline's MTR route, built by
+   `kowloon_peninsula_routes.py`, median 706 m. **They disagree for 19 of
+   164 schools**, sometimes by 300 m. The note and the map's own key text
+   quote 693 m; the school's panel shows the other number's route.
+
+   The cause is the candidate set, not the network: both scripts build the
+   same graph from the same three LandsD files, but the stop-to-school
+   script caps candidate stops at 800 m straight-line from the school
+   (`PTI_SEARCH_M`), while the MTR script searches every exit in a 1 km
+   buffer around the study area. For 18 of the 19 the two builds pick the
+   same *station* but a different *exit* of it; for one —
+   CARMEL ALISON LAM FOUNDATION SECONDARY SCHOOL — the MTR script's exit
+   (Kwai Fong, Exit D) is 903 m straight-line from the school, outside the
+   800 m cap, so the stop-to-school build could not have considered it and
+   reports a 1,858 m walk where the true nearest-exit walk is 1,547 m.
+
+   The fix is not to pick one number and edit the other: **the app should
+   quote the walk it draws.** The purple dashed line and its popup come
+   from `mtr_walks.geojson`; the school's panel must therefore show that
+   same walk, and the weighted metric must be built on it, or the panel
+   and the line describe two different journeys to the same school.
 
 ## Scenario — worst case: walking from the nearest MTR station
 
@@ -171,9 +196,9 @@ congested to travel on, so the student walks the whole way from the
 station.**
 
 The origin is the **MTR station exit**, not the station centroid — students
-enter and leave through exits. All 441 exits in the study area (30 stations
-used) are snapped to the pedestrian network, a shortest path is solved from
-each to the school, and the shortest wins.
+enter and leave through exits. All 481 exits inside a 1 km buffer around
+the study area (31 stations used) are snapped to the pedestrian network,
+a shortest path is solved from each to the school, and the shortest wins.
 
 | Check | Value |
 |---|---:|
