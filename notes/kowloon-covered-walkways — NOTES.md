@@ -102,9 +102,9 @@ An MTR exit is the best shelter in the system; a green minibus stop — the one
 that serves what the bus does not — is the worst.
 
 
-## Four bugs found and fixed
+## Five bugs found and fixed
 
-All four produced plausible-looking output and no error. Bugs 3 and 4 were
+All five produced plausible-looking output and no error. Bugs 3 and 4 were
 found by checking the outputs against the data rather than trusting them; bug 3
 was prompted by a reader questioning the route distances.
 
@@ -136,6 +136,32 @@ was prompted by a reader questioning the route distances.
    analysis is keyed on `dataset_id + OBJECTID`, unique across all 103. This
    mattered in the web map, where joining routes back by name drew the
    *wrong campus's* route.
+5. **Five figures in this note were mistyped.** The MTR worst-case table was
+   written by hand from the pipeline's console output, and four of its
+   numbers were wrong — median walk 704 m against 693, median longest
+   uncovered stretch 403 m against 398, schools needing over 15 min 58
+   against 57, exit snap 4.2 m against 3.7 — and one district row carried
+   17 against 16. The p90 in the same table was right, which is what makes
+   this the hard kind of error: **a figure that is nearly right is harder to
+   catch by eye than one that is grossly wrong**, and 704 against 693 looks
+   like a perfectly good median. The data has said 693/1,242/398/57 since
+   the note was written; the note simply disagreed with it. Found by
+   recomputing every figure in the table from `mtr_walk_schools.json` using
+   the pipeline's own conventions — `statistics.median`,
+   `statistics.quantiles(v, n=10)[8]`, `walk_minutes > 15` — and checking
+   them against what the note claimed.
+
+   Guard added: `scripts/kowloon-covered-walkways/verify_note.py` **parses
+   the note's own tables** and compares them against the shipped data, so a
+   mistyped figure cannot survive a rebuild. The expected values are read
+   out of the note rather than typed into the script, because a typed list
+   would be a second place to be wrong and the gate would then be checking
+   the data against itself. The note has two tables with an overlapping row
+   label — "Median longest uncovered stretch" appears once for the
+   most-sheltered school route (223 m) and once for the MTR walk (398 m) —
+   so the search is scoped to the MTR section by its heading. The school-route
+   table is checked separately against `Schools_RouteMetrics.csv`, and all
+   seven of its figures agree.
 
 ## Scenario — worst case: walking from the nearest MTR station
 
@@ -152,15 +178,15 @@ each to the school, and the shortest wins.
 | Check | Value |
 |---|---:|
 | Schools with a walkable route to an MTR exit | **164 of 164** |
-| Median walk | **704 m** |
+| Median walk | **693 m** |
 | p90 walk | **1,242 m** |
 | Longest walk | **2,311 m** (Shun Lee Catholic, from Choi Hung) |
-| Median longest uncovered stretch | **403 m** |
+| Median longest uncovered stretch | **398 m** |
 | Median walking time in rain | **12 min** (10 min on the flat) |
-| Schools needing over 15 min | **58** |
+| Schools needing over 15 min | **57** |
 | Schools needing over 20 min | **25** |
 | Schools with no covered stretch at all | **22** |
-| Median exit-to-network snap | 4.2 m (max 59 m) |
+| Median exit-to-network snap | 3.7 m (max 48.5 m) |
 
 By district — the new districts are markedly harder:
 
@@ -171,7 +197,7 @@ By district — the new districts are markedly harder:
 | Wong Tai Sin | 22 | 708 m | 1,230 m | 1,264 m | 12 min | 6 |
 | Kowloon City | 36 | 758 m | 1,119 m | 1,192 m | 14 min | 15 |
 | Kwun Tong | 33 | 825 m | 2,046 m | 2,311 m | 16 min | 18 |
-| Kwai Chung | 31 | 903 m | 1,674 m | 1,813 m | 16 min | 17 |
+| Kwai Chung | 31 | 903 m | 1,674 m | 1,813 m | 16 min | 16 |
 
 Walking time uses **Tobler's hiking function**, applied per edge —
 `v = 6 · exp(−3.5 · |slope + 0.05|)` km/h — plus a **20 % rain penalty**.
